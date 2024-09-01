@@ -1,0 +1,280 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>common_data.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="common-data-functions">Common Data Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="setdefaultcommondataarea">SetDefaultCommonDataArea</h2>
+    <pre>
+    Arguments:
+        1) string: str
+</pre>
+    <p>Sets the name of the default common data area to the specified string.</p>
+    <h2 id="setcommondata">SetCommonData</h2>
+    <pre>
+    Arguments:
+        1) string: key
+        2) any: value
+</pre>
+    <p>Maps the given key to the given value in the default common data area.<br />
+The value can be returned by using <a href="getcommondata">GetCommonData</a> with the corresponding key.</p>
+    <h2 id="getcommondata">GetCommonData</h2>
+    <pre>
+    Arguments:
+        1) string: key
+        2) any: defaultValue = nil
+    Return Type:
+        any
+</pre>
+    <p>Returns the value associated with the given key in the default common data area, or defaultValue if no mapping exists.</p>
+    <p>If defaultValue is not provided, it will be nil.</p>
+    <h2 id="clearcommondata">ClearCommonData</h2>
+    <p>Removes all of the common data in the default common data area.</p>
+    <h2 id="deletecommondata">DeleteCommonData</h2>
+    <pre>
+    Arguments:
+        1) string: key
+</pre>
+    <p>Removes the common data mapping with the specified key from the default common data area.</p>
+    <h2 id="setareacommondata">SetAreaCommonData</h2>
+    <pre>
+    Arguments:
+        1) string: area
+        2) string: key
+        3) any: value
+</pre>
+    <p>Maps the given key to the given value in the specified common data area.<br />
+The value can be returned by using <a href="getareacommondata">GetAreaCommonData</a> with the corresponding area and key.</p>
+    <h2 id="getareacommondata">GetAreaCommonData</h2>
+    <pre>
+    Arguments:
+        1) string: area
+        2) string: key
+        3) any?: defaultValue
+    Return Type:
+        any
+</pre>
+    <p>Returns the value associated with the given key in the specified common data area, or defaultValue if no mapping exists.</p>
+    <p>If defaultValue is not provided, it will be nil.</p>
+    <h2 id="clearareacommondata">ClearAreaCommonData</h2>
+    <pre>
+    Arguments:
+        1) string: area
+</pre>
+    <p>Removes all of the common data in the specified area.</p>
+    <h2 id="deleteareacommondata">DeleteAreaCommonData</h2>
+    <pre>
+    Arguments:
+        1) string: area
+        2) string: key
+</pre>
+    <p>Removes the common data mapping with the specified key from the specified common data area.</p>
+    <h2 id="deletewholecommondataarea">DeleteWholeCommonDataArea</h2>
+    <pre>
+    Arguments:
+        1) string: area
+</pre>
+    <p>Deletes the whole area common data, not just the key-value list.</p>
+    <p>To use the area common data again, it must be recreated with CreateCommonDataArea.</p>
+    <h2 id="createcommondataarea">CreateCommonDataArea</h2>
+    <pre>
+    Arguments:
+        1) string: area
+</pre>
+    <p>Creates a common data area with the provided area name, in which various common data can be stored.</p>
+    <h2 id="copycommondataarea">CopyCommonDataArea</h2>
+    <pre>
+    Arguments:
+        1) string: destArea
+        2) string: srcArea
+</pre>
+    <p>Copies the common data in the source area to the destination area.</p>
+    <h2 id="iscommondataareaexists">IsCommonDataAreaExists</h2>
+    <pre>
+    Arguments:
+        1) string: area
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the area name corresponds to an existing common data area, otherwise returns false.</p>
+    <h2 id="getcommondataareakeylist">GetCommonDataAreaKeyList</h2>
+    <pre>
+    Return Type:
+        string array
+</pre>
+    <p>Returns an array of all common data area names.</p>
+    <h2 id="getcommondataareakeylist-1">GetCommonDataAreaKeyList</h2>
+    <pre>
+    Arguments:
+        1) string: area
+    Return Type:
+        string array
+</pre>
+    <p>Returns an array of the keys in the specified area.</p>
+    <h2 id="savecommondataareaa1">SaveCommonDataAreaA1</h2>
+    <pre>
+    Arguments:
+        1) string: area
+    Return Type:
+        bool
+</pre>
+    <p>Saves everything in the specified common data area to a data file.<br />
+Returns true if successful and false if the operation failed.</p>
+    <h2 id="loadcommondataareaa1">LoadCommonDataAreaA1</h2>
+    <pre>
+    Arguments:
+        1) string: area
+    Return Type:
+        bool
+</pre>
+    <p>Loads everything in the specified common data area from the saved data file.<br />
+Returns true if successful and false if the operation failed.</p>
+    <h2 id="savecommondataareaa2">SaveCommonDataAreaA2</h2>
+    <pre>
+    Arguments:
+        1) string: area
+        2) string: path
+    Return Type:
+        bool
+</pre>
+    <p>Saves everything in the specified common data area to a data file at the specified path.<br />
+Returns true if successful and false if the operation failed.</p>
+    <h2 id="loadcommondataareaa2">LoadCommonDataAreaA2</h2>
+    <pre>
+    Arguments:
+        1) string: area
+        2) string: path
+    Return Type:
+        bool
+</pre>
+    <p>Loads everything in the specified common data area from the saved data file at the specified path.<br />
+Returns true if successful and false if the operation failed.</p>
+    <h2 id="savecommondataareatoreplayfile">SaveCommonDataAreaToReplayFile</h2>
+    <pre>
+    Arguments:
+        1) string: area
+    Return Type:
+        bool
+</pre>
+    <p>Saves the specified common data area to the replay file.<br />
+Returns true if successful and false if the operation failed.<br /><em><strong>Note</strong>: This function should not be called during a replay.</em></p>
+    <h2 id="loadcommondataareafromreplayfile">LoadCommonDataAreaFromReplayFile</h2>
+    <pre>
+    Arguments:
+        1) string: area
+    Return Type:
+        bool
+</pre>
+    <p>Loads everything in the specified common data area from the replay file.<br />
+Returns true if successful and false if the operation failed.<br /><em><strong>Note</strong>: This function should not be called during gameplay.</em></p>
+    <h2 id="loadcommondatavaluepointer">LoadCommonDataValuePointer</h2>
+    <pre>
+    Arguments:
+        1) string: key
+        2) any: defaultValue = nil
+    Returns:
+        cdata: valuePointer
+</pre>
+    <p>Returns a pointer to the common data value with the given key in the default area.</p>
+    <p>If the key doesn't exist, it will be created and initialized with defaultValue, which is nil if not provided.</p>
+    <h2 id="loadareacommondatavaluepointer">LoadAreaCommonDataValuePointer</h2>
+    <pre>
+    Arguments:
+        1) string: area
+        2) string: key
+        3) any: defaultValue = nil
+    Returns:
+        cdata: valuePointer
+</pre>
+    <p>Returns a pointer to the common data value with the given key in the given area.</p>
+    <p>If the key doesn't exist, it will be created and initialized with defaultValue, which is nil if not provided.</p>
+    <h2 id="isvalidcommondatavaluepointer">IsValidCommonDataValuePointer</h2>
+    <pre>
+    Arguments:
+        1) cdata: valuePointer
+    Returns:
+        bool: bValid
+</pre>
+    <p>Returns true if the given value is a valid common data value pointer, otherwise returns false.</p>
+    <h2 id="setcommondataptr">SetCommonDataPtr</h2>
+    <pre>
+    Arguments:
+        1) cdata: valuePointer
+        2) any: value
+    Returns:
+        any: storedValue
+</pre>
+    <p>Sets the common data value that valuePointer points to.</p>
+    <p>
+      <em>
+        <strong>Note:</strong> Passing an invalid pointer may cause a memory access violation (the game will crash). Avoid using this function if an area may be deleted.</em>
+    </p>
+    <h2 id="getcommondataptr">GetCommonDataPtr</h2>
+    <pre>
+    Arguments:
+        1) cdata: valuePointer
+        2) any: defaultValue
+    Returns:
+        any: storedValue
+</pre>
+    <p>Returns the common data value that valuePointer points to, or defaultValue if no mapping exists.</p>
+    <p>
+      <em>
+        <strong>Note:</strong> Passing an invalid pointer may cause a memory access violation (the game will crash). Avoid using this function if an area may be deleted.</em>
+    </p>
+  </body>
+</html>

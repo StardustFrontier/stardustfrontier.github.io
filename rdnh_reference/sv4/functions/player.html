@@ -1,0 +1,317 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>player.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="player-functions">Player Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="getplayerobjectid">GetPlayerObjectID</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the player object ID.</p>
+    <h2 id="getplayerscriptid">GetPlayerScriptID</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the player script ID.</p>
+    <h2 id="setplayerspeed">SetPlayerSpeed</h2>
+    <pre>
+    Arguments:
+        1) real: speedNormal
+        2) real: speedFocus
+</pre>
+    <p>Sets the normal speed and focus speed of the player.</p>
+    <h2 id="setplayerclip">SetPlayerClip</h2>
+    <pre>
+    Arguments:
+        1) real: left
+        2) real: top
+        3) real: right
+        4) real: bottom
+</pre>
+    <p>Sets the area within which the player can move.</p>
+    <h2 id="setplayerlife">SetPlayerLife</h2>
+    <pre>
+    Arguments:
+        1) real: value
+</pre>
+    <p>Sets number of lives for the player.</p>
+    <p>Note: Can be a non-integer value.</p>
+    <h2 id="setplayerspell">SetPlayerSpell</h2>
+    <pre>
+    Arguments:
+        1) real: value
+</pre>
+    <p>Sets number of spells/bombs for the player.</p>
+    <p>Note: Can be a non-integer value.</p>
+    <h2 id="setplayerpower">SetPlayerPower</h2>
+    <pre>
+    Arguments:
+        1) real: value
+</pre>
+    <p>Sets power value for the player.</p>
+    <p>Note: Can be a non-integer value.</p>
+    <h2 id="setplayerinvincibilityframe">SetPlayerInvincibilityFrame</h2>
+    <pre>
+    Arguments:
+        1) real: frames
+</pre>
+    <p>Sets the number of frames for player invincibility.</p>
+    <h2 id="setplayerdownstateframe">SetPlayerDownStateFrame</h2>
+    <pre>
+    Arguments:
+        1) real: frames
+</pre>
+    <p>Sets the number of frames before respawning the player after player death.</p>
+    <h2 id="setplayerrebirthframe">SetPlayerRebirthFrame</h2>
+    <pre>
+    Arguments:
+        1) real: frames
+</pre>
+    <p>Sets the number of frames the player can deathbomb for after being hit.</p>
+    <p>Default is 15 frames.</p>
+    <h2 id="setplayerrebirthlossframe">SetPlayerRebirthLossFrame</h2>
+    <pre>
+    Arguments:
+        1) real: frames
+</pre>
+    <p>Sets the number of deathbomb frames the player loses per deathbomb.</p>
+    <p>Default is 3 frames.</p>
+    <h2 id="setplayerautoitemcollectline">SetPlayerAutoItemCollectLine</h2>
+    <pre>
+    Arguments:
+        1) real: y
+</pre>
+    <p>Sets the y coordinate of the auto collect line.</p>
+    <p>A negative value removes the line.<br />
+Default is no autocollect line.</p>
+    <h2 id="setforbidplayershot">SetForbidPlayerShot</h2>
+    <pre>
+    Arguments:
+        1) bool: forbid
+</pre>
+    <p>When set to true, the player cannot use normal shots.</p>
+    <h2 id="setforbidplayerspell">SetForbidPlayerSpell</h2>
+    <pre>
+    Arguments:
+        1) bool: forbid
+</pre>
+    <p>When set to true, the player cannot use spells/bombs.</p>
+    <h2 id="setforbidplayermovement">SetForbidPlayerMovement</h2>
+    <pre>
+    Arguments:
+        1) bool: forbid
+</pre>
+    <p>When set to true, the player cannot move.</p>
+    <h2 id="setplayeritemintersectionradius">SetPlayerItemIntersectionRadius</h2>
+    <pre>
+    Arguments:
+        1) real: radius
+</pre>
+    <p>Sets the intersection radius between the player and items.</p>
+    <p>If the item is within this radius, it will be collected instantly.<br />
+Defaults to 24.</p>
+    <h2 id="setplayeritemabsorbradius">SetPlayerItemAbsorbRadius</h2>
+    <pre>
+    Arguments:
+        1) real: radius
+</pre>
+    <p>Sets the absorb radius between the player and items.</p>
+    <p>If the item is within this radius, it will begin to move towards the player.<br />
+Defaults to 0 (no effect).</p>
+    <p>
+      <em>Note: This will be cancelled by <a href="./docs_item.html#cancelcollectitems">CancelCollectItems</a>.</em>
+    </p>
+    <h2 id="setplayerrebirthposition">SetPlayerRebirthPosition</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+</pre>
+    <p>Sets the respawn point of the player.</p>
+    <p>Pass REBIRTH_DEFAULT as either coordinate to reset it to its default value.<br />
+The default value is (GetStgFrameWidth() / 2, GetStgFrameHeight() - 48)</p>
+    <h2 id="getplayerx">GetPlayerX</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the x-coordinate of the player.</p>
+    <h2 id="getplayery">GetPlayerY</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the y-coordinate of the player.</p>
+    <h2 id="getplayerstate">GetPlayerState</h2>
+    <pre>
+    Return Type:
+        real const
+</pre>
+    <p>Returns the player state.</p>
+    <p>State is one of:</p>
+    <pre>
+STATE_NORMAL (player is alive)
+STATE_HIT (after being hit, during counter bomb frames)
+STATE_DOWN (after being hit, before reappearing)
+STATE_END (game over)
+</pre>
+    <h2 id="getplayerspeed">GetPlayerSpeed</h2>
+    <pre>
+    Return Type:
+        real array
+</pre>
+    <p>Returns the player movement speed as an array [unfocusedSpeed, focusedSpeed].</p>
+    <h2 id="getplayerclip">GetPlayerClip</h2>
+    <pre>
+    Return Type:
+        real array
+</pre>
+    <p>Returns the player's clip as an array [left, top, right, bottom].</p>
+    <h2 id="getplayerlife">GetPlayerLife</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the number of player lives.</p>
+    <h2 id="getplayerspell">GetPlayerSpell</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the number of player spells/bombs.</p>
+    <h2 id="getplayerpower">GetPlayerPower</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the amount of player power</p>
+    <h2 id="getplayerinvincibilityframe">GetPlayerInvincibilityFrame</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the number of frames during which the player is invincible.</p>
+    <h2 id="getplayerdownstateframe">GetPlayerDownStateFrame</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the number of frames during which the player is respawning.</p>
+    <h2 id="getplayerrebirthframe">GetPlayerRebirthFrame</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the number of frames during which the player can deathbomb.</p>
+    <h2 id="getangletoplayer">GetAngleToPlayer</h2>
+    <pre>
+    Arguments:
+        real: obj
+    Return Type:
+        real
+</pre>
+    <p>Returns the angle from the given object to the player.</p>
+    <h2 id="ispermitplayershot">IsPermitPlayerShot</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the player can use normal shots, false otherwise.</p>
+    <h2 id="ispermitplayerspell">IsPermitPlayerSpell</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the player can use spells/bombs, false otherwise.</p>
+    <p>Note: The returned value may differ from a previously set SetForbidPlayerSpell. For instance, it is forced to false during a LastSpell.</p>
+    <h2 id="ispermitplayermovement">IsPermitPlayerMovement</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the player is allowed to move, false otherwise.</p>
+    <h2 id="isplayerlastspellwait">IsPlayerLastSpellWait</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the player is deathbombing, false otherwise.</p>
+    <h2 id="isplayerspellactive">IsPlayerSpellActive</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the player is utilizing a bomb, false otherwise.</p>
+    <h2 id="getplayerid">GetPlayerID</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns the system ID of the player script.</p>
+    <p>This value is defined inside the player script in the #ID header.</p>
+    <h2 id="getplayerreplayname">GetPlayerReplayName</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns the replay ID of the player.</p>
+    <p>This value is defined inside the player script in the #ReplayName header.</p>
+  </body>
+</html>

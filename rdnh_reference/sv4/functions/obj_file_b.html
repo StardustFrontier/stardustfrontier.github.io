@@ -1,0 +1,257 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>obj_file_b.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="objfileb-functions">ObjFIleB Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="objfileb_setbyteorder">ObjFileB_SetByteOrder</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real const: byteOrder
+</pre>
+    <p>Sets the Byte Order of the file.</p>
+    <p>Defaults to ENDIAN_LITTLE.
+Available byte orders are:</p>
+    <pre>
+ENDIAN_LITTLE: (Little endian)
+ENDIAN_BIG: (Big endian)
+</pre>
+    <h2 id="objfileb_setcharactercode">ObjFileB_SetCharacterCode</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real const: characterCode
+</pre>
+    <p>Sets the Character Code of the file.</p>
+    <p>This is necessary for reading strings with <a href="objfileb_readstring">ObjFileB_ReadString</a>.<br />
+Defaults to CODE_ACP.<br />
+Available character codes are:</p>
+    <pre>
+CODE_ACP: ANSI/Shift-JIS
+CODE_UTF8: UTF8
+CODE_UTF16LE: UTF16 LE
+CODE_UTF16BE: UTF16 BE
+</pre>
+    <h2 id="objfileb_getpointer">ObjFileB_GetPointer</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the position of the current file pointer.</p>
+    <h2 id="objfileb_seek">ObjFileB_Seek</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: position
+</pre>
+    <p>Sets the position of the current file pointer.</p>
+    <h2 id="objfileb_readboolean">ObjFileB_ReadBoolean</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        bool
+</pre>
+    <p>Reads a byte from the file and returns a boolean value.</p>
+    <p>This will also advance the file pointer by 1 byte.</p>
+    <h2 id="objfileb_readbyte">ObjFileB_ReadByte</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Reads a signed byte from the file and returns it (1-byte integer).</p>
+    <p>This will also advance the file pointer by 1 byte.</p>
+    <h2 id="objfileb_readshort">ObjFileB_ReadShort</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Reads a signed short from the file and returns it (2-byte integer).</p>
+    <p>This will also advance the file pointer by 2 bytes.</p>
+    <h2 id="objfileb_readinteger">ObjFileB_ReadInteger</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Reads a signed integer from the file and returns it (4-byte integer).</p>
+    <p>This will also advance the file pointer by 4 bytes.</p>
+    <h2 id="objfileb_readlong">ObjFileB_ReadLong</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Reads a signed long from the file and returns it (8-byte integer).</p>
+    <p>This will also advance the file pointer by 8 bytes.</p>
+    <h2 id="objfileb_readfloat">ObjFileB_ReadFloat</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Reads a float from the file and returns it (4-byte floating point).</p>
+    <p>This will also advance the file pointer by 4 bytes.</p>
+    <h2 id="objfileb_readdouble">ObjFileB_ReadDouble</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Reads a double from the file and returns it (8-byte floating point).</p>
+    <h2 id="objfileb_readstring">ObjFileB_ReadString</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: size
+    Return Type:
+        string
+</pre>
+    <p>Reads a string of the given size in bytes from the file and returns it.</p>
+    <p>This will also advance the file pointer by 8 bytes.</p>
+    <h2 id="objfileb_readallbytes">ObjFileB_ReadAllBytes</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real array
+</pre>
+    <p>Reads the entire file and returns it as an array of individual bytes.</p>
+    <p>This will also advance the file pointer to the end of the file.</p>
+    <h2 id="objfileb_writeboolean">ObjFileB_WriteBoolean</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: value
+</pre>
+    <p>Adds a boolean value to the list of bytes to be output to the file.</p>
+    <p>This will be actually written to the file when <a href="./docs_file_object.html#objfile_store">ObjFile_Store</a> is called.</p>
+    <h2 id="objfileb_writebyte">ObjFileB_WriteByte</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: value
+</pre>
+    <p>Adds a 1-byte integer to the list of bytes to be output to the file.</p>
+    <p>This will be actually written to the file when <a href="./docs_file_object.html#objfile_store">ObjFile_Store</a> is called.</p>
+    <h2 id="objfileb_writeshort">ObjFileB_WriteShort</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: value
+</pre>
+    <p>Adds a 2-byte integer to the list of bytes to be output to the file.</p>
+    <p>This will be actually written to the file when <a href="./docs_file_object.html#objfile_store">ObjFile_Store</a> is called.</p>
+    <h2 id="objfileb_writeinteger">ObjFileB_WriteInteger</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: value
+</pre>
+    <p>Adds a 4-byte integer to the list of bytes to be output to the file.</p>
+    <p>This will be actually written to the file when <a href="./docs_file_object.html#objfile_store">ObjFile_Store</a> is called.</p>
+    <h2 id="objfileb_writelong">ObjFileB_WriteLong</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: value
+</pre>
+    <p>Adds an 8-byte integer to the list of bytes to be output to the file.</p>
+    <p>This will be actually written to the file when <a href="./docs_file_object.html#objfile_store">ObjFile_Store</a> is called.</p>
+    <h2 id="objfileb_writefloat">ObjFileB_WriteFloat</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: value
+</pre>
+    <p>Adds a 4-byte floating point number to the list of bytes to be output to the file.</p>
+    <p>This will be actually written to the file when <a href="./docs_file_object.html#objfile_store">ObjFile_Store</a> is called.</p>
+    <h2 id="objfileb_writedouble">ObjFileB_WriteDouble</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: value
+</pre>
+    <p>Adds an 8-byte floating point number to the list of bytes to be output to the file.</p>
+    <p>This will be actually written to the file when <a href="./docs_file_object.html#objfile_store">ObjFile_Store</a> is called.</p>
+    <h2 id="objfileb_writestring">ObjFileB_WriteString</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Adds a string to the list of bytes to be output to the file.</p>
+    <p>This will be actually written to the file when <a href="./docs_file_object.html#objfile_store">ObjFile_Store</a> is called.</p>
+    <h2 id="objfileb_writeallbytes">ObjFileB_WriteAllBytes</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Adds an array of bytes to the list of bytes to be output to the file.</p>
+    <p>This will be actually written to the file when <a href="./docs_file_object.html#objfile_store">ObjFile_Store</a> is called.</p>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>debug.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="debug-functions">Debug Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="writelog">WriteLog</h2>
+    <pre>
+    Arguments:
+        1+) string: str
+</pre>
+    <p>Outputs the given string(s) to the log window.</p>
+    <p>When more than one string is passed, they will be separated by spaces.</p>
+    <h2 id="writelogf">WriteLogF</h2>
+    <pre>
+    Arguments:
+        1) string: str
+        2+) any: values...
+</pre>
+    <p>Outputs the given string to the log window, formatting it in the same way as C's printf family of functions.</p>
+    <p>This is equivalent to:<br /><code>WriteLog(StringFormat(str, values...));</code></p>
+    <h2 id="printf">printf</h2>
+    <pre>
+    Arguments:
+        1) string: str
+        2+) any: values...
+</pre>
+    <p>Outputs the given string to the log window, formatting it in the same way as C's printf family of functions.</p>
+    <p>This is an alias for WriteLogF.</p>
+    <h2 id="raiseerror">RaiseError</h2>
+    <pre>
+    Arguments:
+        1+) string: str
+</pre>
+    <p>Creates an error box with the specified string.<br />
+Execution of the script is stopped, closing the script.</p>
+    <p>When more than one string is passed, they will <em>not</em> be separated by spaces.</p>
+    <h2 id="assert">assert</h2>
+    <pre>
+    Arguments:
+        1) bool: condition
+        2) any: value
+</pre>
+    <p>If the condition is false, raise an error with the specified value and terminate the script.</p>
+    <h2 id="get_interned_strings">get_interned_strings</h2>
+    <pre>
+    Return Type:
+        array[string]
+</pre>
+    <p>Returns an array of all strings that have been internalized by the running scripts.</p>
+    <h2 id="get_ref_count">get_ref_count</h2>
+    <pre>
+    Arguments:
+        1) any: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the internal reference count of the given value if it's a collection type, otherwise always returns 0.<br />
+The count returned will be one higher than the actual count, because it includes the temporary reference created when calling this function.</p>
+    <p>Collection types are: <em>array</em>, <em>string</em>, and <em>table</em>.</p>
+    <h2 id="getcurrentmemoryusage">GetCurrentMemoryUsage</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the current amount of memory used by the rdnh process in bytes.</p>
+    <h2 id="getdnhbuildinfo">GetDnhBuildInfo</h2>
+    <pre>
+    Return Type:
+        string
+</pre>
+    <p>Returns a string that identifies the build of rdnh (currently, the date as yy.mm.dd)</p>
+    <h2 id="getdnhscriptversion">GetDnhScriptVersion</h2>
+    <pre>
+    Return Type:
+        string
+</pre>
+    <p>Returns the version of the rdnh scripting language as a string in the format: MajorVersion.MinorVersion</p>
+  </body>
+</html>

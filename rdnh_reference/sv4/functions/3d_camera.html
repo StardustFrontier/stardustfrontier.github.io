@@ -1,0 +1,216 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>3d_camera.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="d-camera-functions">3D Camera Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="setcamerafocusx">SetCameraFocusX</h2>
+    <pre>
+    Arguments:
+        1) real: x
+</pre>
+    <p>Sets the x coordinate of the camera focus.</p>
+    <h2 id="setcamerafocusy">SetCameraFocusY</h2>
+    <pre>
+    Arguments:
+        1) real: y
+</pre>
+    <p>Sets the y coordinate of the camera focus.</p>
+    <h2 id="setcamerafocusz">SetCameraFocusZ</h2>
+    <pre>
+    Arguments:
+        1) real: z
+</pre>
+    <p>Sets the z coordinate of the camera focus.</p>
+    <h2 id="setcamerafocusxyz">SetCameraFocusXYZ</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: z
+</pre>
+    <p>Sets the x, y, and z coordinates of the camera focus.</p>
+    <h2 id="setcameraradius">SetCameraRadius</h2>
+    <pre>
+    Arguments:
+        1) real: distance
+</pre>
+    <p>Sets the distance of the camera to the focus point.</p>
+    <h2 id="setcameraazimuthangle">SetCameraAzimuthAngle</h2>
+    <pre>
+    Arguments:
+        1) real: azimuth
+</pre>
+    <p>Sets the azimuth angle from the focus point.</p>
+    <h2 id="setcameraelevationangle">SetCameraElevationAngle</h2>
+    <pre>
+    Arguments:
+        1) real: elevation
+</pre>
+    <p>Sets the elevation angle from the focus point.</p>
+    <h2 id="setcamerayaw">SetCameraYaw</h2>
+    <pre>
+    Arguments:
+        1) real: yaw
+</pre>
+    <p>Sets the horizontal yaw angle of the camera.</p>
+    <h2 id="setcamerapitch">SetCameraPitch</h2>
+    <pre>
+    Arguments:
+        1) real: pitch
+</pre>
+    <p>Sets the vertical pitch angle of the camera.</p>
+    <h2 id="setcameraroll">SetCameraRoll</h2>
+    <pre>
+    Arguments:
+        1) real: roll
+</pre>
+    <p>Sets the rotational roll angle of the camera.</p>
+    <h2 id="getcamerax">GetCameraX</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the x coordinate of the camera.</p>
+    <p>Defaults to 341.506348.</p>
+    <h2 id="getcameray">GetCameraY</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the y coordinate of the camera.</p>
+    <p>Defaults to 353.553375.</p>
+    <h2 id="getcameraz">GetCameraZ</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the z coordinate of the camera.</p>
+    <p>Defaults to 91.506348.</p>
+    <h2 id="getcamerafocusx">GetCameraFocusX</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the x coordinate of the camera focus point.</p>
+    <p>Defaults to 0.</p>
+    <h2 id="getcamerafocusy">GetCameraFocusY</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the y coordinate of the camera focus point.</p>
+    <p>Defaults to 0.</p>
+    <h2 id="getcamerafocusz">GetCameraFocusZ</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the z coordinate of the camera focus point.</p>
+    <p>Defaults to 0.</p>
+    <h2 id="getcameraradius">GetCameraRadius</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the distance from the focus point to the camera.</p>
+    <p>Defaults to 500.</p>
+    <h2 id="getcameraazimuthangle">GetCameraAzimuthAngle</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the azimuth angle from the focus point to the camera.</p>
+    <p>Defaults to 15.</p>
+    <h2 id="getcameraelevationangle">GetCameraElevationAngle</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the elevation angle from the focus point to the camera.</p>
+    <p>Defaults to 45.</p>
+    <h2 id="getcamerayaw">GetCameraYaw</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the horizontal yaw angle of the camera.</p>
+    <p>Defaults to 0.</p>
+    <h2 id="getcamerapitch">GetCameraPitch</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the vertical pitch angle of the camera.</p>
+    <p>Defaults to 0.</p>
+    <h2 id="getcameraroll">GetCameraRoll</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the rotational roll angle of the camera.</p>
+    <p>Defaults to 0.</p>
+    <h2 id="setcameraperspectiveclip">SetCameraPerspectiveClip</h2>
+    <pre>
+    Arguments:
+        1) real: nearClip
+        2) real: farClip
+</pre>
+    <p>Sets camera clipping distances.<br />
+Objects that are further or nearer than the clipping distance will not be drawn.</p>
+  </body>
+</html>

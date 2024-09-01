@@ -1,0 +1,599 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>math.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="math-functions">Math Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="add">add</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns the sum of two values.</p>
+    <h2 id="subtract">subtract</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns the difference of two values.</p>
+    <h2 id="multiply">multiply</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns the product of two values.</p>
+    <h2 id="divide">divide</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns the quotient of two values.</p>
+    <h2 id="remainder">remainder</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns the modulo operation (the remainder of a quotient) of two values.<br /><strong>Note</strong>: remainder or % will always return a value with the same sign as the divisor.<br /><strong>Example</strong>: remainder(10, 3) or 10 % 3 will return 1 because 10 / 3 equals 3 with a remainder of 1.</p>
+    <h2 id="power">power</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns value1 raised to the power of value2.<br />
+Equivalent to ** operator.</p>
+    <h2 id="bit_lshift">bit_lshift</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns value1 shifted left by value2 bits.<br />
+Equivalent to &lt;&lt; operator.</p>
+    <h2 id="bit_rshift">bit_rshift</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns value1 shifted right by value2 bits.<br />
+Equivalent to &gt;&gt; operator.</p>
+    <h2 id="bit_and">bit_and</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns the bitwise AND of two values.<br />
+Equivalent to &amp; operator.</p>
+    <h2 id="bit_xor">bit_xor</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns the bitwise XOR of two values.<br />
+Equivalent to ^ operator.</p>
+    <h2 id="bit_or">bit_or</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns the bitwise OR of two values.<br />
+Equivalent to | operator.</p>
+    <h2 id="bit_not">bit_not</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the bitwise NOT of the value.<br />
+Equivalent to ~~ operator.</p>
+    <h2 id="min">min</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns the lesser of the two values.</p>
+    <h2 id="max">max</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns the greater of the two values.</p>
+    <h2 id="log">log</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the natural (base e) <a href="https://en.wikipedia.org/wiki/Logarithm">logarithm</a> of the value.</p>
+    <h2 id="log10">log10</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the common (base 10) <a href="https://en.wikipedia.org/wiki/Logarithm">logarithm</a> of the value.</p>
+    <h2 id="cos">cos</h2>
+    <pre>
+    Arguments:
+        1) real: angle
+    Return Type:
+        real
+</pre>
+    <p>Returns the cosine of the angle.<br />
+Cosine is a value between -1 and 1 that corresponds to the x-value in a coordinate plane.</p>
+    <h2 id="sin">sin</h2>
+    <pre>
+    Arguments:
+        1) real: angle
+    Return Type:
+        real
+</pre>
+    <p>Returns the sine of the angle.<br />
+Sine is a value between -1 and 1 that corresponds to the y-value in a coordinate plane.</p>
+    <h2 id="tan">tan</h2>
+    <pre>
+    Arguments:
+        1) real: angle
+    Return Type:
+        real
+</pre>
+    <p>Returns the tangent of the angle.<br />
+Tangent is the slope of the line created by the angle (x/y).</p>
+    <h2 id="acos">acos</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the arccosine of the angle.<br />
+acos(cos(x)) = x, if x is between 0 and 180.</p>
+    <h2 id="asin">asin</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the arcsine of the value.<br />
+asin(sin(x)) = x, if x is between -90 and 90.</p>
+    <h2 id="atan">atan</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the arctangent of the value.<br />
+atan(tan(x)) = x, if x is between -90 and 90.</p>
+    <h2 id="atan2">atan2</h2>
+    <pre>
+    Arguments:
+        1) real: y
+        2) real: x
+    Return Type:
+        real
+</pre>
+    <p>Returns the arctangent of y/x, which is the angle from (0, 0) to (x, y).<br />
+The angle will be in the range -180 &lt; a &lt;= 180, where a is the returned value.<br />
+Useful for getting the angle from one point to another point.<br />
+For example, the angle from the boss to the player is atan2(player y - boss y, player x - boss x).</p>
+    <h2 id="sqrt">sqrt</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the square root of the value.</p>
+    <h2 id="cbrt">cbrt</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the cubic root of the value.</p>
+    <h2 id="hypot">hypot</h2>
+    <pre>
+    Arguments:
+        1) real: value1
+        2) real: value2
+    Return Type:
+        real
+</pre>
+    <p>Returns the hypotenuse of a right-angled triangle whose legs are value1 and value2.</p>
+    <h2 id="cot">cot</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the cotangent of the value.</p>
+    <h2 id="csc">csc</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the cosecant of the value.</p>
+    <h2 id="sec">sec</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the secant of the value.</p>
+    <h2 id="cosh">cosh</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the hyperbolic cosine of the value.</p>
+    <h2 id="sinh">sinh</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the hyperbolic sine of the value.</p>
+    <h2 id="tanh">tanh</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the hyperbolic tangent of the value.</p>
+    <h2 id="acosh">acosh</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the area hyperbolic cosine of the value.</p>
+    <h2 id="asinh">asinh</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the area hyperbolic sine of the value.</p>
+    <h2 id="atanh">atanh</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the area hyperbolic tangent of the value.</p>
+    <h2 id="coth">coth</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the hyperbolic cotangent of the value.</p>
+    <h2 id="csch">csch</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the hyperbolic cosecant of the value.</p>
+    <h2 id="sech">sech</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the hyperbolic secant of the value.</p>
+    <h2 id="rand">rand</h2>
+    <pre>
+    Arguments:
+        1) real: min
+        2) real: max
+    Return Type:
+        real
+</pre>
+    <p>Returns a random real value between the two values.</p>
+    <h2 id="rand_int">rand_int</h2>
+    <pre>
+    Arguments:
+        1) real: min
+        2) real: max
+    Return Type:
+        real
+</pre>
+    <p>Returns a random integer value between the two values.</p>
+    <h2 id="prand">prand</h2>
+    <pre>
+    Arguments:
+        1) real: min
+        2) real: max
+    Return Type:
+        real
+</pre>
+    <p>Returns a predetermined random real value between min and max, of which the seed is set with psrand</p>
+    <h2 id="prand_int">prand_int</h2>
+    <pre>
+    Arguments:
+        1) real: min
+        2) real: max
+    Return Type:
+        real
+</pre>
+    <p>Returns a predetermined random integer value between min and max, of which the seed is set with psrand</p>
+    <h2 id="psrand">psrand</h2>
+    <pre>
+    Arguments:
+        1) real: seed
+</pre>
+    <p>Initialize the random number sequence for the prand and prand_int functions.<br />
+If not set, it will be 1 by default.</p>
+    <h2 id="round">round</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the value as an integer.<br />
+Values of 0.5 or greater are rounded up; otherwise they are rounded down.</p>
+    <h2 id="truncate">truncate</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the value with no decimal places.<br />
+For instance, 1.123 becomes 1.<br />
+The shortened name trunc can also be used to refer to this function.</p>
+    <h2 id="ceil">ceil</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the value rounded up to the next integer.</p>
+    <h2 id="floor">floor</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the value rounded down to the next integer.</p>
+    <h2 id="absolute">absolute</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the value as an absolute number (if it is negative, it will be changed to a positive).<br />
+The shortened name abs can also be used to refer to this function.</p>
+    <h2 id="modc">modc</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns a modulus of the first value. Modulus provides the remainder of the division (7 modulo 5 would be 2).<br /><strong>Note:</strong> unlike remainder, modc returns a value with the same sign as the dividend: modc(-7, 4) equals -3 and modc(7, -4) equals 3.</p>
+    <h2 id="pi">pi</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the value of pi.</p>
+    <p>Note: Use the constant PI instead of this function, it only exists for compatibility reasons.</p>
+    <h2 id="successor">successor</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Adds 1 to the value, then returns it.</p>
+    <h2 id="predecessor">predecessor</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Subtracts 1 from the value, then returns it.</p>
+    <h2 id="negative">negative</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        real
+</pre>
+    <p>Negates the value, then returns it.<br />
+This changes positive values to negative and vice-versa.<br />
+Equivalent to unary - operator.</p>
+    <h2 id="todegrees">ToDegrees</h2>
+    <pre>
+    Arguments:
+        1) real: x
+    Returns:
+        real: result
+</pre>
+    <p>Convert angle <em>x</em> from radians to degrees.</p>
+    <h2 id="toradians">ToRadians</h2>
+    <pre>
+    Arguments:
+        1) real: x
+    Returns:
+        real: result
+</pre>
+    <p>Convert angle <em>x</em> from degrees to radians.</p>
+    <h2 id="anglenormalize">AngleNormalize</h2>
+    <pre>
+    Arguments:
+        1) real: angle (degrees)
+    Returns:
+        real: result
+</pre>
+    <p>Returns the angle (provided in degrees) normalized to the range [0, 360)</p>
+    <h2 id="anglenormalizer">AngleNormalizeR</h2>
+    <pre>
+    Arguments:
+        1) real: angle (radians)
+    Returns:
+        real: result
+</pre>
+    <p>Returns the angle (provided in radians) normalized to the range [0, 2pi)</p>
+    <h2 id="angulardistance">AngularDistance</h2>
+    <pre>
+    Arguments:
+        1) real: angleFrom (degrees)
+        2) real: angleTo (degrees)
+    Returns:
+        real: result
+</pre>
+    <p>Calculates the shortest angular distance between the given angles (provided in degrees).</p>
+    <p>The returned value will be in the range [-180, 180)</p>
+    <h2 id="angulardistancer">AngularDistanceR</h2>
+    <pre>
+    Arguments:
+        1) real: angleFrom (radians)
+        2) real: angleTo (radians)
+    Returns:
+        real: result
+</pre>
+    <p>Calculates the shortest angular distance between the given angles (provided in radians).</p>
+    <p>The returned value will be in the range [-pi, pi)</p>
+    <h2 id="anglereflect">AngleReflect</h2>
+    <pre>
+    Arguments:
+        1) real: angleRay (degrees)
+        2) real: angleSurface (degrees)
+    Returns:
+        real: result
+</pre>
+    <p>Calculates the given ray's angle of reflection upon a surface of the given angle.</p>
+    <p>The returned value will be in the range [0, 360)</p>
+    <h2 id="anglereflectr">AngleReflectR</h2>
+    <pre>
+    Arguments:
+        1) real: angleRay (radians)
+        2) real: angleSurface (radians)
+    Returns:
+        real: result
+</pre>
+    <p>Calculates the given ray's angle of reflection upon a surface of the given angle.</p>
+    <p>The returned value will be in the range [0, 2pi)</p>
+  </body>
+</html>

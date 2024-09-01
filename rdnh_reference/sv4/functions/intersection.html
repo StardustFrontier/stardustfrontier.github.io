@@ -1,0 +1,296 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>intersection.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="intersection-functions">Intersection Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="isintersected_point_polygon">IsIntersected_Point_Polygon</h2>
+    <pre>
+    Arguments:
+        1) real: point - x
+        2) real: point - y
+        3) (real[2][]): polygon vertices
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given point intersects with the polygon.</p>
+    <p>The polygon can be convex, concave, or complex (self-intersecting).</p>
+    <h2 id="isintersected_point_circle">IsIntersected_Point_Circle</h2>
+    <pre>
+    Arguments:
+        1) real: point  - x
+        2) real: point  - y
+        3) real: circle - x
+        4) real: circle - y
+        5) real: circle - radius
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given point intersects with the circle.</p>
+    <h2 id="isintersected_point_ellipse">IsIntersected_Point_Ellipse</h2>
+    <pre>
+    Arguments:
+        1) real: point   - x
+        2) real: point   - y
+        3) real: ellipse - x
+        4) real: ellipse - y
+        5) real: ellipse - x radius
+        6) real: ellipse - y radius
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given point intersects with the ellipse.</p>
+    <h2 id="isintersected_point_line">IsIntersected_Point_Line</h2>
+    <pre>
+    Arguments:
+        1) real: point - x
+        2) real: point - y
+        3) real: line - start x
+        4) real: line - start y
+        5) real: line - end x
+        6) real: line - end y
+        7) real: line - width
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given point intersects with the line.</p>
+    <h2 id="isintersected_point_regularpolygon">IsIntersected_Point_RegularPolygon</h2>
+    <pre>
+    Arguments:
+        1) real: point   - x
+        2) real: point   - y
+        3) real: polygon - x
+        4) real: polygon - y
+        5) real: polygon - radius
+        6) real: polygon - edge count
+        7) real: polygon - angle (degrees)
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given point intersects with the regular polygon.</p>
+    <h2 id="isintersected_circle_polygon">IsIntersected_Circle_Polygon</h2>
+    <pre>
+    Arguments:
+        1) real: circle - x
+        2) real: circle - y
+        3) real: circle - radius
+        4) real[2][]: polygon vertices
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given circle intersects with the polygon.</p>
+    <p>The polygon can be convex, concave, or complex (self-intersecting).</p>
+    <h2 id="isintersected_circle_circle">IsIntersected_Circle_Circle</h2>
+    <pre>
+    Arguments:
+        1) real: circle 1 - x
+        2) real: circle 1 - y
+        3) real: circle 1 - radius
+        4) real: circle 2 - x
+        5) real: circle 2 - y
+        6) real: circle 2 - radius
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given circles intersect.</p>
+    <h2 id="isintersected_circle_ellipse">IsIntersected_Circle_Ellipse</h2>
+    <pre>
+    Arguments:
+        1) real: circle  - x
+        2) real: circle  - y
+        3) real: circle  - radius
+        4) real: ellipse - x
+        5) real: ellipse - y
+        6) real: ellipse - x radius
+        7) real: ellipse - y radius
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given circle intersects with the ellipse.</p>
+    <h2 id="isintersected_circle_regularpolygon">IsIntersected_Circle_RegularPolygon</h2>
+    <pre>
+    Arguments:
+        1) real: circle  - x
+        2) real: circle  - y
+        3) real: circle  - radius
+        4) real: polygon - x
+        5) real: polygon - y
+        6) real: polygon - radius
+        7) real: polygon - edge count
+        8) real: polygon - angle (degrees)
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given circle intersects with the regular polygon.</p>
+    <h2 id="isintersected_line_polygon">IsIntersected_Line_Polygon</h2>
+    <pre>
+    Arguments:
+        1) real: line - start x
+        2) real: line - start y
+        3) real: line - end x
+        4) real: line - end y
+        5) real: line - width
+        6) real[2][]: polygon vertices
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given line intersects with the polygon.</p>
+    <p>The polygon can be convex, concave, or complex (self-intersecting).</p>
+    <h2 id="isintersected_line_circle">IsIntersected_Line_Circle</h2>
+    <pre>
+    Arguments:
+        1) real: line   - start x
+        2) real: line   - start y
+        3) real: line   - end x
+        4) real: line   - end y
+        5) real: line   - width
+        6) real: circle - x
+        7) real: circle - y
+        8) real: circle - radius
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given line intersects with the circle.</p>
+    <h2 id="isintersected_line_ellipse">IsIntersected_Line_Ellipse</h2>
+    <pre>
+    Arguments:
+        1) real: line    - start x
+        2) real: line    - start y
+        3) real: line    - end x
+        4) real: line    - end y
+        5) real: line    - width
+        6) real: ellipse - x
+        7) real: ellipse - y
+        8) real: ellipse - x radius
+        9) real: ellipse - y radius
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given line intersects with the ellipse.</p>
+    <h2 id="isintersected_line_line">IsIntersected_Line_Line</h2>
+    <pre>
+    Arguments:
+        1)  real: line 1 - start x
+        2)  real: line 1 - start y
+        3)  real: line 1 - end x
+        4)  real: line 1 - end y
+        5)  real: line 1 - width
+        6)  real: line 2 - start x
+        7)  real: line 2 - start y
+        8)  real: line 2 - end x
+        9)  real: line 2 - end y
+        10) real: line 2 - width
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given lines intersect.</p>
+    <h2 id="isintersected_line_regularpolygon">IsIntersected_Line_RegularPolygon</h2>
+    <pre>
+    Arguments:
+        1)  real: line    - start x
+        2)  real: line    - start y
+        3)  real: line    - end x
+        4)  real: line    - end y
+        5)  real: line    - width
+        6)  real: polygon - x
+        7)  real: polygon - y
+        8)  real: polygon - radius
+        9)  real: polygon - edge count
+        10) real: polygon - angle (degrees)
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given line intersects with the regular polygon.</p>
+    <h2 id="isintersected_polygon_polygon">IsIntersected_Polygon_Polygon</h2>
+    <pre>
+    Arguments:
+        1) real[2][]: polygon 1 vertices
+        2) real[2][]: polygon 2 vertices
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given polygons intersect.</p>
+    <p>The polygons can be convex, concave, or complex (self-intersecting).</p>
+    <h2 id="isintersected_polygon_ellipse">IsIntersected_Polygon_Ellipse</h2>
+    <pre>
+    Arguments:
+        1) real[2][]: polygon vertices
+        2) real: ellipse - x
+        3) real: ellipse - y
+        4) real: ellipse - x radius
+        5) real: ellipse - y radius
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given polygon intersects with the ellipse.</p>
+    <p>The polygon can be convex, concave, or complex (self-intersecting).</p>
+    <h2 id="isintersected_polygon_regularpolygon">IsIntersected_Polygon_RegularPolygon</h2>
+    <pre>
+    Arguments:
+        1) real[2][]: polygon 1 vertices
+        2) real: polygon 2 - x
+        3) real: polygon 2 - y
+        4) real: polygon 2 - radius
+        5) real: polygon 2 - edge count
+        6) real: polygon 2 - angle (degrees)
+    Returns:
+        bool: intersection
+</pre>
+    <p>Returns true if the given polygon intersects with the regular polygon.</p>
+    <p>The polygon can be convex, concave, or complex (self-intersecting).</p>
+  </body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>enemy.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="enemy-functions">Enemy Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="getenemybosssceneobjectid">GetEnemyBossSceneObjectID</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the boss scene object ID or ID_INVALID when not in a boss scene.</p>
+    <h2 id="getenemybossobjectid">GetEnemyBossObjectID</h2>
+    <pre>
+    Return Type:
+        real array
+</pre>
+    <p>Returns an array consisting of the object ID of the boss present on the screen.</p>
+    <h2 id="getenemyidincircle">GetEnemyIdInCircle</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: radius
+        4) real: enemyObjectType
+    Return Type
+        array[real]
+</pre>
+    <p>Returns the object IDs of the enemies inside the given circle with the specified enemy object type in an array.</p>
+    <p>enemyObjectType can be:</p>
+    <pre>
+OBJ_ENEMY
+OBJ_ENEMY_BOSS
+</pre>
+    <h2 id="storeenemyidincircle">StoreEnemyIdInCircle</h2>
+    <pre>
+    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real: enemyObjectType
+</pre>
+    <p>Stores the object IDs of the enemies inside the given circle with the specified enemy object type in storageArray.<br />
+This is faster than the <em>Get</em> version if the array has been pre-reserved to an adequate size with array_reserve.</p>
+    <p>enemyObjectType can be:</p>
+    <pre>
+OBJ_ENEMY
+OBJ_ENEMY_BOSS
+</pre>
+    <h2 id="getallenemyid">GetAllEnemyID</h2>
+    <pre>
+    Return Type:
+        real array
+</pre>
+    <p>Returns an array consisting of the object ID of every enemy present on the screen.</p>
+    <h2 id="getintersectionregistedenemyid">GetIntersectionRegistedEnemyID</h2>
+    <pre>
+    Return Type:
+        real array
+</pre>
+    <p>Returns an array consisting of the object ID of all enemies with a registered hitbox to player shots (via ObjEnemy_SetIntersectionCircleToShot()).</p>
+    <h2 id="getallenemyintersectionposition">GetAllEnemyIntersectionPosition</h2>
+    <pre>
+    Return Type:
+        2D real array
+</pre>
+    <p>Returns the position of all enemies for which collision detection is true (currently intersecting) as a 2D array.</p>
+    <p>Return format is [index][&lt;x coordinate, y coordinate&gt;].</p>
+    <h2 id="getenemyintersectionposition">GetEnemyIntersectionPosition</h2>
+    <pre>
+    Arguments:
+        1) x
+        2) y
+        3) acquisitionValue
+    Return Type:
+        2D real array
+</pre>
+    <p>Returns the enemy intersection position around the given position with acquisitionValue priority as a 2D array.</p>
+    <p>Return format is [index][&lt;x coordinate, y coordinate&gt;].<br />
+The first possible acquisition value (index 0) corresponds to the nearest enemy to the provided x and y coordinates.</p>
+    <h2 id="getenemyintersectionpositionbyida1">GetEnemyIntersectionPositionByIdA1</h2>
+    <pre>
+    Arguments:
+        1) real: enemyObjectID
+    Return Type:
+        2D real array
+</pre>
+    <p>Returns all collision detection positions of the specified enemy as a 2D array.</p>
+    <p>Return format is [index][&lt;x coordinate, y coordinate&gt;].</p>
+    <h2 id="getenemyintersectionpositionbyida2">GetEnemyIntersectionPositionByIdA2</h2>
+    <pre>
+    Arguments:
+        1) real: enemyObjectID
+        2) real: x
+        3) real: y
+    Return Type:
+        2D real array
+</pre>
+    <p>Returns all collision detection positions of the specified enemy closest to the given coordinates as a 2D array.</p>
+    <p>Return format is [index][&lt;x coordinate, y coordinate&gt;].<br />
+The first index (index 0) corresponds to the nearest intersection position from the provided x and y coordinates.</p>
+    <h2 id="getnearestenemyintersectionida1">GetNearestEnemyIntersectionIdA1</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+    Return Type:
+        real
+</pre>
+    <p>Returns the nearest enemy object ID to the given coordinates with intersection enabled.</p>
+    <h2 id="getnearestenemyintersectionida2">GetNearestEnemyIntersectionIdA2</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: minDist
+    Return Type:
+        real
+</pre>
+    <p>Returns the nearest enemy object ID to the given coordinates with the given minimum distance with intersection enabled.</p>
+    <h2 id="setenemyautodeleteclip">SetEnemyAutoDeleteClip</h2>
+    <pre>
+    Arguments:
+        1) real: left
+        2) real: right
+        3) real: top
+        4) real: bottom
+</pre>
+    <p>Sets the margin that enemy objects are allowed to traverse past the edges of the STG field before getting automatically deleted.</p>
+    <p>Defaults to (64, 64, 64, 64).</p>
+    <h2 id="loadenemyshotdata">LoadEnemyShotData</h2>
+    <pre>
+    Arguments:
+        1) string: path
+    Return Type:
+        bool
+</pre>
+    <p>Loads specified shot data file and returns true if successful.</p>
+    <p>Files with the same name can only be loaded once.</p>
+    <h2 id="reloadenemyshotdata">ReloadEnemyShotData</h2>
+    <pre>
+    Arguments:
+        1) string: path
+    Return Type:
+        bool
+</pre>
+    <p>Reloads specified shot data file.</p>
+    <p>Unlike LoadEnemyShotData, this function can load the same file several times.<br />
+You can also (re)load a file that has not been loaded by LoadEnemyShotData.</p>
+  </body>
+</html>

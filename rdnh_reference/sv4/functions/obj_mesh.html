@@ -1,0 +1,109 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>obj_mesh.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="objmesh-functions">ObjMesh Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="objmesh_create">ObjMesh_Create</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Creates a 3D mesh object and returns its ID.</p>
+    <h2 id="objmesh_load">ObjMesh_Load</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: pathMesh
+</pre>
+    <p>Loads a 3D mesh file.</p>
+    <p>Returns true if successful, otherwise false.<br />
+The file must be either .mqo (Metasequoia) or .elem (Elfreina). Metasequoia software is available for free in English.</p>
+    <h2 id="objmesh_setcolor">ObjMesh_SetColor</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: red
+        3) real: green
+        4) real: blue
+</pre>
+    <p>Sets the color of the mesh (0-255).</p>
+    <h2 id="objmesh_setalpha">ObjMesh_SetAlpha</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: alpha
+</pre>
+    <p>Sets the alpha value of the mesh (0-255).</p>
+    <h2 id="objmesh_setanimation">ObjMesh_SetAnimation</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: animationName
+        3) real: animationFrame
+</pre>
+    <p>Sets the animation of the mesh object.</p>
+    <p>The animation frame of the specified animation name is drawn.</p>
+    <h2 id="objmesh_setcoordinate2d">ObjMesh_SetCoordinate2D</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool bEnable
+</pre>
+    <p>When set to true, allows the mesh to be positioned using 2D coordinates.</p>
+  </body>
+</html>

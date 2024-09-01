@@ -1,0 +1,312 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>obj_enemy.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="objenemy-functions">ObjEnemy Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="objenemy_create">ObjEnemy_Create</h2>
+    <pre>
+    Arguments:
+        1) real const: objectType
+    Return Type:
+        real
+</pre>
+    <p>Creates an enemy object of the specified type and returns its ID.</p>
+    <p>Object types are:</p>
+    <pre>
+OBJ_ENEMY
+OBJ_ENEMY_BOSS
+</pre>
+    <p>In order to draw the enemy object and have it listed as an existing enemy, you have to register it using ObjEnemy_Regist.<br />
+If you want to create a boss enemy object, you have to create a boss scene object first.</p>
+    <h2 id="objenemy_regist">ObjEnemy_Regist</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Activates the specified enemy object.</p>
+    <p>Enemy objects cannot be utilized until this functions is called.</p>
+    <h2 id="objenemy_setautodelete">ObjEnemy_SetAutoDelete</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bAutoDelete
+</pre>
+    <p>Enables or disables auto-deletion of the enemy object when outside of horizontal and vertical boundaries set by SetEnemyAutoDeleteClip.</p>
+    <p>Equivalent to setting ObjEnemy_SetAutoDeleteHorizontal and ObjEnemy_SetAutoDeleteVertical to true.</p>
+    <p>Defaults to <em>false</em> (unlike shot objects).</p>
+    <h2 id="objenemy_setautodeletehorizontal">ObjEnemy_SetAutoDeleteHorizontal</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bAutoDelete
+</pre>
+    <p>Enables or disables auto-deletion of the enemy object when outside of the left and right boundaries set by SetEnemyAutoDeleteClip.</p>
+    <p>Defaults to <em>false</em>.</p>
+    <h2 id="objenemy_setautodeletevertical">ObjEnemy_SetAutoDeleteVertical</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bAutoDelete
+</pre>
+    <p>Enables or disables auto-deletion of the enemy object when outside of the top and bottom boundaries set by SetEnemyAutoDeleteClip.</p>
+    <p>Defaults to <em>false</em>.</p>
+    <h2 id="objenemy_setdeleteframe">ObjEnemy_SetDeleteFrame</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frames
+</pre>
+    <p>Deletes the enemy object after the specified number of frames.</p>
+    <h2 id="objenemy_setinvincibilityframe">ObjEnemy_SetInvincibilityFrame</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frames
+</pre>
+    <p>Sets the number of frames for enemy invincibility.</p>
+    <p>Intersections will still be processed, but no damage will be dealt. (ObjEnemy_GetShotHitCount can return non-zero during invincibility)</p>
+    <h2 id="objenemy_getinvincibilityframe">ObjEnemy_GetInvincibilityFrame</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Returns:
+        real: invincibilityFrames
+</pre>
+    <p>Returns the number of frames during which the enemy is invincible.</p>
+    <h2 id="objenemy_getinfo">ObjEnemy_GetInfo</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real const: infoType
+    Return Type:
+        varies
+</pre>
+    <p>Returns info about the enemy object based on the given infoType constant.</p>
+    <p>Info types are:</p>
+    <pre>
+INFO_LIFE - Returns the life points of the enemy (real)
+INFO_DAMAGE_RATE_SHOT - Returns the damage rate percentage of normal player shots set by ObjEnemy_SetDamageRate (real: 1-100)
+INFO_DAMAGE_RATE_SPELL - Returns the damage rate percentage of player bombs set by ObjEnemy_SetDamageRate (real: 1-100)
+INFO_SHOT_HIT_COUNT - Returns the amount of times the enemy was hit by player bullets in the previous frame (real)
+</pre>
+    <h2 id="objenemy_getlife">ObjEnemy_GetLife</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the life of the enemy object.</p>
+    <h2 id="objenemy_getmaxlife">ObjEnemy_GetMaxLife</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the maximum life of the enemy object.</p>
+    <h2 id="objenemy_getpreviousframelife">ObjEnemy_GetPreviousFrameLife</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the previous frame life of the enemy object.</p>
+    <h2 id="objenemy_getshotdamagerate">ObjEnemy_GetShotDamageRate</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the damage rate percentage of normal player shots set by ObjEnemy_SetDamageRate.</p>
+    <h2 id="objenemy_getspelldamagerate">ObjEnemy_GetSpellDamageRate</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the damage rate percentage of player bombs set by ObjEnemy_SetDamageRate.</p>
+    <h2 id="objenemy_getmaximumdamage">ObjEnemy_GetMaximumDamage</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the maximum damage per frame set by ObjEnemy_SetMaximumDamage.</p>
+    <h2 id="objenemy_getshothitcount">ObjEnemy_GetShotHitCount</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the amount of times the enemy was hit by player bullets in the previous frame.</p>
+    <h2 id="objenemy_getexisttime">ObjEnemy_GetExistTime</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the amount of frames the enemy object has existed for.</p>
+    <h2 id="objenemy_setlife">ObjEnemy_SetLife</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: life
+</pre>
+    <p>Sets the amount of life for the enemy object.</p>
+    <h2 id="objenemy_addlife">ObjEnemy_AddLife</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: lifeToAdd
+</pre>
+    <p>Adds the amount of life points to the enemy object's current life.</p>
+    <h2 id="objenemy_addlifeex">ObjEnemy_AddLifeEx</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: lifeToAdd
+</pre>
+    <p>Adds life to the enemy object with respect to the enemy object's maximum damage.</p>
+    <p>Negative value (damaging) will count towards the maximum damage as if getting hit by a player shot.<br />
+Positive value (healing) will reduce the damage count and allow more damage to be dealt in the frame equal to how much the healing was.</p>
+    <h2 id="objenemy_setdamagerate">ObjEnemy_SetDamageRate</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: shotDamageRate
+        3) real: spellDamageRate
+</pre>
+    <p>Sets the damage rate of the player's attacks against the specified enemy.</p>
+    <p>Setting to 0 will cause the enemy to take no damage, 100 is the default (100%) value.<br />
+Values above 100 are possible.<br />
+Values below 0 are also possible, but may cause the boss health to overflow.</p>
+    <h2 id="objenemy_setmaximumdamage">ObjEnemy_SetMaximumDamage</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: maximumDamage
+</pre>
+    <p>Sets the maximum amount of damage that the enemy object can receive through normal means in a single frame.</p>
+    <p>Default value is uncapped.</p>
+    <h2 id="objenemy_setintersectioncircletoshot">ObjEnemy_SetIntersectionCircleToShot</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: radius
+</pre>
+    <p>Sets the position and size of the enemy hitbox.</p>
+    <p>Any collision with player shots or spells with the circle will damage the enemy.<br /><em>Note: This function must be called every frame to maintain the collision.</em></p>
+    <h2 id="objenemy_setintersectioncircletoplayer">ObjEnemy_SetIntersectionCircleToPlayer</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: radius
+</pre>
+    <p>Sets the enemy hitbox for player collision.</p>
+    <p>Any collision with the circle will kill the player.<br /><em>Note: This function must be called every frame to maintain the collision.</em></p>
+    <h2 id="objenemy_setautointersectioncircletoshot">ObjEnemy_SetAutoIntersectionCircleToShot</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: radius
+</pre>
+    <p>Automatically sets the radius of the enemy-to-shot intersection circle each frame.</p>
+    <p>The position of the circle will be the enemy's current position.</p>
+    <h2 id="objenemy_setautointersectioncircletoplayer">ObjEnemy_SetAutoIntersectionCircleToPlayer</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: radius
+</pre>
+    <p>Automatically sets the radius of the enemy-to-player intersection circle each frame.</p>
+    <p>The position of the circle will be the enemy's current position.</p>
+    <h2 id="objenemy_setenableintersectionpositionfetching">ObjEnemy_SetEnableIntersectionPositionFetching</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+</pre>
+    <p>If set to false, the following functions will not include the specified enemy object's hitboxes:</p>
+    <pre>
+- GetEnemyIntersectionPosition
+- GetEnemyIntersectionPositionByIdA1
+- GetEnemyIntersectionPositionByIdA2
+- GetAllEnemyIntersectionPosition
+- GetNearestEnemyIntersectionIdA1
+- GetNearestEnemyIntersectionIdA2
+</pre>
+    <h2 id="objenemy_setdeathfunc">ObjEnemy_SetDeathFunc</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) function: deathFunc
+</pre>
+    <p>Calls the given function when the enemy reaches zero life.</p>
+  </body>
+</html>

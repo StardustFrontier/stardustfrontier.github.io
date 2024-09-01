@@ -1,0 +1,119 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>obj_file.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="objfile-functions">ObjFile Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="objfile_create">ObjFile_Create</h2>
+    <pre>
+    Arguments:
+        1) real const: objectType
+    Return Type:
+        real
+</pre>
+    <p>Creates a file object of the specified type and returns its ID.</p>
+    <p>Object types are:</p>
+    <pre>
+OBJ_FILE_TEXT: (a text file)
+OBJ_FILE_BINARY: (a binary file)
+</pre>
+    <h2 id="objfile_open">ObjFile_Open</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: pathFile
+    Return Type:
+        bool
+</pre>
+    <p>Opens a file for reading with the specified path and binds the specified file object to the opened file.</p>
+    <p>Returns true if the file was opened successfully, otherwise false.</p>
+    <h2 id="objfile_opennw">ObjFile_OpenNW</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: pathFile
+    Return Type:
+        bool
+</pre>
+    <p>Opens a file for both reading and writing with the specified path and binds the specified file object to the opened file.</p>
+    <p>Returns true if the file was opened successfully, otherwise false.</p>
+    <h2 id="objfile_store">ObjFile_Store</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: pathFile
+</pre>
+    <p>Saves a file previously opened with ObjFile_OpenNW.</p>
+    <p>Must be called once after writing the data.</p>
+    <h2 id="objfile_getsize">ObjFile_GetSize</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the file size of the file object.</p>
+    <h2 id="objfile_getlastwritetimems">ObjFile_GetLastWriteTimeMS</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns a timestamp representing the last time the file was written to in milliseconds.</p>
+  </body>
+</html>

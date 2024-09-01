@@ -1,0 +1,359 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>item.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="item-functions">Item Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="createitema1">CreateItemA1</h2>
+    <pre>
+    Arguments:
+        1) real const: itemType
+        2) real: x
+        3) real: y
+        4) real: score
+    Return Type:
+        real
+</pre>
+    <p>Creates an item of the provided itemType and score value at the specified x and y coordinates. Also returns its object ID.</p>
+    <p>Falling speeds can be tuned with the following functions:</p>
+    <ul>
+      <li>
+        <a href="./docs_item_object.html#objitem_setweight">ObjItem_SetWeight</a>
+      </li>
+      <li>
+        <a href="./docs_item_object.html#objitem_setacceleration">ObjItem_SetAcceleration</a>
+      </li>
+      <li>
+        <a href="./docs_item_object.html#objitem_setmaxspeed">ObjItem_SetMaxSpeed</a>
+      </li>
+    </ul>
+    <p>itemType can be one of the following:</p>
+    <pre>
+DS_ITEM_1UP and DS_ITEM_1UP_S (lives)
+DS_ITEM_SPELL and DS_ITEM_SPELL_S (bombs)
+DS_ITEM_POINT and DS_ITEM_POINT_S (points)
+DS_ITEM_POWER and DS_ITEM_POWER_S (power)
+DS_ITEM_USER (user-defined).
+</pre>
+    <p>The types ending in '_S' will create a smaller version of the specified item.</p>
+    <p>
+      <em>Note: If either of the given coordinates are NULL_POS, the item will not be created.</em>
+    </p>
+    <h2 id="createitema2">CreateItemA2</h2>
+    <pre>
+    Arguments:
+        1) real const: itemType
+        2) real: x
+        3) real: y
+        4) real: xDest
+        5) real: yDest
+        6) real: score
+    Return Type:
+        real
+</pre>
+    <p>Creates an item of the provided itemType and score value at the specified x and y coordinates that moves to the provided x and y destination coordinates before falling down. Also returns its object ID.</p>
+    <p>Falling speeds can be tuned with the following functions:</p>
+    <ul>
+      <li>
+        <a href="./docs_item_object.html#objitem_setweight">ObjItem_SetWeight</a>
+      </li>
+      <li>
+        <a href="./docs_item_object.html#objitem_setacceleration">ObjItem_SetAcceleration</a>
+      </li>
+      <li>
+        <a href="./docs_item_object.html#objitem_setmaxspeed">ObjItem_SetMaxSpeed</a>
+      </li>
+    </ul>
+    <p>itemType can be one of the following:</p>
+    <pre>
+DS_ITEM_1UP and DS_ITEM_1UP_S (lives)
+DS_ITEM_SPELL and DS_ITEM_SPELL_S (bombs)
+DS_ITEM_POINT and DS_ITEM_POINT_S (points)
+DS_ITEM_POWER and DS_ITEM_POWER_S (power)
+DS_ITEM_USER (user-defined).
+</pre>
+    <p>The types ending in '_S' will create a smaller version of the specified item.</p>
+    <p>
+      <em>Note: If either of the given coordinates are NULL_POS, the item will not be created.</em>
+    </p>
+    <h2 id="createitemu1">CreateItemU1</h2>
+    <pre>
+    Arguments:
+        1) real: itemID
+        2) real: x
+        3) real: y
+        4) real: score
+    Return Type:
+        real
+</pre>
+    <p>Creates a user-defined item with the provided item ID and score value at the specified x and y coordinates. Also returns its object ID.</p>
+    <p>Falling speeds can be tuned with the following functions:</p>
+    <ul>
+      <li>
+        <a href="./docs_item_object.html#objitem_setweight">ObjItem_SetWeight</a>
+      </li>
+      <li>
+        <a href="./docs_item_object.html#objitem_setacceleration">ObjItem_SetAcceleration</a>
+      </li>
+      <li>
+        <a href="./docs_item_object.html#objitem_setmaxspeed">ObjItem_SetMaxSpeed</a>
+      </li>
+    </ul>
+    <p>
+      <em>Note: If either of the given coordinates are NULL_POS, the item will not be created.</em>
+    </p>
+    <h2 id="createitemu2">CreateItemU2</h2>
+    <pre>
+    Arguments:
+        1) real: itemID
+        2) real: x
+        3) real: y
+        4) real: xDest
+        5) real: yDest
+        6) real: score
+    Return Type:
+        real
+</pre>
+    <p>Creates a user-defined item with the provided item ID and score value at the specified x and y coordinates that moves to the provided x and y destination coordinates before falling. Also returns its object ID.</p>
+    <p>Falling speeds can be tuned with the following functions:</p>
+    <ul>
+      <li>
+        <a href="./docs_item_object.html#objitem_setweight">ObjItem_SetWeight</a>
+      </li>
+      <li>
+        <a href="./docs_item_object.html#objitem_setacceleration">ObjItem_SetAcceleration</a>
+      </li>
+      <li>
+        <a href="./docs_item_object.html#objitem_setmaxspeed">ObjItem_SetMaxSpeed</a>
+      </li>
+    </ul>
+    <p>
+      <em>Note: If either of the given coordinates are NULL_POS, the item will not be created.</em>
+    </p>
+    <h2 id="createitemu3">CreateItemU3</h2>
+    <pre>
+    Arguments:
+        1) real: itemID
+        2) real: x
+        3) real: y
+        4) real: score
+    Return Type:
+        real
+</pre>
+    <p>Creates a user-defined item at the specified point.</p>
+    <p>Uses official Touhou-style item movement (acceleration-based).<br />
+Falling speeds can be tuned with the following functions:</p>
+    <ul>
+      <li>
+        <a href="./docs_item_object.html#objitem_setacceleration">ObjItem_SetAcceleration</a>
+      </li>
+      <li>
+        <a href="./docs_item_object.html#objitem_setmaxspeed">ObjItem_SetMaxSpeed</a>
+      </li>
+    </ul>
+    <p>
+      <em>Note: If either of the given coordinates are NULL_POS, the item will not be created.</em>
+    </p>
+    <h2 id="createitemscore">CreateItemScore</h2>
+    <pre>
+    Arguments:
+        1) real: score
+        2) real: x
+        3) real: y
+    Return Type:
+        real
+</pre>
+    <p>Creates a score digit item object at the specified point.</p>
+    <p>These are pseudo-items that are normally spawned on collection when <a href="./docs_item_object.html#objitem_setrenderscoreenable">ObjItem_SetRenderScoreEnable</a> is set to true.<br />
+They are used for displaying digits representing the score and move upwards while fading out.</p>
+    <p>
+      <em>Note: This function existed in vanilla ph3, but was never documented.</em>
+    </p>
+    <h2 id="getitemidincirclea1">GetItemIdInCircleA1</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: radius
+    Return Type:
+        real array
+</pre>
+    <p>Returns the object IDs of the items inside the given circle in an array.</p>
+    <h2 id="getitemidincirclea2">GetItemIdInCircleA2</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: radius
+        4) real: itemType
+    Return Type:
+        real array
+</pre>
+    <p>Returns the object IDs of the items inside the given circle with the specified itemType in an array.</p>
+    <h2 id="setitemautodeleteclip">SetItemAutoDeleteClip</h2>
+    <pre>
+    Arguments:
+        1) real: left
+        2) real: top
+        3) real: right
+        4) real: bottom
+</pre>
+    <p>Sets at what point items will be automatically deleted when leaving the STG screen.</p>
+    <p>Defaults to (64, UNCAPPED_MAX, 64, 64).</p>
+    <h2 id="collectallitems">CollectAllItems</h2>
+    <p>Makes all items fly towards the player.</p>
+    <h2 id="collectitemsbytype">CollectItemsByType</h2>
+    <pre>
+    Arguments:
+        1) real: itemType
+    Return Type:
+</pre>
+    <p>Makes all items of the specified type fly toward the player.</p>
+    <p>itemType can be one of the following:</p>
+    <pre>
+DS_ITEM_1UP and DS_ITEM_1UP_S (lives)
+DS_ITEM_SPELL and DS_ITEM_SPELL_S (bombs)
+DS_ITEM_POINT and DS_ITEM_POINT_S (points)
+DS_ITEM_POWER and DS_ITEM_POWER_S (power)
+DS_ITEM_USER (user-defined).
+</pre>
+    <p>The types ending in '_S' will create a smaller version of the specified item.</p>
+    <h2 id="collectitemsincircle">CollectItemsInCircle</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: radius
+</pre>
+    <p>Makes all items within the circle fly toward the player.</p>
+    <h2 id="cancelcollectitems">CancelCollectItems</h2>
+    <p>Cancels any items that were currently moving to the player for collection.</p>
+    <p>Note: This function only works for items collected by the player auto item collection line (SetPlayerAutoItemCollectLine).</p>
+    <h2 id="startitemscript">StartItemScript</h2>
+    <pre>
+    Arguments:
+        1) string: path
+</pre>
+    <p>Starts the script at the provided path for processing user-defined items.</p>
+    <h2 id="setdefaultbonusitemenable">SetDefaultBonusItemEnable</h2>
+    <pre>
+    Arguments:
+        1) bool: enable
+</pre>
+    <p>Sets whether or not to create the default autocollected bullet delete items when bullets are deleted to items.</p>
+    <p>True will create the items, false will not.<br />
+The default value is true.</p>
+    <h2 id="setitemscoredigittexture">SetItemScoreDigitTexture</h2>
+    <pre>
+    Arguments:
+        1) string: pathTexture
+</pre>
+    <p>Sets the texture to use for built-in item score rendering.</p>
+    <p>These are the digits shown when ObjItem_SetRenderScoreEnable is set to true.</p>
+    <h2 id="setitemscoredigitblendtype">SetItemScoreDigitBlendType</h2>
+    <pre>
+    Arguments:
+        1) real const: blendType
+</pre>
+    <p>Sets the <a href="./blend_types.html">blend type</a> to use for built-in item score rendering.</p>
+    <p>These are the digits shown when ObjItem_SetRenderScoreEnable is set to true.</p>
+    <h2 id="setitemscoredigitorigin">SetItemScoreDigitOrigin</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+</pre>
+    <p>Sets the origin point of the first digit source rectangle (top-left corner).</p>
+    <p>These are the digits shown when ObjItem_SetRenderScoreEnable is set to true.</p>
+    <h2 id="setitemscoredigitsize">SetItemScoreDigitSize</h2>
+    <pre>
+    Arguments:
+        1) real: width
+        2) real: height
+</pre>
+    <p>Sets the width and height of each digit source rectangle.</p>
+    <p>These are the digits shown when ObjItem_SetRenderScoreEnable is set to true.</p>
+    <h2 id="setitemscoredigitscale">SetItemScoreDigitScale</h2>
+    <pre>
+    Arguments:
+        1) real: scaleX
+        2) real: scaleY
+</pre>
+    <p>Sets the scale that the digits should be rendered with.</p>
+    <p>These are the digits shown when ObjItem_SetRenderScoreEnable is set to true.</p>
+    <h2 id="loaditemdata">LoadItemData</h2>
+    <pre>
+    Arguments:
+        1) string: path
+    Return Type:
+        bool
+</pre>
+    <p>Loads the specified item data and returns true if successful.</p>
+    <p>Can be called any amount of times, but currently existing IDs will be replaced by new ones of the same value.<br />
+You may not use the same file twice in this function; to do so, see ReloadItemData.</p>
+    <h2 id="reloaditemdata">ReloadItemData</h2>
+    <pre>
+    Arguments:
+        1) string: path
+    Return Type:
+        bool
+</pre>
+    <p>Reloads the specified item data and returns true if successful.</p>
+    <p>Can be called any amount of times, but currently existing IDs will be replaced by new ones of the same value.<br />
+You do not need to use LoadItemData before using this function.</p>
+  </body>
+</html>

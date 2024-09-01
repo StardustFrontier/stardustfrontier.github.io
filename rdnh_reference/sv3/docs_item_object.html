@@ -1,0 +1,193 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>docs_item_object.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="item-object-functions">Item Object Functions</h1>
+    <p>
+      <a href="./docs.html">Return to Functions</a>
+    </p>
+    <h2 id="objitem_create">ObjItem_Create</h2>
+    <pre>
+    Arguments:
+        1) real: itemID
+    Return Type:
+        real
+</pre>
+    <p>Creates an item object of the specified itemID and returns its object ID.</p>
+    <p>In order to draw the item object and have it listed as an existing item, you have to register it using <a href="objitem_regist">ObjItem_Regist</a>.\</p>
+    <h2 id="objitem_regist">ObjItem_Regist</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Activates the specified item object.</p>
+    <p>Item objects created with <a href="objitem_create">ObjItem_Create</a> cannot be utilized until this functions is called.</p>
+    <h2 id="objitem_setitemid">ObjItem_SetItemID</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: itemID
+</pre>
+    <p>Sets the ID of the item object, as defined in the item definition script.</p>
+    <h2 id="objitem_setrenderscoreenable">ObjItem_SetRenderScoreEnable</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+</pre>
+    <p>Sets whether a score indicator will be displayed when the item object is collected.</p>
+    <p>This is the score given as argument to the CreateItem() functions.</p>
+    <h2 id="objitem_setautocollectenable">ObjItem_SetAutoCollectEnable</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+</pre>
+    <p>Sets whether the item will be pulled towards the player when the player moves past the point of auto-collection.</p>
+    <h2 id="objitem_setautocollectspeed">ObjItem_SetAutoCollectSpeed</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: autoCollectSpeed
+</pre>
+    <p>Sets the speed at which the items are pulled towards the player during auto-collection.</p>
+    <h2 id="objitem_setautocollectacceleration">ObjItem_SetAutoCollectAcceleration</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: acceleration
+</pre>
+    <p>Sets the acceleration for auto-collection, which is added to its speed every frame.</p>
+    <p>If non-zero, auto-collection will begin at the item's current speed, accelerating to the auto-collection speed.<br />
+In other words, auto-collection speed will be considered the max speed instead of instantly being set.
+Defaults to 0.</p>
+    <h2 id="objitem_setdefinedmovepatterna1">ObjItem_SetDefinedMovePatternA1</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real const: movementType
+</pre>
+    <p>Sets the movement type of the item object.</p>
+    <p>Available movement types are:</p>
+    <pre>
+ITEM_MOVE_DOWN - immediately drops down
+ITEM_MOVE_TOPLAYER - automatically flies towards the player
+</pre>
+    <h2 id="objitem_setweight">ObjItem_SetWeight</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: weight
+</pre>
+    <p>Sets the weight for the item object's movement, used when calculating the slowing down of the item spawn.</p>
+    <p>This is similar to the weight in ObjMove_SetDestAtWeight.<br />
+Note: For items created with CreateItemU3, this function has no effect.</p>
+    <h2 id="objitem_setacceleration">ObjItem_SetAcceleration</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: acceleration
+</pre>
+    <p>Sets the acceleration for the item object's movement, which is added to its speed every frame.</p>
+    <p>For CreateItemU3, this is the overall acceleration.<br />
+For all other types, this is the acceleration used for the fall speed once the item object begins moving down.</p>
+    <h2 id="objitem_setmaxspeed">ObjItem_SetMaxSpeed</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: maxSpeed
+</pre>
+    <p>Sets the max speed that can be reached by acceleration for the object's movement.</p>
+    <p>For CreateItemU3, this is the max speed the item object can reach from acceleration overall.<br />
+For all other types, this is the max speed of the item object falling once it begins moving down.</p>
+    <h2 id="objitem_setintersectionenable">ObjItem_SetIntersectionEnable</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+</pre>
+    <p>Sets whether collision detection of the item object will be checked.</p>
+    <p>If set to false, the item object will have no collision detection.</p>
+    <h2 id="objitem_getitemid">ObjItem_GetItemID</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the item object's itemID.</p>
+    <h2 id="objitem_getmovetype">ObjItem_GetMoveType</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real const
+</pre>
+    <p>Returns the item object's move type.</p>
+    <h2 id="objitem_getinfo">ObjItem_GetInfo</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real const: infoType
+    Return Type:
+        varies
+</pre>
+    <p>Returns info about the item object based on the given info type constant.</p>
+    <p>Available info types are:</p>
+    <pre>
+INFO_ITEM_SCORE - Returns the score value of the item object (real)
+</pre>
+  </body>
+</html>

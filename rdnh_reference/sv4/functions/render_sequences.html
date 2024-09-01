@@ -1,0 +1,109 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>render_sequences.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="using-render-sequences">Using Render Sequences</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <p> </p>
+    <p>Related Pages:</p>
+    <ul>
+      <li>
+        <a href="./obj_render_sequence.html">ObjRender Sequence Functions</a>
+      </li>
+      <li>
+        <a href="./render_sequence_data.html">RenderSequenceData Functions</a>
+      </li>
+      <li>
+        <a href="./render_sequence_constants.html">Render Sequence Constants</a>
+      </li>
+    </ul>
+    <hr />
+    <h2 id="render-sequences">Render Sequences</h2>
+    <p>Render sequences are a new way to control render objects over time. They allow you to build a timeline of commands that set various properties of objects.</p>
+    <p>A command can be as simple as "instantly set the x-coordinate to 123" to as complex as "smoothly interpolate from the current color values to new ones over 60 frames". Deleting the object is even possible with a command.</p>
+    <p>All render objects when created have an empty render sequence. This sequence can be added to as soon as the object is created using:</p>
+    <pre>ObjRender_AddSequenceCommand(obj, renderCommandType, args...)</pre>
+    <p>While this function is defined as varargs, any extra arguments passed beyond the allowed amount for a type of command will be discarded. If not enough arguments are passed, a default value of 0 will be used.</p>
+    <p>After adding commands to the render object's sequence, you can begin playing the sequence using:</p>
+    <pre>ObjRender_PlaySequence(obj)</pre>
+    <p>and stop it with:</p>
+    <pre>ObjRender_StopSequence(obj, bCancelTweens)</pre>
+    <p>When stopping a sequence, if bCancelTweens is true, any commands that change values over time in the sequence that were currently in progress will be forcibly stopped.</p>
+    <p>Once the sequence is finished playing, if an OnFinish function was set, this will now be called. This function must have 1 parameter so that it can be passed the object ID. The OnFinish function can be set with:</p>
+    <pre>ObjRender_SetSequenceOnFinish(obj, $func)</pre>
+    <p>Note that the OnFinish function must be globally accessible in the script and can't be nested inside another function.</p>
+    <p>Other notes:</p>
+    <ul>
+      <li>Sequences have a set of 4 writable variables which can be set in a few ways, such as with RC_SET_VAR and RC_RAND</li>
+      <li>Variables are used by passing the constant representing the variable as an argument instead of a value</li>
+      <li>Variables can be used for performing math or other complex behavior within a sequence</li>
+    </ul>
+    <h2 id="rendersequencedata">RenderSequenceData</h2>
+    <p>There is a new data-object type called <a href="./render_sequence_data.html">RenderSequenceData</a>.</p>
+    <p>RenderSequenceData is a new type of internal value called a DataObject. They are similar to objects, but only hold data.<br />
+Render commands are added to RenderSequenceData using RenderSequenceData_AddCommand.</p>
+    <p>This is used to create reusable "templates" of render sequences. For example, if you have some kind of effect that always uses the same render sequence, instead of creating the render sequence many times for each object, you can create one RenderSequenceData and assign it to the render object using:</p>
+    <pre>ObjRender_SetSequence(dataSequence)</pre>
+    <p>Render sequence command lists are shared. If you later use ObjRender_AddSequenceCommand, it will update <em>all</em> shared command lists.</p>
+    <p>If you want to create a copy of a render sequence with its own unique command list, use:</p>
+    <pre>ObjRender_CopySequenceFromObject(objDest, objSource)</pre>
+    <p>
+      <strong>
+        <em>Note</em>
+      </strong>: While command lists are shared, the actual <em>state</em> (progress within the sequence, etc.) is unique to each render object.</p>
+  </body>
+</html>

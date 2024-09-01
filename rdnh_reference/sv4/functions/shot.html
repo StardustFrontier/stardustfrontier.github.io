@@ -1,0 +1,608 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>shot.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="shot-functions">Shot Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="deleteshotall">DeleteShotAll</h2>
+    <pre>
+    Arguments:
+        1) real const: type
+        2) real const: deleteType
+</pre>
+    <p>Deletes all shot objects on screen matching the criteria, utilizing the selected deletion type.</p>
+    <p>type can be:</p>
+    <pre>
+TYPE_ALL (all shot objects)
+TYPE_SHOT (shot objects without spell resistance)
+TYPE_CHILD (shot objects fired from the currently running script)
+</pre>
+    <p>deleteType can be:</p>
+    <pre>
+TYPE_IMMEDIATE (immediately delete the bullets)
+TYPE_FADE (slowly fade out the bullets)
+TYPE_ITEM (turn the bullets into items according to the running item script)
+Note: With TYPE_FADE, bullets will still be visible while fading out, but they will not have any collision.
+</pre>
+    <h2 id="deleteshotincircle">DeleteShotInCircle</h2>
+    <pre>
+    Arguments:
+        1) real const: type
+        2) real const: deleteType
+        3) real: x
+        4) real: y
+        5) real: radius
+</pre>
+    <p>Deletes all shot objects matching the criteria in the designated circle centered at (x, y) with provided radius, utilizing the selected deletion type.</p>
+    <p>type can be:</p>
+    <pre>
+TYPE_ALL (all shot objects)
+TYPE_SHOT (shot objects without spell resistance)
+TYPE_CHILD (shot objects fired from the currently running script)
+</pre>
+    <p>deleteType can be:</p>
+    <pre>
+TYPE_IMMEDIATE (immediately delete the bullets)
+TYPE_FADE (slowly fade out the bullets)
+TYPE_ITEM (turn the bullets into items according to the running item script)
+Note: With TYPE_FADE, bullets will still be visible while fading out, but they will not have any collision.
+</pre>
+    <h2 id="createshota1">CreateShotA1</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: speed
+        4) real: angle
+        5) real: graphic
+        6) real: delay
+    Return Type:
+        real
+</pre>
+    <p>Creates a basic bullet that will move at the angle and speed defined. Also returns its object ID.</p>
+    <p>graphic is the image the bullet will have, while delay is the time in frames before the bullet will appear.<br />
+During it's delay, there will be a collisionless cloud that appears where the bullet will spawn.<br />
+Returns a void value in a player script if the player is unable to shoot.</p>
+    <h2 id="createshota2">CreateShotA2</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: speed
+        4) real: angle
+        5) real: acceleration
+        6) real: maxSpeed
+        7) real: graphic
+        8) real: delay
+    Return Type:
+        real
+</pre>
+    <p>Creates a bullet that will move at the angle and speed defined, incrementing its speed by acceleration every frame, capping at maxspeed. Also returns its object ID.</p>
+    <p>graphic is the image the bullet will have, while delay is the time in frames before the bullet will appear.<br />
+During it's delay, there will be a collisionless cloud that appears where the bullet will spawn.<br />
+Returns a void value in a player script if the player is unable to shoot.</p>
+    <h2 id="createshotoa1">CreateShotOA1</h2>
+    <pre>
+    Arguments:
+        1) real: parentObjectID
+        2) real: speed
+        3) real: angle
+        4) real: graphic
+        5) real: delay
+    Return Type:
+        real
+</pre>
+    <p>Creates a bullet that will spawn on the coordinates of the given object id and will move at the angle and speed defined. Also returns its object ID.</p>
+    <p>graphic is the image the bullet will have, while delay is the time in frames before the bullet will appear.<br />
+During it's delay, there will be a collisionless cloud that appears where the bullet will spawn.<br />
+Returns a void value in a player script if the player is unable to shoot.</p>
+    <h2 id="createshotb1">CreateShotB1</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: xSpeed
+        4) real: ySpeed
+        5) real: graphic
+        6) real: delay
+    Return Type:
+        real
+</pre>
+    <p>Creates a bullet that will move at the specified x and y speeds. Also returns its object ID.</p>
+    <p>graphic is the image the bullet will have, while delay is the time in frames before the bullet will appear.<br />
+During it's delay, there will be a collisionless cloud that appears where the bullet will spawn.<br />
+Returns a void value in a player script if the player is unable to shoot.</p>
+    <h2 id="createshotb2">CreateShotB2</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: xSpeed
+        4) real: ySpeed
+        5) real: xAcceleration
+        6) real: yAcceleration
+        7) real: xMaxSpeed
+        8) real: yMaxSpeed
+        9) real: graphic
+        10) real: delay
+    Return Type:
+        real
+</pre>
+    <p>Creates a bullet that will move at the specified x and y speeds, incrementing its speed components by the respective acceleration component every frame, capping at the maxspeed for each component. Also returns its object ID.</p>
+    <p>graphic is the image the bullet will have, while delay is the time in frames before the bullet will appear.<br />
+During it's delay, there will be a collisionless cloud that appears where the bullet will spawn.<br />
+Returns a void value in a player script if the player is unable to shoot.</p>
+    <h2 id="createshotob1">CreateShotOB1</h2>
+    <pre>
+    Arguments:
+        1) real: parentObjectID
+        2) real: xSpeed
+        3) real: ySpeed
+        4) real: graphic
+        5) real: delay
+    Return Type:
+        real
+</pre>
+    <p>Creates a bullet that will spawn on the coordinates of the given object id and will move at the specified x and y speeds. Also returns its object ID.</p>
+    <p>graphic is the image the bullet will have, while delay is the time in frames before the bullet will appear.<br />
+During it's delay, there will be a collisionless cloud that appears where the bullet will spawn.<br />
+Returns a void value in a player script if the player is unable to shoot.</p>
+    <h2 id="createlooselasera1">CreateLooseLaserA1</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: speed
+        4) real: angle
+        5) real: length
+        6) real: width
+        7) real: graphic
+        8) real: delay
+    Return Type:
+        real
+</pre>
+    <p>Creates a loose (moving) laser that will move at the angle and speed defined, with its size defined by the length (in direction of travel) and width. Also returns its object ID.</p>
+    <p>graphic is the image the bullet will have, while delay is the time in frames before the laser will appear.<br />
+During it's delay, there will be a collisionless cloud that appears where the laser will spawn.<br />
+Returns a void value in a player script if the player is unable to shoot.<br />
+This function can be used to create larger bullets.</p>
+    <h2 id="createstraightlasera1">CreateStraightLaserA1</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: angle
+        4) real: length
+        5) real: width
+        6) real: deleteTime
+        7) real: graphic
+        8) real: delay
+    Return Type:
+        real
+</pre>
+    <p>Creates a straight laser mounted at the position provided, with its size defined by the length (in direction of travel) and width. Also returns its object ID.</p>
+    <p>graphic is the image the bullet will have, while delay is the time in frames before the laser will appear.<br />
+The 'deletetime' argument determines how many frames until the laser disappears.<br />
+During the delay, the laser will appear as a very thin laser that has no collision (AKA delay laser) in order to give the player a warning.<br />
+Having no delay while using this function is not advisable, as the laser will spawn at full size the moment the delay is over.<br />
+Returns a void value in a player script if the player is unable to shoot.</p>
+    <h2 id="createcurvelasera1">CreateCurveLaserA1</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: speed
+        4) real: angle
+        5) real: length
+        6) real: width
+        7) real: graphic
+        8) real: delay
+    Return Type:
+        real
+</pre>
+    <p>Creates a curve laser that will move at the angle and speed defined, with its size defined by the length (in direction of travel) and width. Also returns its object ID.</p>
+    <p>graphic is the image the bullet will have, while delay is the time in frames before the laser will appear.<br />
+During it's delay, there will be a collisionless cloud that appears where the laser will spawn.<br />
+Returns a void value in a player script if the player is unable to shoot.<br />
+Use ObjMove_SetAngularVelocity to adjust the curve of this laser.<br />
+This function is heavy to process, so having many curve lasers on-screen at the same time is not recommended.</p>
+    <h2 id="setshotintersectioncircle">SetShotIntersectionCircle</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: radius
+</pre>
+    <p>Adds a circular player hitbox at the specified position with the provided radius.</p>
+    <p>Note: Lasts one frame.</p>
+    <h2 id="setshotintersectionline">SetShotIntersectionLine</h2>
+    <pre>
+    Arguments:
+        1) real: x1
+        2) real: y1
+        3) real: x2
+        4) real: y2
+        5) real: width
+</pre>
+    <p>Adds a linear player hitbox between the two specified positions with the provided width.</p>
+    <p>Note: Lasts one frame.</p>
+    <h2 id="getshotidincirclea1">GetShotIdInCircleA1</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: radius
+    Return Type
+        array[real]
+</pre>
+    <p>Returns the object IDs of the bullets inside the given circle in an array.</p>
+    <p>Inside a player script, it will only return enemy bullet IDs, and vice versa.</p>
+    <h2 id="getshotidincirclea2">GetShotIdInCircleA2</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: radius
+        4) real const: target
+    Return Type
+        array[real]
+</pre>
+    <p>Returns the object IDs of the bullets inside the given circle with the specified target type in an array.</p>
+    <p>target can be:</p>
+    <pre>
+TARGET_ALL (all shots)
+TARGET_ENEMY (enemy shots only)
+TARGET_PLAYER (player shots only)
+</pre>
+    <h2 id="getallshotid">GetAllShotID</h2>
+    <pre>
+    Arguments:
+        1) real const: target
+    Return Type
+        array[real]
+</pre>
+    <p>Returns the object IDs of all bullets with the specified target type in an array.</p>
+    <p>target can be:</p>
+    <pre>
+TARGET_ALL (all shots)
+TARGET_ENEMY (enemy shots only)
+TARGET_PLAYER (player shots only)
+</pre>
+    <h2 id="storeshotidincirclea1">StoreShotIdInCircleA1</h2>
+    <pre>
+    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+</pre>
+    <p>Stores the object IDs of the bullets inside the given circle in storageArray.<br />
+This is faster than the <em>Get</em> version if the array has been pre-reserved to an adequate size with array_reserve.</p>
+    <p>Inside a player script, it will only return enemy bullet IDs, and vice versa.</p>
+    <h2 id="storeshotidincirclea2">StoreShotIdInCircleA2</h2>
+    <pre>
+    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real const: target
+</pre>
+    <p>Stores the object IDs of the bullets inside the given circle with the specified target type in storageArray.<br />
+This is faster than the <em>Get</em> version if the array has been pre-reserved to an adequate size with array_reserve.</p>
+    <p>target can be:</p>
+    <pre>
+TARGET_ALL (all shots)
+TARGET_ENEMY (enemy shots only)
+TARGET_PLAYER (player shots only)
+</pre>
+    <h2 id="storeallshotid">StoreAllShotID</h2>
+    <pre>
+    Arguments:
+        1) array: storageArray
+        2) real const: target
+</pre>
+    <p>Stores the object IDs of all bullets with the specified target type in an array.<br />
+This is faster than the <em>Get</em> version if the array has been pre-reserved to an adequate size with array_reserve.</p>
+    <p>target can be:</p>
+    <pre>
+TARGET_ALL (all shots)
+TARGET_ENEMY (enemy shots only)
+TARGET_PLAYER (player shots only)
+</pre>
+    <h2 id="getshotcount">GetShotCount</h2>
+    <pre>
+    Arguments:
+        1) real const: target
+    Return Type
+        real
+</pre>
+    <p>Returns the number of bullets with the specified target type.</p>
+    <p>target can be:</p>
+    <pre>
+TARGET_ALL (all shots)
+TARGET_ENEMY (enemy shots only)
+TARGET_PLAYER (player shots only)
+</pre>
+    <h2 id="setshotautodeleteclip">SetShotAutoDeleteClip</h2>
+    <pre>
+    Arguments:
+        1) real: left
+        2) real: top
+        3) real: right
+        4) real: bottom
+</pre>
+    <p>Sets at what point bullets will be automatically deleted when leaving the STG screen.</p>
+    <p>To override this auto deletion, use ObjShot_SetAutoDelete on the bullet you want to prevent from auto deleting.<br />
+Defaults to (64, 64, 64, 64).</p>
+    <h2 id="setshottexturefilter">SetShotTextureFilter</h2>
+    <pre>
+    Arguments:
+        1) real const: filterMin
+        2) real const: filterMag
+</pre>
+    <p>Sets the min and mag texture filtering modes for rendering all shot objects.</p>
+    <p>Defaults to FILTER_LINEAR for both.</p>
+    <h2 id="setshotgrazeinvalidframe">SetShotGrazeInvalidFrame</h2>
+    <pre>
+    Arguments:
+        1) real: frames
+</pre>
+    <p>Sets the default amount of frames that must pass before the shot can be grazed again.</p>
+    <p>Use GRAZE_INVALID_NONE to reset this value to normal.<br />
+Defaults to GRAZE_INVALID_NONE.</p>
+    <h2 id="setshotintersectionactiveradius">SetShotIntersectionActiveRadius</h2>
+    <pre>
+    Arguments:
+        1) real: radius
+</pre>
+    <p>Sets the radius from the player in which shot intersection is enabled.</p>
+    <p>When shots are within this radius, intersection will automatically be enabled, otherwise it will be disabled.<br />
+Defaults to 0, which disables this feature.</p>
+    <h2 id="getshotintersectionactiveradius">GetShotIntersectionActiveRadius</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the active intersection radius for shots.</p>
+    <p>Defaults to 0.</p>
+    <h2 id="setshotmovementenable">SetShotMovementEnable</h2>
+    <pre>
+    Arguments:
+        1) bool: bEnable
+</pre>
+    <p>Enables or disables movement processing for all shot objects.</p>
+    <h2 id="isshotmovementenable">IsShotMovementEnable</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns whether or not shot movement processing is enabled.</p>
+    <h2 id="getshotdatainfoa1">GetShotDataInfoA1</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+        2) real const: targetShotData
+        3) real const: infoType
+    Return Type:
+        varies
+</pre>
+    <p>Returns information from the shotdata depending on the information requested.</p>
+    <p>targetShotData can be <code>TARGET_PLAYER</code> or <code>TARGET_ENEMY</code>.<br />
+infotype can be:</p>
+    <pre>
+INFO_RECT (returns [left, top, right, bottom] for the graphic)
+INFO_DELAY_COLOR (returns [red, green, blue] for the graphic)
+INFO_BLEND (returns blend type for the graphic)
+INFO_COLLISION (returns radius of collision detection)
+INFO_COLLISION_LIST (returns 2D array of collision hitbox radii and coordinates [radius, x, y])
+INFO_FIXED_ANGLE (returns the value of fixed_angle)
+INFO_USER_A (returns the value of user_a)
+INFO_USER_B (returns the value of user_b)
+</pre>
+    <h2 id="getenemyshotdatarect">GetEnemyShotDataRect</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        array[real]
+</pre>
+    <p>Returns the rect ([left, top, right, bottom]) for the graphic from the enemy shotdata.</p>
+    <h2 id="getenemyshotdatadelaycolor">GetEnemyShotDataDelayColor</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        array[real]
+</pre>
+    <p>Returns the color ([red, green, blue]) for the graphic from the enemy shotdata.</p>
+    <h2 id="getenemyshotdatadelayhex">GetEnemyShotDataDelayHex</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        real
+</pre>
+    <p>Returns the color as a single integer value for the graphic from the enemy shotdata.</p>
+    <h2 id="getenemyshotdatablend">GetEnemyShotDataBlend</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        real const
+</pre>
+    <p>Returns the blend type for the graphic from the enemy shotdata.</p>
+    <h2 id="getenemyshotdatacollision">GetEnemyShotDataCollision</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        real
+</pre>
+    <p>Returns the radius of collision detection for the graphic from the enemy shotdata.</p>
+    <h2 id="getenemyshotdatacollisionlist">GetEnemyShotDataCollisionList</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        array[array[real]]
+</pre>
+    <p>Returns a 2D array of collision hitbox radii and coordinates [radius, x, y] for the graphic from the enemy shotdata.</p>
+    <h2 id="getenemyshotdatafixedangle">GetEnemyShotDataFixedAngle</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        bool
+</pre>
+    <p>Returns the value of fixed_angle for the graphic from the enemy shotdata.</p>
+    <h2 id="getenemyshotdatausera">GetEnemyShotDataUserA</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        real
+</pre>
+    <p>Returns the value of user_a for the graphic from the enemy shotdata.</p>
+    <h2 id="getenemyshotdatauserb">GetEnemyShotDataUserB</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        real
+</pre>
+    <p>Returns the value of user_b for the graphic from the enemy shotdata.</p>
+    <h2 id="getplayershotdatarect">GetPlayerShotDataRect</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        array[real]
+</pre>
+    <p>Returns the rect ([left, top, right, bottom]) for the graphic from the player shotdata.</p>
+    <h2 id="getplayershotdatadelaycolor">GetPlayerShotDataDelayColor</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        array[real]
+</pre>
+    <p>Returns the color ([red, green, blue]) for the graphic from the player shotdata.</p>
+    <h2 id="getplayershotdatadelayhex">GetPlayerShotDataDelayHex</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        real
+</pre>
+    <p>Returns the color as a single integer value for the graphic from the player shotdata.</p>
+    <h2 id="getplayershotdatablend">GetPlayerShotDataBlend</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        real const
+</pre>
+    <p>Returns the blend type for the graphic from the player shotdata.</p>
+    <h2 id="getplayershotdatacollision">GetPlayerShotDataCollision</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        real
+</pre>
+    <p>Returns the radius of collision detection for the graphic from the player shotdata.</p>
+    <h2 id="getplayershotdatacollisionlist">GetPlayerShotDataCollisionList</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        array[array[real]]
+</pre>
+    <p>Returns a 2D array of collision hitbox radii and coordinates [radius, x, y] for the graphic from the player shotdata.</p>
+    <h2 id="getplayershotdatafixedangle">GetPlayerShotDataFixedAngle</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        bool
+</pre>
+    <p>Returns the value of fixed_angle for the graphic from the player shotdata.</p>
+    <h2 id="getplayershotdatausera">GetPlayerShotDataUserA</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        real
+</pre>
+    <p>Returns the value of user_a for the graphic from the player shotdata.</p>
+    <h2 id="getplayershotdatauserb">GetPlayerShotDataUserB</h2>
+    <pre>
+    Arguments:
+        1) real: graphic
+    Return Type:
+        real
+</pre>
+    <p>Returns the value of user_b for the graphic from the player shotdata.</p>
+    <h2 id="startshotscript">StartShotScript</h2>
+    <pre>
+    Arguments:
+        1) string: path
+</pre>
+    <p>Starts the specified shot script.</p>
+  </body>
+</html>

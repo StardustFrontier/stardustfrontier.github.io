@@ -1,0 +1,239 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>obj_sound.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="objsound-functions">ObjSound Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="objsound_create">ObjSound_Create</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Creates a sound object and returns its ID.</p>
+    <h2 id="objsound_load">ObjSound_Load</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: pathSound
+</pre>
+    <p>Loads the specified sound file.</p>
+    <h2 id="objsound_play">ObjSound_Play</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Plays the sound file associated with the object.</p>
+    <h2 id="objsound_stop">ObjSound_Stop</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Stops the sound file associated with the object.</p>
+    <h2 id="objsound_setvolumerate">ObjSound_SetVolumeRate</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: volumeRate
+</pre>
+    <p>Sets the volume of the sound object (0-100).</p>
+    <h2 id="objsound_setvolumedecibel">ObjSound_SetVolumeDecibel</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: dB
+</pre>
+    <p>Sets the volume rate for the sound object in decibels subtracted from the source sound.</p>
+    <p>Example: ObjSound_SetVolumeDecibel(obj, -8.5);<br />
+The above would set a volume rate that reduces the volume by 8.5 dB.</p>
+    <h2 id="objsound_setpanrate">ObjSound_SetPanRate</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: panRate
+</pre>
+    <p>Sets the pan volume of the sound object (-100-100).</p>
+    <p>0 is neutral, -100 is left-side only, 100 is right-side only.</p>
+    <h2 id="objsound_setfrequency">ObjSound_SetFrequency</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frequency
+</pre>
+    <p>Sets the frequency of the sound object in samples.</p>
+    <p>Pass 0 to reset the frequency to its default value.</p>
+    <h2 id="objsound_setfade">ObjSound_SetFade</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: fadeTime
+</pre>
+    <p>Sets the fade time of the sound object.</p>
+    <p>Fade value is how much the volume will increase per second; accepts negative values for fadeouts.</p>
+    <h2 id="objsound_setloopenable">ObjSound_SetLoopEnable</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+</pre>
+    <p>When set to true, the sound object will be allowed to loop.</p>
+    <h2 id="objsound_setlooptime">ObjSound_SetLoopTime</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: loopStart
+        3) real: loopEnd
+</pre>
+    <p>Sets the timing of the loop, in seconds.</p>
+    <h2 id="objsound_setloopsamplecount">ObjSound_SetLoopSampleCount</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: loopStart
+        3) real: loopEnd
+</pre>
+    <p>Sets the timing of the loop based on the sample count.</p>
+    <h2 id="objsound_setrestartenable">ObjSound_SetRestartEnable</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+</pre>
+    <p>When set to true, allows the sound object to continue where it left off instead of restarting every time ObjSound_Play is called.</p>
+    <h2 id="objsound_setsounddivision">ObjSound_SetSoundDivision</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real const: soundDivision
+</pre>
+    <p>Specifies whether a sound is a BGM, sound effect, or "voice".</p>
+    <p>Each sound division has its own separate global volume setting.<br />
+Available sound divisions are:</p>
+    <pre>
+SOUND_BGM
+SOUND_SE
+SOUND_VOICE
+</pre>
+    <h2 id="objsound_setstarttime">ObjSound_SetStartTime</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: startTime
+</pre>
+    <p>Sets the time for the sound file to start playing at in seconds.</p>
+    <h2 id="objsound_setstarttimesamplecount">ObjSound_SetStartTimeSampleCount</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: startTime
+</pre>
+    <p>Sets the time for the sound file to start playing at in samples.</p>
+    <h2 id="objsound_seek">ObjSound_Seek</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: seekPosition
+</pre>
+    <p>Seeks to the specified position (in seconds) in the playing the sound file.</p>
+    <h2 id="objsound_seeksamplecount">ObjSound_SeekSampleCount</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: seekPosition
+</pre>
+    <p>Seeks to the specified position (in samples) in the playing the sound file.</p>
+    <h2 id="objsound_isplaying">ObjSound_IsPlaying</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the sound file is playing.</p>
+    <h2 id="objsound_getvolumerate">ObjSound_GetVolumeRate</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the volume (0-100) of the sound file.</p>
+    <h2 id="objsound_getposition">ObjSound_GetPosition</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Gets the current playback position of the song in seconds.</p>
+    <p>
+      <em>
+        <strong>Warning</strong>: This function can only be used to get an average idea of where the position is, because this will only update every few seconds.</em>
+    </p>
+    <h2 id="objsound_getpositionsamplecount">ObjSound_GetPositionSampleCount</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Gets the current playback position of the song in samples.</p>
+    <p>
+      <em>
+        <strong>Warning</strong>: This function can only be used to get an average idea of where the position is, because this will only update every few seconds.</em>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>porting.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="porting-from-rdnh-sv3-to-sv4">Porting from RDNH SV3 to SV4</h1>
+    <p>
+      <a href="./docs.html">Return to Index</a>
+    </p>
+    <h1 id="section"></h1>
+    <p>This page documents the steps to port a script from ScriptVersion 3 to ScriptVersion 4.</p>
+    <p>If I missed anything, please let me know.<br />
+-- Mana</p>
+    <h2 id="general">General</h2>
+    <p>The save file formats have changed, any .dat files saved by the engine should be deleted manually (including LogWindow.dat if you want it to start with all filters on by default)</p>
+    <h2 id="arrays">Arrays</h2>
+    <p>Arrays are now <em>references</em>, ensure all array usage now takes this into account:</p>
+    <ul>
+      <li>When passing arrays to a function, if you want to work with a copy of the array instead of directly modifying the original array, you must make a local copy like: <code>let arrCopy = copy(arr);</code></li>
+      <li>The above point is also true for assigning an existing array to a variable, <code>let arr2 = arr1;</code> is a reference to the <em>same array</em></li>
+      <li>
+        <code>arr[index] = value;</code> will modify all references to the array</li>
+      <li>
+        <code>~</code> and <code>~=</code> operators do not modify the array, they create a new array leaving the original array untouched</li>
+    </ul>
+    <h2 id="strings">Strings</h2>
+    <p>Strings are now references to immutable sequences of characters, <em>not</em> arrays. The engine will attempt to de-duplicate simple strings (alphanumeric, underscores, dots, and slashes) during compilation to make comparison between strings faster.</p>
+    <p>Important points:</p>
+    <ul>
+      <li>The <code>~</code> and <code>~=</code> operators still work as expected</li>
+      <li>
+        <code>str[index] = value;</code> will no longer work and will raise a clear error message</li>
+      <li>
+        <code>array(str);</code> can be used to construct a modifiable array containing all of the characters of <code>str</code></li>
+      <li>
+        <code>string(value)</code> can be used to construct a new string from any type</li>
+    </ul>
+    <h2 id="collection-type-warning">Collection Type Warning</h2>
+    <p>All collection types (array, string, table) are references and use simple reference counting garbage collection. This means that if you create a reference cycle, <strong>the memory can leak</strong>.<br />
+Strings, despite being a collection type, cannot create reference cycles because they are immutable sequences of <em>char</em> (a non-collection type).</p>
+    <p>
+      <em>
+        <strong>Note</strong>: The <a href="./functions/other.html#copy">copy(collection)</a> function can be used to safely store a copy of a collection within itself.</em>
+    </p>
+    <p>The following are examples of reference cycles that can cause a leak and how to avoid them:</p>
+    <ul>
+      <li>arr[index] = arr
+<ul><li>use arr[index] = copy(arr) instead</li></ul></li>
+      <li>tab.property = tab;
+<ul><li>use tab.property = copy(tab) instead</li></ul></li>
+      <li>tab["property"] = tab;
+<ul><li>use tab["property"] = copy(tab) instead</li></ul></li>
+      <li>any array_ or table_ function that adds an element
+<ul><li>pass a copy as the element to add instead</li></ul></li>
+    </ul>
+    <p>The concatenation operators ~ and ~= <em>always</em> create a deep copy automatically and are therefore always safe to use.</p>
+    <h2 id="functions">Functions</h2>
+    <p>Some new functions are known to have the same names as functions in existing scripts:</p>
+    <ul>
+      <li>SetDifficulty</li>
+      <li>GetDifficulty</li>
+    </ul>
+    <h2 id="keywords">Keywords</h2>
+    <p>Some new keywords that were introduced are likely to potentially have the same names as variables in existing scripts, ensure that no variables are named the following:</p>
+    <ul>
+      <li>dif</li>
+      <li>const</li>
+      <li>nil</li>
+      <li>bool</li>
+      <li>real</li>
+      <li>char</li>
+      <li>array</li>
+      <li>string</li>
+      <li>table</li>
+    </ul>
+  </body>
+</html>

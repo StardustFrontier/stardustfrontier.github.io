@@ -1,0 +1,113 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>text_input.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="text-input-functions">Text Input Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="textinput_begin">TextInput_Begin</h2>
+    <p>Begins internal processing of text input.<br />
+This will fill the text buffer which can be retrieved and/or cleared with <a href="#textinput_getbuffer">TextInput_GetBuffer</a>.</p>
+    <p>
+      <em>Note: The internal text buffer will continue to be filled with characters every time a key is pressed until <a href="#textinput_end">TextInput_End</a> is called.</em>
+    </p>
+    <h2 id="textinput_end">TextInput_End</h2>
+    <p>Ends internal processing of text input and clears the text buffer.</p>
+    <h2 id="textinput_isactive">TextInput_IsActive</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns true if text input processing is active, otherwise returns false.</p>
+    <h2 id="textinput_getbuffer">TextInput_GetBuffer</h2>
+    <pre>
+    Arguments:
+        1) bool: bClear
+    Return Type:
+        string
+</pre>
+    <p>Returns a string with a copy of the text buffer.<br />
+If bClear is true, the buffer will be cleared.</p>
+    <h2 id="textinput_setimeposition">TextInput_SetImePosition</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+</pre>
+    <p>Sets the position of the Windows IME box</p>
+    <p>
+      <em>Note: No consistency is guaranteed with this function as it relies entirely on Windows functions.</em>
+    </p>
+    <h2 id="textinput_getimepositionx">TextInput_GetImePositionX</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Gets the x position of the Windows IME box</p>
+    <p>
+      <em>Note: No consistency is guaranteed with this function as it relies entirely on Windows functions.</em>
+    </p>
+    <h2 id="textinput_getimepositiony">TextInput_GetImePositionY</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Gets the y position of the Windows IME box</p>
+    <p>
+      <em>Note: No consistency is guaranteed with this function as it relies entirely on Windows functions.</em>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>obj_sprite_batch_2d.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="objspritebatch2d-functions">ObjSpriteBatch2D Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="objspritebatch2d_create">ObjSpriteBatch2D_Create</h2>
+    <pre>
+    Arguments:
+        1) real: maxSpriteCount
+    Returns:
+        real: objectID
+</pre>
+    <p>Creates a sprite batch 2d object with the ability to render up to maxSpriteCount sprites and returns its ID.</p>
+    <h2 id="objspritebatch2d_createrenderer">ObjSpriteBatch2D_CreateRenderer</h2>
+    <pre>
+    Arguments:
+        1)  real: objectID
+        2+) real const: blendTypes...
+</pre>
+    <p>Creates a renderer for the specified blend type(s).</p>
+    <p>
+      <em>Note: each renderer allocates memory for enough vertices to draw the sprite count set in ObjSpriteBatch2D_Create.</em>
+    </p>
+    <h2 id="objspritebatch2d_createrendererall">ObjSpriteBatch2D_CreateRendererAll</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Creates renderers for all blend types.</p>
+    <p>
+      <em>Note: each renderer allocates memory for enough vertices to draw the sprite count set in ObjSpriteBatch2D_Create.</em>
+    </p>
+    <h2 id="objspritebatch2d_settexture">ObjSpriteBatch2D_SetTexture</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: objectID
+</pre>
+    <p>Sets the texture for the sprite batch to use.</p>
+    <p>All objects added to the batch are rendered using this texture.</p>
+    <h2 id="objspritebatch2d_addsprite">ObjSpriteBatch2D_AddSprite</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: spriteObjectID
+</pre>
+    <p>Adds a sprite to the batch, which must be an ObjBatchSprite2D.</p>
+    <h2 id="objspritebatch2d_removesprite">ObjSpriteBatch2D_RemoveSprite</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: spriteObjectID
+</pre>
+    <p>Removes a sprite from the sprite batch.</p>
+    <p>
+      <em>Note: This is a slow operation and shouldn't be used often.</em>
+    </p>
+    <h2 id="objbatchsprite2d_create">ObjBatchSprite2D_Create</h2>
+    <pre>
+    Returns:
+        real: objectID
+</pre>
+    <p>Creates a 2D sprite object capable of being batch rendered and returns its ID.</p>
+    <p>This object is actually of the type OBJ_BATCH_SPRITE_2D, but it can use all ObjSprite2D functions and most ObjRender functions.</p>
+    <p>
+      <em>Note: These objects cannot use ObjPrim functions.</em>
+    </p>
+  </body>
+</html>

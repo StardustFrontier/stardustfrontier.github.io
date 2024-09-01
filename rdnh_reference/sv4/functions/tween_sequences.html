@@ -1,0 +1,108 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>tween_sequences.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="using-tween-sequences">Using Tween Sequences</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <p> </p>
+    <p>Related Pages:</p>
+    <ul>
+      <li>
+        <a href="./obj_render_tween_sequence.html">ObjRender Tween Sequence Functions</a>
+      </li>
+      <li>
+        <a href="./obj_tween_sequence.html">ObjTweenSequence Functions</a>
+      </li>
+      <li>
+        <a href="./tween_sequence_constants.html">Tween Sequence Constants</a>
+      </li>
+    </ul>
+    <hr />
+    <h2 id="tween-sequences">Tween Sequences</h2>
+    <p>Tween sequences are a new way to control render objects over time. They allow you to build a timeline of commands that set various properties of objects. These commands are referred to as "tweens".</p>
+    <p>A tween can be as simple as "instantly set the x-coordinate to 123" to as complex as "smoothly interpolate from the current colour values to new ones over 60 frames". Deleting the object is even possible with a tween.</p>
+    <p>All render objects when created have an empty tween sequence. This sequence can be added to as soon as the object is created using:</p>
+    <pre>ObjRender_AddTween(obj, tweenType, args...)</pre>
+    <p>While this function is defined as varargs, any extra arguments passed beyond the allowed amount for a type of tween will be discarded. If not enough arguments are passed, a default value of 0 will be used.</p>
+    <p>After adding tweens to the render object's tween sequence, you can begin playing the tween sequence using:</p>
+    <pre>ObjRender_PlayTweenSequence(obj)</pre>
+    <p>and stop it with:</p>
+    <pre>ObjRender_StopTweenSequence(obj, bCancelTweens)</pre>
+    <p>When stopping a sequence, if bCancelTweens is true, any tweens that change values over time in the sequence that were currently in progress will be forcibly stopped.</p>
+    <p>Once the tween sequence is finished playing, if an OnFinish function was set, this will now be called. This function must have 1 parameter so that it can be passed the object ID. The OnFinish function can be set with:</p>
+    <pre>ObjRender_SetTweenSequenceOnFinish(obj, $func)</pre>
+    <p>Note that the OnFinish function must be globally accessible in the script and can't be nested inside another function.</p>
+    <p>Other notes:</p>
+    <ul>
+      <li>Tweens have a set of 4 variables which can be set using TWEEN_VSET and TWEEN_VSET_RAND</li>
+      <li>Variables are used by passing TWEEN_V0, TWEEN_V1, TWEEN_V2, or TWEEN_V3 as an argument instead of a value</li>
+      <li>The only current use for variables is to pass random values to tweens</li>
+    </ul>
+    <h2 id="objtweensequence">ObjTweenSequence</h2>
+    <p>There is a new object type called <a href="./obj_tween_sequence.html">ObjTweenSequence</a>.</p>
+    <p>ObjTweenSequence is actually an invisible render object, so you add tweens to it in the same way as with any other render object (ObjRender_AddTween).</p>
+    <p>These objects are used to create reusable "templates" of tween sequences. For example, if you have some kind of effect that always uses the same tween sequence, instead of creating the tween sequence many times for each object, you can create one ObjTweenSequence and assign it to the render object using:</p>
+    <pre>ObjRender_SetTweenSequence(objSequence)</pre>
+    <p>Tween sequence command lists are shared. If you later use ObjRender_AddTween, it will update <em>all</em> shared command lists.</p>
+    <p>If you want to create a copy of a tween sequence with its own unique command list, use:</p>
+    <pre>ObjRender_CopyTweenSequence(objSequence)</pre>
+    <p>
+      <strong>
+        <em>Note</em>
+      </strong>: While command lists are shared, the actual <em>state</em> (progress within the sequence, etc.) is unique to each render object.</p>
+  </body>
+</html>

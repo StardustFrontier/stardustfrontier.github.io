@@ -1,0 +1,180 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>array.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="array-functions">Array Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="array_append">array_append</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+        2+) any: values...
+</pre>
+    <p>Appends the given values to the array.</p>
+    <h2 id="array_insert">array_insert</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+        2) real: index
+        3) any: value
+</pre>
+    <p>Inserts the value into the array at the given index.</p>
+    <h2 id="array_pop">array_pop</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+</pre>
+    <p>Removes the last element from the array.</p>
+    <h2 id="array_erase">array_erase</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+        2) real: index
+</pre>
+    <p>Erases the element at the given index from the array.</p>
+    <h2 id="array_reserve">array_reserve</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+        2) real: n
+</pre>
+    <p>Pre-allocates memory for n elements without resizing the actual array.</p>
+    <p>For example:<br />
+if this is called on an empty array like array_reserve(arr, 100), the length will still be 0, but it will be faster to append to because the space is already reserved.</p>
+    <h2 id="array_resize">array_resize</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+        2) real: n
+        3) any: initValue = nil
+</pre>
+    <p>Resizes the array so that it contains n elements.</p>
+    <p>If n &lt; length(arr): removes the excess elements<br />
+If n &gt; length(arr): expands the container, setting each new element to initValue (nil if not provided)</p>
+    <h2 id="array_clear">array_clear</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+</pre>
+    <p>Removes all elements from the array.</p>
+    <h2 id="array_find">array_find</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+        2) any: toFind
+        3) real: startIndex = 0
+    Return Type:
+        real
+</pre>
+    <p>Finds the value in arr and returns the index it starts at or -1 if it was not found.</p>
+    <p>Optionally, the index to start the operation at can be specified. This is 0 by default.</p>
+    <h2 id="array_bisect_left">array_bisect_left</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+        2) any: x
+        3) any: low?
+        4) any: high?
+    Return:
+        real: index
+</pre>
+    <p>Returns the index in the sorted array where x should be inserted to maintain the array's order.</p>
+    <p>If x already exists in the list, the index of its first occurrence is returned.<br /><em>low</em> and <em>high</em> can optionally be passed to specify the bounds within the array to search (defaults to the 0 and length(arr)).</p>
+    <h2 id="array_bisect_right">array_bisect_right</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+        2) any: x
+        3) any: low?
+        4) any: high?
+    Return:
+        real: index
+</pre>
+    <p>Returns the rightmost index in the sorted array where x should be inserted to maintain the array's order.</p>
+    <p>If x already exists in the list, the next index after the last occurrence is returned.
+<em>low</em> and <em>high</em> can optionally be passed to specify the bounds within the array to search (defaults to the 0 and length(arr)).</p>
+    <h2 id="array_bisect">array_bisect</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+        2) any: x
+        3) any: low?
+        4) any: high?
+    Return:
+        real: index
+</pre>
+    <p>This function is an alias for array_bisect_right and works in the exact same way.</p>
+    <h2 id="array_count">array_count</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+        2) any: value
+    Return Type:
+        real
+</pre>
+    <p>Returns the number of times the given value appears in the array.</p>
+    <h2 id="array_contains">array_contains</h2>
+    <pre>
+    Arguments:
+        1) array: arr
+        2) any: value
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the array contains the given value at least once, otherwise returns false.</p>
+  </body>
+</html>

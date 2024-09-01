@@ -1,0 +1,108 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>filter_types.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="filter-types">Filter Types</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h1 id="section"></h1>
+    <p>The available texture filtering types are as follows, with the descriptions coming from the official Direct3D 9 documentation:</p>
+    <ul>
+      <li>
+        <strong>FILTER_NONE</strong>
+        <br />
+When used as a Mip filter type, disables mipmapping. This causes the rasterizer to use the magnification filter instead.</li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        <strong>FILTER_POINT</strong>
+        <br />
+When used as a Mag or Min filter type, point filtering (nearest neighbor) is used.<br />
+When used as a Mip filter type, enables mipmapping and specifies that the rasterizer chooses the color from the texel of the nearest mip level.</li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        <strong>FILTER_LINEAR</strong>
+        <br />
+When used as a Mag or Min filter type, bilinear interpolation filtering is used.<br />
+When used as a Mip filter type, enables mipmapping and trilinear filtering; it specifies that the rasterizer interpolates between the two nearest mip levels.</li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        <strong>FILTER_ANISOTROPIC</strong>
+        <br />
+When used as a Mag or Min filter type, specifies that anisotropic texture filtering is used. Compensates for distortion caused by the difference in angle between the texture polygon and the plane of the screen.<br /><br /><em><strong>Warning</strong>: Do not use as a Mip filter type.</em></li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        <strong>FILTER_PYRAMIDAL_QUAD</strong>
+        <br />
+A 4-sample tent filter used as a Mag or Min filter.<br /><br /><em><strong>Warning</strong>: Do not use as a Mip filter type.</em></li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        <strong>FILTER_GAUSSIAN_QUAD</strong>
+        <br />
+A 4-sample Gaussian filter used as a Mag or Min filter.<br /><br /><em><strong>Warning</strong>: Do not use as a Mip filter type.</em></li>
+    </ul>
+    <br />
+  </body>
+</html>

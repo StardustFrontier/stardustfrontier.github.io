@@ -1,0 +1,559 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>system.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="system-functions">System Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="setstgframe">SetStgFrame</h2>
+    <pre>
+    Arguments:
+        1) real: left
+        2) real: top
+        3) real: right
+        4) real: bottom
+        5) real: minRenderPriorityI
+        6) real: maxRenderPriorityI
+</pre>
+    <p>Sets the STG space frame with the given rectangle and minimum and maximum (integer) render priorities.</p>
+    <p>Default values are (32, 16, 416, 464, 20, 80).</p>
+    <h2 id="getscore">GetScore</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the current score.</p>
+    <h2 id="addscore">AddScore</h2>
+    <pre>
+    Arguments:
+        1) real: score
+</pre>
+    <p>Adds the given value to the score.</p>
+    <h2 id="getgraze">GetGraze</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the current graze count.</p>
+    <h2 id="addgraze">AddGraze</h2>
+    <pre>
+    Arguments:
+        1) real: graze
+</pre>
+    <p>Adds the given value to the graze count.</p>
+    <h2 id="getpoint">GetPoint</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the current amount of point items collected.</p>
+    <h2 id="addpoint">AddPoint</h2>
+    <pre>
+    Arguments:
+        1) real: point
+</pre>
+    <p>Adds the given value to the point count.</p>
+    <h2 id="getdifficulty">GetDifficulty</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Gets the difficulty level of all running scripts.</p>
+    <h2 id="setdifficulty">SetDifficulty</h2>
+    <pre>
+    Arguments:
+        1) real: difficulty
+</pre>
+    <p>Sets the difficulty level of all scripts, affecting both currently running scripts and future started ones.</p>
+    <p>The following values should be used for functions like <a href="#vdif">vdif</a> to make sense:</p>
+    <pre>
+0 = Easy
+1 = Normal
+2 = Hard
+3 = Lunatic
+</pre>
+    <h2 id="vdif">vdif</h2>
+    <pre>
+    Arguments:
+        1) any: args...
+    Return:
+        any: value
+</pre>
+    <p>Returns the argument value at the index equivalent to the difficulty level (uses <a href="#getdifficulty">GetDifficulty</a> internally).</p>
+    <p>If the index is out of bounds, the last argument will be returned.<br />
+This allows you to return the last argument in cases where you want every difficulty beyond a certain one to have the same value.</p>
+    <p>Example:</p>
+    <pre>
+let value1 = [2, 4, 6, 8][GetDifficulty()];
+let value2 = vdif(2, 4, 6, 8); // same result as the above line
+
+let value3 = vdif(4, 16); // if difficulty &gt;= 1 (Normal), 16 will be returned
+</pre>
+    <h2 id="setenemyrenderpriorityi">SetEnemyRenderPriorityI</h2>
+    <pre>
+    Arguments:
+        1) real: renderPriorityI
+</pre>
+    <p>Sets the render priority for enemies, on a 0 to 100 scale.</p>
+    <p>Default is 40.</p>
+    <h2 id="setitemrenderpriorityi">SetItemRenderPriorityI</h2>
+    <pre>
+    Arguments:
+        1) real: renderPriorityI
+</pre>
+    <p>Sets the render priority for items, on a 0 to 100 scale.</p>
+    <p>Default is 60.</p>
+    <h2 id="setshotrenderpriorityi">SetShotRenderPriorityI</h2>
+    <pre>
+    Arguments:
+        1) real: renderPriorityI
+</pre>
+    <p>Sets the render priority for shots, on a 0 to 100 scale.</p>
+    <p>Default is 50.</p>
+    <h2 id="getstgframerenderprioritymini">GetStgFrameRenderPriorityMinI</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the lowest render priority for the STG frame, on a 0 to 100 scale.</p>
+    <p>Default is 20.</p>
+    <h2 id="getstgframerenderprioritymaxi">GetStgFrameRenderPriorityMaxI</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the highest render priority for the STG frame, on a 0 to 100 scale.</p>
+    <p>Default is 80.</p>
+    <h2 id="getenemyrenderpriorityi">GetEnemyRenderPriorityI</h2>
+    <pre>
+    Returns:
+        real: priorityI
+</pre>
+    <p>Returns the render priority for enemies, on a 0 to 100 scale.</p>
+    <h2 id="getitemrenderpriorityi">GetItemRenderPriorityI</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the render priority for items, on a 0 to 100 scale.</p>
+    <h2 id="getshotrenderpriorityi">GetShotRenderPriorityI</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the render priority for shots, on a 0 to 100 scale.</p>
+    <h2 id="getplayerrenderpriorityi">GetPlayerRenderPriorityI</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the render priority for the player, on a 0 to 100 scale.</p>
+    <h2 id="getcamerafocuspermitpriorityi">GetCameraFocusPermitPriorityI</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the highest render priority the 2D camera can affect, on a 0 to 100 scale.</p>
+    <p>Default is 79.</p>
+    <h2 id="getstgframeleft">GetStgFrameLeft</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the leftmost coordinate of the STG frame (playing field).</p>
+    <p>Default is 32.</p>
+    <h2 id="getstgframetop">GetStgFrameTop</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the topmost coordinate of the STG frame (playing field).</p>
+    <p>Default is 16.</p>
+    <h2 id="getstgframewidth">GetStgFrameWidth</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the width of the STG frame (playing field).</p>
+    <p>Default is 384.</p>
+    <h2 id="getstgframeheight">GetStgFrameHeight</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the height of the STG frame (playing field).</p>
+    <p>Default is 448.</p>
+    <h2 id="getscreenwidth">GetScreenWidth</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the width of the screen (resolution) as defined in the .def.</p>
+    <p>Default is 640.</p>
+    <h2 id="getscreenheight">GetScreenHeight</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the height of the screen (resolution) as defined in the .def.</p>
+    <p>Default is 480.</p>
+    <h2 id="getmaxscreenwidth">GetMaxScreenWidth</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the largest screen width defined in the .def.</p>
+    <p>If only one screen size is defined, this has the same effect as GetScreenWidth.</p>
+    <h2 id="getmaxscreenheight">GetMaxScreenHeight</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the largest screen height defined in the .def.</p>
+    <p>If only one screen size is defined, this has the same effect as GetScreenHeight.</p>
+    <h2 id="getwindowwidth">GetWindowWidth</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the current width of the window.</p>
+    <h2 id="getwindowheight">GetWindowHeight</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the current height of the window.</p>
+    <h2 id="getsupportedresolutions">GetSupportedResolutions</h2>
+    <pre>
+    Return Type:
+        array[array[real]]
+</pre>
+    <p>Returns an array of all supported resolutions [width, height, refreshRate].</p>
+    <h2 id="isreplay">IsReplay</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if a replay is playing, otherwise returns false.</p>
+    <h2 id="addarchivefile">AddArchiveFile</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Adds the path to use when reading files from an archive file.</p>
+    <p>Returns true if the archive was successfully read, otherwise returns false.</p>
+    <h2 id="isskipmode">IsSkipMode</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the game is currently in skip (fast-forward) mode, otherwise returns false.</p>
+    <h2 id="ispackagerunning">IsPackageRunning</h2>
+    <pre>
+    Returns:
+        bool: bRunning
+</pre>
+    <p>Returns true in any script if a package script is running, otherwise returns false.</p>
+    <h2 id="isloadthreadcomplete">IsLoadThreadComplete</h2>
+    <pre>
+    Returns:
+        bool: bComplete
+</pre>
+    <p>Returns true if all load thread events have completed.</p>
+    <p>
+      <em>
+        <strong>Note</strong>: This should not be used to <strong>yield;</strong> during a stage, since this will cause replay desync, but yielding on package loading screens should be fine.</em>
+    </p>
+    <h2 id="getdnhconfigvalue">GetDnhConfigValue</h2>
+    <pre>
+    Arguments:
+        1) real const: configType
+        2) varies: ... (varargs args)
+    Return Type:
+        varies
+</pre>
+    <p>
+      <strong>Deprecated:</strong> Use the DnhConfig_ functions instead.</p>
+    <p>Returns a value from dnh's current config data based on the given <a href="./docs_config_types.html">config type</a>.</p>
+    <h2 id="setdnhconfigvalue">SetDnhConfigValue</h2>
+    <pre>
+    Arguments:
+        1) real const: configType
+        2) varies: ... (varargs args)
+</pre>
+    <p>
+      <strong>Deprecated:</strong> Use the DnhConfig_ functions instead.</p>
+    <p>Sets a value to dnh's current config data based on the given <a href="./docs_config_types.html">config type</a>.</p>
+    <p>
+      <em>Note: This will persist for the rest of the session, but in order to be saved, <a href="savednhconfigfile">SaveDnhConfigFile</a> must be called.</em>
+    </p>
+    <h2 id="dnhconfig_getwindowstyle">DnhConfig_GetWindowStyle</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the window style from DnhConfig.</p>
+    <p>(fullscreen, windowed)</p>
+    <h2 id="dnhconfig_getwindowsizeindex">DnhConfig_GetWindowSizeIndex</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the window size index from DnhConfig.</p>
+    <p>This is an index into the window size list defined in rdnh.def.</p>
+    <h2 id="dnhconfig_getframeskipmode">DnhConfig_GetFrameskipMode</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the frameskip mode from DnhConfig</p>
+    <p>(1/1, 1/2, 1/3, Automatic)</p>
+    <h2 id="dnhconfig_isvsync">DnhConfig_IsVsync</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns a boolean indicating whether or not vertical sync is enabled in DnhConfig.</p>
+    <h2 id="dnhconfig_isborderlessfullscreen">DnhConfig_IsBorderlessFullScreen</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns a boolean indicating whether or not borderless fullscreen mode is enabled in DnhConfig.</p>
+    <h2 id="dnhconfig_isintegerscale">DnhConfig_IsIntegerScale</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns a boolean indicating whether or not integer scaling for borderless fullscreen mode is enabled in DnhConfig.</p>
+    <p>
+      <em>Note: In official Touhou this is known as "DOT by DOT" mode.</em>
+    </p>
+    <h2 id="dnhconfig_getpadindex">DnhConfig_GetPadIndex</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the currently set pad index, chosen from the list of pads displayed in config.exe.</p>
+    <h2 id="dnhconfig_getvirtualkey">DnhConfig_GetVirtualKey</h2>
+    <pre>
+    Arguments:
+        1) real const: virtualKeyID
+    Return Type:
+        real array
+</pre>
+    <p>Returns an array of info about the given virtual key in DnhConfig.</p>
+    <p>[keyboardKey, padIndex, padButton]</p>
+    <h2 id="dnhconfig_islogwindow">DnhConfig_IsLogWindow</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns a boolean indicating whether or not the LogWindow is enabled in DnhConfig.</p>
+    <h2 id="dnhconfig_islogfile">DnhConfig_IsLogFile</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns a boolean indicating whether or not logging to a file is enabled in DnhConfig.</p>
+    <h2 id="dnhconfig_ismousevisible">DnhConfig_IsMouseVisible</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Returns a boolean indicating whether or not mouse visibility is enabled in DnhConfig.</p>
+    <h2 id="dnhconfig_getuservalue">DnhConfig_GetUserValue</h2>
+    <pre>
+    Arguments:
+        1) real const: valueIndex
+    Return Type:
+        bool
+</pre>
+    <p>Returns a user-defined real number value that was saved within DnhConfig at a given index.
+8 user-defined indices (0-7) are available.</p>
+    <h2 id="dnhconfig_setwindowstyle">DnhConfig_SetWindowStyle</h2>
+    <pre>
+    Arguments:
+        1) real const: style
+</pre>
+    <p>Sets the window style in DnhConfig.</p>
+    <p>(fullscreen, windowed)</p>
+    <h2 id="dnhconfig_setwindowsizeindex">DnhConfig_SetWindowSizeIndex</h2>
+    <pre>
+    Arguments:
+        1) real: windowSizeIndex
+</pre>
+    <p>Sets the window size index in DnhConfig.</p>
+    <p>This is an index into the window size list defined in rdnh.def.</p>
+    <h2 id="dnhconfig_setframeskipmode">DnhConfig_SetFrameskipMode</h2>
+    <pre>
+    Arguments:
+        1) real const: mode
+</pre>
+    <p>Sets the frameskip mode in DnhConfig.</p>
+    <h2 id="dnhconfig_setvsync">DnhConfig_SetVsync</h2>
+    <pre>
+    Arguments:
+        1) bool: enable
+</pre>
+    <p>Enables or disables vertical sync in DnhConfig.</p>
+    <h2 id="dnhconfig_setborderlessfullscreen">DnhConfig_SetBorderlessFullScreen</h2>
+    <pre>
+    Arguments:
+        1) bool: enable
+</pre>
+    <p>Enables or disables borderless fullscreen mode in DnhConfig.</p>
+    <h2 id="dnhconfig_setintegerscale">DnhConfig_SetIntegerScale</h2>
+    <pre>
+    Arguments:
+        1) bool: enable
+</pre>
+    <p>Enables or disables integer scaling for borderless fullscreen mode is enabled in DnhConfig.</p>
+    <p>
+      <em>Note: In official Touhou this is known as "DOT by DOT" mode.</em>
+    </p>
+    <h2 id="dnhconfig_setpadindex">DnhConfig_SetPadIndex</h2>
+    <pre>
+    Arguments:
+        1) real: padIndex
+</pre>
+    <p>Sets the pad index, chosen from the list of pads displayed in config.exe.</p>
+    <h2 id="dnhconfig_setvirtualkey">DnhConfig_SetVirtualKey</h2>
+    <pre>
+    Arguments:
+        1) real const: virtualKeyID
+        2) real const: keyboardKey
+        3) real: padIndex
+        4) real: padButton
+</pre>
+    <p>Maps a virtual key to a keyboard key and/or pad button.</p>
+    <p>
+      <em>Note: The pad button can be acquired from CheckPadState()</em>
+    </p>
+    <h2 id="dnhconfig_setlogwindow">DnhConfig_SetLogWindow</h2>
+    <pre>
+    Arguments:
+        1) bool: enable
+</pre>
+    <p>Enables or disables the LogWindow in DnhConfig.</p>
+    <h2 id="dnhconfig_setlogfile">DnhConfig_SetLogFile</h2>
+    <pre>
+    Arguments:
+        1) bool: enable
+</pre>
+    <p>Enables or disables logging to files in DnhConfig.</p>
+    <h2 id="dnhconfig_setmousevisible">DnhConfig_SetMouseVisible</h2>
+    <pre>
+    Arguments:
+        1) bool: enable
+</pre>
+    <p>Enables or disables mouse visibility in DnhConfig.</p>
+    <h2 id="dnhconfig_setuservalue">DnhConfig_SetUserValue</h2>
+    <pre>
+    Arguments:
+        1) real: index
+        2) real: value
+</pre>
+    <p>Sets a user-defined real number value that is saved within DnhConfig at a given index.
+8 user-defined indices (0-7) are available.</p>
+    <h2 id="savednhconfigfile">SaveDnhConfigFile</h2>
+    <pre>
+    Return Type:
+        bool
+</pre>
+    <p>Saves the current config data to the module directory and returns true if successful.</p>
+    <p>This file is named config.dat by default.</p>
+    <h2 id="dnhdef_getwindowtitle">DnhDef_GetWindowTitle</h2>
+    <pre>
+    Return Type:
+        string
+</pre>
+    <p>Returns the window title defined in rdnh.def (WindowTitle)</p>
+    <h2 id="dnhdef_getpackagescriptpath">DnhDef_GetPackageScriptPath</h2>
+    <pre>
+    Return Type:
+        string
+</pre>
+    <p>Returns the package script path defined in rdnh.def (PackageScriptMain)</p>
+    <h2 id="dnhdef_getscreensizes">DnhDef_GetScreenSizes</h2>
+    <pre>
+    Return Type:
+        2D real array
+</pre>
+    <p>Returns an array of screen sizes defined in rdnh.def in the format: [[x, y], [x, y], [etc]]</p>
+    <p>This will be the screen size defined for each aspect ratio (Screen_4_3, Screen_16_9, etc)</p>
+    <h2 id="dnhdef_getwindowsizes">DnhDef_GetWindowSizes</h2>
+    <pre>
+    Return Type:
+        2D real array
+</pre>
+    <p>Returns the full array of window sizes defined in rdnh.def in the format: [[x, y], [x, y], [etc]]</p>
+    <h2 id="dnhdef_getdefaultwindowsizeindex">DnhDef_GetDefaultWindowSizeIndex</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the default window size index.</p>
+    <p>This is the index of the window size to start with by default when no config data exists.</p>
+    <h2 id="setwindowtitle">SetWindowTitle</h2>
+    <pre>
+    Arguments:
+        1) string: title
+</pre>
+    <p>Sets the window title.</p>
+    <p>If an empty string is passed, the initial window title will be restored.</p>
+  </body>
+</html>

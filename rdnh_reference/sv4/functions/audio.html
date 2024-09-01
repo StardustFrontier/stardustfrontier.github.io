@@ -1,0 +1,111 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>audio.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="audio-functions">Audio Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="loadsound">LoadSound</h2>
+    <pre>
+    Arguments:
+        1) string: path
+    Return Type:
+        bool
+</pre>
+    <p>Loads the specified sound file.<br />
+Returns true if successful, otherwise returns false.<br /><em>Note: Required before using PlayBGM or PlaySE in the same script as these two functions are called on the respective paths.</em></p>
+    <h2 id="removesound">RemoveSound</h2>
+    <pre>
+    Arguments:
+        1) string: path
+</pre>
+    <p>Unloads the specified sound file.</p>
+    <h2 id="playbgm">PlayBGM</h2>
+    <pre>
+    Arguments:
+        1) string: path
+        2) real: loopStart
+        3) real: loopEnd
+</pre>
+    <p>Plays the specified sound file as a looping BGM.<br />
+You can be more precise by using decimals.</p>
+    <h2 id="playse">PlaySE</h2>
+    <pre>
+    Arguments:
+        1) string: path
+</pre>
+    <p>Plays specified sound file as a sound effect.</p>
+    <h2 id="stopsound">StopSound</h2>
+    <pre>
+    Arguments:
+        1) string: path
+</pre>
+    <p>Stops playing the specified sound file.</p>
+    <h2 id="setsounddivisionvolumerate">SetSoundDivisionVolumeRate</h2>
+    <pre>
+    Arguments:
+        1) real const: soundDivision
+        2) real: volumeRate
+</pre>
+    <p>Sets the volume rate for the specified sound division.</p>
+    <h2 id="getsounddivisionvolumerate">GetSoundDivisionVolumeRate</h2>
+    <pre>
+    Arguments:
+        1) real const: soundDivision
+</pre>
+    <p>Returns the volume rate of the specified sound division.</p>
+  </body>
+</html>

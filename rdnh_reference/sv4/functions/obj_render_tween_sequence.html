@@ -1,0 +1,197 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>obj_render_tween_sequence.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="objrender-tween-sequence-functions">ObjRender Tween Sequence Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <p> </p>
+    <p>Related Pages:</p>
+    <ul>
+      <li>
+        <a href="./tween_sequences.html">Using Tween Sequences</a>
+      </li>
+      <li>
+        <a href="./obj_tween_sequence.html">ObjTweenSequence Functions</a>
+      </li>
+      <li>
+        <a href="./tween_sequence_constants.html">Tween Sequence Constants</a>
+      </li>
+    </ul>
+    <hr />
+    <h2 id="objrender_addtween">ObjRender_AddTween</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+        2) real const: tweenType
+        3+) real: args...
+    Return Type:
+        real
+</pre>
+    <p>Adds a <a href="./tween_sequence_constants.html">tween command</a> to the object's tween sequence and returns its index.</p>
+    <p>Required arguments for each type vary, see the list of commands for more details.</p>
+    <h2 id="objrender_removetween">ObjRender_RemoveTween</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+</pre>
+    <p>Removes the last tween command from the object's tween sequence.</p>
+    <h2 id="objrender_initializetweensequence">ObjRender_InitializeTweenSequence</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+        2) real: size
+</pre>
+    <p>Initializes the object's tween sequence, optionally reserving space (0 or NULL to ignore) for size commands.</p>
+    <h2 id="objrender_settweensequence">ObjRender_SetTweenSequence</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+        2) real: objSeqID
+</pre>
+    <p>Sets the object's tween sequence to objSeqID, which must be an ObjTweenSequence.</p>
+    <h2 id="objrender_copytweensequence">ObjRender_CopyTweenSequence</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+        2) real: objID2
+</pre>
+    <p>Copies objID2's tween sequence to objID.</p>
+    <h2 id="objrender_playtweensequence">ObjRender_PlayTweenSequence</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+</pre>
+    <p>Starts playing the object's tween sequence from the beginning.</p>
+    <h2 id="objrender_stoptweensequence">ObjRender_StopTweenSequence</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+        2) bool: bCancelTweens
+</pre>
+    <p>Stops playing the object's tween sequence.</p>
+    <p>if bCancelTweens is true, cancels any <em>CHANGE</em> type tweens.</p>
+    <h2 id="objrender_pausetweensequence">ObjRender_PauseTweenSequence</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+        2) bool: bCancelTweens
+</pre>
+    <p>Pauses the object's tween sequence without resetting its state.</p>
+    <p>if bCancelTweens is true, cancels any <em>CHANGE</em> type tweens.</p>
+    <h2 id="objrender_resumetweensequence">ObjRender_ResumeTweenSequence</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+</pre>
+    <p>Resumes playing a previously paused object's tween sequence.</p>
+    <h2 id="objrender_patchtweenjump">ObjRender_PatchTweenJump</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+        2) real: jumpIndex
+</pre>
+    <p>Patches the jump at jumpIndex in the tween sequence to point to the next added tween command.</p>
+    <h2 id="objrender_settweensequenceonfinish">ObjRender_SetTweenSequenceOnFinish</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+        2) function: funcOnFinish
+</pre>
+    <p>Sets the function to call after the tween sequence finishes executing.</p>
+    <p>funcOnFinish cannot be task or sub and must take 1 parameter.</p>
+    <h2 id="objrender_gettweensequencetimer">ObjRender_GetTweenSequenceTimer</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+    Return Type:
+        real
+</pre>
+    <p>Returns the tween sequence's current timer value. This is set by TWEEN_WAIT and counts down to 0.</p>
+    <h2 id="objrender_settweensequencetimer">ObjRender_SetTweenSequenceTimer</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+        2) real: timer
+</pre>
+    <p>Sets the tween sequence's timer value directly. A tween of type TWEEN_WAIT should be used instead for most cases.</p>
+    <h2 id="objrender_gettweensequenceindex">ObjRender_GetTweenSequenceIndex</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+    Return Type:
+        real
+</pre>
+    <p>Returns the tween sequence's current instruction index.</p>
+    <p>This may be inaccurate during execution, since tween sequences run ahead of scripts.</p>
+    <h2 id="objrender_settweensequenceindex">ObjRender_SetTweenSequenceIndex</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+        2) real: index
+</pre>
+    <p>Sets the tween sequence's instruction index directly.</p>
+    <p>This can be useful for setting the initial index to start at.</p>
+    <h2 id="objrender_tweensequenceisstopped">ObjRender_TweenSequenceIsStopped</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the sequence is stopped or finished, otherwise returns false.</p>
+  </body>
+</html>

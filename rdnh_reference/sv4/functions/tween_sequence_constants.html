@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="MarkdownViewer++" />
+        <title>tween_sequence_constants.md</title>
+        <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+      </head>
+    <body>
+        <h1 id="objrender-tween-sequence-constants">ObjRender Tween Sequence Constants</h1>
+<p><a href="../functions.html">Return to Functions</a></p>
+<p> </p>
+<p>Related Pages:</p>
+<ul>
+<li><a href="./tween_sequences.html">Using Tween Sequences</a></li>
+<li><a href="./obj_render_tween_sequence.html">ObjRender Tween Sequence Functions</a></li>
+<li><a href="./obj_tween_sequence.html">ObjTweenSequence Functions</a></li>
+</ul>
+<hr />
+<h2 id="introduction">Introduction</h2>
+<p>In the following sections, arguments listed after the constant name like <strong>TWEEN_SOMETHING(arg1, arg2)</strong> refer to the arguments passed after the constant in the ObjRender_AddTween function.</p>
+<p><em><strong>Note</strong>: Argument values must not exceed 9,007,199,254,740,975 (2^53-17).</em></p>
+<h2 id="variables">Variables</h2>
+<p>These are not actually commands. They can be used in the same places as value arguments, but behave as variables.</p>
+<pre>
+TWEEN_V0: variable at index 0
+
+TWEEN_V1: variable at index 1
+
+TWEEN_V2: variable at index 2
+
+TWEEN_V3: variable at index 3
+</pre>
+<h2 id="sequence-relatedgeneral-purpose">Sequence-related/General Purpose</h2>
+<pre>
+TWEEN_WAIT(frames): delays execution of the next command by frames
+
+TWEEN_PRINT(level = LOG_USER): prints debug info about the sequence
+
+TWEEN_NOTIFY_EVENT(scriptId, eventType, args...): NotifyEvent
+
+TWEEN_NOTIFY_EVENT_OWN(eventType, args...): NotifyEventOwn
+
+TWEEN_NOTIFY_EVENT_ALL(eventType, args...): NotifyEventAll
+</pre>
+<h2 id="variables-and-math">Variables and Math</h2>
+<pre>
+TWEEN_VSET(var&, value): var = value
+
+TWEEN_VADD(var&, value): var += value
+
+TWEEN_VSUB(var&, value): var -= value
+
+TWEEN_VMUL(var&, value): var *= value
+
+TWEEN_VDIV(var&, value): var /= value
+
+TWEEN_VMOD(var&, value): var %= value
+
+TWEEN_VSIN(var&, value): var = sin(value)
+
+TWEEN_VCOS(var&, value): var = cos(value)
+
+TWEEN_VRAND(var&, minValue, maxValue): var = prand(minValue, maxValue)
+</pre>
+<h2 id="jumps">Jumps</h2>
+<p>All jumps use absolute offsets.</p>
+<pre>
+TWEEN_JUMP(jumpDest): unconditional jump to jumpDest
+
+TWEEN_JUMP_DEC(varCounter&, jumpDest): decrement varCounter, if varCounter > 0: jump to jumpDest
+
+TWEEN_JUMP_E(a, b, jumpDest): if a == b: jump to jumpDest
+
+TWEEN_JUMP_NE(a, b, jumpDest): if a != b: jump to jumpDest
+
+TWEEN_JUMP_L(a, b, jumpDest): if a < b: jump to jumpDest
+
+TWEEN_JUMP_LE(a, b, jumpDest): if a <= b: jump to jumpDest
+
+TWEEN_JUMP_G(a, b, jumpDest): if a > b: jump to jumpDest
+
+TWEEN_JUMP_GE(a, b, jumpDest): if a >= b: jump to jumpDest
+</pre>
+<h2 id="obj-manipulation">Obj Manipulation</h2>
+<pre>
+TWEEN_DELETE(): Obj_Delete
+
+TWEEN_SET_FLAG(flag): Obj_SetFlag
+
+TWEEN_CLEAR_FLAG(flag): Obj_ClearFlag
+</pre>
+<h2 id="objrender-manipulation">ObjRender Manipulation</h2>
+<pre>
+TWEEN_SET_X(x): ObjRender_SetX
+
+TWEEN_SET_Y(y): ObjRender_SetY
+
+TWEEN_SET_Z(z): ObjRender_SetZ
+
+TWEEN_SET_POSITION(x, y, z): ObjRender_SetPosition
+
+TWEEN_SET_ANGLE_X(x): ObjRender_SetAngleX
+
+TWEEN_SET_ANGLE_Y(y): ObjRender_SetAngleY
+
+TWEEN_SET_ANGLE_Z(z): ObjRender_SetAngleZ
+
+TWEEN_SET_ANGLE(x, y, z): ObjRender_SetAngleXYZ
+
+TWEEN_SET_SCALE_X(x): ObjRender_SetScaleX
+
+TWEEN_SET_SCALE_Y(y): ObjRender_SetScaleY
+
+TWEEN_SET_SCALE_Z(z): ObjRender_SetScaleZ
+
+TWEEN_SET_SCALE(x, y, z): ObjRender_SetScaleXYZ
+
+TWEEN_SET_COLOR(r, g, b): ObjRender_SetColor
+
+TWEEN_SET_COLOR_HEX(color): ObjRender_SetColorHex
+
+TWEEN_SET_COLOR_HSV(h, s, v): ObjRender_SetColorHSV
+
+TWEEN_SET_ALPHA(alpha): ObjRender_SetAlpha
+
+TWEEN_SET_BLEND_TYPE(blendType): ObjRender_SetBlendType
+
+TWEEN_SET_MOVE_SPEED(speedX, speedY, speedZ): ObjRender_SetMoveSpeed
+
+TWEEN_SET_ROTATION_SPEED(speedX, speedY, speedZ): ObjRender_SetRotationSpeed
+
+TWEEN_SET_SCALE_SPEED(speedX, speedY, speedZ): ObjRender_SetScaleSpeed
+
+TWEEN_CHANGE_POSITION(duration, method, endValueX, endValueY, endValueZ): ObjRender_TweenPosition
+
+TWEEN_CHANGE_ANGLE(duration, method, endValueX, endValueY, endValueZ): ObjRender_TweenAngle
+
+TWEEN_CHANGE_SCALE(duration, method, endValueX, endValueY, endValueZ): ObjRender_TweenScale
+
+TWEEN_CHANGE_COLOR(duration, method, endValueR, endValueG, endValueB): ObjRender_TweenColor
+
+TWEEN_CHANGE_ALPHA(duration, method, endValueA, startFrame): ObjRender_TweenAlpha
+</pre>
+<h2 id="objsprite2d-manipulation">ObjSprite2D Manipulation</h2>
+<pre>
+TWEEN_SPRITE2D_SET_SOURCE_RECT(left, top, right, bottom): ObjSprite2D_SetSourceRect
+
+TWEEN_SPRITE2D_SET_SOURCE_RECTB(x, y, width, height): ObjSprite2D_SetSourceRectB
+
+TWEEN_SPRITE2D_SET_DEST(typeDest): ObjSprite2D_SetDest
+
+TWEEN_SPRITE2D_SET_DEST_RECT(left, top, right, bottom): ObjSprite2D_SetDestRect
+
+TWEEN_SPRITE2D_SET_DEST_CENTER(): ObjSprite2D_SetDestCenter
+</pre>
+<h2 id="objsprite3d-manipulation">ObjSprite3D Manipulation</h2>
+<pre>
+TWEEN_SPRITE3D_SET_SOURCE_RECT(left, top, right, bottom): ObjSprite3D_SetSourceRect
+
+TWEEN_SPRITE3D_SET_SOURCE_RECTB(x, y, width, height): ObjSprite3D_SetSourceRectB
+
+TWEEN_SPRITE3D_SET_DEST(typeDest): ObjSprite3D_SetDest
+
+TWEEN_SPRITE3D_SET_DEST_RECT(left, top, right, bottom): ObjSprit3D_SetDestRect
+
+TWEEN_SPRITE3D_SET_SOURCE_DEST_RECT(left, top, right, bottom): ObjSprit3D_SetSourceDestRect
+</pre>
+
+    </body>
+</html>
+            

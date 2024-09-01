@@ -1,0 +1,241 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>obj_prim.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="objprim-functions">ObjPrim Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="objprim_create">ObjPrim_Create</h2>
+    <pre>
+    Arguments:
+        1) real: objectType
+    Return Type:
+        real
+</pre>
+    <p>Creates a Primitive object.</p>
+    <p>Object types are:</p>
+    <pre>
+OBJ_PRIMITIVE_2D: primitive (triangle) in the 2D space
+OBJ_SPRITE_2D: rectangle in the 2D space (usable by the ObjSprite2D_ functions).
+OBJ_SPRITE_LIST_2D: list of rectangles in the 2D space (usable by the ObjSpriteList2D_ functions).
+OBJ_PRIMITIVE_3D: primitive (triangle) in the 3D space
+OBJ_SPRITE_3D: rectangle in the 3D space (usable by the ObjSprite3D_ functions).
+</pre>
+    <h2 id="objprim_setprimitivetype">ObjPrim_SetPrimitiveType</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real const: primitiveType
+</pre>
+    <p>Creates a Primitive object.</p>
+    <p>Primitive types are:</p>
+    <pre>
+PRIMITIVE_TRIANGLELIST
+PRIMITIVE_TRIANGLESTRIP
+PRIMITIVE_TRIANGLEFAN
+PRIMITIVE_LINELIST
+PRIMITIVE_LINESTRIP
+PRIMITIVE_POINT_LIST
+</pre>
+    <h2 id="objprim_setvertexcount">ObjPrim_SetVertexCount</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: vertexCount
+</pre>
+    <p>Sets the number of vertices the object contains.</p>
+    <h2 id="objprim_getvertexcount">ObjPrim_GetVertexCount</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the number of vertices the object contains.</p>
+    <p>
+      <em>Note: When used on a sprite list object, returns the number of vertices added with ObjSpriteList2D_AddVertex * 6</em>
+    </p>
+    <h2 id="objprim_settexture">ObjPrim_SetTexture</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: pathTexture
+</pre>
+    <p>Sets the specified texture on the object.</p>
+    <p>Loads the texture file if it has not already been loaded.</p>
+    <h2 id="objprim_gettexture">ObjPrim_GetTexture</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Returns:
+        string: texture
+</pre>
+    <p>Returns the path or name of the object's texture.</p>
+    <h2 id="objprim_gettexturewidth">ObjPrim_GetTextureWidth</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Returns:
+        real: width
+</pre>
+    <p>Returns the width of the object's texture.</p>
+    <p>If the object doesn't have a texture set, this will return 0.</p>
+    <h2 id="objprim_gettextureheight">ObjPrim_GetTextureHeight</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Returns:
+        real: height
+</pre>
+    <p>Returns the height of the object's texture.</p>
+    <p>If the object doesn't have a texture set, this will return 0.</p>
+    <h2 id="objprim_setvertexposition">ObjPrim_SetVertexPosition</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: x
+        4) real: y
+        5) real: z
+</pre>
+    <p>Sets the position of the specified vertex.</p>
+    <h2 id="objprim_getvertexposition">ObjPrim_GetVertexPosition</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+    Return Type:
+        array[real]: position
+</pre>
+    <p>Returns the position of the specified vertex in an array [x,y,z].</p>
+    <h2 id="objprim_setvertexuv">ObjPrim_SetVertexUV</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: textureX
+        4) real: textureY
+</pre>
+    <p>Sets the UV-coordinates for the specified vertex.</p>
+    <p>The value for the coordinates must be in the range (0.0-1.0).<br />
+For example, if you want a vertex to be at the center-top of a 512×512 texture, you have to set x to 0.5 and y to 1.0.
+As it may be troublesome to convert pixels into a 0.0-1.0 value, ObjPrim_SetVertexUVT is recommended.</p>
+    <h2 id="objprim_setvertexuvt">ObjPrim_SetVertexUVT</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: textureX
+        4) real: textureY
+</pre>
+    <p>Sets the UV-coordinates for the specified vertex.</p>
+    <p>You must set the object's texture using ObjPrim_SetTexture beforehand.</p>
+    <h2 id="objprim_setvertexcolor">ObjPrim_SetVertexColor</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: red
+        4) real: green
+        5) real: blue
+</pre>
+    <p>Sets the color of the specified vertex (0-255).</p>
+    <h2 id="objprim_getvertexcolor">ObjPrim_GetVertexColor</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+    Returns:
+        array[real]: color
+</pre>
+    <p>Returns the vertex color as an array with the format [r, g, b].</p>
+    <h2 id="objprim_setvertexcolorhex">ObjPrim_SetVertexColorHex</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: color
+</pre>
+    <p>Sets the color of the specified vertex using RGB in hexadecimal format (0xRRGGBB).</p>
+    <p>For example, pure green would be: <code>0x00FF00</code></p>
+    <h2 id="objprim_getvertexcolorhex">ObjPrim_GetVertexColorHex</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+    Returns:
+        real: color
+</pre>
+    <p>Returns the vertex color as an XRGB hexadecimal color value.</p>
+    <h2 id="objprim_setvertexalpha">ObjPrim_SetVertexAlpha</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: alpha
+</pre>
+    <p>Sets the alpha value of the specified vertex (0-255).</p>
+    <h2 id="objprim_getvertexalpha">ObjPrim_GetVertexAlpha</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+    Returns:
+        real: color
+</pre>
+    <p>Returns the vertex alpha value.</p>
+  </body>
+</html>

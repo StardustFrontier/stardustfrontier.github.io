@@ -1,0 +1,110 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>table.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="table-functions">Table Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="table_insert">table_insert</h2>
+    <pre>
+    Arguments:
+        1) table: tab
+        2) string: key
+        3) any: value
+</pre>
+    <p>Inserts a new entry into the table.</p>
+    <h2 id="table_remove">table_remove</h2>
+    <pre>
+    Arguments:
+        1) table: tab
+        2) string: key
+</pre>
+    <p>Removes the entry with the given key from the table.</p>
+    <h2 id="table_set">table_set</h2>
+    <pre>
+    Arguments:
+        1) table: tab
+        2) string: key
+        3) any: value
+</pre>
+    <p>Sets the value associated with the given key in the table to value.</p>
+    <h2 id="table_get">table_get</h2>
+    <pre>
+    Arguments:
+        1) table: tab
+        2) string: key
+    Return Type:
+        any
+</pre>
+    <p>Gets the value associated with the given key in the table.</p>
+    <h2 id="table_get_keys">table_get_keys</h2>
+    <pre>
+    Arguments:
+        1) table: tab
+    Return Type:
+        array[string]
+</pre>
+    <p>Returns an array containing all the keys in the table.</p>
+    <h2 id="table_get_values">table_get_values</h2>
+    <pre>
+    Arguments:
+        1) table: tab
+    Return Type:
+        array[any]
+</pre>
+    <p>Returns an array containing all the values in the table.</p>
+  </body>
+</html>

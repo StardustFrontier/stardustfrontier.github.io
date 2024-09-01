@@ -1,0 +1,245 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>string.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="string-functions">String Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="string_find">string_find</h2>
+    <pre>
+    Arguments:
+        1) string: str
+        2) char|string: toFind
+        3) real: startIndex = 0
+    Return Type:
+        real
+</pre>
+    <p>Finds the character or substring in str and returns the index it starts at or -1 if it was not found.</p>
+    <p>Optionally, the index to start the operation at can be specified. This is 0 by default.</p>
+    <h2 id="string_join">string_join</h2>
+    <pre>
+    Arguments:
+        1) string: str
+        2) array|string|table: collection
+    Return Type:
+        real
+</pre>
+    <p>Returns a string with all the elements of the collection concatenated together as strings.</p>
+    <h2 id="repr">repr</h2>
+    <pre>
+    Arguments:
+        1) any: value
+    Return Type:
+        string
+</pre>
+    <p>Returns a printable string representation describing the value.</p>
+    <p>This may be identical to string(value) or ToString(value), but in other cases, it's slightly different. For example, string values will retain their double quotes.</p>
+    <h2 id="tostring">ToString</h2>
+    <pre>
+    Arguments:
+        1) any: value
+    Return Type:
+        string
+</pre>
+    <p>Returns the value as a string.</p>
+    <h2 id="inttostring">IntToString</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        string
+</pre>
+    <p>Returns the value as a string, omits any decimal places.</p>
+    <h2 id="inttocommastring">IntToCommaString</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        string
+</pre>
+    <p>Returns the value as an integer string formatted with commas.</p>
+    <h2 id="itoa">itoa</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        string
+</pre>
+    <p>Returns the value as a string, omits any decimal places.</p>
+    <p>This function is identical to IntToString.</p>
+    <h2 id="rtoa">rtoa</h2>
+    <pre>
+    Arguments:
+        1) real: value
+    Return Type:
+        string
+</pre>
+    <p>Returns the real value as a string.</p>
+    <h2 id="rtos">rtos</h2>
+    <pre>
+    Arguments:
+        1) string: format
+        2) real: value
+    Return Type:
+        string
+</pre>
+    <p>Returns the value as a string, with some filtering options.</p>
+    <p>The format is presented as a string that determines how many digits will be shown.<br />
+It can contain any combination of the following three characters: "0", ".", "#".<br />
+"0" is a slot for a digit.
+"." represents the decimal place in the string.<br />
+"#" creates a space in the string.
+Example: rtos("000.000", 1.23) = "001.230", and rtos("#00", 1.23) = " 01".</p>
+    <h2 id="vtos">vtos</h2>
+    <pre>
+    Arguments:
+        1) string: format
+        2) any: value
+    Return Type:
+        string
+</pre>
+    <p>Returns the value as a string, with some more filtering options.</p>
+    <p>The format string is different from rtos in that it's more of a code than directly defining the digits that will be shown.<br />
+First, the number of digits on each side of the decimal are specified (000.00 is 3.2 in the format string).<br />
+Unused digits will be filled with spaces.<br />
+If preceded by a "-", the digits will be right-justified, adding blank spaces to the right instead of the left.<br />
+If preceded by a "0", all digits not occupied by the value will be filled by zeroes.<br />
+If ended with a "d", the value will be presented as an integer.<br />
+If ended with an "f", the value will be presented as a real number.<br />
+If ended with an "s", this indicates the value given was in the form of a string.<br />
+Example: vtos("03d", 1.23) = "001", vtos("3d", 1.23) = "　1", vtos("-3d", 1.23) = "1　", and vtos("03.5f", 1.23) = "001.23000"</p>
+    <h2 id="atoi">atoi</h2>
+    <pre>
+    Arguments:
+        1) string: value
+    Return Type:
+        real
+</pre>
+    <p>Converts a string to an integer.</p>
+    <p>If the string does not represent a valid number, then 0 will be returned.</p>
+    <h2 id="ator">ator</h2>
+    <pre>
+    Arguments:
+        1) string: value
+    Return Type:
+        real
+</pre>
+    <p>Converts a string to a real number.</p>
+    <p>If the string does not represent a valid number, then 0 will be returned.</p>
+    <h2 id="trimstring">TrimString</h2>
+    <pre>
+    Arguments:
+        1) string: str
+    Return Type:
+        string
+</pre>
+    <p>Returns the string with spaces removed from the beginning and ending of the text.</p>
+    <p>For example, TrimString(" ABC ") will return "ABC".</p>
+    <h2 id="splitstring">SplitString</h2>
+    <pre>
+    Arguments:
+        1) string: str
+        2) string: delimiter
+    Return Type:
+        string array
+</pre>
+    <p>Returns an array containing the split strings.</p>
+    <p>For example, SplitString("A/123/BCD", "/") will return ["A", "123", "BCD"].</p>
+    <h2 id="stringreplace">StringReplace</h2>
+    <pre>
+    Arguments:
+        1) string: str
+        2) string: substring
+        3) string: replacement
+        4) real: count
+    Return Type:
+        string
+</pre>
+    <p>Replaces the given number of occurrences of substring in str with a replacement string and returns it.</p>
+    <p>If count is <code>NULL</code>, it will replace all matches.</p>
+    <h2 id="stringeraseallchar">StringEraseAllChar</h2>
+    <pre>
+    Arguments:
+        1) string: str
+        2) string: charList
+    Return Type:
+        string
+</pre>
+    <p>Erases all occurrences of the given chars in the list from the string and returns it.</p>
+    <p>
+      <em>Note: charList is passed as a <strong>string</strong>.</em>
+    </p>
+    <h2 id="stringformat">StringFormat</h2>
+    <pre>
+    Arguments:
+        1) string: str
+        2+) any: values...
+    Return Type:
+        string
+</pre>
+    <p>Returns a string formatted in the same way as C's printf family of functions.</p>
+    <h2 id="sprintf">sprintf</h2>
+    <pre>
+    Arguments:
+        1) string: str
+        2+) any: values...
+    Return Type:
+        string
+</pre>
+    <p>Returns a string formatted in the same way as C's printf family of functions.</p>
+    <p>This is just an alias for <a href="#stringformat">StringFormat</a>.</p>
+  </body>
+</html>

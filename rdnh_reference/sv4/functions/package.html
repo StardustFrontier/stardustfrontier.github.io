@@ -1,0 +1,278 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>package.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="package-functions">Package Functions</h1>
+    <p>
+      <a href="../functions.html">Return to Functions</a>
+    </p>
+    <h2 id="closepackage">ClosePackage</h2>
+    <p>Ends the package script.</p>
+    <h2 id="initializestagescene">InitializeStageScene</h2>
+    <p>Called only once before the start of a stage.</p>
+    <p>Calling performs the initial processing for the stage.</p>
+    <h2 id="finalizestagescene">FinalizeStageScene</h2>
+    <p>Called only once at the end of a stage.</p>
+    <p>Calling ends the stage processing and defines the end point of replays.<br /><em>Note: throws an error if the stage script is not yet closed.</em></p>
+    <h2 id="startstagescene">StartStageScene</h2>
+    <p>Starts the stage script.</p>
+    <h2 id="setstageindex">SetStageIndex</h2>
+    <pre>
+    Arguments:
+        1) real: stageIndex
+</pre>
+    <p>Defines the index of the stage to be started next.</p>
+    <p>The value does not need to be sequential.<br />
+Specifying an already specified index results in an error.</p>
+    <h2 id="setstagemainscript">SetStageMainScript</h2>
+    <pre>
+    Arguments:
+        1) string: pathScript
+</pre>
+    <p>Defines the stage script to be started next.</p>
+    <h2 id="setstageplayerscript">SetStagePlayerScript</h2>
+    <pre>
+    Arguments:
+        1) string: pathScript
+</pre>
+    <p>Defines the player script to be used in the stage.</p>
+    <p>This player must have been declared in the #Player header.</p>
+    <h2 id="setstagereplayfile">SetStageReplayFile</h2>
+    <pre>
+    Arguments:
+        1) string: pathReplay
+</pre>
+    <p>Runs the stage script once with the replay replaying all virtual key presses (including player shots, movement, etc).</p>
+    <p>Can only be called after InitializeStageScene.<br />
+Since the replay file holds information for each stage, in a multi-stage replay, you can begin playback from a middle stage without having to start from the first stage.</p>
+    <h2 id="getstagescenestate">GetStageSceneState</h2>
+    <pre>
+    Return Type:
+        const real
+</pre>
+    <p>Returns status information about the currently running stage script.</p>
+    <p>Defaults to -1 if there is no status information to report.<br />
+Possible return values:</p>
+    <pre>
+STAGE_STATE_FINISHED - whether the stage is finished or not
+</pre>
+    <h2 id="getstagesceneresult">GetStageSceneResult</h2>
+    <pre>
+    Return Type:
+        real const
+</pre>
+    <p>Returns a constant value representing the reason the stage was finished.</p>
+    <p>Possible return values:</p>
+    <pre>
+0 - This is the default return value if none of the others are returned (unsure if safe to expect)
+STAGE_RESULT_CLEARED - Stage was cleared
+STAGE_RESULT_PLAYER_DOWN - Ran out of lives
+STAGE_RESULT_BREAK_OFF - Ended prematurely; was terminated by the player
+</pre>
+    <h2 id="pausestagescene">PauseStageScene</h2>
+    <pre>
+    Arguments:
+        1) bool: bPause
+</pre>
+    <p>Pauses or resumes the stage script.</p>
+    <p>This function also notifies either the <code>EV_PAUSE_ENTER</code> or <code>EV_PAUSE_LEAVE</code> event for every running script.</p>
+    <h2 id="terminatestagescene">TerminateStageScene</h2>
+    <p>Exits out of the currently running stage.</p>
+    <p>This function will additionally set the stage result to <code>RESULT_BREAK_OFF</code></p>
+    <h1 id="section"></h1>
+    <h2 id="preloadplayershotdatainpackage">PreloadPlayerShotDataInPackage</h2>
+    <pre>
+    Arguments:
+        1) string: pathData
+    Returns:
+        bool: bSucceeded
+</pre>
+    <p>Preloads and caches the player shot data at the given path.</p>
+    <p>Returns true if loading was successful, otherwise returns false.</p>
+    <h2 id="preloadenemyshotdatainpackage">PreloadEnemyShotDataInPackage</h2>
+    <pre>
+    Arguments:
+        1) string: pathData
+    Returns:
+        bool: bSucceeded
+</pre>
+    <p>Preloads and caches the enemy shot data at the given path.</p>
+    <p>Returns true if loading was successful, otherwise returns false.</p>
+    <h2 id="preloaditemdatainpackage">PreloadItemDataInPackage</h2>
+    <pre>
+    Arguments:
+        1) string: pathData
+    Returns:
+        bool: bSucceeded
+</pre>
+    <p>Preloads and caches the item data at the given path.</p>
+    <p>Returns true if loading was successful, otherwise returns false.</p>
+    <h2 id="getloadfreeplayerscriptlist">GetLoadFreePlayerScriptList</h2>
+    <pre>
+    Return Type:
+        string array
+</pre>
+    <p>Returns an array of the player scripts available in the /script/player/ folder.</p>
+    <h2 id="getfreeplayerscriptcount">GetFreePlayerScriptCount</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the number of player scripts available in the /script/player/ folder.</p>
+    <h2 id="getfreeplayerscriptinfo">GetFreePlayerScriptInfo</h2>
+    <pre>
+    Arguments:
+        1) real: playerScriptIndex
+        2) real const: infoType
+    Return Type:
+        varies
+</pre>
+    <p>Returns various information about the player script based on the given info type constant.</p>
+    <p>Available info types are:</p>
+    <pre>
+INFO_SCRIPT_PATH        (string): Script path
+INFO_SCRIPT_ID          (string): The player script's #ID
+INFO_SCRIPT_TITLE       (string): The player script's #Title
+INFO_SCRIPT_TEXT        (string): The player script's #Text
+INFO_SCRIPT_IMAGE       (string): The player script's #Image
+INFO_SCRIPT_REPLAY_NAME (string): The player script's #ReplayName
+</pre>
+    <h1 id="section-1"></h1>
+    <h2 id="loadreplaylist">LoadReplayList</h2>
+    <p>Loads a list of the available replays for the current script.</p>
+    <h2 id="getvalidreplayindices">GetValidReplayIndices</h2>
+    <p>Loads a list of indices for the current script's available replays.</p>
+    <h2 id="isvalidreplayindex">IsValidReplayIndex</h2>
+    <pre>
+    Arguments:
+        1) real: replayIndex
+    Return Type:
+        bool
+</pre>
+    <p>Returns true or false depending on the index chosen is valid to be used in <a href="GetReplayInfo">GetReplayInfo</a>.</p>
+    <h2 id="getreplayinfo">GetReplayInfo</h2>
+    <pre>
+    Arguments:
+        1) real: replayIndex
+        2) real const: infoType
+    Return Type:
+        varies
+</pre>
+    <p>Returns various information about the replay with the given index based on the given info type constant.</p>
+    <p>Available info types are:</p>
+    <pre>
+REPLAY_FILE_PATH              - string: (replay file path)
+REPLAY_DATE_TIME              - string: (date and time at which the replay was saved)
+REPLAY_USER_NAME              - string: (player's name)
+REPLAY_TOTAL_SCORE            - real: (final score)
+REPLAY_FPS_AVERAGE            - real: (average framerate)
+REPLAY_PLAYER_NAME            - string: (player script name)
+REPLAY_STAGE_INDEX_LIST       - real array: (list of stage indices that the replay used)
+REPLAY_STAGE_START_SCORE_LIST - real array: (List of score indices at the start of each stage (the order of the stage indices is from REPLAY_STAGE_INDEX_LIST))
+REPLAY_STAGE_LAST_SCORE_LIST  - real array: (List of score indices at the end of each stage (the order of the stage indices is from REPLAY_STAGE_INDEX_LIST))
+REPLAY_COMMENT                - string: (comment set arbitrarily using SetReplayInfo)
+</pre>
+    <h2 id="setreplayinfo">SetReplayInfo</h2>
+    <pre>
+    Arguments:
+        1) real const: infoType
+        2) any: data
+    Return Type:
+        varies
+</pre>
+    <p>Sets the replay information.</p>
+    <p>Available info types are:</p>
+    <pre>
+REPLAY_COMMENT - string: an arbitrary comment held by the replay.
+</pre>
+    <h2 id="getreplayuserdata">GetReplayUserData</h2>
+    <pre>
+    Arguments:
+        1) real: replayIndex
+        2) string: key
+    Return Type:
+        varies
+</pre>
+    <p>Returns the replay data associated with the given replay index and key.</p>
+    <p>This is an undocumented vanilla dnh function and has not been tested.<br /><em>Note: Might crash if the key does not exist.</em></p>
+    <h2 id="setreplayuserdata">SetReplayUserData</h2>
+    <pre>
+    Arguments:
+        1) string: key
+        2) any: value
+</pre>
+    <p>Maps the given key to the given value for the replay data.</p>
+    <p>This is an undocumented vanilla dnh function and has not been tested.</p>
+    <h2 id="isreplayuserdataexists">IsReplayUserDataExists</h2>
+    <pre>
+    Arguments:
+        1) real: replayIndex
+        2) string: key
+    Return Type:
+        bool
+</pre>
+    <p>Checks whether the given replay index has a key-value pair for the given key and returns true if it does.</p>
+    <p>This is an undocumented vanilla dnh function and has not been tested.</p>
+    <h2 id="savereplay">SaveReplay</h2>
+    <pre>
+    Arguments:
+        1) real: replayIndex
+    Return Type:
+        bool
+</pre>
+    <p>Saves a replay to the specified replay index.</p>
+    <p>Returns true if successful, otherwise false.</p>
+  </body>
+</html>

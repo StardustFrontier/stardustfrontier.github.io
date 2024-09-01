@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="MarkdownViewer++" />
+        <title>obj_sprite_3d.md</title>
+        <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+      </head>
+    <body>
+        <h1 id="objsprite3d-functions">ObjSprite3D Functions</h1>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="objsprite3d_setsourcerect">ObjSprite3D_SetSourceRect</h2>
+<pre>
+    Arguments:
+        1) real: objectID
+        2) real: left
+        3) real: top
+        4) real: right
+        5) real: bottom
+</pre>
+<p>Sets the texture rectangle for the sprite.</p>
+<p>This is the rectangle on the original texture from which the sprite will be drawn.</p>
+<h2 id="objsprite3d_setsourcerectb">ObjSprite3D_SetSourceRectB</h2>
+<pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: width
+        5) real: height
+</pre>
+<p>Sets the texture rectangle for the sprite, using x, y, width, and height.</p>
+<p>This is the rectangle on the original texture from which the sprite will be drawn.</p>
+<h2 id="objsprite3d_setdest">ObjSprite3D_SetDest</h2>
+<pre>
+    Arguments:
+        1) real: objectID
+        2) real: left
+        3) real: top
+        4) real: right
+        5) real: bottom
+</pre>
+<p>Sets the drawing rectangle for the sprite based on a pre-defined constant.</p>
+<p>This is the rectangle where the sprite will be drawn.<br />
+Destination constants are in the form `DESTINATION_<type> where type is:</p>
+<pre>
+CENTER
+LEFT
+RIGHT
+TOP
+BOTTOM
+TOP_LEFT
+TOP_RIGHT
+BOTTOM_LEFT
+BOTTOM_RIGHT
+</pre>
+<p>Additionally, <code>_ROTATE</code> may be appended to the end of the type to enable center rotation mode.</p>
+<h2 id="objsprite3d_setdestrect">ObjSprite3D_SetDestRect</h2>
+<pre>
+    Arguments:
+        1) real: objectID
+        2) real: left
+        3) real: top
+        4) real: right
+        5) real: bottom
+</pre>
+<p>Sets the drawing rectangle for the sprite.</p>
+<p>This is the rectangle where the sprite will be drawn.</p>
+<h2 id="objsprite3d_setsourcedestrect">ObjSprite3D_SetSourceDestRect</h2>
+<pre>
+    Arguments:
+        1) real: objectID
+</pre>
+<p>Sets the texture rectangle for the sprite, and maps the center of the rectangle to the destination coordinates (0, 0).</p>
+<h2 id="objsprite3d_setbillboard">ObjSprite3D_SetBillboard</h2>
+<pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bBillboard
+</pre>
+<p>If set to true, the object will always be facing the camera.</p>
+
+    </body>
+</html>
+            

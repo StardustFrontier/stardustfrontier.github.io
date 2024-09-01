@@ -1,0 +1,119 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>sample_def_file.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="sample-definition-file">Sample Definition File</h1>
+    <p>
+      <a href="../docs.html">Return to Index</a>
+    </p>
+    <h1 id="section"></h1>
+    <p>Below is a sample rdnh.def file, with comments provided.</p>
+    <pre>
+// the path to a package script to automatically run on launch
+PackageScriptMain = script/THUotAR/Main.dnh
+
+// the path to save replays to, relative to the module directory
+// all instances of %s will be replaced with the script name
+// comment this out to use the default save path
+//ReplayPath = replay/%s
+
+// title of the game window
+WindowTitle = Unification of the Artful Rain
+
+// the game executable file, used for Start Game in config.exe
+GameFile = rdnh.exe
+
+// window title for the config.exe
+ConfigWindowTitle = THUotAR Configuration Utility
+
+// name of the file to save config data to
+ConfigDataFile = config.dat
+
+// a map of paths to config.exe translations, relative to config.exe's directory
+// {languageID:path}
+ConfigLanguagePaths = {0:lang/config/en.def, 1:lang/config/jp.def, 2:lang/config/fr.def}
+
+// keyboard keys to use as defaults for VK_USER1 and VK_USER2
+// valid keys are:
+// Z, X, C, V, W, A, S, D, LCONTROL, LSHIFT, ESCAPE, BACKSPACE, LEFT, RIGHT, UP, DOWN, RETURN, DELETE
+//UserKeyDefaults = {LCONTROL, S}
+
+// screen resolution for each aspect ratio
+// can have all of Screen_4_3, Screen_16_9, Screen_16_10, and Screen_Other
+// if multiple are defined, it is possible to switch between them at runtime.
+Screen_4_3  = 640x480
+
+// list of all window sizes
+// this will be automatically matched with the screen resolution for its ratio
+WindowSizes = {640x480, 800x600, 1024x768, 1280x960}
+
+// index of the window size to start with by default when no config data exists
+WindowSizeIndexDefault = 0
+
+// multiplier applied when the fast forward key is pressed
+FastForwardSpeed = 8
+
+// if non-zero, the game will run when the window isn't in focus
+// input will not be processed while out of focus.
+RunUnfocused = 1
+
+// limits the fps to a specific value
+FpsLimit = 60
+
+// if non-zero, enables the dark theme for the Log tab of the Log Window
+LogWindowDarkTheme = 1
+</pre>
+  </body>
+</html>

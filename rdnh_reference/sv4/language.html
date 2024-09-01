@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="MarkdownViewer++" />
+        <title>language.md</title>
+        <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+      </head>
+    <body>
+        <h1 id="rdnh-sv4-language-features">RDNH SV4 Language Features</h1>
+<p><a href="./docs.html">Return to Index</a></p>
+<h1 id="section"></h1>
+<p>This page summarizes any <em>new</em> language features in SV4.<br />
+Anything self-explanatory that was carried over from the original script version (SV3) might not be explained here.</p>
+<h2 id="values-and-types">Values and Types</h2>
+<p>RDNH SV4 is a dynamically typed language and variables are allowed to change types at any time. This is different from DNH ph3, which did not allow types to change after the first assignment.</p>
+<p>SV4's types are: <em>nil</em>, <em>bool</em>, <em>real</em>, <em>char</em>, <em>pointer</em>, <em>function</em>, <em>array</em>, <em>string</em>, and <em>table</em><br />
+<em>function</em> may be shortened to <em>func</em>, this will behave the same in all contexts. Note that <em>pointer</em> is currently unused, but reserved.</p>
+<h3 id="new-types">New Types</h3>
+<h4 id="function-type">Function Type</h4>
+<p>To obtain a <em>function</em> value, write <em>$</em> (dollar symbol) before the name of a function:</p>
+<pre>
+function TestFunc() { WriteLog("meow"); }
+let myFunc = $TestFunc;
+WriteLog(myFunc); // "<function TestFunc>"
+myFunc(); // "meow"
+</pre>
+<p>Functions stored in variables behave much like normal functions, but have a small runtime cost to check their validity.</p>
+<p><em><strong>Important:</strong></em> <em>function</em> values cannot be shared across script boundaries. This means it's generally unsafe to store them in common data or pass them as event arguments.</p>
+<h4 id="table-type">Table Type</h4>
+<p>Tables are like custom objects and behave similarly to objects in Javascript.</p>
+<pre>
+let myTable = {
+  x = 123,
+  y = 456,
+  name = "mana"
+};
+let fieldY = "y";
+
+// access 'x' field of myTable
+WriteLog(myTable.x);
+
+// alternate form of accessing 'y' field, allows for field access
+// using variables
+WriteLog(myTable[fieldY]);
+
+WriteLog(myTable.name); // mana
+</pre>
+<h3 id="literals">Literals</h3>
+<pre>
+WriteLog(nil);              // nil literal (absence of value)
+WriteLog(true, false);      // boolean literals
+WriteLog(69, 420.0);        // real literal (base 10)
+WriteLog(0xCA7F00D);        // real literal (hexadecimal)
+WriteLog('a');              // char literal
+WriteLog("cat");            // string literal
+WriteLog( [0, 1, 2] );      // array literal
+WriteLog( {x = 1, y = 2} ); // table literal (like objects in JS)
+</pre>
+<h3 id="variable-declaration">Variable Declaration</h3>
+<p>Variables can be declared using <em>let</em>, <em>var</em>, or <em>const</em>. When declared with <em>let</em> or <em>var</em> the variable will be reassignable, while with <em>const</em> the variable will not be reassignable. When a variable is marked as const, the compiler will also attempt to perform a very basic form of constant propagation, where the constant's value will be compiled directly into the bytecode instead of loading/storing the variable. Currently, this optimization only works when a literal value is assigned.</p>
+<p><em>Note</em>: Variables that have not yet been assigned to are implicitly initialized with <code>nil</code>.</p>
+<p>Example:</p>
+<pre>
+let x = 123;
+WriteLog(x); // 123.0
+x = "hello";
+WriteLog(x); // hello
+
+const y = 456;
+WriteLog(y); // 456.0
+y = "world"; // error: can't assign to constant variable
+
+let z;
+WriteLog(z); // nil
+WriteLog(x + z); // error: can't add 'real' and 'nil'
+</pre>
+<h3 id="type-annotations">Type Annotations</h3>
+<p>Optionally, variables and function parameters may be annotated with 'hints' to suggest what type is stored in them to the <em>scripter</em>. These are not enforced by the compiler and are only meant to serve as a way to document your code without excessive comments.</p>
+<p>Example:</p>
+<pre>
+let cat: string = "mana";
+cat = 69; // It's not a string anymore!!
+
+// this is a function named CountSheep that takes an
+// array of strings named 'sheep' and returns a 'real' value
+function CountSheep(sheep: array[string]): real {
+    return length(sheep);
+}
+</pre>
+<h2 id="blocks">Blocks</h2>
+<h3 id="async-block">Async Block</h3>
+<p>A new type of block called <em>async</em> has been ported from ph3sx.<br />
+These are simply nameless tasks that execute immediately.</p>
+<p>Example:</p>
+<pre>
+async {
+    WriteLog("hello");
+    wait(60);
+    WriteLog("world");
+}
+</pre>
+<p>The above would be equivalent to the following in execution:</p>
+<pre>
+task MyTask() {
+    WriteLog("hello");
+    wait(60);
+    WriteLog("world");
+}
+
+MyTask();
+</pre>
+<h3 id="scoping-behaviour">Scoping Behaviour</h3>
+<p>Curly braces can be used to define <em>blocks</em>. A block is a series of statements with a scope.</p>
+<p><strong>Note:</strong> The keyword <em>local</em> is a deprecated way to create a new block and should be omitted in new code.</p>
+<pre>
+if (mana == "cat") { // new block starts after {
+    let sound = "meow";
+    WriteLog(sound); // statement
+} // block ends here, local variable 'sound' is discarded as it is unreachable
+</pre>
+<p>The following is an example of how variables are scoped in blocks:</p>
+<pre>
+{
+    let a = 1;
+    {
+        let b = 2;
+        WriteLog(a, b); // 1 2
+        {
+            let c = 3;        
+            WriteLog(a, b, c); // 1 2 3
+        } // c is no longer accessible after this brace
+    } // b is no longer accessible after this brace
+    WriteLog(a); // 1
+}
+</pre>
+<p>Variables may be <em>shadowed</em> within a lower scope and even initialized with a variable of the same name from an upper scope.</p>
+<pre>
+{
+    let a = 1;
+    {
+        // performance is improved in some cases by making a local 
+        // reference to a variable from an upper scope
+        let a = a;
+        a += 68;
+        WriteLog(a); // 69
+    }
+    WriteLog(a); // 1
+}
+</pre>
+<h2 id="operators">Operators</h2>
+<ul>
+<li>Bitwise operators have been added with the same precedence as Python</li>
+<li>The power operator from DNH ph3 has been changed from ^ to **
+<ul>
+<li>The ^ operator now refers to bitwise XOR</li>
+</ul>
+</li>
+</ul>
+<h2 id="loops">Loops</h2>
+<h3 id="normal-loop">Normal Loop</h3>
+<p>The usage of the <em>loop</em> keyword is unchanged in SV4.</p>
+<pre>
+loop (3)
+    WriteLog("meow");
+</pre>
+<p>Result: The string &quot;meow&quot; is printed 3 times.</p>
+<h3 id="ascent-and-descent">Ascent and Descent</h3>
+<h4 id="basic-form">Basic Form</h4>
+<p>As in SV3, the standard Danmakufu <em>ascent</em> and <em>descent</em> loops are available:</p>
+<pre>
+ascent (i in 0..3)
+    WriteLog(i);
+</pre>
+<p>Result: The values 0.0, 1.0, then 2.0 are printed, while using <code>descent</code> would print the same values in reverse.</p>
+<h4 id="each-form">'Each' Form</h4>
+<p>SV4 adds in a new 'each' version of these loops which iterates over collection types like arrays, strings, and tables:</p>
+<pre>
+ascent (c in "meow")
+    WriteLog(c);
+</pre>
+<p>Result: The character values 'm', 'e', 'o', 'w' are printed. If <code>descent</code> was used, then it would print 'w', 'o', 'e', 'm'. This allows for easy reversal of arrays and strings.</p>
+
+    </body>
+</html>
+            
