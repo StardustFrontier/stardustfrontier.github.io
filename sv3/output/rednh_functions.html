@@ -1,0 +1,2123 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>rednh_functions.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+
+        </style>
+  </head>
+  <body>
+    <style type="text/css" rel="stylesheet">
+	* { color: #d8d6d0; }
+	* { background-color: #181a1b; }
+	a {
+		color: #68b2fa;
+	}
+	a:link {
+		text-decoration: none;
+	}
+	a:hover {
+	  text-decoration: underline;
+	}
+
+	a:active {
+	  text-decoration: underline;
+	}
+	hr {
+		height: 1px;
+		color: #40464d;
+		background-color: #40464d;
+		border: none;
+	}
+	h2 {
+		color: #d8d6d0;
+		border-bottom: 1px solid #40464d;
+	}
+</style>
+    <h1 id="rednh-function-reference">Re:Dnh Function Reference</h1>
+    <p>Functions marked with * are new to Re:Dnh.</p>
+    <h2 id="math-functions">
+      <a href="./pages/math_functions.html">Math Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/math_functions.html#add">add</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#subtract">subtract</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#multiply">multiply</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#divide">divide</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#remainder">remainder</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#power">power</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#bit_lshift">bit_lshift*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#bit_rshift">bit_rshift*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#bit_and">bit_and*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#bit_xor">bit_xor*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#bit_or">bit_or*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#bit_not">bit_not*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#min">min</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#max">max</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#log">log</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#log10">log10</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#cos">cos</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#sin">sin</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#tan">tan</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#acos">acos</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#asin">asin</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#atan">atan</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#atan2">atan2</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#sqrt">sqrt*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#cbrt">cbrt*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#hypot">hypot*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#cot">cot*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#csc">csc*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#sec">sec*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#cosh">cosh*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#sinh">sinh*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#tanh">tanh*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#acosh">acosh*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#asinh">asinh*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#atanh">atanh*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#coth">coth*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#csch">csch*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#sech">sech*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#rand">rand</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#rand_int">rand_int</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#prand">prand*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#prand_int">prand_int*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#psrand">psrand*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#round">round</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#truncate">truncate</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#ceil">ceil</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#floor">floor</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#absolute">absolute</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#absolute">abs*</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#modc">modc</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#pi">pi</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#successor">successor</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#predecessor">predecessor</a>
+      </li>
+      <li>
+        <a href="./pages/math_functions.html#negative">negative</a>
+      </li>
+    </ul>
+    <h2 id="text-functions">
+      <a href="./pages/text_functions.html">Text Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/text_functions.html#installfont">InstallFont</a>
+      </li>
+      <li>
+        <a href="./pages/text_functions.html#ToString">ToString</a>
+      </li>
+      <li>
+        <a href="./pages/text_functions.html#inttostring">IntToString</a>
+      </li>
+      <li>
+        <a href="./pages/text_functions.html#itoa">itoa</a>
+      </li>
+      <li>
+        <a href="./pages/text_functions.html#rtoa">rtoa</a>
+      </li>
+      <li>
+        <a href="./pages/text_functions.html#rtos">rtos</a>
+      </li>
+      <li>
+        <a href="./pages/text_functions.html#vtos">vtos</a>
+      </li>
+      <li>
+        <a href="./pages/text_functions.html#atoi">atoi</a>
+      </li>
+      <li>
+        <a href="./pages/text_functions.html#ator">ator</a>
+      </li>
+      <li>
+        <a href="./pages/text_functions.html#trimstring">TrimString</a>
+      </li>
+      <li>
+        <a href="./pages/text_functions.html#splitstring">SplitString</a>
+      </li>
+    </ul>
+    <h2 id="character-functions">
+      <a href="./pages/character_functions.html">Character Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/character_functions.html#isalnum">isalnum*</a>
+      </li>
+      <li>
+        <a href="./pages/character_functions.html#isalpha">isalpha*</a>
+      </li>
+      <li>
+        <a href="./pages/character_functions.html#isdigit">isdigit*</a>
+      </li>
+      <li>
+        <a href="./pages/character_functions.html#islower">islower*</a>
+      </li>
+      <li>
+        <a href="./pages/character_functions.html#ispunct">ispunct*</a>
+      </li>
+      <li>
+        <a href="./pages/character_functions.html#isspace">isspace*</a>
+      </li>
+      <li>
+        <a href="./pages/character_functions.html#isupper">isupper*</a>
+      </li>
+      <li>
+        <a href="./pages/character_functions.html#isxdigit">isxdigit*</a>
+      </li>
+      <li>
+        <a href="./pages/character_functions.html#tolower">tolower*</a>
+      </li>
+      <li>
+        <a href="./pages/character_functions.html#toupper">toupper*</a>
+      </li>
+    </ul>
+    <h2 id="path-functions">
+      <a href="./pages/path_functions.html">Path Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/path_functions.html#GetFileDirectory">GetFileDirectory</a>
+      </li>
+      <li>
+        <a href="./pages/path_functions.html#GetFilePathList">GetFilePathList</a>
+      </li>
+      <li>
+        <a href="./pages/path_functions.html#GetDirectoryList">GetDirectoryList</a>
+      </li>
+      <li>
+        <a href="./pages/path_functions.html#GetModuleDirectory">GetModuleDirectory</a>
+      </li>
+      <li>
+        <a href="./pages/path_functions.html#GetMainScriptDirectory">GetMainScriptDirectory</a>
+      </li>
+      <li>
+        <a href="./pages/path_functions.html#GetCurrentScriptDirectory">GetCurrentScriptDirectory</a>
+      </li>
+      <li>
+        <a href="./pages/path_functions.html#GetFileExtension">GetFileExtension*</a>
+      </li>
+    </ul>
+    <h2 id="time-functions">
+      <a href="./pages/time_functions.html">Time Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/time_functions.html#GetCurrentDateTimeS">GetCurrentDateTimeS</a>
+      </li>
+      <li>
+        <a href="./pages/time_functions.html#GetStageTime">GetStageTime</a>
+      </li>
+      <li>
+        <a href="./pages/time_functions.html#GetStageTimeF">GetStageTimeF</a>
+      </li>
+      <li>
+        <a href="./pages/time_functions.html#GetPackageTime">GetPackageTime</a>
+      </li>
+      <li>
+        <a href="./pages/time_functions.html#GetCurrentFps">GetCurrentFps</a>
+      </li>
+      <li>
+        <a href="./pages/time_functions.html#GetReplayFps">GetReplayFps</a>
+      </li>
+    </ul>
+    <h2 id="debug-functions">
+      <a href="./pages/debug_functions.html">Debug Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/debug_functions.html#WriteLog">WriteLog</a>
+      </li>
+      <li>
+        <a href="./pages/debug_functions.html#RaiseError">RaiseError</a>
+      </li>
+      <li>
+        <a href="./pages/debug_functions.html#assert">assert</a>
+      </li>
+    </ul>
+    <h2 id="common-data-functions">
+      <a href="./pages/common_data_functions.html">Common Data Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/common_data_functions.html#setdefaultcommondataarea">SetDefaultCommonDataArea</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#setcommondata">SetCommonData</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#getcommondata">GetCommonData</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#clearcommondata">ClearCommonData</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#deletecommondata">DeleteCommonData</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#setareacommondata">SetAreaCommonData</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#getareacommondata">GetAreaCommonData</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#clearareacommondata">ClearAreaCommonData</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#deleteareacommondata">DeleteAreaCommonData</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#createcommondataarea">CreateCommonDataArea</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#copycommondataarea">CopyCommonDataArea</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#iscommondataareaexists">IsCommonDataAreaExists</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#getcommondataareakeylist">GetCommonDataAreaKeyList</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#getcommondatavaluekeylist">GetCommonDataValueKeyList</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#savecommondataareaa1">SaveCommonDataAreaA1</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#loadcommondataareaa1">LoadCommonDataAreaA1</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#savecommondataareaa2">SaveCommonDataAreaA2</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#loadcommondataareaa2">LoadCommonDataAreaA2</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#savecommondataareatoreplayfile">SaveCommonDataAreaToReplayFile</a>
+      </li>
+      <li>
+        <a href="./pages/common_data_functions.html#loadcommondataareafromreplayfile">LoadCommonDataAreaFromReplayFile</a>
+      </li>
+    </ul>
+    <h2 id="audio-functions">
+      <a href="./pages/audio_functions.html">Audio Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/audio_functions.html#loadsound">LoadSound</a>
+      </li>
+      <li>
+        <a href="./pages/audio_functions.html#removesound">RemoveSound</a>
+      </li>
+      <li>
+        <a href="./pages/audio_functions.html#playbgm">PlayBGM</a>
+      </li>
+      <li>
+        <a href="./pages/audio_functions.html#playse">PlaySE</a>
+      </li>
+      <li>
+        <a href="./pages/audio_functions.html#stopsound">StopSound</a>
+      </li>
+    </ul>
+    <h2 id="input-functions">
+      <a href="./pages/input_functions.html">Input Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/input_functions.html#getvirtualkeystate">GetVirtualKeyState</a>
+      </li>
+      <li>
+        <a href="./pages/input_functions.html#setvirtualkeystate">SetVirtualKeyState</a>
+      </li>
+      <li>
+        <a href="./pages/input_functions.html#addvirtualkey">AddVirtualKey</a>
+      </li>
+      <li>
+        <a href="./pages/input_functions.html#addreplaytargetvirtualkey">AddReplayTargetVirtualKey</a>
+      </li>
+      <li>
+        <a href="./pages/input_functions.html#getkeystate">GetKeyState</a>
+      </li>
+      <li>
+        <a href="./pages/input_functions.html#getmousestate">GetMouseState</a>
+      </li>
+      <li>
+        <a href="./pages/input_functions.html#getmousex">GetMouseX</a>
+      </li>
+      <li>
+        <a href="./pages/input_functions.html#getmousey">GetMouseY</a>
+      </li>
+      <li>
+        <a href="./pages/input_functions.html#getmousemovez">GetMouseMoveZ</a>
+      </li>
+      <li>
+        <a href="./pages/input_functions.html#setskipmodekey">SetSkipModeKey</a>
+      </li>
+    </ul>
+    <h2 id="render-functions">
+      <a href="./pages/render_functions.html">Render Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/render_functions.html#loadtexture">LoadTexture</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#loadtextureinloadthread">LoadTextureInLoadThread</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#removetexture">RemoveTexture</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#gettexturewidth">GetTextureWidth</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#gettextureheight">GetTextureHeight</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#setfogenable">SetFogEnable</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#setfogparam">SetFogParam</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#clearinvalidrenderpriority">ClearInvalidRenderPriority</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#setinvalidrenderprioritya1">SetInvalidRenderPriorityA1</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#getreservedrendertargetname">GetReservedRenderTargetName</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#createrendertarget">CreateRenderTarget</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#rendertotexturea1">RenderToTextureA1</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#rendertotextureb1">RenderToTextureB1</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#saverenderedtexturea1">SaveRenderedTextureA1</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#saverenderedtexturea2">SaveRenderedTextureA2</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#savesnapshota1">SaveSnapShotA1</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#savesnapshota2">SaveSnapShotA2</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#ispixelshadersupported">IsPixelShaderSupported</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#setshader">SetShader</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#setshaderi">SetShaderI</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#resetshader">ResetShader</a>
+      </li>
+      <li>
+        <a href="./pages/render_functions.html#resetshaderi">ResetShaderI</a>
+      </li>
+    </ul>
+    <h2 id="d-camera-functions">
+      <a href="./pages/3d_camera_functions.html">3D Camera Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/3d_camera_functions.html#setcamerafocusx">SetCameraFocusX</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#setcamerafocusy">SetCameraFocusY</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#setcamerafocusz">SetCameraFocusZ</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#setcamerafocusxyz">SetCameraFocusXYZ</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#setcameraradius">SetCameraRadius</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#setcameraazimuthangle">SetCameraAzimuthAngle</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#setcameraelevationangle">SetCameraElevationAngle</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#setcamerayaw">SetCameraYaw</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#setcamerapitch">SetCameraPitch</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#setcameraroll">SetCameraRoll</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcamerax">GetCameraX</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcameray">GetCameraY</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcameraz">GetCameraZ</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcamerafocusx">GetCameraFocusX</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcamerafocusy">GetCameraFocusY</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcamerafocusz">GetCameraFocusZ</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcameraradius">GetCameraRadius</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcameraazimuthangle">GetCameraAzimuthAngle</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcameraelevationangle">GetCameraElevationAngle</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcamerayaw">GetCameraYaw</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcamerapitch">GetCameraPitch</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#getcameraroll">GetCameraRoll</a>
+      </li>
+      <li>
+        <a href="./pages/3d_camera_functions.html#setcameraperspectiveclip">SetCameraPerspectiveClip</a>
+      </li>
+    </ul>
+    <h2 id="d-camera-functions-1">
+      <a href="./pages/2d_camera_functions.html">2D Camera Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/2d_camera_functions.html#set2dcamerafocusx">Set2DCameraFocusX</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#set2dcamerafocusy">Set2DCameraFocusY</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#set2dcameraanglez">Set2DCameraAngleZ</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#set2dcameraratio">Set2DCameraRatio</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#set2dcameraratiox">Set2DCameraRatioX</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#set2dcameraratioy">Set2DCameraRatioY</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#reset2dcamera">Reset2DCamera</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#get2dcamerax">Get2DCameraX</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#get2dcameray">Get2DCameraY</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#get2dcameraanglez">Get2DCameraAngleZ</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#get2dcameraratio">Get2DCameraRatio</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#get2dcameraratiox">Get2DCameraRatioX</a>
+      </li>
+      <li>
+        <a href="./pages/2d_camera_functions.html#get2dcameraratioy">Get2DCameraRatioY</a>
+      </li>
+    </ul>
+    <h2 id="script-functions">
+      <a href="./pages/script_functions.html">Script Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/script_functions.html#loadscript">LoadScript</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#loadscriptinthread">LoadScriptInThread</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#startscript">StartScript</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#closescript">CloseScript</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#isclosescript">IsCloseScript</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#setscriptargument">SetScriptArgument</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#getscriptargument">GetScriptArgument</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#getscriptargumentcount">GetScriptArgumentCount</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#closestgscene">CloseStgScene</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#getownscriptid">GetOwnScriptID</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#geteventtype">GetEventType</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#geteventargument">GetEventArgument</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#setscriptresult">SetScriptResult</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#getscriptresult">GetScriptResult</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#setautodeleteobject">SetAutoDeleteObject</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#notifyevent">NotifyEvent</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#notifyeventall">NotifyEventAll</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#getscriptinfoa1">GetScriptInfoA1</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#setscriptdifficulty">SetScriptDifficulty*</a>
+      </li>
+      <li>
+        <a href="./pages/script_functions.html#getscriptdifficulty">GetScriptDifficulty*</a>
+      </li>
+    </ul>
+    <h2 id="system-functions">
+      <a href="./pages/system_functions.html">System Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/system_functions.html#setstgframe">SetStgFrame</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getscore">GetScore</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#addscore">AddScore</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getgraze">GetGraze</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#addgraze">AddGraze</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getpoint">GetPoint</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#addpoint">AddPoint</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#setitemrenderpriorityi">SetItemRenderPriorityI</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#setshotrenderpriorityi">SetShotRenderPriorityI</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getstgframerenderprioritymini">GetStgFrameRenderPriorityminI</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getstgframerenderprioritymaxi">GetStgFrameRenderPrioritymaxI</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getitemrenderpriorityi">GetItemRenderPriorityI</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getshotrenderpriorityi">GetShotRenderPriorityI</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getplayerrenderpriorityi">GetPlayerRenderPriorityI</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getcamerafocuspermitpriorityi">GetCameraFocusPermitPriorityI</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getstgframeleft">GetStgFrameLeft</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getstgframetop">GetStgFrameTop</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getstgframewidth">GetStgFrameWidth</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getstgframeheight">GetStgFrameHeight</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getscreenwidth">GetScreenWidth</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#getscreenheight">GetScreenHeight</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#isreplay">IsReplay</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#addarchivefile">AddArchiveFile</a>
+      </li>
+      <li>
+        <a href="./pages/system_functions.html#isskipmode">IsSkipMode*</a>
+      </li>
+    </ul>
+    <h2 id="player-functions">
+      <a href="./pages/player_functions.html">Player Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/player_functions.html#getplayerobjectid">GetPlayerObjectID</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerscriptid">GetPlayerScriptID</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setplayerspeed">SetPlayerSpeed</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setplayerclip">SetPlayerClip</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setplayerlife">SetPlayerLife</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setplayerspell">SetPlayerSpell</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setplayerpower">SetPlayerPower</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setplayerinvincibilityframe">SetPlayerInvincibilityFrame</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setplayerdownstateframe">SetPlayerDownStateFrame</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setplayerrebirthframe">SetPlayerRebirthFrame</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setplayerrebirthlossframe">SetPlayerRebirthLossFrame</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setplayerautoitemcollectline">SetPlayerAutoItemCollectLine</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setforbidplayershot">SetForbidPlayerShot</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#setforbidplayerspell">SetForbidPlayerSpell</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerx">GetPlayerX</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayery">GetPlayerY</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerstate">GetPlayerState</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerspeed">GetPlayerSpeed</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerclip">GetPlayerClip</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerlife">GetPlayerLife</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerspell">GetPlayerSpell</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerpower">GetPlayerPower</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerinvincibilityframe">GetPlayerInvincibilityFrame</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerdownstateframe">GetPlayerDownStateFrame</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerrebirthframe">GetPlayerRebirthFrame</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getangletoplayer">GetAngleToPlayer</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#ispermitplayershot">IsPermitPlayerShot</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#ispermitplayerspell">IsPermitPlayerSpell</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#isplayerlastspellwait">IsPlayerLastSpellWait</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#isplayerspellactive">IsPlayerSpellActive</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerid">GetPlayerID</a>
+      </li>
+      <li>
+        <a href="./pages/player_functions.html#getplayerreplayname">GetPlayerReplayName</a>
+      </li>
+    </ul>
+    <h2 id="enemy-functions">
+      <a href="./pages/enemy_functions.html">Enemy Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/enemy_functions.html#getenemybosssceneobjectid">GetEnemyBossSceneObjectID</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_functions.html#getenemybossobjectid">GetEnemyBossObjectID</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_functions.html#getallenemyid">GetAllEnemyID</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_functions.html#getintersectionregistedenemyid">GetIntersectionRegistedEnemyID</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_functions.html#getallenemyintersectionposition">GetAllEnemyIntersectionPosition</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_functions.html#getenemyintersectionposition">GetEnemyIntersectionPosition</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_functions.html#getenemyintersectionpositionbyida1">GetEnemyIntersectionPositionByIdA1</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_functions.html#getenemyintersectionpositionbyida2">GetEnemyIntersectionPositionByIdA2</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_functions.html#loadenemyshotdata">LoadEnemyShotData</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_functions.html#reloadenemyshotdata">ReloadEnemyShotData</a>
+      </li>
+    </ul>
+    <h2 id="shot-functions">
+      <a href="./pages/shot_functions.html">Shot Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/shot_functions.html#deleteshotall">DeleteShotAll</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#deleteshotincircle">DeleteShotInCircle</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#createshota1">CreateShotA1</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#createshota2">CreateShotA2</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#createshotoa1">CreateShotOA1</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#createshotb1">CreateShotB1</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#createshotb2">CreateShotB2</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#createshotob2">CreateShotOB2</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#createlooselasera1">CreateLooseLaserA1</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#createstraightlasera1">CreateStraightLaserA1</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#createcurvelasera1">CreateCurveLaserA1</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#setshotintersectioncircle">SetShotIntersectionCircle</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#setshotintersectionline">SetShotIntersectionLine</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#getshotidincirclea1">GetShotIdInCircleA1</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#getshotidincirclea2">GetShotIdInCircleA2</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#getshotcount">GetShotCount</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#setshotautodeleteclip">SetShotAutoDeleteClip</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#getshotdatainfoa1">GetShotDataInfoA1</a>
+      </li>
+      <li>
+        <a href="./pages/shot_functions.html#startshotscript">StartShotScript</a>
+      </li>
+    </ul>
+    <h2 id="item-functions">
+      <a href="./pages/item_functions.html">Item Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/item_functions.html#createitema1">CreateItemA1</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#createitema2">CreateItemA2</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#createitemu1">CreateItemU1</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#createitemu2">CreateItemU2</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#collectallitems">CollectAllItems</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#collectitemsbytype">CollectItemsByType</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#collectitemsincircle">CollectItemsInCircle</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#cancelcollectitems">CancelCollectItems</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#startitemscript">StartItemScript</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#setdefaultbonusitemenable">SetDefaultBonusItemEnable</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#loaditemdata">LoadItemData</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#reloaditemdata">ReloadItemData</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#getitemidincirclea1">GetItemIdInCircleA1*</a>
+      </li>
+      <li>
+        <a href="./pages/item_functions.html#getitemidincirclea2">GetItemIdInCircleA2*</a>
+      </li>
+    </ul>
+    <h2 id="other-functions">
+      <a href="./pages/other_functions.html">Other Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/other_functions.html#startslow">StartSlow</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#stopslow">StopSlow</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#isintersected_line_circle">IsIntersected_Line_Circle</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#isintersected_obj_obj">IsIntersected_Obj_Obj</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#getobjectdistance">GetObjectDistance</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#getobject2dposition">GetObject2dPosition</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#get2dposition">Get2dPosition</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#erase">erase</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#length">length</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#concatenate">concatenate</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#slice">slice</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#createarray">CreateArray*</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#table_insert">table_insert*</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#not">not</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#pickvalue">PickValue*</a>
+      </li>
+      <li>
+        <a href="./pages/other_functions.html#interpolate">Interpolate*</a>
+      </li>
+    </ul>
+    <h2 id="object-functions">
+      <a href="./pages/object_functions.html">Object Functions</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="./pages/object_functions.html#obj_delete">Obj_Delete</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_isdeleted">Obj_IsDeleted</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_exists">Obj_Exists*</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_setvisible">Obj_SetVisible</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_isvisible">Obj_IsVisible</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_setrenderpriority">Obj_SetRenderPriority</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_setrenderpriorityi">Obj_SetRenderPriorityI</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_getvalue">Obj_GetValue</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_getvalued">Obj_GetValueD</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_setvalue">Obj_SetValue</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_deletevalue">Obj_DeleteValue</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_isvalueexists">Obj_IsValueExists</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_setflag">Obj_SetFlag*</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_getflag">Obj_GetFlag*</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_clearflag">Obj_ClearFlag*</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_hasflag">Obj_HasFlag*</a>
+      </li>
+      <li>
+        <a href="./pages/object_functions.html#obj_gettype">Obj_GetType</a>
+      </li>
+    </ul>
+    <h3 id="render-object-functions">
+      <a href="./pages/render_object_functions.html">Render Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setx">ObjRender_SetX</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_sety">ObjRender_SetY</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setz">ObjRender_SetZ</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setxy">ObjRender_SetXY*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setposition">ObjRender_SetPosition</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setanglex">ObjRender_SetAngleX</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setangley">ObjRender_SetAngleY</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setanglez">ObjRender_SetAngleZ</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setanglexyz">ObjRender_SetAngleXYZ</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setscalex">ObjRender_SetScaleX</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setscaley">ObjRender_SetScaleY</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setscalez">ObjRender_SetScaleZ</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setscalexyz">ObjRender_SetScaleXYZ</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setcolor">ObjRender_SetColor</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setcolorhex">ObjRender_SetColorHex*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setcolorhsv">ObjRender_SetColorHSV</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setalpha">ObjRender_SetAlpha</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setblendtype">ObjRender_SetBlendType</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_settexturefilter">ObjRender_SetTextureFilter*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_getx">ObjRender_GetX</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_gety">ObjRender_GetY</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_getz">ObjRender_GetZ</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_getanglex">ObjRender_GetAngleX</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_getangley">ObjRender_GetAngleY</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_getanglez">ObjRender_GetAngleZ</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_getscalex">ObjRender_GetScaleX</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_getscaley">ObjRender_GetScaleY</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_getscalez">ObjRender_GetScaleZ</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_getalpha">ObjRender_GetAlpha*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_getblendtype">ObjRender_GetBlendType</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_gettexturefilter">ObjRender_GetTextureFilter*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setzwrite">ObjRender_SetZWrite</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setztest">ObjRender_SetZTest</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setfogenable">ObjRender_SetFogEnable</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setpermitcamera">ObjRender_SetPermitCamera</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setmovespeed">ObjRender_SetMoveSpeed*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setrotationspeed">ObjRender_SetRotationSpeed*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_setscalespeed">ObjRender_SetScaleSpeed*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_tweenposition">ObjRender_TweenPosition*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_tweencolor">ObjRender_TweenColor*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_tweenalpha">ObjRender_TweenAlpha*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_tweenangle">ObjRender_TweenAngle*</a>
+      </li>
+      <li>
+        <a href="./pages/render_object_functions.html#objrender_tweenscale">ObjRender_TweenScale*</a>
+      </li>
+    </ul>
+    <h3 id="primitive-object-functions">
+      <a href="./pages/primitive_object_functions.html">Primitive Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/primitive_object_functions.html#objprim_create">ObjPrim_Create</a>
+      </li>
+      <li>
+        <a href="./pages/primitive_object_functions.html#objprim_setprimitivetype">ObjPrim_SetPrimitiveType</a>
+      </li>
+      <li>
+        <a href="./pages/primitive_object_functions.html#objprim_setvertexcount">ObjPrim_SetVertexCount</a>
+      </li>
+      <li>
+        <a href="./pages/primitive_object_functions.html#objprim_getvertexcount">ObjPrim_GetVertexCount</a>
+      </li>
+      <li>
+        <a href="./pages/primitive_object_functions.html#objprim_settexture">ObjPrim_SetTexture</a>
+      </li>
+      <li>
+        <a href="./pages/primitive_object_functions.html#objprim_setvertexposition">ObjPrim_SetVertexPosition</a>
+      </li>
+      <li>
+        <a href="./pages/primitive_object_functions.html#objprim_getvertexposition">ObjPrim_GetVertexPosition</a>
+      </li>
+      <li>
+        <a href="./pages/primitive_object_functions.html#objprim_setvertexuv">ObjPrim_SetVertexUV</a>
+      </li>
+      <li>
+        <a href="./pages/primitive_object_functions.html#objprim_setvertexuvt">ObjPrim_SetVertexUVT</a>
+      </li>
+      <li>
+        <a href="./pages/primitive_object_functions.html#objprim_setvertexcolor">ObjPrim_SetVertexColor</a>
+      </li>
+      <li>
+        <a href="./pages/primitive_object_functions.html#objprim_setvertexalpha">ObjPrim_SetVertexAlpha</a>
+      </li>
+    </ul>
+    <h3 id="d-sprite-object-functions">
+      <a href="./pages/2d_sprite_object_functions.html">2D Sprite Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/2d_sprite_object_functions.html#objsprite2d_setsourcerect">ObjSprite2D_SetSourceRect</a>
+      </li>
+      <li>
+        <a href="./pages/2d_sprite_object_functions.html#objsprite2d_setdestrect">ObjSprite2D_SetDestRect</a>
+      </li>
+      <li>
+        <a href="./pages/2d_sprite_object_functions.html#objsprite2d_setdestcenter">ObjSprite2D_SetDestCenter</a>
+      </li>
+    </ul>
+    <h3 id="d-sprite-list-object-functions">
+      <a href="./pages/2d_sprite_list_object_functions.html">2D Sprite List Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/2d_sprite_list_object_functions.html#objspritelist2d_setsourcerect">ObjSpriteList2D_SetSourceRect</a>
+      </li>
+      <li>
+        <a href="./pages/2d_sprite_list_object_functions.html#objspritelist2d_setdestrect">ObjSpriteList2D_SetDestRect</a>
+      </li>
+      <li>
+        <a href="./pages/2d_sprite_list_object_functions.html#objspritelist2d_setdestcenter">ObjSpriteList2D_SetDestCenter</a>
+      </li>
+      <li>
+        <a href="./pages/2d_sprite_list_object_functions.html#objspritelist2d_addvertex">ObjSpriteList2D_AddVertex</a>
+      </li>
+      <li>
+        <a href="./pages/2d_sprite_list_object_functions.html#objspritelist2d_closevertex">ObjSpriteList2D_CloseVertex</a>
+      </li>
+      <li>
+        <a href="./pages/2d_sprite_list_object_functions.html#objspritelist2d_clearvertexcount">ObjSpriteList2D_ClearVertexCount</a>
+      </li>
+    </ul>
+    <h3 id="d-sprite-object-functions-1">
+      <a href="./pages/3d_sprite_object_functions.html">3D Sprite Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/3d_sprite_object_functions.html#objsprite3d_setsourcerect">ObjSprite3D_SetSourceRect</a>
+      </li>
+      <li>
+        <a href="./pages/3d_sprite_object_functions.html#objsprite3d_setdestrect">ObjSprite3D_SetDestRect</a>
+      </li>
+      <li>
+        <a href="./pages/3d_sprite_object_functions.html#objsprite3d_setsourcedestrect">ObjSprite3D_SetSourceDestRect</a>
+      </li>
+      <li>
+        <a href="./pages/3d_sprite_object_functions.html#objsprite3d_setbillboard">ObjSprite3D_SetBillboard</a>
+      </li>
+    </ul>
+    <h3 id="mesh-object-functions">
+      <a href="./pages/mesh_object_functions.html">Mesh Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/mesh_object_functions.html#objmesh_create">ObjMesh_Create</a>
+      </li>
+      <li>
+        <a href="./pages/mesh_object_functions.html#objmesh_load">ObjMesh_Load</a>
+      </li>
+      <li>
+        <a href="./pages/mesh_object_functions.html#objmesh_setcolor">ObjMesh_SetColor</a>
+      </li>
+      <li>
+        <a href="./pages/mesh_object_functions.html#objmesh_setalpha">ObjMesh_SetAlpha</a>
+      </li>
+      <li>
+        <a href="./pages/mesh_object_functions.html#objmesh_setanimation">ObjMesh_SetAnimation</a>
+      </li>
+      <li>
+        <a href="./pages/mesh_object_functions.html#objmesh_setcoordinate2d">ObjMesh_SetCoordinate2D</a>
+      </li>
+    </ul>
+    <h3 id="text-object-functions">
+      <a href="./pages/text_object_functions.html">Text Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_create">ObjText_Create</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_settext">ObjText_SetText</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setfonttype">ObjText_SetFontType</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setfontsize">ObjText_SetFontSize</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setfontbold">ObjText_SetFontBold</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setfontcolortop">ObjText_SetFontColorTop</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setfontcolorbottom">ObjText_SetFontColorBottom</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setfontborderwidth">ObjText_SetFontBorderWidth</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setfontbordertype">ObjText_SetFontBorderType</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setfontbordercolor">ObjText_SetFontBorderColor</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setmaxwidth">ObjText_SetMaxWidth</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setmaxheight">ObjText_SetMaxHeight</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setlinepitch">ObjText_SetLinePitch</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setsidepitch">ObjText_SetSidePitch</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_settranscenter">ObjText_SetTransCenter</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setautotranscenter">ObjText_SetAutoTransCenter</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_sethorizontalalignment">ObjText_SetHorizontalAlignment</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_setsyntacticanalysis">ObjText_SetSyntacticAnalysis</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_gettextlength">ObjText_GetTextLength</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_gettextlengthcu">ObjText_GetTextLengthCU</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_gettextlengthcul">ObjText_GetTextLengthCUL</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_gettotalwidth">ObjText_GetTotalWidth</a>
+      </li>
+      <li>
+        <a href="./pages/text_object_functions.html#objtext_gettotalheight">ObjText_GetTotalHeight</a>
+      </li>
+    </ul>
+    <h3 id="shader-object-functions">
+      <a href="./pages/shader_object_functions.html">Shader Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/shader_object_functions.html#objshader_create">ObjShader_Create</a>
+      </li>
+      <li>
+        <a href="./pages/shader_object_functions.html#objshader_setshaderf">ObjShader_SetShaderF</a>
+      </li>
+      <li>
+        <a href="./pages/shader_object_functions.html#objshader_setshadero">ObjShader_SetShaderO</a>
+      </li>
+      <li>
+        <a href="./pages/shader_object_functions.html#objshader_resetshader">ObjShader_ResetShader</a>
+      </li>
+      <li>
+        <a href="./pages/shader_object_functions.html#objshader_settechnique">ObjShader_SetTechnique</a>
+      </li>
+      <li>
+        <a href="./pages/shader_object_functions.html#objshader_setvector">ObjShader_SetVector</a>
+      </li>
+      <li>
+        <a href="./pages/shader_object_functions.html#objshader_setfloat">ObjShader_SetFloat</a>
+      </li>
+      <li>
+        <a href="./pages/shader_object_functions.html#objshader_setfloatarray">ObjShader_SetFloatArray</a>
+      </li>
+      <li>
+        <a href="./pages/shader_object_functions.html#objshader_settexture">ObjShader_SetTexture</a>
+      </li>
+    </ul>
+    <h3 id="sound-object-functions">
+      <a href="./pages/sound_object_functions.html">Sound Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_create">ObjSound_Create</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_load">ObjSound_Load</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_play">ObjSound_Play</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_stop">ObjSound_Stop</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_setvolumerate">ObjSound_SetVolumeRate</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_setpanrate">ObjSound_SetPanRate</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_setfade">ObjSound_SetFade</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_setloopenable">ObjSound_SetLoopEnable</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_setlooptime">ObjSound_SetLoopTime</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_setloopsamplecount">ObjSound_SetLoopSampleCount</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_setrestartenable">ObjSound_SetRestartEnable</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_setsounddivision">ObjSound_SetSoundDivision</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_isplaying">ObjSound_IsPlaying</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_getvolumerate">ObjSound_GetVolumeRate</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_setstarttime">ObjSound_SetStartTime*</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_setstarttimesamplecount">ObjSound_SetStartTimeSampleCount*</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_seek">ObjSound_Seek*</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_seek">ObjSound_SeekSampleCount*</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_getposition">ObjSound_GetPosition*</a>
+      </li>
+      <li>
+        <a href="./pages/sound_object_functions.html#objsound_getpositionsamplecount">ObjSound_GetPositionSampleCount*</a>
+      </li>
+    </ul>
+    <h3 id="file-object-functions">
+      <a href="./pages/file_object_functions.html">File Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/file_object_functions.html#objfile_create">ObjFile_Create</a>
+      </li>
+      <li>
+        <a href="./pages/file_object_functions.html#objfile_open">ObjFile_Open</a>
+      </li>
+      <li>
+        <a href="./pages/file_object_functions.html#objfile_opennw">ObjFile_OpenNW</a>
+      </li>
+      <li>
+        <a href="./pages/file_object_functions.html#objfile_store">ObjFile_Store</a>
+      </li>
+      <li>
+        <a href="./pages/file_object_functions.html#objfile_getsize">ObjFile_GetSize</a>
+      </li>
+    </ul>
+    <h3 id="text-file-object-functions">
+      <a href="./pages/text_file_object_functions.html">Text File Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/text_file_object_functions.html#objfile_create">ObjFileT_GetLineCount</a>
+      </li>
+      <li>
+        <a href="./pages/text_file_object_functions.html#objfilet_getlinetext">ObjFileT_GetLineText</a>
+      </li>
+      <li>
+        <a href="./pages/text_file_object_functions.html#objfilet_splitlinetext">ObjFileT_SplitLineText</a>
+      </li>
+      <li>
+        <a href="./pages/text_file_object_functions.html#objfilet_addline">ObjFileT_AddLine</a>
+      </li>
+      <li>
+        <a href="./pages/text_file_object_functions.html#objfilet_clearline">ObjFileT_ClearLine</a>
+      </li>
+    </ul>
+    <h3 id="binary-file-object-functions">
+      <a href="./pages/binary_file_object_functions.html">Binary File Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_setbyteorder">ObjFileB_SetByteOrder</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_setcharactercode">ObjFileB_SetCharacterCode</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_getpointer">ObjFileB_GetPointer</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_seek">ObjFileB_Seek</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_readboolean">ObjFileB_ReadBoolean</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_readbyte">ObjFileB_ReadByte</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_readshort">ObjFileB_ReadShort</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_readinteger">ObjFileB_ReadInteger</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_readlong">ObjFileB_ReadLong</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_readfloat">ObjFileB_ReadFloat</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_readdouble">ObjFileB_ReadDouble</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_readstring">ObjFileB_ReadString</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_readallbytes">ObjFileB_ReadAllBytes*</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_writeboolean">ObjFileB_WriteBoolean*</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_writebyte">ObjFileB_WriteByte*</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_writeshort">ObjFileB_WriteShort*</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_writeinteger">ObjFileB_WriteInteger*</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_writelong">ObjFileB_WriteLong*</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_writefloat">ObjFileB_WriteFloat*</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_writedouble">ObjFileB_WriteDouble*</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_writestring">ObjFileB_WriteString*</a>
+      </li>
+      <li>
+        <a href="./pages/binary_file_object_functions.html#objfileb_writeallbytes">ObjFileB_WriteAllBytes*</a>
+      </li>
+    </ul>
+    <h3 id="move-object-functions">
+      <a href="./pages/move_object_functions.html">Move Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_setx">ObjMove_SetX</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_sety">ObjMove_SetY</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_setposition">ObjMove_SetPosition</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_setspeed">ObjMove_SetSpeed</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_setangle">ObjMove_SetAngle</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_setacceleration">ObjMove_SetAcceleration</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_setmaxspeed">ObjMove_SetMaxSpeed</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_setangularvelocity">ObjMove_SetAngularVelocity</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_setdestatspeed">ObjMove_SetDestAtSpeed</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_setdestatframe">ObjMove_SetDestAtFrame</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_setdestatweight">ObjMove_SetDestAtWeight</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_setdestatinterpolate">ObjMove_SetDestAtInterpolate*</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_addpatterna1">ObjMove_AddPatternA1</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_addpatterna2">ObjMove_AddPatternA2</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_addpatterna3">ObjMove_AddPatternA3</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_addpatterna4">ObjMove_AddPatternA4</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_addpatternb1">ObjMove_AddPatternB1</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_addpatternb2">ObjMove_AddPatternB2</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_addpatternb3">ObjMove_AddPatternB3</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_getx">ObjMove_GetX</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_gety">ObjMove_GetY</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_getspeed">ObjMove_GetSpeed</a>
+      </li>
+      <li>
+        <a href="./pages/move_object_functions.html#objmove_getangle">ObjMove_GetAngle</a>
+      </li>
+    </ul>
+    <h3 id="enemy-object-functions">
+      <a href="./pages/enemy_object_functions.html">Enemy Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/enemy_object_functions.html#objenemy_create">ObjEnemy_Create</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_object_functions.html#objenemy_regist">ObjEnemy_Regist</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_object_functions.html#objenemy_getinfo">ObjEnemy_GetInfo</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_object_functions.html#objenemy_setlife">ObjEnemy_SetLife</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_object_functions.html#objenemy_addlife">ObjEnemy_AddLife</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_object_functions.html#objenemy_setdamagerate">ObjEnemy_SetDamageRate</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_object_functions.html#objenemy_setintersectioncircletoshot">ObjEnemy_SetIntersectionCircleToShot</a>
+      </li>
+      <li>
+        <a href="./pages/enemy_object_functions.html#objenemy_setintersectioncircletoplayer">ObjEnemy_SetIntersectionCircleToPlayer</a>
+      </li>
+    </ul>
+    <h3 id="boss-scene-object-functions">
+      <a href="./pages/boss_scene_object_functions.html">Boss Scene Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/boss_scene_object_functions.html#objenemybossscene_create">ObjEnemyBossScene_Create</a>
+      </li>
+      <li>
+        <a href="./pages/boss_scene_object_functions.html#objenemybossscene_regist">ObjEnemyBossScene_Regist</a>
+      </li>
+      <li>
+        <a href="./pages/boss_scene_object_functions.html#objenemybossscene_add">ObjEnemyBossScene_Add</a>
+      </li>
+      <li>
+        <a href="./pages/boss_scene_object_functions.html#objenemybossscene_loadinthread">ObjEnemyBossScene_LoadInThread</a>
+      </li>
+      <li>
+        <a href="./pages/boss_scene_object_functions.html#objenemybossscene_getinfo">ObjEnemyBossScene_GetInfo</a>
+      </li>
+      <li>
+        <a href="./pages/boss_scene_object_functions.html#objenemybossscene_setspelltimer">ObjEnemyBossScene_SetSpellTimer</a>
+      </li>
+      <li>
+        <a href="./pages/boss_scene_object_functions.html#objenemybossscene_startspell">ObjEnemyBossScene_StartSpell</a>
+      </li>
+    </ul>
+    <h3 id="shot-object-functions">
+      <a href="./pages/shot_object_functions.html">Shot Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_create">ObjShot_Create</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_regist">ObjShot_Regist</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setautodelete">ObjShot_SetAutoDelete</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_fadedelete">ObjShot_FadeDelete</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setdeleteframe">ObjShot_SetDeleteFrame</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setdelay">ObjShot_SetDelay</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setspellresist">ObjShot_SetSpellResist</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setgraphic">ObjShot_SetGraphic</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setsourceblendtype">ObjShot_SetSourceBlendType</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setdamage">ObjShot_SetDamage</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setpenetration">ObjShot_SetPenetration</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_seteraseshot">ObjShot_SetEraseShot</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setspellfactor">ObjShot_SetSpellFactor</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_toitem">ObjShot_ToItem</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_addshota1">ObjShot_AddShotA1</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_addshota2">ObjShot_AddShotA2</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setintersectioncirclea1">ObjShot_SetIntersectionCircleA1</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setintersectioncirclea2">ObjShot_SetIntersectionCircleA2</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setintersectionline">ObjShot_SetIntersectionLine</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setintersectionenable">ObjShot_SetIntersectionEnable</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_setitemchange">ObjShot_SetItemChange</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_getdamage">ObjShot_GetDamage</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_getpenetration">ObjShot_GetPenetration</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_getdelay">ObjShot_GetDelay</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_isspellresist">ObjShot_IsSpellResist</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objshot_getimageid">ObjShot_GetImageID</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objlaser_setlength">ObjLaser_SetLength</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objlaser_setrenderwidth">ObjLaser_SetRenderWidth</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objlaser_setintersectionwidth">ObjLaser_SetIntersectionWidth</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objlaser_setgrazeinvalidframe">ObjLaser_SetGrazeInvalidFrame</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objlaser_setinvalidlength">ObjLaser_SetInvalidLength</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objlaser_getlength">ObjLaser_GetLength</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objstlaser_setangle">ObjStLaser_SetAngle</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objstlaser_getangle">ObjStLaser_GetAngle</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objstlaser_setsource">ObjStLaser_SetSource</a>
+      </li>
+      <li>
+        <a href="./pages/shot_object_functions.html#objcrlaser_settipdecrement">ObjCrLaser_SetTipDecrement</a>
+      </li>
+    </ul>
+    <h3 id="item-object-functions">
+      <a href="./pages/item_object_functions.html">Item Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/item_object_functions.html#objitem_setitemid">ObjItem_SetItemID</a>
+      </li>
+      <li>
+        <a href="./pages/item_object_functions.html#objitem_setrenderscoreenable">ObjItem_SetRenderScoreEnable</a>
+      </li>
+      <li>
+        <a href="./pages/item_object_functions.html#objitem_setautocollectenable">ObjItem_SetAutoCollectEnable</a>
+      </li>
+      <li>
+        <a href="./pages/item_object_functions.html#objitem_setdefinedmovepatterna1">ObjItem_SetDefinedMovePatternA1</a>
+      </li>
+      <li>
+        <a href="./pages/item_object_functions.html#objitem_getinfo">ObjItem_GetInfo</a>
+      </li>
+      <li>
+        <a href="./pages/item_object_functions.html#objitem_setintersectionenable">ObjItem_SetIntersectionEnable*</a>
+      </li>
+      <li>
+        <a href="./pages/item_object_functions.html#objitem_getitemid">ObjItem_GetItemID*</a>
+      </li>
+      <li>
+        <a href="./pages/item_object_functions.html#objitem_getmovetype">ObjItem_GetMoveType*</a>
+      </li>
+    </ul>
+    <h3 id="player-object-functions">
+      <a href="./pages/player_object_functions.html">Player Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/player_object_functions.html#objplayer_addintersectioncirclea1">ObjPlayer_AddIntersectionCircleA1</a>
+      </li>
+      <li>
+        <a href="./pages/player_object_functions.html#objplayer_addintersectioncirclea2">ObjPlayer_AddIntersectionCircleA2</a>
+      </li>
+      <li>
+        <a href="./pages/player_object_functions.html#objplayer_clearintersection">ObjPlayer_ClearIntersection</a>
+      </li>
+    </ul>
+    <h3 id="collision-object-functions">
+      <a href="./pages/collision_object_functions.html">Collision Object Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/collision_object_functions.html#objcol_isintersected">ObjCol_IsIntersected</a>
+      </li>
+      <li>
+        <a href="./pages/collision_object_functions.html#objcol_getlistofintersectedenemyid">ObjCol_GetListOfIntersectedEnemyID</a>
+      </li>
+      <li>
+        <a href="./pages/collision_object_functions.html#objcol_getintersectedcount">ObjCol_GetIntersectedCount</a>
+      </li>
+    </ul>
+    <h2 id="player-script-functions">Player Script Functions</h2>
+    <h3 id="player-main-functions">
+      <a href="./pages/player_main_functions.html">Player Main Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/player_main_functions.html#createplayershota1">CreatePlayerShotA1</a>
+      </li>
+      <li>
+        <a href="./pages/player_main_functions.html#callspell">CallSpell</a>
+      </li>
+      <li>
+        <a href="./pages/player_main_functions.html#loadplayershotdata">LoadPlayerShotData</a>
+      </li>
+      <li>
+        <a href="./pages/player_main_functions.html#reloadplayershotdata">ReloadPlayerShotData</a>
+      </li>
+      <li>
+        <a href="./pages/player_main_functions.html#getspellmanageobject">GetSpellManageObject</a>
+      </li>
+    </ul>
+    <h3 id="player-spell-functions">
+      <a href="./pages/player_spell_functions.html">Player Spell Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/player_spell_functions.html#objspell_create">ObjSpell_Create</a>
+      </li>
+      <li>
+        <a href="./pages/player_spell_functions.html#objspell_regist">ObjSpell_Regist</a>
+      </li>
+      <li>
+        <a href="./pages/player_spell_functions.html#objspell_setdamage">ObjSpell_SetDamage</a>
+      </li>
+      <li>
+        <a href="./pages/player_spell_functions.html#objspell_seteraseshot">ObjSpell_SetEraseShot</a>
+      </li>
+      <li>
+        <a href="./pages/player_spell_functions.html#objspell_setintersectioncircle">ObjSpell_SetIntersectionCircle</a>
+      </li>
+      <li>
+        <a href="./pages/player_spell_functions.html#objspell_setintersectionline">ObjSpell_SetIntersectionLine</a>
+      </li>
+    </ul>
+    <h2 id="private-script-functions">Private Script Functions</h2>
+    <h3 id="private-system-functions">
+      <a href="./pages/private_system_functions.html">Private System Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/private_system_functions.html#setpausescriptpath">SetPauseScriptPath</a>
+      </li>
+      <li>
+        <a href="./pages/private_system_functions.html#setendscenescriptpath">SetEndSceneScriptPath</a>
+      </li>
+      <li>
+        <a href="./pages/private_system_functions.html#setreplaysavescenescriptpath">SetReplaySaveSceneScriptPath</a>
+      </li>
+      <li>
+        <a href="./pages/private_system_functions.html#gettransitionrendertargetname">GetTransitionRenderTargetName</a>
+      </li>
+    </ul>
+    <h3 id="custom-script-functions">
+      <a href="./pages/custom_script_functions.html">Custom Script Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/custom_script_functions.html#SetShotDeleteEventEnable">SetShotDeleteEventEnable</a>
+      </li>
+    </ul>
+    <h3 id="package-functions">
+      <a href="./pages/package_functions.html">Package Functions</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="./pages/package_functions.html#closepackage">ClosePackage</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#initializestagescene">InitializeStageScene</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#finalizestagescene">FinalizeStageScene</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#startstagescene">StartStageScene</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#setstageindex">SetStageIndex</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#setstagemainscript">SetStageMainScript</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#setstageplayerscript">SetStagePlayerScript</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#setstagereplayfile">SetStageReplayFile</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#getstagescenestate">GetStageSceneState</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#getstagesceneresult">GetStageSceneResult</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#pausestagescene">PauseStageScene</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#terminatestagescene">TerminateStageScene</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#getloadfreeplayerscriptlist">GetLoadFreePlayerScriptList</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#getfreeplayerscriptcount">GetFreePlayerScriptCount</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#getfreeplayerscriptinfo">GetFreePlayerScriptInfo</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#loadreplaylist">LoadReplayList</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#getvalidreplayindices">GetValidReplayIndices</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#isvalidreplayindex">IsValidReplayIndex</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#getreplayinfo">GetReplayInfo</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#setreplayinfo">SetReplayInfo</a>
+      </li>
+      <li>
+        <a href="./pages/package_functions.html#savereplay">SaveReplay</a>
+      </li>
+    </ul>
+  </body>
+</html>

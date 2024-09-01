@@ -1,0 +1,126 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>docs_blend_types.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="blend-types">Blend Types</h1>
+    <p>
+      <a href="./docs.html">Return to Functions</a>
+    </p>
+    <h1 id="section"></h1>
+    <p>Blend types affect the way an object is rendered.<br />
+The available blend types are:</p>
+    <ul>
+      <li>
+        <strong>BLEND_ALPHA</strong>
+        <br />
+Overlays the image on top of the background, using the image's alpha values to determine transparency of individual pixels.<br /><br />
+Formula: <code>(r1, g1, b1) * a1/255 + (r2, g2, b2) * (1 - (a1/255))</code></li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        <strong>BLEND_ADD_RGB</strong>
+        <br />
+Adds the image's pixel values to those of the background, resulting in a brighter image.<br /><br />
+Formula: <code>(r1, g1, b1) + (r2, g2, b2)</code></li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        <strong>BLEND_MULTIPLY</strong>
+        <br />
+Multiplies the image's pixel values with those of the background, as a ratio from 0 to 255.<br />
+For example, an image multiplied by solid white will result in the same image, and an image multiplied by solid gray (127, 127, 127) will result in an image with half the brightness.<br /><br />
+Formula: <code>(r1, g1, b1) * (r2, g2, b2) / 255</code></li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        <strong>BLEND_SUBTRACT</strong>
+        <br />
+Subtracts the image's pixel values from those of the background, resulting in a darker image.<br /><br />
+Formula: <code>(r2, g2, b2) - (r1, g1, b1)</code></li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        <strong>BLEND_ADD_ARGB</strong>
+        <br />
+Adds the image's pixel values to those of the background, using the image's alpha values to determine transparency of individual pixels.<br /><br />
+Formula: <code>(r1, g1, b1) * a1/255 + (r2, g2, b2)</code></li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        <strong>BLEND_INV_DESTRGB</strong>
+        <br />
+Inverts the color of the background in relation to the intensity of the image's pixel values. Also known as exclusion blending.<br /><br />
+The closer the image's pixel values are to 255, the more the background is inverted in that color.<br />
+The closer the image's pixel values are to 0, the less it is inverted in that color.<br />
+What this results in is a linear scale between the inverted background, half-intensity (127), and the original background color.<br /><br />
+For example, a solid white image will invert the background pixels exactly. A solid red image (255, 0, 0) will invert only the background pixels' red values, but not affect the green or blue values.<br /><br />
+Formula: <code>(r1, g1, b1) + (r2, g2, b2) - 2 * (r1, g1, b1) * (r2, g2, b2) / 255</code></li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        <strong>BLEND_SHADOW</strong>
+        <br />
+Inverts the image's pixel values, then applies multiply-blend with the background.<br /><br />
+Formula: <code>((255, 255, 255) - (r1, g1, b1)) * (r2, g2, b2) / 255</code></li>
+    </ul>
+    <br />
+  </body>
+</html>

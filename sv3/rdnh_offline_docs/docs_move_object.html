@@ -1,0 +1,284 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>docs_move_object.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="move-object-functions">Move Object Functions</h1>
+    <p>
+      <a href="./docs.html">Return to Functions</a>
+    </p>
+    <h2 id="objrender_setx">ObjRender_SetX</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+</pre>
+    <p>Sets the x-coordinate of the object.</p>
+    <h2 id="objrender_sety">ObjRender_SetY</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: y
+</pre>
+    <p>Sets the y-coordinate of the object.</p>
+    <h2 id="objrender_setposition">ObjRender_SetPosition</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+</pre>
+    <p>Sets the x and y coordinates of the object.</p>
+    <h2 id="objrender_setposition-1">ObjRender_SetPosition</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+</pre>
+    <p>Sets the x and y coordinates of the object to the coordinates of the parent object.</p>
+    <h2 id="objrender_setspeed">ObjRender_SetSpeed</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: speed
+</pre>
+    <p>Sets the movement speed for the object.</p>
+    <h2 id="objrender_setangle">ObjRender_SetAngle</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: angle
+</pre>
+    <p>Sets the movement angle for the object.</p>
+    <h2 id="objmove_setacceleration">ObjMove_SetAcceleration</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: acceleration
+</pre>
+    <p>Sets the movement acceleration per frame for the object.</p>
+    <h2 id="objmove_setangularvelocity">ObjMove_SetAngularVelocity</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: angularVelocity
+</pre>
+    <p>Sets the change in movement angle per frame for the object.</p>
+    <h2 id="objmove_setdestatspeed">ObjMove_SetDestAtSpeed</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: speed
+</pre>
+    <p>Moves the object towards the given coordinates at the speed specified.</p>
+    <h2 id="objmove_setdestatframe">ObjMove_SetDestAtFrame</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: frames
+</pre>
+    <p>Moves the object towards the given coordinates in the number of frames specified.</p>
+    <h2 id="objmove_setdestatweight">ObjMove_SetDestAtWeight</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: frames
+</pre>
+    <p>Moves the object towards the given coordinates.</p>
+    <p>It will slow down near the end of the movement based on the weight specified.</p>
+    <h2 id="objmove_setdestatinterpolate">ObjMove_SetDestAtInterpolate</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: frames
+        5) real const: interpolationType
+</pre>
+    <p>Moves the object towards the given coordinates in the number of frames specified with the given <a href="./docs_interpolation_types.html">interpolation type</a>.</p>
+    <h2 id="objmove_addpatterna1">ObjMove_AddPatternA1</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frame
+        3) real: speed
+        4) real: angle
+</pre>
+    <p>After the specified number of frames, changes the speed and angle of the object.</p>
+    <p>NO_CHANGE can be used to preserve the original speed or angle.</p>
+    <h2 id="objmove_addpatterna2">ObjMove_AddPatternA2</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frame
+        3) real: speed
+        4) real: angle
+        5) real: acceleration
+        6) real: angularVelocity
+        7) real: maxSpeed
+</pre>
+    <p>After the specified number of frames, changes the speed, angle, acceleration, angular velocity, and maximum speed of the object.</p>
+    <p>NO_CHANGE can be used to preserve the original speed, angle, acceleration, angular velocity, or maximum speed.</p>
+    <h2 id="objmove_addpatterna3">ObjMove_AddPatternA3</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frame
+        3) real: speed
+        4) real: angle
+        5) real: acceleration
+        6) real: angularVelocity
+        7) real: maxSpeed
+        8) real: shotGraphic
+</pre>
+    <p>After the specified number of frames, changes the speed, angle, acceleration, angular velocity, maximum speed, and shot graphic of the object.</p>
+    <p>NO_CHANGE can be used to preserve the original speed, angle, acceleration, angular velocity, maximum speed, or shot graphic.</p>
+    <h2 id="objmove_addpatterna4">ObjMove_AddPatternA4</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frame
+        3) real: speed
+        4) real: angle
+        5) real: acceleration
+        6) real: angularVelocity
+        7) real: maxSpeed
+        8) real: shotGraphic
+        9) real: targetObjectID
+</pre>
+    <p>After the specified number of frames, changes the speed, angle, acceleration, angular velocity, maximum speed, and shot graphic of the object with angle being relative to the angle from the object to targetObjectID.</p>
+    <p>NO_CHANGE can be used to preserve the original speed, angle, acceleration, angular velocity, maximum speed, or shot graphic.<br />
+The angle parameter is relative to the angle from the object to the target.<br />
+For example, if GetPlayerObjectID is used as the target, an angle of 0 will cause the object to aim for the player.</p>
+    <h2 id="objmove_addpatternb1">ObjMove_AddPatternB1</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frame
+        3) real: speedX
+        4) real: speedY
+</pre>
+    <p>After the specified number of frames, changes the x and y movement speeds of the object.</p>
+    <p>NO_CHANGE can be used to preserve the original speeds.</p>
+    <h2 id="objmove_addpatternb2">ObjMove_AddPatternB2</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frame
+        3) real: speedX
+        4) real: speedY
+        5) real: accelX
+        6) real: accelY
+        7) real: maxSpeedX
+        8) real: maxSpeedY
+</pre>
+    <p>After the specified number of frames, changes the x and y speeds, accelerations, and maximum speeds of the object.</p>
+    <p>NO_CHANGE can be used to preserve the original x or y speeds, accelerations, and maximum speeds.</p>
+    <h2 id="objmove_addpatternb3">ObjMove_AddPatternB3</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frame
+        3) real: speedX
+        4) real: speedY
+        5) real: accelX
+        6) real: accelY
+        7) real: maxSpeedX
+        8) real: maxSpeedY
+</pre>
+    <p>After the specified number of frames, changes the x and y speeds, accelerations, maximum speeds, and shot graphic of the object.</p>
+    <p>NO_CHANGE can be used to preserve the original x or y speeds, accelerations, maximum speeds, and bullet graphic.</p>
+    <h2 id="objmove_getx">ObjMove_GetX</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Gets the x-coordinate of the object.</p>
+    <p>If the object is deleted, this will return NULL_POS.</p>
+    <h2 id="objmove_gety">ObjMove_GetY</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Gets the y-coordinate of the object.</p>
+    <p>If the object is deleted, this will return NULL_POS.</p>
+    <h2 id="objmove_getspeed">ObjMove_GetSpeed</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the movement speed of the object.</p>
+    <h2 id="objmove_getangle">ObjMove_GetAngle</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the movement angle of the object.</p>
+  </body>
+</html>

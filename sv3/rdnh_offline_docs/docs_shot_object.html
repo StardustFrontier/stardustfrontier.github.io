@@ -1,0 +1,383 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>docs_shot_object.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="shot-object-functions">Shot Object Functions</h1>
+    <p>
+      <a href="./docs.html">Return to Functions</a>
+    </p>
+    <h2 id="objenemy_create">ObjEnemy_Create</h2>
+    <pre>
+    Arguments:
+        1) real const: objectType
+    Return Type:
+        real
+</pre>
+    <p>Creates a shot object of the specified type and returns its ID.</p>
+    <p>Object types are:</p>
+    <pre>
+OBJ_SHOT
+OBJ_LOOSE_LASER
+OBJ_STRAIGHT_LASER
+OBJ_CURVE_LASER
+</pre>
+    <p>In order to draw and fire the shot object and have it listed as an existing bullet, you have to register it using <a href="objshot_regist">ObjShot_Regist</a>.</p>
+    <h2 id="objshot_regist">ObjShot_Regist</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Activates the specified shot object.</p>
+    <p>Shot objects cannot be utilized until this functions is called.</p>
+    <h2 id="objshot_setautodelete">ObjShot_SetAutoDelete</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bAutoDelete
+</pre>
+    <p>Enables or disables auto-deletion of the shot object when outside of the screen boundaries.</p>
+    <p>Defaults to true.</p>
+    <h2 id="objshot_fadedelete">ObjShot_FadeDelete</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Fades out the shot object and deletes it.</p>
+    <h2 id="objshot_setdeleteframe">ObjShot_SetDeleteFrame</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frames
+</pre>
+    <p>Deletes the shot object after the specified number of frames.</p>
+    <h2 id="objshot_setdelay">ObjShot_SetDelay</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frames
+</pre>
+    <p>Delays the shot object, firing it after the specified number of frames.</p>
+    <p>Bullets will glow to announce delay; lasers will be shown very thin.</p>
+    <h2 id="objshot_setspellresist">ObjShot_SetSpellResist</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bSpellResist
+</pre>
+    <p>When set to true, the shot object will not be deleted by the player's spell.</p>
+    <p>Defaults to false.</p>
+    <h2 id="objshot_setgraphic">ObjShot_SetGraphic</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: graphicID
+</pre>
+    <p>Gives the shot object the specified graphic.</p>
+    <h2 id="objshot_setsourceblendtype">ObjShot_SetSourceBlendType</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real const: blendType
+</pre>
+    <p>Gives the shot object's delay graphic the specified <a href="./docs_blend_types.html">blend type</a>.</p>
+    <h2 id="objshot_setdamage">ObjShot_SetDamage</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: damage
+</pre>
+    <p>Sets the damage of the specified shot object.</p>
+    <p>For player shots only.</p>
+    <h2 id="objshot_setpenetration">ObjShot_SetPenetration</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: penetration
+</pre>
+    <p>Sets the penetration of the shot object.</p>
+    <p>The shot object can hit enemies as many times as the penetration value before being deleted.<br />
+For player shots only.</p>
+    <h2 id="objshot_seteraseshot">ObjShot_SetEraseShot</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+</pre>
+    <p>Enables/disables the ability to erase enemy shots when the specified shot object comes into contact with it.</p>
+    <p>Each time a shot is erased, the penetration of the shot object will go down by 1.<br />
+For player shots only.</p>
+    <h2 id="objshot_setspellfactor">ObjShot_SetSpellFactor</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+</pre>
+    <p>Sets whether or not to use the spell damage factor for the shot object.</p>
+    <p>For player shots only.</p>
+    <h2 id="objshot_setgrazeinvalidframe">ObjShot_SetGrazeInvalidFrame</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: frames
+</pre>
+    <p>Sets the amount of frames that must pass before the specified shot can be grazed again.</p>
+    <p>Use GRAZE_INVALID_NONE to reset this value to normal.<br />
+Default value is GRAZE_INVALID_NONE</p>
+    <h2 id="objshot_toitem">ObjShot_ToItem</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Turns the bullet into an item.</p>
+    <h2 id="objshot_addshota1">ObjShot_AddShotA1</h2>
+    <pre>
+    Arguments:
+        1) real: sourceObjectID
+        2) real: targetObjectID
+        3) real: frame
+</pre>
+    <p>At the specified frame, spawns the added shot object at the source shot object's position.</p>
+    <h2 id="objshot_addshota2">ObjShot_AddShotA2</h2>
+    <pre>
+    Arguments:
+        1) real: sourceObjectID
+        2) real: targetObjectID
+        3) real: frame
+        4) real: distance
+        5) real: angle
+</pre>
+    <p>At the specified frame, spawns the added shot object at the specified distance and angle from the source shot object's position.</p>
+    <h2 id="objshot_setintersectioncirclea1">ObjShot_SetIntersectionCircleA1</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: radius
+</pre>
+    <p>Creates a hitbox of specified radius for collision detection of the shot object.</p>
+    <p>In order to maintain the hitbox, it must be set every frame.<br />
+There can be multiple hitboxes set for one shot object.<br />
+At the specified frame, spawns the added shot object at the source shot object's position.</p>
+    <h2 id="objshot_setintersectioncirclea2">ObjShot_SetIntersectionCircleA2</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: radius
+</pre>
+    <p>Creates a hitbox of specified radius for collision detection of the shot object.</p>
+    <p>In order to maintain the hitbox, it must be set every frame.<br />
+There can be multiple hitboxes set for one shot object.</p>
+    <h2 id="objshot_setintersectionline">ObjShot_SetIntersectionLine</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x1
+        3) real: y1
+        4) real: x2
+        5) real: y2
+        6) real: width
+</pre>
+    <p>Creates a line segment hitbox between the specified coordinates for collision detection of the shot object.</p>
+    <p>In order to maintain the hitbox, it must be set every frame.<br />
+There can be multiple hitboxes set for one shot object.</p>
+    <h2 id="objshot_setintersectionenable">ObjShot_SetIntersectionEnable</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+</pre>
+    <p>Sets whether collision detection of the shot object will be checked.</p>
+    <p>If set to false, the shot object will have no collision detection.</p>
+    <h2 id="objshot_setitemchange">ObjShot_SetItemChange</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+</pre>
+    <p>Sets whether the shot object will turn into an item when deleted.</p>
+    <p>If set to false, the shot object will not turn into an item.</p>
+    <h2 id="objshot_getdamage">ObjShot_GetDamage</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the damage of the specified shot object.</p>
+    <h2 id="objshot_getpenetration">ObjShot_GetPenetration</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the penetration of the specified shot object.</p>
+    <h2 id="objshot_getdelay">ObjShot_GetDelay</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the number of frames remaining in the shot's delay.</p>
+    <h2 id="objshot_isspellresist">ObjShot_IsSpellResist</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns whether the shot object can be deleted by a player spell.</p>
+    <p>Shot object spell resistance can be set with ObjShot_SetSpellResist.</p>
+    <h2 id="objshot_getgrazestatus">ObjShot_GetGrazeStatus</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the player is colliding with the specified shot's graze hitbox</p>
+    <h2 id="objshot_getimageid">ObjShot_GetImageID</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the graphic ID of the shot object.</p>
+    <h2 id="objlaser_setlength">ObjLaser_SetLength</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: length
+</pre>
+    <p>Sets the length of the laser object.</p>
+    <h2 id="objlaser_setrenderwidth">ObjLaser_SetRenderWidth</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: renderWidth
+</pre>
+    <p>Sets the visible width of the laser object (not the same as the laser object's collision width).</p>
+    <h2 id="objlaser_setintersectionwidth">ObjLaser_SetIntersectionWidth</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: collisionWidth
+</pre>
+    <p>Sets the collision width of the laser object.</p>
+    <p>This can be set to be larger than the laser object's render width, so take caution.</p>
+    <h2 id="objlaser_setgrazeinvalidframe">ObjLaser_SetGrazeInvalidFrame</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: grazeInvalidFrames
+</pre>
+    <p>Specify the number of frames after a graze where graze is not counted.</p>
+    <p>If you specify 0, the laser object can be grazed only once.<br />
+The default value is 20 frames (3 graze/second).</p>
+    <h2 id="objlaser_setinvalidlength">ObjLaser_SetInvalidLength</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: ratioBase
+        3) real: ratioTip
+</pre>
+    <p>Sets the portion of the laser object where there is no collision, in relation to the base and the tip of the laser.</p>
+    <p>By default, the values are 10 (10%).</p>
+    <h2 id="objlaser_setitemdistance">ObjLaser_SetItemDistance</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: interval
+</pre>
+    <p>Sets the item occurrence interval when the laser object is deleted and changed into items.</p>
+    <h2 id="objlaser_getlength">ObjLaser_GetLength</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Returns the length of the laser object.</p>
+    <h2 id="objstlaser_setangle">ObjStLaser_SetAngle</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: angle
+</pre>
+    <p>Sets the angle at which the straight laser object will point at (different from movement angle).</p>
+    <h2 id="objstlaser_getangle">ObjStLaser_GetAngle</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Returns the angle at which the straight laser object is pointing (different from movement angle).</p>
+    <h2 id="objstlaser_setsource">ObjStLaser_SetSource</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bDrawSource
+</pre>
+    <p>Sets whether the light source at the base of the straight laser object is drawn.</p>
+    <h2 id="objcrlaser_settipdecrement">ObjCrLaser_SetTipDecrement</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: reductionRate
+</pre>
+    <p>Sets the transparency reduction rate at the tip of the curved laser object.</p>
+    <p>Default is 1.0 (tip of laser is invisible).</p>
+  </body>
+</html>

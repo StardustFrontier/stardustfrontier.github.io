@@ -1,0 +1,137 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>path_functions.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+
+        </style>
+  </head>
+  <body>
+    <style type="text/css" rel="stylesheet">
+	* { color: #d8d6d0; }
+	* { background-color: #181a1b; }
+	a {
+		color: #68b2fa;
+	}
+	a:link {
+		text-decoration: none;
+	}
+	a:hover {
+	  text-decoration: underline;
+	}
+
+	a:active {
+	  text-decoration: underline;
+	}
+	hr {
+		height: 1px;
+		color: #40464d;
+		background-color: #40464d;
+		border: none;
+	}
+	h1 {
+		color: #d8d6d0;
+		border-bottom: 1px solid #40464d;
+	}	
+	pre {
+		background: #1a1c1d;
+		color: #d8d6d0;
+		border: 1pt solid #313845;
+		padding: 1em 0;
+		white-space: pre;
+		word-wrap: break-word;
+		overflow: auto
+	}
+</style>
+    <h1 id="path-functions">Path Functions</h1>
+    <p>
+      <a href="./../rednh_functions.html">Return to Functions</a>
+    </p>
+    <h2 id="getfiledirectory">GetFileDirectory</h2>
+    <pre>
+    Arguments:
+        1) string: path
+    Return Type:
+        string
+</pre>
+    <p>Returns the directory of the specified file path. Specifically, returns the input string up to the rightmost forward slash, with backslashes removed.</p>
+    <h2 id="getfilepathlist">GetFilePathList</h2>
+    <pre>
+    Arguments:
+        1) string: path
+    Return Type:
+        string array
+</pre>
+    <p>Returns a list of files in the folder of the specified file path (or folder path).</p>
+    <h2 id="getdirectorylist">GetDirectoryList</h2>
+    <pre>
+    Arguments:
+        1) string: path
+    Return Type:
+        string array
+</pre>
+    <p>Returns an array of the directories available within the directory of the specified path.</p>
+    <h2 id="getmoduledirectory">GetModuleDirectory</h2>
+    <pre>
+    Return Type:
+        string
+</pre>
+    <p>Returns the directory containing the running th_dnh.exe file.</p>
+    <h2 id="getmainstgscriptpath">GetMainStgScriptPath</h2>
+    <pre>
+    Return Type:
+        string
+</pre>
+    <p>Returns the path of the currently running stage script.</p>
+    <h2 id="getmainpackagescriptpath">GetMainPackageScriptPath</h2>
+    <pre>
+    Return Type:
+        string
+</pre>
+    <p>Returns the path of the currently running package script.</p>
+    <h2 id="getmainstgscriptdirectory">GetMainStgScriptDirectory</h2>
+    <pre>
+    Return Type:
+        string
+</pre>
+    <p>Returns the directory of the currently running stage script.</p>
+    <h2 id="getcurrentscriptdirectory">GetCurrentScriptDirectory</h2>
+    <pre>
+    Return Type:
+        string
+</pre>
+    <p>Returns the directory of the file in which this function was called.</p>
+    <h2 id="getscriptpathlist">GetScriptPathList</h2>
+    <pre>
+    Arguments:
+        1) string: path
+        2) const real: scriptType
+    Return Type:
+        string array
+</pre>
+    <p>Returns an array of available (selectable at selection screen) scripts of the specified type within the directory of the specified path. Script types are:</p>
+    <ul>
+      <li>TYPE_SCRIPT_ALL: All scripts</li>
+      <li>TYPE_SCRIPT_PLAYER: Player scripts</li>
+      <li>TYPE_SCRIPT_SINGLE: Single scripts</li>
+      <li>TYPE_SCRIPT_PLURAL: Plural scripts</li>
+      <li>TYPE_SCRIPT_STAGE: Stage scripts</li>
+      <li>TYPE_SCRIPT_PACKAGE: Package scripts</li>
+    </ul>
+    <h2 id="getfileextension">GetFileExtension</h2>
+    <pre>
+    Arguments:
+        1) string: path
+    Return Type:
+        string
+</pre>
+    <p>Returns the file extension from the given filename.</p>
+  </body>
+</html>

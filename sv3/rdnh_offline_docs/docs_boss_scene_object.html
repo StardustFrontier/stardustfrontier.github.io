@@ -1,0 +1,136 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>docs_boss_scene_object.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="boss-scene-object-functions">Boss Scene Object Functions</h1>
+    <p>
+      <a href="./docs.html">Return to Functions</a>
+    </p>
+    <h2 id="objenemybossscene_create">ObjEnemyBossScene_Create</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Creates a Boss Scene object and returns its ID.</p>
+    <h2 id="objenemybossscene_regist">ObjEnemyBossScene_Regist</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Starts the specified boss scene.</p>
+    <h2 id="objenemybossscene_add">ObjEnemyBossScene_Add</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: phaseStep
+        3) string: pathScript
+</pre>
+    <p>Adds the specified script to the boss scene at the specified phase.</p>
+    <h2 id="objenemybossscene_loadinthread">ObjEnemyBossScene_LoadInThread</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Compiles all the enemy scripts in the boss scene and initializes global variables.</p>
+    <p>As the length of compile time cannot be guaranteed, initialize all global variables besides constants in @Initialize.</p>
+    <h2 id="objenemybossscene_getinfo">ObjEnemyBossScene_GetInfo</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real const: infoType
+    Return Type:
+        varies
+</pre>
+    <p>Returns info about the boss scene object based on the given info type constant.</p>
+    <p>Available info types are:</p>
+    <pre>
+INFO_IS_SPELL - Returns true if a spell card is active
+INFO_IS_LAST_SPELL - Returns true if the Last Spell is active
+INFO_IS_DURABLE_SPELL - Returns true in the case of a survival spell
+INFO_IS_LAST_STEP - Returns true when the last spell is active
+INFO_TIMER - Returns the timer value in seconds
+INFO_TIMERF - Returns the timer value in frames (returns -1 if unlimited)
+INFO_ORGTIMERF - Returns the original timer value in frames (returns -1 if unlimited)
+INFO_SPELL_SCORE - Returns the score of the spell card
+INFO_REMAIN_STEP_COUNT - Returns the number of steps remaining in the active boss scene
+INFO_ACTIVE_STEP_LIFE_COUNT - Returns the amount of attacks of the enemy for the active step
+INFO_ACTIVE_STEP_TOTAL_MAX_LIFE - Returns the initial life of the enemy for the active step
+INFO_ACTIVE_STEP_TOTAL_LIFE - Returns the total remaining life for the active step
+INFO_PLAYER_SHOOTDOWN_COUNT - Returns the amount of times the player died during the spell
+INFO_PLAYER_SPELL_COUNT - Returns the amount of times the player bombed during the spell
+INFO_ACTIVE_STEP_LIFE_RATE_LIST - Returns an array containing the proportion (0-1) of each attacks's amount of life in the active step
+INFO_CURRENT_LIFE - Returns the current life of the enemy in the current attack
+INFO_CURRENT_LIFE_MAX - Returns the maximum life of the enemy in the current attack
+With regards to the step info types, step refers to the individual sections specified in the ObjEnemyBossScene_Add function's second argument.
+For each script (referred to as an attack here) you load into the step, you increase the step life count of that specific step by 1.
+</pre>
+    <h2 id="objenemybossscene_setspelltimer">ObjEnemyBossScene_SetSpellTimer</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: timer
+</pre>
+    <p>Sets the timer (in frames) of the current boss scene.</p>
+    <h2 id="objenemybossscene_startspell">ObjEnemyBossScene_StartSpell</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: timer
+</pre>
+    <p>Starts the boss spell card of the current boss scene.</p>
+  </body>
+</html>
