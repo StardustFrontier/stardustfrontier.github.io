@@ -388,6 +388,24 @@ Returns true if all load thread events have completed.
 
 _**Note**: This should not be used to **yield;** during a stage, since this will cause replay desync, but yielding on package loading screens should be fine._
 
+## IsScriptLoadThreadComplete
+```
+    Returns:
+        bool: bComplete
+```
+Returns true if all script load thread events have completed.
+
+_**Note**: This should not be used to **yield;** during a stage, since this will cause replay desync, but yielding on package loading screens should be fine._
+
+## IsResourceLoadThreadComplete
+```
+    Returns:
+        bool: bComplete
+```
+Returns true if all resource load thread events have completed.
+
+_**Note**: This should not be used to **yield;** during a stage, since this will cause replay desync, but yielding on package loading screens should be fine._
+
 ## GetDnhConfigValue
 ```
     Arguments:

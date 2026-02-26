@@ -227,6 +227,48 @@ Sets the maximum amount of damage that the enemy object can receive through norm
 
 Default value is uncapped.
 
+## ObjEnemy_SetSharedLifeTarget
+```
+    Arguments:
+        1) real: objectID
+        2) real: targetObjectID
+```
+Makes it so the enemy object shares life with the target enemy object.
+
+Whenever the enemy would have taken damage in any way, it will be redirected to the target object.
+
+## ObjEnemy_GetSharedLifeTarget
+```
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+```
+Returns the target object that this enemy is sharing life with.
+
+## ObjEnemy_SetTotalDamage
+```
+    Arguments:
+        1) real: objectID
+        2) real: totalDamage
+```
+Sets the total direct damage dealt to the enemy object since creation.
+
+This should only be called to reset the value to 0 if needed.
+
+## ObjEnemy_GetTotalDamage
+```
+    Arguments:
+        1) real: objectID
+        2) real: totalDamage
+    Return Type:
+        real
+```
+Returns the total "intended" direct damage dealt to the enemy object since creation.
+
+This always returns the amount of damage the enemy would have received even if it is taking no direct damage as a result of ObjEnemy_SetSharedLifeTarget\
+If the enemy is a _target_ of another enemy object's shared life, then it will not include the damage done to the other enemy
+
 ## ObjEnemy_SetIntersectionCircleToShot
 ```
     Arguments:
@@ -288,6 +330,92 @@ If set to false, the following functions will not include the specified enemy ob
 - GetNearestEnemyIntersectionIdA1
 - GetNearestEnemyIntersectionIdA2
 ```
+
+## ObjEnemy_SetPreferredHomingTarget
+```
+    Arguments:
+        1) real: objectID
+        2) bool: bPreferred
+```
+Marks or unmarks an enemy object as a preferred target for homing player shots.
+
+## ObjEnemy_IsPreferredHomingTarget
+```
+    Arguments:
+        1) real: objectID
+    Return Type:
+        bool
+```
+Returns true if the enemy is marked as a preferred target for homing player shots, otherwise returns false.
+
+## ObjEnemy_SetMovementBoundsEnable
+```
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+```
+Sets whether or not the enemy's movement should be clamped to its movement bounds.
+
+## ObjEnemy_IsMovementBoundsEnable
+```
+    Arguments:
+        1) real: objectID
+    Return Type:
+        bool
+```
+Returns whether or not the enemy movement is currently set to be clamped to its movement bounds.
+
+## ObjEnemy_SetMovementBounds
+```
+    Arguments:
+        1) real: objectID
+        2) real: left
+        3) real: top
+        4) real: right
+        5) real: bottom
+```
+Sets the movement bounds for the enemy object relative to (0, 0) within the STG frame area.
+
+## ObjEnemy_GetMovementBounds
+```
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real[]
+```
+Returns the movement bounds for the enemy object.
+
+## ObjEnemy_SetHitEffectEnable
+```
+    Arguments:
+        1) real: objectID
+        2) bool: bEnable
+```
+Sets whether the engine should handle hit effects for the enemy object.
+
+## ObjEnemy_SetHitEffectParam
+```
+    Arguments:
+        1) real: objectID
+        2) real: colorHex
+        3) real: indexSoundHigh
+        4) real: indexSoundLow
+```
+Sets the hit effect color, sound at high life, and sound at low life for the enemy object.
+
+-1 can be passed for either sound argument to disable the sound.
+
+_**Note**: Sound playback relies on using PlayStageSound internally. If the script has not been set up to use that, no sound will be played._
+
+## ObjEnemy_SetHitEffectSoundOverride
+```
+    Arguments:
+        1) real: objectID
+        2) real: indexSound
+```
+ets a hit sound effect that overrides all other hit sounds for the enemy object.
+
+-1 can be passed as the sound argument to disable overriding.
 
 ## ObjEnemy_SetDeathFunc
 ```

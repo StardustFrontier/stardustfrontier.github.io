@@ -84,19 +84,21 @@ Functions</a><br />
 26.7. <a href="#objsprite3d-functions">ObjSprite3D Functions</a><br />
 26.8. <a href="#objmesh-functions">ObjMesh Functions</a><br />
 26.9. <a href="#objtext-functions">ObjText Functions</a><br />
-26.10. <a href="#objshader-functions">ObjShader Functions</a><br />
-26.11. <a href="#objsound-functions">ObjSound Functions</a><br />
-26.12. <a href="#objfile-functions">ObjFile Functions</a><br />
-26.13. <a href="#objfilet-functions">ObjFileT Functions</a><br />
-26.14. <a href="#objfileb-functions">ObjFileB Object Functions</a><br />
-26.15. <a href="#objmove-functions">ObjMove Functions</a><br />
-26.16. <a href="#objenemy-functions">ObjEnemy Functions</a><br />
-26.17. <a href="#objenemybossscene-functions">ObjEnemyBossScene
+26.10. <a href="#objpopuplist-functions">ObjPopupList
 Functions</a><br />
-26.18. <a href="#objshot-functions">ObjShot Functions</a><br />
-26.19. <a href="#objitem-functions">ObjItem Functions</a><br />
-26.20. <a href="#objplayer-functions">ObjPlayer Functions</a><br />
-26.21. <a href="#objcol-functions">ObjCol Functions</a></li>
+26.11. <a href="#objshader-functions">ObjShader Functions</a><br />
+26.12. <a href="#objsound-functions">ObjSound Functions</a><br />
+26.13. <a href="#objfile-functions">ObjFile Functions</a><br />
+26.14. <a href="#objfilet-functions">ObjFileT Functions</a><br />
+26.15. <a href="#objfileb-functions">ObjFileB Object Functions</a><br />
+26.16. <a href="#objmove-functions">ObjMove Functions</a><br />
+26.17. <a href="#objenemy-functions">ObjEnemy Functions</a><br />
+26.18. <a href="#objenemybossscene-functions">ObjEnemyBossScene
+Functions</a><br />
+26.19. <a href="#objshot-functions">ObjShot Functions</a><br />
+26.20. <a href="#objitem-functions">ObjItem Functions</a><br />
+26.21. <a href="#objplayer-functions">ObjPlayer Functions</a><br />
+26.22. <a href="#objcol-functions">ObjCol Functions</a></li>
 <li><a href="#dataobject-functions">DataObject Functions</a><br />
 27.1. <a href="#data-functions">Data Functions</a><br />
 27.2. <a href="#rendersequencedata-functions">RenderSequenceData
@@ -203,7 +205,14 @@ Functions</a></h2>
 Functions</a></h2>
 <ul>
 <li><a href="./functions/string.html#string_find">string_find+</a></li>
+<li><a href="./functions/string.html#string_replace">string_replace+</a></li>
+<li><a href="./functions/string.html#string_split">string_split+</a></li>
+<li><a href="./functions/string.html#string_starts_with">string_starts_with+</a></li>
+<li><a href="./functions/string.html#string_ends_with">string_ends_with+</a></li>
+<li><a href="./functions/string.html#string_count_char">string_count_char+</a></li>
 <li><a href="./functions/string.html#string_join">string_join+</a></li>
+<li><a href="./functions/string.html#string_lower">string_lower+</a></li>
+<li><a href="./functions/string.html#string_upper">string_upper+</a></li>
 <li><a href="./functions/string.html#repr">repr+</a></li>
 <li><a href="./functions/string.html#ToString">ToString</a></li>
 <li><a href="./functions/string.html#inttostring">IntToString</a></li>
@@ -224,6 +233,7 @@ Functions</a></h2>
 <h2 id="array-functions"><a href="./functions/array.html">Array
 Functions</a></h2>
 <ul>
+<li><a href="./functions/array.html#array_create">array_create+</a></li>
 <li><a href="./functions/array.html#array_append">array_append+</a></li>
 <li><a href="./functions/array.html#array_insert">array_insert+</a></li>
 <li><a href="./functions/array.html#array_pop">array_pop+</a></li>
@@ -232,6 +242,7 @@ Functions</a></h2>
 <li><a href="./functions/array.html#array_resize">array_resize+</a></li>
 <li><a href="./functions/array.html#array_clear">array_clear+</a></li>
 <li><a href="./functions/array.html#array_find">array_find+</a></li>
+<li><a href="./functions/array.html#array_sort">array_sort+</a></li>
 <li><a href="./functions/array.html#array_bisect_left">array_bisect_left+</a></li>
 <li><a href="./functions/array.html#array_bisect_right">array_bisect_right+</a></li>
 <li><a href="./functions/array.html#array_bisect">array_bisect+</a></li>
@@ -291,6 +302,8 @@ Functions</a></h2>
 <li><a href="./functions/time.html#getstagetimef">GetStageTimeF</a></li>
 <li><a href="./functions/time.html#getpackagetime">GetPackageTime</a></li>
 <li><a href="./functions/time.html#getcurrentfps">GetCurrentFps</a></li>
+<li><a href="./functions/time.html#getframetimesecs">GetFrameTimeSecs+</a></li>
+<li><a href="./functions/time.html#setfpsupdateinterval">SetFpsUpdateInterval+</a></li>
 <li><a href="./functions/time.html#getreplayfps">GetReplayFps</a></li>
 </ul>
 <h2 id="debug-functions"><a href="./functions/debug.html">Debug
@@ -553,6 +566,10 @@ Functions</a></h2>
 <li><a href="./functions/script.html#notifyevent">NotifyEvent</a></li>
 <li><a href="./functions/script.html#notifyeventown">NotifyEventOwn+</a></li>
 <li><a href="./functions/script.html#notifyeventall">NotifyEventAll</a></li>
+<li><a href="./functions/script.html#connectsignal">ConnectSignal+</a></li>
+<li><a href="./functions/script.html#emitsignal">EmitSignal+</a></li>
+<li><a href="./functions/script.html#emitsignalown">EmitSignalOwn+</a></li>
+<li><a href="./functions/script.html#emitsignalall">EmitSignalAll+</a></li>
 <li><a href="./functions/script.html#getscriptinfoa1">GetScriptInfoA1</a></li>
 <li><a href="./functions/script.html#compilepackagescripttofile">CompilePackageScriptToFile+</a></li>
 <li><a href="./functions/script.html#compilesystemscripttofile">CompileSystemScriptToFile+</a></li>
@@ -607,6 +624,8 @@ Functions</a></h2>
 <li><a href="./functions/system.html#isskipmode">IsSkipMode*</a></li>
 <li><a href="./functions/system.html#ispackagerunning">IsPackageRunning+</a></li>
 <li><a href="./functions/system.html#isloadthreadcomplete">IsLoadThreadComplete+</a></li>
+<li><a href="./functions/system.html#isscriptloadthreadcomplete">IsScriptLoadThreadComplete+</a></li>
+<li><a href="./functions/system.html#isresourceloadthreadcomplete">IsResourceLoadThreadComplete+</a></li>
 <li><a href="./functions/system.html#getdnhconfigvalue">GetDnhConfigValue*
 (deprecated)</a></li>
 <li><a href="./functions/system.html#setdnhconfigvalue">SetDnhConfigValue*
@@ -651,6 +670,7 @@ Functions</a></h2>
 <li><a href="./functions/player.html#getplayerscriptid">GetPlayerScriptID</a></li>
 <li><a href="./functions/player.html#setplayerspeed">SetPlayerSpeed</a></li>
 <li><a href="./functions/player.html#setplayerclip">SetPlayerClip</a></li>
+<li><a href="./functions/player.html#setplayermovepriority">SetPlayerMovePriority+</a></li>
 <li><a href="./functions/player.html#setplayerlife">SetPlayerLife</a></li>
 <li><a href="./functions/player.html#setplayerspell">SetPlayerSpell</a></li>
 <li><a href="./functions/player.html#setplayerpower">SetPlayerPower</a></li>
@@ -730,6 +750,8 @@ Functions</a></h2>
 <li><a href="./functions/shot.html#getallshotid">GetAllShotID+</a></li>
 <li><a href="./functions/shot.html#storeshotidincirclea1">StoreShotIdInCircleA1+</a></li>
 <li><a href="./functions/shot.html#storeshotidincirclea2">StoreShotIdInCircleA2+</a></li>
+<li><a href="./functions/shot.html#storelaseridincirclea1">StoreLaserIdInCircleA1+</a></li>
+<li><a href="./functions/shot.html#storelaseridincirclea2">StoreLaserIdInCircleA2+</a></li>
 <li><a href="./functions/shot.html#storeallshotid">StoreAllShotID+</a></li>
 <li><a href="./functions/shot.html#getshotcount">GetShotCount</a></li>
 <li><a href="./functions/shot.html#setshotautodeleteclip">SetShotAutoDeleteClip</a></li>
@@ -887,7 +909,12 @@ Functions</a></h3>
 <li><a href="./functions/obj_render.html#objrender_setcolorhex">ObjRender_SetColorHex*</a></li>
 <li><a href="./functions/obj_render.html#objrender_setcolorhsv">ObjRender_SetColorHSV</a></li>
 <li><a href="./functions/obj_render.html#objrender_setalpha">ObjRender_SetAlpha</a></li>
+<li><a href="./functions/obj_render.html#objrender_setsecondcolor">ObjRender_SetSecondColor+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setsecondcolorhex">ObjRender_SetSecondColorHex+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setsecondcolorhsv">ObjRender_SetSecondColorHSV+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setsecondalpha">ObjRender_SetSecondAlpha+</a></li>
 <li><a href="./functions/obj_render.html#objrender_setblendtype">ObjRender_SetBlendType</a></li>
+<li><a href="./functions/obj_render.html#objrender_setcolormode">ObjRender_SetColorMode+</a></li>
 <li><a href="./functions/obj_render.html#objrender_settexturefilter">ObjRender_SetTextureFilter*</a></li>
 <li><a href="./functions/obj_render.html#objrender_settexturefiltermin">ObjRender_SetTextureFilterMin+</a></li>
 <li><a href="./functions/obj_render.html#objrender_settexturefiltermag">ObjRender_SetTextureFilterMag+</a></li>
@@ -905,7 +932,14 @@ Functions</a></h3>
 <li><a href="./functions/obj_render.html#objrender_getcolor">ObjRender_GetColor+</a></li>
 <li><a href="./functions/obj_render.html#objrender_getcolorhex">ObjRender_GetColorHex+</a></li>
 <li><a href="./functions/obj_render.html#objrender_getalpha">ObjRender_GetAlpha*</a></li>
+<li><a href="./functions/obj_render.html#objrender_getfirstcolor">ObjRender_GetFirstColor+</a></li>
+<li><a href="./functions/obj_render.html#objrender_getfirstcolorhex">ObjRender_GetFirstColorHex+</a></li>
+<li><a href="./functions/obj_render.html#objrender_getfirstalpha">ObjRender_GetFirstAlpha+</a></li>
+<li><a href="./functions/obj_render.html#objrender_getsecondcolor">ObjRender_GetSecondColor+</a></li>
+<li><a href="./functions/obj_render.html#objrender_getsecondcolorhex">ObjRender_GetSecondColorHex+</a></li>
+<li><a href="./functions/obj_render.html#objrender_getsecondalpha">ObjRender_GetSecondAlpha+</a></li>
 <li><a href="./functions/obj_render.html#objrender_getblendtype">ObjRender_GetBlendType</a></li>
+<li><a href="./functions/obj_render.html#objrender_getcolormode">ObjRender_GetColorMode+</a></li>
 <li><a href="./functions/obj_render.html#objrender_gettexturefilter">ObjRender_GetTextureFilter*</a></li>
 <li><a href="./functions/obj_render.html#objrender_setzwrite">ObjRender_SetZWrite</a></li>
 <li><a href="./functions/obj_render.html#objrender_setztest">ObjRender_SetZTest</a></li>
@@ -922,6 +956,7 @@ Functions</a></h3>
 <li><a href="./functions/obj_render.html#objrender_tweenalpha">ObjRender_TweenAlpha*</a></li>
 <li><a href="./functions/obj_render.html#objrender_tweenangle">ObjRender_TweenAngle*</a></li>
 <li><a href="./functions/obj_render.html#objrender_tweenscale">ObjRender_TweenScale*</a></li>
+<li><a href="./functions/obj_render.html#objrender_tweenmovespeed">ObjRender_TweenMoveSpeed+</a></li>
 <li><a href="./functions/obj_render.html#objrender_canceltweens">ObjRender_CancelTweens+</a></li>
 <li><a href="./functions/obj_render.html#objrender_getparentid">ObjRender_GetParentID+</a></li>
 <li><a href="./functions/obj_render.html#objrender_setparentpositionenable">ObjRender_SetParentPositionEnable+</a></li>
@@ -935,6 +970,21 @@ Functions</a></h3>
 <li><a href="./functions/obj_render.html#objrender_removechildren">ObjRender_RemoveChildren+</a></li>
 <li><a href="./functions/obj_render.html#objrender_deletechildren">ObjRender_DeleteChildren+</a></li>
 <li><a href="./functions/obj_render.html#objrender_getlistofchildid">ObjRender_GetListOfChildID+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingenable">ObjRender_SetLightingEnable+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingtype">ObjRender_SetLightingType+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingdiffusecolor">ObjRender_SetLightingDiffuseColor+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingdiffusecolorhex">ObjRender_SetLightingDiffuseColorHex+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingspecularcolor">ObjRender_SetLightingSpecularColor+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingspecularcolorhex">ObjRender_SetLightingSpecularColorHex+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingambientcolor">ObjRender_SetLightingAmbientColor+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingambientcolorhex">ObjRender_SetLightingAmbientColorHex+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingdirection">ObjRender_SetLightingDirection+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingposition">ObjRender_SetLightingPosition+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingrange">ObjRender_SetLightingRange+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingattenuation">ObjRender_SetLightingAttenuation+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingphi">ObjRender_SetLightingPhi+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingtheta">ObjRender_SetLightingTheta+</a></li>
+<li><a href="./functions/obj_render.html#objrender_setlightingfalloff">ObjRender_SetLightingFalloff+</a></li>
 </ul>
 <h3 id="objrender-sequence-functions"><a href="./functions/obj_render_sequence.html">ObjRender Sequence
 Functions</a></h3>
@@ -956,6 +1006,8 @@ Functions</a></h3>
 <li><a href="./functions/obj_render_sequence.html#objrender_setsequencetimer">ObjRender_SetSequenceTimer+</a></li>
 <li><a href="./functions/obj_render_sequence.html#objrender_getsequenceindex">ObjRender_GetSequenceIndex+</a></li>
 <li><a href="./functions/obj_render_sequence.html#objrender_setsequenceindex">ObjRender_SetSequenceIndex+</a></li>
+<li><a href="./functions/obj_render_sequence.html#objrender_setsequencevar">ObjRender_SetSequenceVar+</a></li>
+<li><a href="./functions/obj_render_sequence.html#objrender_setsequencevars">ObjRender_SetSequenceVars+</a></li>
 <li><a href="./functions/obj_render_sequence.html#objrender_sequenceisstopped">ObjRender_SequenceIsStopped+</a></li>
 <li><a href="./functions/obj_render_sequence.html#objrender_sequenceisrunning">ObjRender_SequenceIsRunning+</a></li>
 </ul>
@@ -988,6 +1040,7 @@ Functions</a></h3>
 <li><a href="./functions/obj_sprite_2d.html#objsprite2d_setdest">ObjSprite2D_SetDest*</a></li>
 <li><a href="./functions/obj_sprite_2d.html#objsprite2d_setdestrect">ObjSprite2D_SetDestRect</a></li>
 <li><a href="./functions/obj_sprite_2d.html#objsprite2d_setdestcenter">ObjSprite2D_SetDestCenter</a></li>
+<li><a href="./functions/obj_sprite_2d.html#objsprite2d_setdestcenterrotate">ObjSprite2D_SetDestCenterRotate</a></li>
 <li><a href="./functions/obj_sprite_2d.html#objsprite2d_setcenterrotationenable">ObjSprite2D_SetCenterRotationEnable*</a></li>
 </ul>
 <h3 id="objspritelist2d-functions"><a href="./functions/obj_sprite_list_2d.html">ObjSpriteList2D
@@ -1013,6 +1066,10 @@ ObjBatchSprite2D Functions</a></h3>
 <li><a href="./functions/obj_sprite_batch_2d.html#objspritebatch2d_addsprite">ObjSpriteBatch2D_AddSprite+</a></li>
 <li><a href="./functions/obj_sprite_batch_2d.html#objspritebatch2d_removesprite">ObjSpriteBatch2D_RemoveSprite+</a></li>
 <li><a href="./functions/obj_sprite_batch_2d.html#objbatchsprite2d_create">ObjBatchSprite2D_Create+</a></li>
+<li><a href="./functions/obj_sprite_batch_2d.html#objbatchsprite2d_createa1">ObjBatchSprite2D_CreateA1+</a></li>
+<li><a href="./functions/obj_sprite_batch_2d.html#objbatchsprite2d_createa2">ObjBatchSprite2D_CreateA2+</a></li>
+<li><a href="./functions/obj_sprite_batch_2d.html#objbatchsprite2d_createb1">ObjBatchSprite2D_CreateB1+</a></li>
+<li><a href="./functions/obj_sprite_batch_2d.html#objbatchsprite2d_createb2">ObjBatchSprite2D_CreateB2+</a></li>
 </ul>
 <h3 id="objsprite3d-functions"><a href="./functions/obj_sprite_3d.html">ObjSprite3D Functions</a></h3>
 <ul>
@@ -1059,6 +1116,19 @@ Functions</a></h3>
 <li><a href="./functions/obj_text.html#objtext_gettextlengthcul">ObjText_GetTextLengthCUL</a></li>
 <li><a href="./functions/obj_text.html#objtext_gettotalwidth">ObjText_GetTotalWidth</a></li>
 <li><a href="./functions/obj_text.html#objtext_gettotalheight">ObjText_GetTotalHeight</a></li>
+</ul>
+<h3 id="objpopuplist-functions"><a href="./functions/obj_popup_list.html">ObjPopupList Functions</a></h3>
+<ul>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_create">ObjPopupList_Create+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_settexture">ObjPopupList_SetTexture+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_setscale">ObjPopupList_SetScale+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_setsize">ObjPopupList_SetSize+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_setstartspeed">ObjPopupList_SetStartSpeed+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_setdecelerationenable">ObjPopupList_SetDecelerationEnable+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_setdeletetime">ObjPopupList_SetDeleteTime+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_adddigitsframe">ObjPopupList_AddDigitsFrame+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_setplayerobjectid">ObjPopupList_SetPlayerObjectID+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_createpopup">ObjPopupList_CreatePopup+</a></li>
 </ul>
 <h3 id="objshader-functions"><a href="./functions/obj_shader.html">ObjShader Functions</a></h3>
 <ul>
@@ -1169,6 +1239,14 @@ Functions</a></h3>
 <li><a href="./functions/obj_move.html#objmove_getspeed">ObjMove_GetSpeed</a></li>
 <li><a href="./functions/obj_move.html#objmove_getangle">ObjMove_GetAngle</a></li>
 <li><a href="./functions/obj_move.html#objmove_ismovementenable">ObjMove_IsMovementEnable+</a></li>
+<li><a href="./functions/obj_move.html#objmove_cancelmovement">ObjMove_CancelMovement+</a></li>
+<li><a href="./functions/obj_move.html#objmove_clearpatterns">ObjMove_ClearPatterns+</a></li>
+<li><a href="./functions/obj_move.html#objmove_starthomingtoenemya1">ObjMove_StartHomingToEnemyA1+</a></li>
+<li><a href="./functions/obj_move.html#objmove_starthomingtoenemya2">ObjMove_StartHomingToEnemyA2+</a></li>
+<li><a href="./functions/obj_move.html#objmove_starthomingtoenemyz1">ObjMove_StartHomingToEnemyZ1+</a></li>
+<li><a href="./functions/obj_move.html#objmove_starthomingtoenemyz2">ObjMove_StartHomingToEnemyZ2+</a></li>
+<li><a href="./functions/obj_move.html#objmove_stophomingtoenemy">ObjMove_StopHomingToEnemy+</a></li>
+<li><a href="./functions/obj_move.html#objmove_sethomingtoenemytargettype">ObjMove_SetHomingToEnemyTargetType+</a></li>
 </ul>
 <h3 id="objenemy-functions"><a href="./functions/obj_enemy.html">ObjEnemy Functions</a></h3>
 <ul>
@@ -1194,11 +1272,24 @@ Functions</a></h3>
 <li><a href="./functions/obj_enemy.html#objenemy_addlifeex">ObjEnemy_AddLifeEx+</a></li>
 <li><a href="./functions/obj_enemy.html#objenemy_setdamagerate">ObjEnemy_SetDamageRate</a></li>
 <li><a href="./functions/obj_enemy.html#objenemy_setmaximumdamage">ObjEnemy_SetMaximumDamage+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_setsharedlifetarget">ObjEnemy_SetSharedLifeTarget+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_getsharedlifetarget">ObjEnemy_GetSharedLifeTarget+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_settotaldamage">ObjEnemy_SetTotalDamage+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_gettotaldamage">ObjEnemy_GetTotalDamage+</a></li>
 <li><a href="./functions/obj_enemy.html#objenemy_setintersectioncircletoshot">ObjEnemy_SetIntersectionCircleToShot</a></li>
 <li><a href="./functions/obj_enemy.html#objenemy_setintersectioncircletoplayer">ObjEnemy_SetIntersectionCircleToPlayer</a></li>
 <li><a href="./functions/obj_enemy.html#objenemy_setautointersectioncircletoshot">ObjEnemy_SetAutoIntersectionCircleToShot+</a></li>
 <li><a href="./functions/obj_enemy.html#objenemy_setautointersectioncircletoplayer">ObjEnemy_SetAutoIntersectionCircleToPlayer+</a></li>
 <li><a href="./functions/obj_enemy.html#objenemy_setenableintersectionpositionfetching">ObjEnemy_SetEnableIntersectionPositionFetching+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_setpreferredhomingtarget">ObjEnemy_SetPreferredHomingTarget+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_ispreferredhomingtarget">ObjEnemy_IsPreferredHomingTarget+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_setmovementboundsenable">ObjEnemy_SetMovementBoundsEnable+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_ismovementboundsenable">ObjEnemy_IsMovementBoundsEnable+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_setmovementbounds">ObjEnemy_SetMovementBounds+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_getmovementbounds">ObjEnemy_GetMovementBounds+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_sethiteffectenable">ObjEnemy_SetHitEffectEnable+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_sethiteffectparam">ObjEnemy_SetHitEffectParam+</a></li>
+<li><a href="./functions/obj_enemy.html#objenemy_sethiteffectsoundoverride">ObjEnemy_SetHitEffectSoundOverride+</a></li>
 <li><a href="./functions/obj_enemy.html#objenemy_setdeathfunc">ObjEnemy_SetDeathFunc+</a></li>
 </ul>
 <h3 id="objenemybossscene-functions"><a href="./functions/obj_enemy_boss_scene.html">ObjEnemyBossScene
@@ -1223,12 +1314,18 @@ Functions</a></h3>
 <li><a href="./functions/obj_shot.html#objshot_setdeleteframe">ObjShot_SetDeleteFrame</a></li>
 <li><a href="./functions/obj_shot.html#objshot_setdelay">ObjShot_SetDelay</a></li>
 <li><a href="./functions/obj_shot.html#objshot_setspellresist">ObjShot_SetSpellResist</a></li>
+<li><a href="./functions/obj_shot.html#objshot_setautodeletedisableframe">ObjShot_SetAutoDeleteDisableFrame+</a></li>
+<li><a href="./functions/obj_shot.html#objshot_setspellresistframe">ObjShot_SetSpellResistFrame+</a></li>
 <li><a href="./functions/obj_shot.html#objshot_setgraphic">ObjShot_SetGraphic</a></li>
 <li><a href="./functions/obj_shot.html#objshot_setcenterrotationenable">ObjShot_SetCenterRotationEnable+</a></li>
 <li><a href="./functions/obj_shot.html#objshot_setsourceblendtype">ObjShot_SetSourceBlendType</a></li>
 <li><a href="./functions/obj_shot.html#objshot_setdelayblendtype">ObjShot_SetDelayBlendType+</a></li>
 <li><a href="./functions/obj_shot.html#objshot_setdelaygraphic">ObjShot_SetDelayGraphic+</a></li>
 <li><a href="./functions/obj_shot.html#objshot_setdelaymotionenable">ObjShot_SetDelayMotionEnable+</a></li>
+<li><a href="./functions/obj_shot.html#objshot_setrenderoffsetx">ObjShot_SetRenderOffsetX+</a></li>
+<li><a href="./functions/obj_shot.html#objshot_setrenderoffsety">ObjShot_SetRenderOffsetY+</a></li>
+<li><a href="./functions/obj_shot.html#objshot_getrenderoffsetx">ObjShot_GetRenderOffsetX+</a></li>
+<li><a href="./functions/obj_shot.html#objshot_getrenderoffsety">ObjShot_GetRenderOffsetY+</a></li>
 <li><a href="./functions/obj_shot.html#objshot_setdamage">ObjShot_SetDamage</a></li>
 <li><a href="./functions/obj_shot.html#objshot_setpenetration">ObjShot_SetPenetration</a></li>
 <li><a href="./functions/obj_shot.html#objshot_seteraseshot">ObjShot_SetEraseShot</a></li>
@@ -1252,15 +1349,26 @@ Functions</a></h3>
 <li><a href="./functions/obj_shot.html#objshot_getimageid">ObjShot_GetImageID</a></li>
 <li><a href="./functions/obj_shot.html#objshot_getintersectionscalex">ObjShot_GetIntersectionScaleX+</a></li>
 <li><a href="./functions/obj_shot.html#objshot_getintersectionscaley">ObjShot_GetIntersectionScaleY+</a></li>
+<li><a href="./functions/obj_shot.html#objshot_addtransform">ObjShot_AddTransform+</a></li>
+<li><a href="./functions/obj_shot.html#objshot_settransform">ObjShot_SetTransform+</a></li>
+<li><a href="./functions/obj_shot.html#objshot_addtransformfunc">ObjShot_AddTransformFunc+</a></li>
+<li><a href="./functions/obj_shot.html#objshot_settransformfunc">ObjShot_SetTransformFunc+</a></li>
+<li><a href="./functions/obj_shot.html#objshot_finishtransformfunction">ObjShot_FinishTransformFunction+</a></li>
+<li><a href="./functions/obj_shot.html#objshot_disabletransform">ObjShot_DisableTransform+</a></li>
 <li><a href="./functions/obj_shot.html#objlaser_setlength">ObjLaser_SetLength</a></li>
 <li><a href="./functions/obj_shot.html#objlaser_setrenderwidth">ObjLaser_SetRenderWidth</a></li>
 <li><a href="./functions/obj_shot.html#objlaser_setintersectionwidth">ObjLaser_SetIntersectionWidth</a></li>
 <li><a href="./functions/obj_shot.html#objlaser_setgrazeinvalidframe">ObjLaser_SetGrazeInvalidFrame</a></li>
+<li><a href="./functions/obj_shot.html#objlaser_setitemdistance">ObjLaser_SetItemDistance</a></li>
+<li><a href="./functions/obj_shot.html#objlaser_tweenlength">ObjLaser_TweenLength+</a></li>
 <li><a href="./functions/obj_shot.html#objlaser_setinvalidlength">ObjLaser_SetInvalidLength</a></li>
 <li><a href="./functions/obj_shot.html#objlaser_getlength">ObjLaser_GetLength</a></li>
 <li><a href="./functions/obj_shot.html#objstlaser_setangle">ObjStLaser_SetAngle</a></li>
 <li><a href="./functions/obj_shot.html#objstlaser_getangle">ObjStLaser_GetAngle</a></li>
 <li><a href="./functions/obj_shot.html#objstlaser_setsource">ObjStLaser_SetSource</a></li>
+<li><a href="./functions/obj_shot.html#objstlaser_setfadetype">ObjStLaser_SetFadeType+</a></li>
+<li><a href="./functions/obj_shot.html#objstlaser_setfadetime">ObjStLaser_SetFadeTime+</a></li>
+<li><a href="./functions/obj_shot.html#objstlaser_disablespawngrowth">ObjStLaser_DisableSpawnGrowth+</a></li>
 <li><a href="./functions/obj_shot.html#objcrlaser_settipdecrement">ObjCrLaser_SetTipDecrement</a></li>
 </ul>
 <h3 id="objitem-functions"><a href="./functions/obj_item.html">ObjItem

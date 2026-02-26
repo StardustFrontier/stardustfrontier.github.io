@@ -74,6 +74,26 @@ When set to true, the shot object will not be deleted by the player's spell.
 
 Defaults to false.
 
+## ObjShot_SetAutoDeleteDisableFrame
+```
+    Arguments:
+        1) real: objectID
+        2) real: time
+```
+Disables auto-deletion of the shot object when outside of the screen boundaries for the given amount of frames.
+
+_**Note**: Manual calls to ObjShot_SetAutoDelete will interfere with/override this function's behavior._
+
+## ObjShot_SetSpellResistFrame
+```
+    Arguments:
+        1) real: objectID
+        2) real: time
+```
+Prevents the shot object from being deleted by player spells for the given amount of frames.
+
+_**Note**: Manual calls to ObjShot_SetSpellResist will interfere with/override this function's behavior._
+
 ## ObjShot_SetGraphic
 ```
     Arguments:
@@ -98,7 +118,7 @@ This will override the shotdata center_rotation property.
         1) real: objectID
         2) real const: blendType
 ```
-Gives the shot object's delay graphic the specified [blend type](./docs_blend_types.html).
+Gives the shot object's delay graphic the specified [blend type](./blend_types.html).
 
 Note: This is an obsolete alias for ObjShot_SetDelayBlendType
 
@@ -108,7 +128,7 @@ Note: This is an obsolete alias for ObjShot_SetDelayBlendType
         1) real: objectID
         2) real const: blendType
 ```
-Gives the shot object's delay graphic the specified [blend type](./docs_blend_types.html).
+Gives the shot object's delay graphic the specified [blend type](./blend_types.html).
 
 ## ObjShot_SetDelayGraphic
 ```
@@ -130,6 +150,61 @@ Enables or disables motion during the shot object's delay period.
 
 Only works with regular shots.\
 Default is false.
+
+## ObjShot_SetRenderOffsetX
+```
+    Arguments:
+        1) real: objectID
+        2) real: offsetX
+```
+Sets the x rendering position offset for the given shot object.
+
+When rendering the shot, this offset value will be added to its final position.
+
+_**Note**: This function does not work on curvy lasers._
+
+## ObjShot_SetRenderOffsetY
+```
+    Arguments:
+        1) real: objectID
+        2) real: offsetY
+```
+Sets the y rendering position offset for the given shot object.
+
+When rendering the shot, this offset value will be added to its final position.
+
+_**Note**: This function does not work on curvy lasers._
+
+## ObjShot_SetRenderOffsetXY
+```
+    Arguments:
+        1) real: objectID
+        2) real: offsetX
+        3) real: offsetY
+```
+Sets the x and y rendering position offset for the given shot object.
+
+When rendering the shot, this offset value will be added to its final position.
+
+_**Note**: This function does not work on curvy lasers._
+
+## ObjShot_GetRenderOffsetX
+```
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+```
+Returns the x render offset of the given shot object.
+
+## ObjShot_GetRenderOffsetY
+```
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+```
+Returns the y render offset of the given shot object.
 
 ## ObjShot_SetDamage
 ```
@@ -372,6 +447,87 @@ Returns the intersection x scale set by ObjShot_SetIntersectionScaleXY.
 ```
 Returns the intersection y scale set by ObjShot_SetIntersectionScaleXY.
 
+## ObjShot_AddTransform
+```
+    Arguments:
+        1) real: objectID
+        2) bool: bAsync
+        3) real const: typeTransform
+        4+) real: args...
+    Return Type:
+        real
+```
+Adds a transformation of the given [transformation type](./shot_transformation_types.html) to the shot object or pattern object and returns its index.
+
+If bAsync is true, then this transform will execute at the same time as the previous one if supported,\
+otherwise it will wait for the previous transform to finish first.
+
+## ObjShot_SetTransform
+```
+    Arguments:
+        1) real: objectID
+        2) real: index
+        3) bool: bAsync
+        4) real const: typeTransform
+        5+) real: args...
+    Return Type:
+        real
+```
+Sets a transformation of the given [transformation type](./shot_transformation_types.html) at the given index on the shot object or pattern object and returns the same index that was passed.
+
+If the index is larger than the transformation list, empty slots before it will be filled with blank transforms that are skipped when executed.
+
+If bAsync is true, then this transform will execute at the same time as the previous one if supported,\
+otherwise it will wait for the previous transform to finish first.
+
+## ObjShot_AddTransformFunc
+```
+    Arguments:
+        1) real: objectID
+        2) bool: bAsync
+        3) real const: typeTransform
+        4) function: argFunc
+        5+) real: args...
+    Return Type:
+        real
+```
+Identical to ObjShot_AddTransform, but allows passing a function value as the first transform argument.
+
+The `EX_FUNCTION` transform type must use this version of the function.
+
+## ObjShot_SetTransformFunc
+```
+    Arguments:
+        1) real: objectID
+        2) real: index
+        3) bool: bAsync
+        4) real const: typeTransform
+        5) function: argFunc
+        6+) real: args...
+    Return Type:
+        real
+```
+Identical to ObjShot_SetTransform, but allows passing a function value as the first transform argument.
+
+The `EX_FUNCTION` transform type must use this version of the function.
+
+## ObjShot_FinishTransformFunction
+```
+    Arguments:
+        1) real: objectID
+```
+Marks the shot object as being done with an `EX_FUNCTION` transform.
+
+This disables the `EX_FUNCTION` transform and advances the transformation list.
+
+## ObjShot_DisableTransform
+```
+    Arguments:
+        1) real: objectID
+        2) real const: typeTransform
+```
+Instantly disables a currently active transform of the given type on the shot object regardless of its progress.
+
 ## ObjLaser_SetLength
 ```
     Arguments:
@@ -408,6 +564,26 @@ Specify the number of frames after a graze where graze is not counted.
 
 If you specify 0, the laser object can be grazed only once.\
 The default value is 20 frames (3 graze/second).
+
+## ObjLaser_SetItemDistance
+```
+    Arguments:
+        1) real: objectID
+        2) real: interval
+```
+Sets the item occurrence interval when the laser object associated with objID is deleted and changed into items.
+
+Defaults to 24.
+
+## ObjLaser_TweenLength
+```
+    Arguments:
+        1) real: objectID
+        2) real: duration
+        3) real const: interpType
+        4) real: lengthEnd
+```
+Changes the laser object's length to lengthEnd over duration frames with the given interpolation type.
 
 ## ObjLaser_SetInvalidLength
 ```
@@ -457,6 +633,34 @@ Returns the angle at which the straight laser object is pointing (different from
         2) bool: bDrawSource
 ```
 Sets whether the light source at the base of the straight laser object is drawn.
+
+## ObjStLaser_SetFadeType
+```
+    Arguments:
+        1) real: objectID
+        2) real const: fadeType
+```
+Sets the fade deletion type for the straight laser object.
+
+Can be `FADE_LASER_SCALE`, `FADE_LASER_ALPHA`, or `FADE_LASER_NONE`.\
+Defaults to `FADE_LASER_SCALE`.
+
+## ObjStLaser_SetFadeTime
+```
+    Arguments:
+        1) real: objectID
+        2) real: time
+```
+Sets the duration of the straight laser's fade delete effect.
+
+Defaults to 30 frames.
+
+## ObjStLaser_DisableSpawnGrowth
+```
+    Arguments:
+        1) real: objectID
+```
+Disables the initial "growth" effect on the straight laser object, resulting in it being spawned at the final size.
 
 ## ObjCrLaser_SetTipDecrement
 ```

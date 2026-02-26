@@ -35,53 +35,62 @@ vertical-align: middle;
 For example, if the current date is 2012/09/16 12:34:56, then
 &quot;20120916123456&quot; will be returned.<br />
 To convert this to a number, you may use the atoi function like so:</p>
-<pre class="let"><code>
-## GetSystemTimeMicros</code></pre>
-<pre><code>Return Type:
-    real</code></pre>
-<pre><code>Returns the current system time in microseconds.
-
-_**Note**: This is an arbitrary timestamp based on some moment in the past, so only the delta between two calls of this function make sense._
-
-## GetSystemTimeMillis</code></pre>
-<pre><code>Return Type:
-    real</code></pre>
-<pre><code>Returns the current system time in milliseconds.
-
-_**Note**: This is an arbitrary timestamp based on some moment in the past, so only the delta between two calls of this function make sense._
-
-## GetSystemTimeSecs</code></pre>
-<pre><code>Return Type:
-    real</code></pre>
-<pre><code>Returns the current system time in seconds.
-
-_**Note**: This is an arbitrary timestamp based on some moment in the past, so only the delta between two calls of this function make sense._
-
-## GetStageTime</code></pre>
-<pre><code>Return Type:
-    real</code></pre>
-<pre><code>Returns the amount of time that has elapsed since the start of the main script in milliseconds.
-
-## GetStageTimeF</code></pre>
-<pre><code>Return Type:
-    real</code></pre>
-<pre><code>Returns the amount of frames that have elapsed since the start of the main script.
-
-## GetPackageTime</code></pre>
-<pre><code>Return Type:
-    real</code></pre>
-<pre><code>Returns the amount of time that has elapsed since the start of the main package in milliseconds.
-
-## GetCurrentFps</code></pre>
-<pre><code>Return Type:
-    real</code></pre>
-<pre><code>Returns the current FPS.
-
-## GetReplayFps</code></pre>
-<pre><code>Return Type:
-    real</code></pre>
-<pre><code>Returns the FPS of the replay at the current time.\
-Note that this value refreshes at a much slower rate than [GetCurrentFps](#getcurrentfps).
-</code></pre>
+<p><scode>let year = atoi(GetCurrentDateTimeS[0..4]);</scode></p>
+<h2 id="getsystemtimemicros">GetSystemTimeMicros</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the current system time in microseconds.</p>
+<p><em><strong>Note</strong>: This is an arbitrary timestamp based on
+some moment in the past, so only the delta between two calls of this
+function make sense.</em></p>
+<h2 id="getsystemtimemillis">GetSystemTimeMillis</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the current system time in milliseconds.</p>
+<p><em><strong>Note</strong>: This is an arbitrary timestamp based on
+some moment in the past, so only the delta between two calls of this
+function make sense.</em></p>
+<h2 id="getsystemtimesecs">GetSystemTimeSecs</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the current system time in seconds.</p>
+<p><em><strong>Note</strong>: This is an arbitrary timestamp based on
+some moment in the past, so only the delta between two calls of this
+function make sense.</em></p>
+<h2 id="getstagetime">GetStageTime</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the amount of time that has elapsed since the start of the
+main script in milliseconds.</p>
+<h2 id="getstagetimef">GetStageTimeF</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the amount of frames that have elapsed since the start of the
+main script.</p>
+<h2 id="getpackagetime">GetPackageTime</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the amount of time that has elapsed since the start of the
+main package in milliseconds.</p>
+<h2 id="getcurrentfps">GetCurrentFps</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the current FPS.</p>
+<h2 id="getframetimesecs">GetFrameTimeSecs</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the current frame time in seconds.</p>
+<h2 id="setfpsupdateinterval">SetFpsUpdateInterval</h2>
+<pre><code>    Arguments:
+        1) real: interval</code></pre>
+<p>Sets the update interval for FPS in milliseconds.</p>
+<p>This sets how frequently the FPS is calculated, which allows
+GetCurrentFps to update faster.<br />
+Defaults to 1000 ms.</p>
+<h2 id="getreplayfps">GetReplayFps</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the FPS of the replay at the current time.<br />
+Note that this value refreshes at a much slower rate than <a href="#getcurrentfps">GetCurrentFps</a>.</p>
 </body>
 </html>

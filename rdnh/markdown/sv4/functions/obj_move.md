@@ -2,7 +2,7 @@
 
 [Return to Functions](../functions.html)
 
-## ObjRender_SetX
+## ObjMove_SetX
 ```
     Arguments:
         1) real: objectID
@@ -10,7 +10,7 @@
 ```
 Sets the x-coordinate of the object.
 
-## ObjRender_SetY
+## ObjMove_SetY
 ```
     Arguments:
         1) real: objectID
@@ -18,7 +18,7 @@ Sets the x-coordinate of the object.
 ```
 Sets the y-coordinate of the object.
 
-## ObjRender_SetPosition
+## ObjMove_SetPosition
 ```
     Arguments:
         1) real: objectID
@@ -27,7 +27,7 @@ Sets the y-coordinate of the object.
 ```
 Sets the x and y coordinates of the object.
 
-## ObjRender_SetPosition
+## ObjMove_SetPosition
 ```
     Arguments:
         1) real: objectID
@@ -36,7 +36,7 @@ Sets the x and y coordinates of the object.
 ```
 Sets the x and y coordinates of the object to the coordinates of the parent object.
 
-## ObjRender_SetSpeed
+## ObjMove_SetSpeed
 ```
     Arguments:
         1) real: objectID
@@ -44,7 +44,7 @@ Sets the x and y coordinates of the object to the coordinates of the parent obje
 ```
 Sets the movement speed for the object.
 
-## ObjRender_SetAngle
+## ObjMove_SetAngle
 ```
     Arguments:
         1) real: objectID
@@ -273,3 +273,101 @@ Returns the movement angle of the object.
         bool
 ```
 Returns true if movement processing is enabled for the object, otherwise returns false.
+
+## ObjMove_CancelMovement
+```
+    Arguments:
+        1) real: objectID
+```
+Cancels the currently active move pattern.
+
+## ObjMove_ClearPatterns
+```
+    Arguments:
+        1) real: objectID
+```
+Clears all move patterns that were added with ObjMove_AddPattern functions.
+
+## ObjMove_StartHomingToEnemyA1
+```
+    Arguments:
+        1) real: objectID
+        2) real: maxTurn
+        3) real: maxTurnInc
+        4) real: homingTime
+```
+Makes the object begin homing toward enemies for homingTime frames.
+
+maxTurn is the maximum angle the shot can turn per frame.\
+maxTurnInc is added to maxTurn each frame, which can be used to prevent infinite circling around the target or to curve the angle.
+
+## ObjMove_StartHomingToEnemyA2
+```
+    Arguments:
+        1) real: objectID
+        2) real: maxTurn
+        3) real: maxTurnInc
+        4) real: homingTime
+        5) real: acceleration
+        6) real: minSpeed
+        7) real: maxSpeed
+```
+Makes the object begin homing toward enemies for homingTime frames using the given acceleration. minimum speed, and maximum speed.
+
+maxTurn is the maximum angle the shot can turn per frame.\
+maxTurnInc is added to maxTurn each frame, which can be used to prevent infinite circling around the target or to curve the angle.
+
+_**Note**: The acceleration value must be positive, since it is used as both acceleration and deceleration._
+
+## ObjMove_StartHomingToEnemyZ1
+```
+    Arguments:
+        1) real: objectID
+        2) real: angleWeight
+        3) real: homingTime
+```
+Makes the object begin homing toward enemies for homingTime frames in a ZUN-like way.\
+This works similarly to Reimu's homing amulets in most official Touhou games from MoF onward.
+
+angleWeight can be used to control the smoothness of the turning.
+
+## ObjMove_StartHomingToEnemyZ2
+```
+    Arguments:
+        1) real: objectID
+        2) real: angleWeight
+        3) real: homingTime
+        4) real: acceleration
+        5) real: minSpeed
+        6) real: maxSpeed
+```
+Makes the object begin homing toward enemies for homingTime frames in a ZUN-like way using the given acceleration. minimum speed, and maximum speed.\
+This works similarly to Reimu's homing amulets in most official Touhou games from MoF onward.
+
+angleWeight can be used to control the smoothness of the turning.
+
+_**Note**: The acceleration value must be positive, since it is used as both acceleration and deceleration._
+
+## ObjMove_StopHomingToEnemy
+```
+    Arguments:
+        1) real: objectID
+```
+Disables homing for the given object if it was enabled.
+
+## ObjMove_SetHomingToEnemyTargetType
+```
+    Arguments:
+        1) real: objectID
+        2) real: homingTargetType
+```
+Sets the targeting type for the object's enemy homing movement.
+
+Types are:
+```
+HOMING_TARGET_NEAREST_TO_SHOT
+HOMING_TARGET_NEAREST_TO_PLAYER
+HOMING_TARGET_LOWEST_ON_SCREEN
+```
+
+_**Note**: This function must be called after homing has been enabled for the shot object._

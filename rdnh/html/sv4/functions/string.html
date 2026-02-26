@@ -39,14 +39,76 @@ vertical-align: middle;
 starts at or -1 if it was not found.</p>
 <p>Optionally, the index to start the operation at can be specified.
 This is 0 by default.</p>
+<h2 id="string_replace">string_replace</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2) char|string: toFind
+        3) char|string: replacement
+        4) real: count?
+    Return Type:
+        string</code></pre>
+<p>Returns a new string with the given number of occurrences of toFind
+replaced with replacement.</p>
+<p>If count is not given, all occurrences will be replaced.</p>
+<h2 id="string_split">string_split</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2) string: delimiter
+        3) real: maxSplits?
+    Return Type:
+        array[string]</code></pre>
+<p>Splits the string using the given delimiter and returns the result as
+an array of strings.</p>
+<p>If maxSplits is given, only that number of splits will be
+performed.</p>
+<p><em><strong>Note</strong>: Unlike SplitString, if the split results
+in an empty string it will still be included in the returned
+array.</em></p>
+<h2 id="string_starts_with">string_starts_with</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2) string: prefix
+    Return Type:
+        bool</code></pre>
+<p>Returns true if the string begins with the given prefix, otherwise
+returns false.</p>
+<h2 id="string_ends_with">string_ends_with</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2) string: suffix
+    Return Type:
+        bool</code></pre>
+<p>Returns true if the string ends with the given suffix, otherwise
+returns false.</p>
+<h2 id="string_count_char">string_count_char</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2) char: character
+    Return Type:
+        string</code></pre>
+<p>Returns the total occurrences of the given character in str.</p>
 <h2 id="string_join">string_join</h2>
 <pre><code>    Arguments:
         1) string: str
         2) array|string|table: collection
     Return Type:
-        real</code></pre>
+        string</code></pre>
 <p>Returns a string with all the elements of the collection concatenated
 together as strings.</p>
+<h2 id="string_lower">string_lower</h2>
+<pre><code>    Arguments:
+        1) string: str
+    Return Type:
+        string</code></pre>
+<p>Returns a copy of the string with all characters converted to
+lowercase.</p>
+<h2 id="string_upper">string_upper</h2>
+<pre><code>    Arguments:
+        1) string: str
+    Return Type:
+        string</code></pre>
+<p>Returns a copy of the string with all characters converted to
+uppercase.</p>
 <h2 id="repr">repr</h2>
 <pre><code>    Arguments:
         1) any: value

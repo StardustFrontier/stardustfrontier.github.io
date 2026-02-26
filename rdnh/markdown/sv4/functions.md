@@ -54,18 +54,19 @@ Functions marked with + are new to ScriptVersion 4.</p>
   26.7. [ObjSprite3D Functions](#objsprite3d-functions)\
   26.8. [ObjMesh Functions](#objmesh-functions)\
   26.9. [ObjText Functions](#objtext-functions)\
-  26.10. [ObjShader Functions](#objshader-functions)\
-  26.11. [ObjSound Functions](#objsound-functions)\
-  26.12. [ObjFile Functions](#objfile-functions)\
-  26.13. [ObjFileT Functions](#objfilet-functions)\
-  26.14. [ObjFileB Object Functions](#objfileb-functions)\
-  26.15. [ObjMove Functions](#objmove-functions)\
-  26.16. [ObjEnemy Functions](#objenemy-functions)\
-  26.17. [ObjEnemyBossScene Functions](#objenemybossscene-functions)\
-  26.18. [ObjShot Functions](#objshot-functions)\
-  26.19. [ObjItem Functions](#objitem-functions)\
-  26.20. [ObjPlayer Functions](#objplayer-functions)\
-  26.21. [ObjCol Functions](#objcol-functions)
+  26.10. [ObjPopupList Functions](#objpopuplist-functions)\
+  26.11. [ObjShader Functions](#objshader-functions)\
+  26.12. [ObjSound Functions](#objsound-functions)\
+  26.13. [ObjFile Functions](#objfile-functions)\
+  26.14. [ObjFileT Functions](#objfilet-functions)\
+  26.15. [ObjFileB Object Functions](#objfileb-functions)\
+  26.16. [ObjMove Functions](#objmove-functions)\
+  26.17. [ObjEnemy Functions](#objenemy-functions)\
+  26.18. [ObjEnemyBossScene Functions](#objenemybossscene-functions)\
+  26.19. [ObjShot Functions](#objshot-functions)\
+  26.20. [ObjItem Functions](#objitem-functions)\
+  26.21. [ObjPlayer Functions](#objplayer-functions)\
+  26.22. [ObjCol Functions](#objcol-functions)
 27. [DataObject Functions](#dataobject-functions)\
   27.1. [Data Functions](#data-functions)\
   27.2. [RenderSequenceData Functions](#rendersequencedata-functions)
@@ -160,7 +161,14 @@ Functions marked with + are new to ScriptVersion 4.</p>
 
 ## [String Functions](./functions/string.html)
 - [string_find+](./functions/string.html#string_find)
+- [string_replace+](./functions/string.html#string_replace)
+- [string_split+](./functions/string.html#string_split)
+- [string_starts_with+](./functions/string.html#string_starts_with)
+- [string_ends_with+](./functions/string.html#string_ends_with)
+- [string_count_char+](./functions/string.html#string_count_char)
 - [string_join+](./functions/string.html#string_join)
+- [string_lower+](./functions/string.html#string_lower)
+- [string_upper+](./functions/string.html#string_upper)
 - [repr+](./functions/string.html#repr)
 - [ToString](./functions/string.html#ToString)
 - [IntToString](./functions/string.html#inttostring)
@@ -179,6 +187,7 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [sprintf+](./functions/string.html#sprintf)
 
 ## [Array Functions](./functions/array.html)
+- [array_create+](./functions/array.html#array_create)
 - [array_append+](./functions/array.html#array_append)
 - [array_insert+](./functions/array.html#array_insert)
 - [array_pop+](./functions/array.html#array_pop)
@@ -187,6 +196,7 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [array_resize+](./functions/array.html#array_resize)
 - [array_clear+](./functions/array.html#array_clear)
 - [array_find+](./functions/array.html#array_find)
+- [array_sort+](./functions/array.html#array_sort)
 - [array_bisect_left+](./functions/array.html#array_bisect_left)
 - [array_bisect_right+](./functions/array.html#array_bisect_right)
 - [array_bisect+](./functions/array.html#array_bisect)
@@ -238,6 +248,8 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [GetStageTimeF](./functions/time.html#getstagetimef)
 - [GetPackageTime](./functions/time.html#getpackagetime)
 - [GetCurrentFps](./functions/time.html#getcurrentfps)
+- [GetFrameTimeSecs+](./functions/time.html#getframetimesecs)
+- [SetFpsUpdateInterval+](./functions/time.html#setfpsupdateinterval)
 - [GetReplayFps](./functions/time.html#getreplayfps)
 
 ## [Debug Functions](./functions/debug.html)
@@ -482,6 +494,10 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [NotifyEvent](./functions/script.html#notifyevent)
 - [NotifyEventOwn+](./functions/script.html#notifyeventown)
 - [NotifyEventAll](./functions/script.html#notifyeventall)
+- [ConnectSignal+](./functions/script.html#connectsignal)
+- [EmitSignal+](./functions/script.html#emitsignal)
+- [EmitSignalOwn+](./functions/script.html#emitsignalown)
+- [EmitSignalAll+](./functions/script.html#emitsignalall)
 - [GetScriptInfoA1](./functions/script.html#getscriptinfoa1)
 - [CompilePackageScriptToFile+](./functions/script.html#compilepackagescripttofile)
 - [CompileSystemScriptToFile+](./functions/script.html#compilesystemscripttofile)
@@ -534,6 +550,8 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [IsSkipMode*](./functions/system.html#isskipmode)
 - [IsPackageRunning+](./functions/system.html#ispackagerunning)
 - [IsLoadThreadComplete+](./functions/system.html#isloadthreadcomplete)
+- [IsScriptLoadThreadComplete+](./functions/system.html#isscriptloadthreadcomplete)
+- [IsResourceLoadThreadComplete+](./functions/system.html#isresourceloadthreadcomplete)
 - [GetDnhConfigValue* (deprecated)](./functions/system.html#getdnhconfigvalue)
 - [SetDnhConfigValue* (deprecated)](./functions/system.html#setdnhconfigvalue)
 - [DnhConfig_GetWindowStyle*](./functions/system.html#dnhconfig_getwindowstyle)
@@ -574,6 +592,7 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [GetPlayerScriptID](./functions/player.html#getplayerscriptid)
 - [SetPlayerSpeed](./functions/player.html#setplayerspeed)
 - [SetPlayerClip](./functions/player.html#setplayerclip)
+- [SetPlayerMovePriority+](./functions/player.html#setplayermovepriority)
 - [SetPlayerLife](./functions/player.html#setplayerlife)
 - [SetPlayerSpell](./functions/player.html#setplayerspell)
 - [SetPlayerPower](./functions/player.html#setplayerpower)
@@ -649,6 +668,8 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [GetAllShotID+](./functions/shot.html#getallshotid)
 - [StoreShotIdInCircleA1+](./functions/shot.html#storeshotidincirclea1)
 - [StoreShotIdInCircleA2+](./functions/shot.html#storeshotidincirclea2)
+- [StoreLaserIdInCircleA1+](./functions/shot.html#storelaseridincirclea1)
+- [StoreLaserIdInCircleA2+](./functions/shot.html#storelaseridincirclea2)
 - [StoreAllShotID+](./functions/shot.html#storeallshotid)
 - [GetShotCount](./functions/shot.html#getshotcount)
 - [SetShotAutoDeleteClip](./functions/shot.html#setshotautodeleteclip)
@@ -801,7 +822,12 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjRender_SetColorHex*](./functions/obj_render.html#objrender_setcolorhex)
 - [ObjRender_SetColorHSV](./functions/obj_render.html#objrender_setcolorhsv)
 - [ObjRender_SetAlpha](./functions/obj_render.html#objrender_setalpha)
+- [ObjRender_SetSecondColor+](./functions/obj_render.html#objrender_setsecondcolor)
+- [ObjRender_SetSecondColorHex+](./functions/obj_render.html#objrender_setsecondcolorhex)
+- [ObjRender_SetSecondColorHSV+](./functions/obj_render.html#objrender_setsecondcolorhsv)
+- [ObjRender_SetSecondAlpha+](./functions/obj_render.html#objrender_setsecondalpha)
 - [ObjRender_SetBlendType](./functions/obj_render.html#objrender_setblendtype)
+- [ObjRender_SetColorMode+](./functions/obj_render.html#objrender_setcolormode)
 - [ObjRender_SetTextureFilter*](./functions/obj_render.html#objrender_settexturefilter)
 - [ObjRender_SetTextureFilterMin+](./functions/obj_render.html#objrender_settexturefiltermin)
 - [ObjRender_SetTextureFilterMag+](./functions/obj_render.html#objrender_settexturefiltermag)
@@ -819,7 +845,14 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjRender_GetColor+](./functions/obj_render.html#objrender_getcolor)
 - [ObjRender_GetColorHex+](./functions/obj_render.html#objrender_getcolorhex)
 - [ObjRender_GetAlpha*](./functions/obj_render.html#objrender_getalpha)
+- [ObjRender_GetFirstColor+](./functions/obj_render.html#objrender_getfirstcolor)
+- [ObjRender_GetFirstColorHex+](./functions/obj_render.html#objrender_getfirstcolorhex)
+- [ObjRender_GetFirstAlpha+](./functions/obj_render.html#objrender_getfirstalpha)
+- [ObjRender_GetSecondColor+](./functions/obj_render.html#objrender_getsecondcolor)
+- [ObjRender_GetSecondColorHex+](./functions/obj_render.html#objrender_getsecondcolorhex)
+- [ObjRender_GetSecondAlpha+](./functions/obj_render.html#objrender_getsecondalpha)
 - [ObjRender_GetBlendType](./functions/obj_render.html#objrender_getblendtype)
+- [ObjRender_GetColorMode+](./functions/obj_render.html#objrender_getcolormode)
 - [ObjRender_GetTextureFilter*](./functions/obj_render.html#objrender_gettexturefilter)
 - [ObjRender_SetZWrite](./functions/obj_render.html#objrender_setzwrite)
 - [ObjRender_SetZTest](./functions/obj_render.html#objrender_setztest)
@@ -836,6 +869,7 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjRender_TweenAlpha*](./functions/obj_render.html#objrender_tweenalpha)
 - [ObjRender_TweenAngle*](./functions/obj_render.html#objrender_tweenangle)
 - [ObjRender_TweenScale*](./functions/obj_render.html#objrender_tweenscale)
+- [ObjRender_TweenMoveSpeed+](./functions/obj_render.html#objrender_tweenmovespeed)
 - [ObjRender_CancelTweens+](./functions/obj_render.html#objrender_canceltweens)
 - [ObjRender_GetParentID+](./functions/obj_render.html#objrender_getparentid)
 - [ObjRender_SetParentPositionEnable+](./functions/obj_render.html#objrender_setparentpositionenable)
@@ -849,6 +883,21 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjRender_RemoveChildren+](./functions/obj_render.html#objrender_removechildren)
 - [ObjRender_DeleteChildren+](./functions/obj_render.html#objrender_deletechildren)
 - [ObjRender_GetListOfChildID+](./functions/obj_render.html#objrender_getlistofchildid)
+- [ObjRender_SetLightingEnable+](./functions/obj_render.html#objrender_setlightingenable)
+- [ObjRender_SetLightingType+](./functions/obj_render.html#objrender_setlightingtype)
+- [ObjRender_SetLightingDiffuseColor+](./functions/obj_render.html#objrender_setlightingdiffusecolor)
+- [ObjRender_SetLightingDiffuseColorHex+](./functions/obj_render.html#objrender_setlightingdiffusecolorhex)
+- [ObjRender_SetLightingSpecularColor+](./functions/obj_render.html#objrender_setlightingspecularcolor)
+- [ObjRender_SetLightingSpecularColorHex+](./functions/obj_render.html#objrender_setlightingspecularcolorhex)
+- [ObjRender_SetLightingAmbientColor+](./functions/obj_render.html#objrender_setlightingambientcolor)
+- [ObjRender_SetLightingAmbientColorHex+](./functions/obj_render.html#objrender_setlightingambientcolorhex)
+- [ObjRender_SetLightingDirection+](./functions/obj_render.html#objrender_setlightingdirection)
+- [ObjRender_SetLightingPosition+](./functions/obj_render.html#objrender_setlightingposition)
+- [ObjRender_SetLightingRange+](./functions/obj_render.html#objrender_setlightingrange)
+- [ObjRender_SetLightingAttenuation+](./functions/obj_render.html#objrender_setlightingattenuation)
+- [ObjRender_SetLightingPhi+](./functions/obj_render.html#objrender_setlightingphi)
+- [ObjRender_SetLightingTheta+](./functions/obj_render.html#objrender_setlightingtheta)
+- [ObjRender_SetLightingFalloff+](./functions/obj_render.html#objrender_setlightingfalloff)
 
 ### [ObjRender Sequence Functions](./functions/obj_render_sequence.html)
 - [ObjRender_AddSequenceCommand+](./functions/obj_render_sequence.html#objrender_addsequencecommand)
@@ -868,6 +917,8 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjRender_SetSequenceTimer+](./functions/obj_render_sequence.html#objrender_setsequencetimer)
 - [ObjRender_GetSequenceIndex+](./functions/obj_render_sequence.html#objrender_getsequenceindex)
 - [ObjRender_SetSequenceIndex+](./functions/obj_render_sequence.html#objrender_setsequenceindex)
+- [ObjRender_SetSequenceVar+](./functions/obj_render_sequence.html#objrender_setsequencevar)
+- [ObjRender_SetSequenceVars+](./functions/obj_render_sequence.html#objrender_setsequencevars)
 - [ObjRender_SequenceIsStopped+](./functions/obj_render_sequence.html#objrender_sequenceisstopped)
 - [ObjRender_SequenceIsRunning+](./functions/obj_render_sequence.html#objrender_sequenceisrunning)
 
@@ -897,6 +948,7 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjSprite2D_SetDest*](./functions/obj_sprite_2d.html#objsprite2d_setdest)
 - [ObjSprite2D_SetDestRect](./functions/obj_sprite_2d.html#objsprite2d_setdestrect)
 - [ObjSprite2D_SetDestCenter](./functions/obj_sprite_2d.html#objsprite2d_setdestcenter)
+- [ObjSprite2D_SetDestCenterRotate](./functions/obj_sprite_2d.html#objsprite2d_setdestcenterrotate)
 - [ObjSprite2D_SetCenterRotationEnable*](./functions/obj_sprite_2d.html#objsprite2d_setcenterrotationenable)
 
 ### [ObjSpriteList2D Functions](./functions/obj_sprite_list_2d.html)
@@ -918,6 +970,10 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjSpriteBatch2D_AddSprite+](./functions/obj_sprite_batch_2d.html#objspritebatch2d_addsprite)
 - [ObjSpriteBatch2D_RemoveSprite+](./functions/obj_sprite_batch_2d.html#objspritebatch2d_removesprite)
 - [ObjBatchSprite2D_Create+](./functions/obj_sprite_batch_2d.html#objbatchsprite2d_create)
+- [ObjBatchSprite2D_CreateA1+](./functions/obj_sprite_batch_2d.html#objbatchsprite2d_createa1)
+- [ObjBatchSprite2D_CreateA2+](./functions/obj_sprite_batch_2d.html#objbatchsprite2d_createa2)
+- [ObjBatchSprite2D_CreateB1+](./functions/obj_sprite_batch_2d.html#objbatchsprite2d_createb1)
+- [ObjBatchSprite2D_CreateB2+](./functions/obj_sprite_batch_2d.html#objbatchsprite2d_createb2)
 
 ### [ObjSprite3D Functions](./functions/obj_sprite_3d.html)
 - [ObjSprite3D_SetSourceRect](./functions/obj_sprite_3d.html#objsprite3d_setsourcerect)
@@ -959,6 +1015,18 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjText_GetTextLengthCUL](./functions/obj_text.html#objtext_gettextlengthcul)
 - [ObjText_GetTotalWidth](./functions/obj_text.html#objtext_gettotalwidth)
 - [ObjText_GetTotalHeight](./functions/obj_text.html#objtext_gettotalheight)
+
+### [ObjPopupList Functions](./functions/obj_popup_list.html)
+- [ObjPopupList_Create+](./functions/obj_popup_list.html#objpopuplist_create)
+- [ObjPopupList_SetTexture+](./functions/obj_popup_list.html#objpopuplist_settexture)
+- [ObjPopupList_SetScale+](./functions/obj_popup_list.html#objpopuplist_setscale)
+- [ObjPopupList_SetSize+](./functions/obj_popup_list.html#objpopuplist_setsize)
+- [ObjPopupList_SetStartSpeed+](./functions/obj_popup_list.html#objpopuplist_setstartspeed)
+- [ObjPopupList_SetDecelerationEnable+](./functions/obj_popup_list.html#objpopuplist_setdecelerationenable)
+- [ObjPopupList_SetDeleteTime+](./functions/obj_popup_list.html#objpopuplist_setdeletetime)
+- [ObjPopupList_AddDigitsFrame+](./functions/obj_popup_list.html#objpopuplist_adddigitsframe)
+- [ObjPopupList_SetPlayerObjectID+](./functions/obj_popup_list.html#objpopuplist_setplayerobjectid)
+- [ObjPopupList_CreatePopup+](./functions/obj_popup_list.html#objpopuplist_createpopup)
 
 ### [ObjShader Functions](./functions/obj_shader.html)
 - [ObjShader_Create](./functions/obj_shader.html#objshader_create)
@@ -1061,6 +1129,14 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjMove_GetSpeed](./functions/obj_move.html#objmove_getspeed)
 - [ObjMove_GetAngle](./functions/obj_move.html#objmove_getangle)
 - [ObjMove_IsMovementEnable+](./functions/obj_move.html#objmove_ismovementenable)
+- [ObjMove_CancelMovement+](./functions/obj_move.html#objmove_cancelmovement)
+- [ObjMove_ClearPatterns+](./functions/obj_move.html#objmove_clearpatterns)
+- [ObjMove_StartHomingToEnemyA1+](./functions/obj_move.html#objmove_starthomingtoenemya1)
+- [ObjMove_StartHomingToEnemyA2+](./functions/obj_move.html#objmove_starthomingtoenemya2)
+- [ObjMove_StartHomingToEnemyZ1+](./functions/obj_move.html#objmove_starthomingtoenemyz1)
+- [ObjMove_StartHomingToEnemyZ2+](./functions/obj_move.html#objmove_starthomingtoenemyz2)
+- [ObjMove_StopHomingToEnemy+](./functions/obj_move.html#objmove_stophomingtoenemy)
+- [ObjMove_SetHomingToEnemyTargetType+](./functions/obj_move.html#objmove_sethomingtoenemytargettype)
 
 ### [ObjEnemy Functions](./functions/obj_enemy.html)
 - [ObjEnemy_Create](./functions/obj_enemy.html#objenemy_create)
@@ -1085,11 +1161,24 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjEnemy_AddLifeEx+](./functions/obj_enemy.html#objenemy_addlifeex)
 - [ObjEnemy_SetDamageRate](./functions/obj_enemy.html#objenemy_setdamagerate)
 - [ObjEnemy_SetMaximumDamage+](./functions/obj_enemy.html#objenemy_setmaximumdamage)
+- [ObjEnemy_SetSharedLifeTarget+](./functions/obj_enemy.html#objenemy_setsharedlifetarget)
+- [ObjEnemy_GetSharedLifeTarget+](./functions/obj_enemy.html#objenemy_getsharedlifetarget)
+- [ObjEnemy_SetTotalDamage+](./functions/obj_enemy.html#objenemy_settotaldamage)
+- [ObjEnemy_GetTotalDamage+](./functions/obj_enemy.html#objenemy_gettotaldamage)
 - [ObjEnemy_SetIntersectionCircleToShot](./functions/obj_enemy.html#objenemy_setintersectioncircletoshot)
 - [ObjEnemy_SetIntersectionCircleToPlayer](./functions/obj_enemy.html#objenemy_setintersectioncircletoplayer)
 - [ObjEnemy_SetAutoIntersectionCircleToShot+](./functions/obj_enemy.html#objenemy_setautointersectioncircletoshot)
 - [ObjEnemy_SetAutoIntersectionCircleToPlayer+](./functions/obj_enemy.html#objenemy_setautointersectioncircletoplayer)
 - [ObjEnemy_SetEnableIntersectionPositionFetching+](./functions/obj_enemy.html#objenemy_setenableintersectionpositionfetching)
+- [ObjEnemy_SetPreferredHomingTarget+](./functions/obj_enemy.html#objenemy_setpreferredhomingtarget)
+- [ObjEnemy_IsPreferredHomingTarget+](./functions/obj_enemy.html#objenemy_ispreferredhomingtarget)
+- [ObjEnemy_SetMovementBoundsEnable+](./functions/obj_enemy.html#objenemy_setmovementboundsenable)
+- [ObjEnemy_IsMovementBoundsEnable+](./functions/obj_enemy.html#objenemy_ismovementboundsenable)
+- [ObjEnemy_SetMovementBounds+](./functions/obj_enemy.html#objenemy_setmovementbounds)
+- [ObjEnemy_GetMovementBounds+](./functions/obj_enemy.html#objenemy_getmovementbounds)
+- [ObjEnemy_SetHitEffectEnable+](./functions/obj_enemy.html#objenemy_sethiteffectenable)
+- [ObjEnemy_SetHitEffectParam+](./functions/obj_enemy.html#objenemy_sethiteffectparam)
+- [ObjEnemy_SetHitEffectSoundOverride+](./functions/obj_enemy.html#objenemy_sethiteffectsoundoverride)
 - [ObjEnemy_SetDeathFunc+](./functions/obj_enemy.html#objenemy_setdeathfunc)
 
 ### [ObjEnemyBossScene Functions](./functions/obj_enemy_boss_scene.html)
@@ -1110,12 +1199,18 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjShot_SetDeleteFrame](./functions/obj_shot.html#objshot_setdeleteframe)
 - [ObjShot_SetDelay](./functions/obj_shot.html#objshot_setdelay)
 - [ObjShot_SetSpellResist](./functions/obj_shot.html#objshot_setspellresist)
+- [ObjShot_SetAutoDeleteDisableFrame+](./functions/obj_shot.html#objshot_setautodeletedisableframe)
+- [ObjShot_SetSpellResistFrame+](./functions/obj_shot.html#objshot_setspellresistframe)
 - [ObjShot_SetGraphic](./functions/obj_shot.html#objshot_setgraphic)
 - [ObjShot_SetCenterRotationEnable+](./functions/obj_shot.html#objshot_setcenterrotationenable)
 - [ObjShot_SetSourceBlendType](./functions/obj_shot.html#objshot_setsourceblendtype)
 - [ObjShot_SetDelayBlendType+](./functions/obj_shot.html#objshot_setdelayblendtype)
 - [ObjShot_SetDelayGraphic+](./functions/obj_shot.html#objshot_setdelaygraphic)
 - [ObjShot_SetDelayMotionEnable+](./functions/obj_shot.html#objshot_setdelaymotionenable)
+- [ObjShot_SetRenderOffsetX+](./functions/obj_shot.html#objshot_setrenderoffsetx)
+- [ObjShot_SetRenderOffsetY+](./functions/obj_shot.html#objshot_setrenderoffsety)
+- [ObjShot_GetRenderOffsetX+](./functions/obj_shot.html#objshot_getrenderoffsetx)
+- [ObjShot_GetRenderOffsetY+](./functions/obj_shot.html#objshot_getrenderoffsety)
 - [ObjShot_SetDamage](./functions/obj_shot.html#objshot_setdamage)
 - [ObjShot_SetPenetration](./functions/obj_shot.html#objshot_setpenetration)
 - [ObjShot_SetEraseShot](./functions/obj_shot.html#objshot_seteraseshot)
@@ -1139,15 +1234,26 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjShot_GetImageID](./functions/obj_shot.html#objshot_getimageid)
 - [ObjShot_GetIntersectionScaleX+](./functions/obj_shot.html#objshot_getintersectionscalex)
 - [ObjShot_GetIntersectionScaleY+](./functions/obj_shot.html#objshot_getintersectionscaley)
+- [ObjShot_AddTransform+](./functions/obj_shot.html#objshot_addtransform)
+- [ObjShot_SetTransform+](./functions/obj_shot.html#objshot_settransform)
+- [ObjShot_AddTransformFunc+](./functions/obj_shot.html#objshot_addtransformfunc)
+- [ObjShot_SetTransformFunc+](./functions/obj_shot.html#objshot_settransformfunc)
+- [ObjShot_FinishTransformFunction+](./functions/obj_shot.html#objshot_finishtransformfunction)
+- [ObjShot_DisableTransform+](./functions/obj_shot.html#objshot_disabletransform)
 - [ObjLaser_SetLength](./functions/obj_shot.html#objlaser_setlength)
 - [ObjLaser_SetRenderWidth](./functions/obj_shot.html#objlaser_setrenderwidth)
 - [ObjLaser_SetIntersectionWidth](./functions/obj_shot.html#objlaser_setintersectionwidth)
 - [ObjLaser_SetGrazeInvalidFrame](./functions/obj_shot.html#objlaser_setgrazeinvalidframe)
+- [ObjLaser_SetItemDistance](./functions/obj_shot.html#objlaser_setitemdistance)
+- [ObjLaser_TweenLength+](./functions/obj_shot.html#objlaser_tweenlength)
 - [ObjLaser_SetInvalidLength](./functions/obj_shot.html#objlaser_setinvalidlength)
 - [ObjLaser_GetLength](./functions/obj_shot.html#objlaser_getlength)
 - [ObjStLaser_SetAngle](./functions/obj_shot.html#objstlaser_setangle)
 - [ObjStLaser_GetAngle](./functions/obj_shot.html#objstlaser_getangle)
 - [ObjStLaser_SetSource](./functions/obj_shot.html#objstlaser_setsource)
+- [ObjStLaser_SetFadeType+](./functions/obj_shot.html#objstlaser_setfadetype)
+- [ObjStLaser_SetFadeTime+](./functions/obj_shot.html#objstlaser_setfadetime)
+- [ObjStLaser_DisableSpawnGrowth+](./functions/obj_shot.html#objstlaser_disablespawngrowth)
 - [ObjCrLaser_SetTipDecrement](./functions/obj_shot.html#objcrlaser_settipdecrement)
 
 ### [ObjItem Functions](./functions/obj_item.html)

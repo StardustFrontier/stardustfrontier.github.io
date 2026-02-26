@@ -28,12 +28,12 @@ ConfigDataFile = config.dat
 
 // a map of paths to config.exe translations, relative to config.exe's directory
 // {languageID:path}
-ConfigLanguagePaths = {0:lang/config/en.def, 1:lang/config/jp.def, 2:lang/config/fr.def}
+ConfigLanguagePaths = {"en": lang/config/en.def, "jp": lang/config/jp.def}
 
 // keyboard keys to use as defaults for VK_USER1 and VK_USER2
 // valid keys are:
 // Z, X, C, V, W, A, S, D, LCONTROL, LSHIFT, ESCAPE, BACKSPACE, LEFT, RIGHT, UP, DOWN, RETURN, DELETE
-//UserKeyDefaults = {LCONTROL, S}
+//UserKeyDefaults = [LCONTROL, S]
 
 // screen resolution for each aspect ratio
 // can have all of Screen_4_3, Screen_16_9, Screen_16_10, and Screen_Other
@@ -42,7 +42,7 @@ Screen_4_3  = 640x480
 
 // list of all window sizes
 // this will be automatically matched with the screen resolution for its ratio
-WindowSizes = {640x480, 800x600, 1024x768, 1280x960}
+WindowSizes = [640x480, 800x600, 1024x768, 1280x960]
 
 // index of the window size to start with by default when no config data exists
 WindowSizeIndexDefault = 0

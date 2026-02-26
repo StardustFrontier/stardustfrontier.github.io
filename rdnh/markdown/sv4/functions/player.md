@@ -34,6 +34,20 @@ Sets the normal speed and focus speed of the player.
 ```
 Sets the area within which the player can move.
 
+## SetPlayerMovePriority
+```
+    Arguments:
+        1) real const: keyPriorityHorizontal
+        2) real const: keyPriorityVertical
+```
+Sets the virtual key to prioritize when moving horizontally and vertically.
+
+KEY_INVALID can be passed to reset to the default behavior.
+
+Example: To prioritize left when both VK_LEFT and VK_RIGHT are pressed and down when both VK_UP and VK_DOWN are pressed:
+
+<scode>SetPlayerMovePriority(VK_LEFT, VK_DOWN);</scode>
+
 ## SetPlayerLife
 ```
     Arguments:

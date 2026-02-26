@@ -276,6 +276,20 @@ returns false.</p>
 <p><em><strong>Note</strong>: This should not be used to
 <strong>yield;</strong> during a stage, since this will cause replay
 desync, but yielding on package loading screens should be fine.</em></p>
+<h2 id="isscriptloadthreadcomplete">IsScriptLoadThreadComplete</h2>
+<pre><code>    Returns:
+        bool: bComplete</code></pre>
+<p>Returns true if all script load thread events have completed.</p>
+<p><em><strong>Note</strong>: This should not be used to
+<strong>yield;</strong> during a stage, since this will cause replay
+desync, but yielding on package loading screens should be fine.</em></p>
+<h2 id="isresourceloadthreadcomplete">IsResourceLoadThreadComplete</h2>
+<pre><code>    Returns:
+        bool: bComplete</code></pre>
+<p>Returns true if all resource load thread events have completed.</p>
+<p><em><strong>Note</strong>: This should not be used to
+<strong>yield;</strong> during a stage, since this will cause replay
+desync, but yielding on package loading screens should be fine.</em></p>
 <h2 id="getdnhconfigvalue">GetDnhConfigValue</h2>
 <pre><code>    Arguments:
         1) real const: configType

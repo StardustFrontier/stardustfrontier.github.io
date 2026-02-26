@@ -106,16 +106,6 @@ Resumes playing a previously paused object's render sequence.
 ```
 Patches the jump at jumpIndex in the render sequence to point to the next added render command.
 
-## ObjRender_SetSequenceOnFinish
-```
-    Arguments:
-        1) real: objID
-        2) function: funcOnFinish
-```
-Sets the function to call after the render sequence finishes executing.
-
-funcOnFinish cannot be task or sub and must take 1 parameter.
-
 ## ObjRender_GetSequenceTimer
 ```
     Arguments:
@@ -153,6 +143,25 @@ This may be inaccurate during execution, since render sequences run ahead of scr
 Sets the render sequence's instruction index directly.
 
 This can be useful for setting the initial index to start at.
+
+## ObjRender_SetSequenceVar
+```
+    Arguments:
+        1) real: objID
+        2) real: varID
+        3) real: value
+```
+Sets the render sequence variable with the given ID to the given value.
+
+## ObjRender_SetSequenceVars
+```
+    Arguments:
+        1) real: objID
+        2+) real: values...
+```
+Sets the values of each render sequence variable in order.
+
+_**Note**: If only a few variables need to be set and they are in order, then only that amount of values needs to be passed._
 
 ## ObjRender_SequenceIsStopped
 ```

@@ -193,6 +193,40 @@ overflow.</p>
 <p>Sets the maximum amount of damage that the enemy object can receive
 through normal means in a single frame.</p>
 <p>Default value is uncapped.</p>
+<h2 id="objenemy_setsharedlifetarget">ObjEnemy_SetSharedLifeTarget</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: targetObjectID</code></pre>
+<p>Makes it so the enemy object shares life with the target enemy
+object.</p>
+<p>Whenever the enemy would have taken damage in any way, it will be
+redirected to the target object.</p>
+<h2 id="objenemy_getsharedlifetarget">ObjEnemy_GetSharedLifeTarget</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real</code></pre>
+<p>Returns the target object that this enemy is sharing life with.</p>
+<h2 id="objenemy_settotaldamage">ObjEnemy_SetTotalDamage</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: totalDamage</code></pre>
+<p>Sets the total direct damage dealt to the enemy object since
+creation.</p>
+<p>This should only be called to reset the value to 0 if needed.</p>
+<h2 id="objenemy_gettotaldamage">ObjEnemy_GetTotalDamage</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: totalDamage
+    Return Type:
+        real</code></pre>
+<p>Returns the total &quot;intended&quot; direct damage dealt to the enemy object
+since creation.</p>
+<p>This always returns the amount of damage the enemy would have
+received even if it is taking no direct damage as a result of
+ObjEnemy_SetSharedLifeTarget<br />
+If the enemy is a <em>target</em> of another enemy object&#39;s shared life,
+then it will not include the damage done to the other enemy</p>
 <h2 id="objenemy_setintersectioncircletoshot">ObjEnemy_SetIntersectionCircleToShot</h2>
 <pre><code>    Arguments:
         1) real: objectID
@@ -240,6 +274,72 @@ specified enemy object&#39;s hitboxes:</p>
 - GetAllEnemyIntersectionPosition
 - GetNearestEnemyIntersectionIdA1
 - GetNearestEnemyIntersectionIdA2</code></pre>
+<h2 id="objenemy_setpreferredhomingtarget">ObjEnemy_SetPreferredHomingTarget</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) bool: bPreferred</code></pre>
+<p>Marks or unmarks an enemy object as a preferred target for homing
+player shots.</p>
+<h2 id="objenemy_ispreferredhomingtarget">ObjEnemy_IsPreferredHomingTarget</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        bool</code></pre>
+<p>Returns true if the enemy is marked as a preferred target for homing
+player shots, otherwise returns false.</p>
+<h2 id="objenemy_setmovementboundsenable">ObjEnemy_SetMovementBoundsEnable</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) bool: bEnable</code></pre>
+<p>Sets whether or not the enemy&#39;s movement should be clamped to its
+movement bounds.</p>
+<h2 id="objenemy_ismovementboundsenable">ObjEnemy_IsMovementBoundsEnable</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        bool</code></pre>
+<p>Returns whether or not the enemy movement is currently set to be
+clamped to its movement bounds.</p>
+<h2 id="objenemy_setmovementbounds">ObjEnemy_SetMovementBounds</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: left
+        3) real: top
+        4) real: right
+        5) real: bottom</code></pre>
+<p>Sets the movement bounds for the enemy object relative to (0, 0)
+within the STG frame area.</p>
+<h2 id="objenemy_getmovementbounds">ObjEnemy_GetMovementBounds</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real[]</code></pre>
+<p>Returns the movement bounds for the enemy object.</p>
+<h2 id="objenemy_sethiteffectenable">ObjEnemy_SetHitEffectEnable</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) bool: bEnable</code></pre>
+<p>Sets whether the engine should handle hit effects for the enemy
+object.</p>
+<h2 id="objenemy_sethiteffectparam">ObjEnemy_SetHitEffectParam</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: colorHex
+        3) real: indexSoundHigh
+        4) real: indexSoundLow</code></pre>
+<p>Sets the hit effect color, sound at high life, and sound at low life
+for the enemy object.</p>
+<p>-1 can be passed for either sound argument to disable the sound.</p>
+<p><em><strong>Note</strong>: Sound playback relies on using
+PlayStageSound internally. If the script has not been set up to use
+that, no sound will be played.</em></p>
+<h2 id="objenemy_sethiteffectsoundoverride">ObjEnemy_SetHitEffectSoundOverride</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: indexSound</code></pre>
+<p>ets a hit sound effect that overrides all other hit sounds for the
+enemy object.</p>
+<p>-1 can be passed as the sound argument to disable overriding.</p>
 <h2 id="objenemy_setdeathfunc">ObjEnemy_SetDeathFunc</h2>
 <pre><code>    Arguments:
         1) real: objectID

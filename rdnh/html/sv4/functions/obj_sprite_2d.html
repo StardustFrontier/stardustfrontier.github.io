@@ -59,8 +59,8 @@ will be drawn.</p>
 <p>Sets the drawing rectangle for the sprite based on a pre-defined
 constant.</p>
 <p>This is the rectangle where the sprite will be drawn.<br />
-Destination constants are in the form `DESTINATION_<type> where type
-is:</p>
+Destination constants are in the form
+<code>DESTINATION_&lt;type&gt;</code> where type is:</p>
 <pre><code>CENTER
 LEFT
 RIGHT
@@ -89,6 +89,13 @@ the source rectangle to (0, 0).</p>
 <p>For example, if the rectangle set with ObjSprite2D_SetSourceRect is
 (24, 32, 48, 46) (which is 24 wide and 14 high), the destination
 rectangle becomes (-12, -7, 12, 7).</p>
+<h2 id="objsprite2d_setdestcenterrotate">ObjSprite2D_SetDestCenterRotate</h2>
+<pre><code>    Arguments:
+        1) real: objectID</code></pre>
+<p>Sets a centered destination rect that may look nicer for rotating
+sprites with even-sized rects.</p>
+<p>This is equivalent to setting the destination rect to:
+<scode>(-w/2+0.5, -h/2+0.5, w/2+0.5, h/2+0.5)</scode></p>
 <h2 id="objsprite2d_setcenterrotationenable">ObjSprite2D_SetCenterRotationEnable</h2>
 <pre><code>    Arguments:
         1) real: objectID

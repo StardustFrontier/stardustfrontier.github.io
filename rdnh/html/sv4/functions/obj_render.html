@@ -143,12 +143,48 @@ object.</p>
 A value of 255 will give the object full opacity.<br />
 This function has no effect on an object using BLEND_ADD_RGB - use
 BLEND_ADD_ARGB instead.</p>
+<h2 id="objrender_setsecondcolor">ObjRender_SetSecondColor</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: red
+        3) real: green
+        4) real: blue</code></pre>
+<p>Sets the second color of the object using RGB (0-255).</p>
+<h2 id="objrender_setsecondcolorhex">ObjRender_SetSecondColorHex</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: colorHex</code></pre>
+<p>Sets the second color of the object using RGB in hexadecimal format
+(0xRRGGBB).</p>
+<p>For example, pure green would be: <code>0x00FF00</code>.</p>
+<h2 id="objrender_setsecondcolorhsv">ObjRender_SetSecondColorHSV</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: hue
+        3) real: saturation
+        4) real: value</code></pre>
+<p>Sets the second color of the object using hue (0-359), saturation
+(0-255), and value (0-255).</p>
+<h2 id="objrender_setsecondalpha">ObjRender_SetSecondAlpha</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: alpha</code></pre>
+<p>Sets the second alpha value of the object.</p>
 <h2 id="objrender_setblendtype">ObjRender_SetBlendType</h2>
 <pre><code>    Arguments:
         1) real: objectID
         2) real const: blendType</code></pre>
 <p>Sets the <a href="./blend_types.html">blend type</a> for the
 specified object.</p>
+<h2 id="objrender_setcolormode">ObjRender_SetColorMode</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real const: blendType</code></pre>
+<p>Sets which color mode to use when rendering the object.</p>
+<p>The color modes are:</p>
+<pre><code>COLOR_MODE_NORMAL: uses the RGB and alpha values of the first color
+COLOR_MODE_SECOND_RGB: uses the RGB value of the second color and alpha value of the first color
+COLOR_MODE_SECOND_ARGB: uses the alpha and RGB values of the second color</code></pre>
 <h2 id="objrender_settexturefilter">ObjRender_SetTextureFilter</h2>
 <pre><code>    Arguments:
         1) real: objectID
@@ -266,6 +302,58 @@ be NULL_POS (-999999)</em></p>
     Return Type:
         real</code></pre>
 <p>Returns the alpha value of the object.</p>
+<h2 id="objrender_getfirstcolor">ObjRender_GetFirstColor</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Returns:
+        array[real]: color</code></pre>
+<p>Returns the object&#39;s first color as an array with the format [r, g,
+b].</p>
+<p><em><strong>Note</strong>: ObjRender_GetColor will return the active
+color of the object based on its color mode.</em></p>
+<h2 id="objrender_getfirstcolorhex">ObjRender_GetFirstColorHex</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Returns:
+        array[real]: colorHex</code></pre>
+<p>Returns the object&#39;s first color as an XRGB hexadecimal color
+value.</p>
+<p><em><strong>Note</strong>: ObjRender_GetColorHex will return the
+active color of the object based on its color mode.</em></p>
+<h2 id="objrender_getfirstalpha">ObjRender_GetFirstAlpha</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Returns:
+        array[real]: alpha</code></pre>
+<p>Returns the object&#39;s first alpha value.</p>
+<p><em><strong>Note</strong>: ObjRender_GetAlpha will return the active
+alpha value of the object based on its color mode.</em></p>
+<h2 id="objrender_getsecondcolor">ObjRender_GetSecondColor</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Returns:
+        array[real]: color</code></pre>
+<p>Returns the object&#39;s second color as an array with the format [r, g,
+b].</p>
+<p><em><strong>Note</strong>: ObjRender_GetColor will return the active
+color of the object based on its color mode.</em></p>
+<h2 id="objrender_getsecondcolorhex">ObjRender_GetSecondColorHex</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Returns:
+        array[real]: colorHex</code></pre>
+<p>Returns the object&#39;s second color as an XRGB hexadecimal color
+value.</p>
+<p><em><strong>Note</strong>: ObjRender_GetColorHex will return the
+active color of the object based on its color mode.</em></p>
+<h2 id="objrender_getsecondalpha">ObjRender_GetSecondAlpha</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Returns:
+        array[real]: alpha</code></pre>
+<p>Returns the object&#39;s second alpha value.</p>
+<p><em><strong>Note</strong>: ObjRender_GetAlpha will return the active
+alpha value of the object based on its color mode.</em></p>
 <h2 id="objrender_getblendtype">ObjRender_GetBlendType</h2>
 <pre><code>    Arguments:
         1) real: objectID
@@ -273,6 +361,12 @@ be NULL_POS (-999999)</em></p>
         real const</code></pre>
 <p>Returns the <a href="./blend_types.html">blend type</a> of the
 object.</p>
+<h2 id="objrender_getcolormode">ObjRender_GetColorMode</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real const</code></pre>
+<p>Returns the color mode of the object.</p>
 <h2 id="objrender_setzwrite">ObjRender_SetZWrite</h2>
 <pre><code>    Arguments:
         1) real: objectID
@@ -413,6 +507,20 @@ type</a>.</p>
 <p><em>Note: Tweens of the same type (for example, two
 ObjRender_TweenPosition) will cancel the currently running one and start
 the new one.</em></p>
+<h2 id="objrender_tweenmovespeed">ObjRender_TweenMoveSpeed</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: duration
+        3) real const: interpolationType
+        4) real: speedX
+        5) real: speedY
+        6) real: speedZ</code></pre>
+<p>Changes the object&#39;s render move speed to (speedX, speedY, speedZ)
+over duration frames with the given <a href="./interpolation_types.html">interpolation type</a>.</p>
+<p>NO_CHANGE can be used to preserve any of the current values.</p>
+<p><em>Note: Tweens of the same type (for example, two
+ObjRender_TweenPosition) will cancel the currently running one and start
+the new one.</em></p>
 <h2 id="objrender_canceltweens">ObjRender_CancelTweens</h2>
 <pre><code>    Arguments:
         1) real: objectID</code></pre>
@@ -505,5 +613,135 @@ objects.</em></p>
         array[real]: objectIDs</code></pre>
 <p><em>This function is for parent render objects.</em></p>
 <p>Returns an array of object IDs of all the object&#39;s children.</p>
+<h2 id="objrender_setlightingenable">ObjRender_SetLightingEnable</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: bLightingEnable
+        3) real: bSpecularLightingEnable</code></pre>
+<p>Enables or disables the 3D lighting and specular lighting for the
+render object.</p>
+<p>The default values are false and false.<br />
+For mesh objects, the default values are true and false.<br />
+Unless completely necessary, it&#39;s recommended not to use specular
+lighting, as it&#39;s quite computationally expensive.</p>
+<h2 id="objrender_setlightingtype">ObjRender_SetLightingType</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: type</code></pre>
+<p>Sets the type of lighting to use, which also resets all light
+parameters to the defaults for that type.</p>
+<p>Can be any of the following:</p>
+<pre><code>LIGHT_POINT
+LIGHT_SPOT
+LIGHT_DIRECTIONAL (default)</code></pre>
+<p>For more info on how these work, check the Microsoft documentation on
+Direct3D 9 Light Types.</p>
+<h2 id="objrender_setlightingdiffusecolor">ObjRender_SetLightingDiffuseColor</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: r
+        3) real: g
+        4) real: b</code></pre>
+<p>Sets the object&#39;s diffuse lighting color.</p>
+<p>The default color value is (128, 128, 128).</p>
+<h2 id="objrender_setlightingdiffusecolorhex">ObjRender_SetLightingDiffuseColorHex</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: colorHex</code></pre>
+<p>Sets the object&#39;s diffuse lighting color as an XRGB hexadecimal color
+value.</p>
+<p>The default color value is 0x808080.</p>
+<h2 id="objrender_setlightingspecularcolor">ObjRender_SetLightingSpecularColor</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: r
+        3) real: g
+        4) real: b</code></pre>
+<p>Sets the object&#39;s specular lighting color.</p>
+<p>The default color value is (0, 0, 0).</p>
+<h2 id="objrender_setlightingspecularcolorhex">ObjRender_SetLightingSpecularColorHex</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: colorHex</code></pre>
+<p>Sets the object&#39;s specular lighting color as an XRGB hexadecimal
+color value.</p>
+<p>The default color value is 0x000000.</p>
+<h2 id="objrender_setlightingambientcolor">ObjRender_SetLightingAmbientColor</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: r
+        3) real: g
+        4) real: b</code></pre>
+<p>Sets the object&#39;s ambient lighting color.</p>
+<p>The default color value is (128, 128, 128).</p>
+<h2 id="objrender_setlightingambientcolorhex">ObjRender_SetLightingAmbientColorHex</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: colorHex</code></pre>
+<p>Sets the object&#39;s ambient lighting color as an XRGB hexadecimal color
+value.</p>
+<p>The default color value is 0x808080.</p>
+<h2 id="objrender_setlightingdirection">ObjRender_SetLightingDirection</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: z</code></pre>
+<p>Used by <scode>LIGHT_SPOT</scode> and
+<scode>LIGHT_DIRECTIONAL</scode>.</p>
+<p>Sets the direction vector of the lighting.</p>
+<p>The vector does not need to be normalized, but should have a non-zero
+length.<br />
+The default direction vector is (-1, -1, -1).</p>
+<h2 id="objrender_setlightingposition">ObjRender_SetLightingPosition</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: z</code></pre>
+<p>Used by <scode>LIGHT_POINT</scode> and <scode>LIGHT_SPOT</scode>.</p>
+<p>Sets the position vector of the lighting.</p>
+<p>According to Microsoft, these coordinates are in world space, but I
+can&#39;t confirm whether that is correctly implemented in rdnh or not.</p>
+<h2 id="objrender_setlightingrange">ObjRender_SetLightingRange</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: range</code></pre>
+<p>Used by <scode>LIGHT_POINT</scode> and <scode>LIGHT_SPOT</scode>.</p>
+<p>Sets the range of the lighting, which determines the distance in
+world space at which meshes in a scene no longer receive light emitted
+by the object.</p>
+<p>According to Microsoft, this uses world space, but I can&#39;t confirm
+whether that is correctly implemented in rdnh or not.</p>
+<h2 id="objrender_setlightingattenuation">ObjRender_SetLightingAttenuation</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: att0
+        3) real: att1
+        4) real: att2</code></pre>
+<p>Used by <scode>LIGHT_POINT</scode> and <scode>LIGHT_SPOT</scode>.</p>
+<p>Sets the attenuation values of the lighting, which control how a
+light&#39;s intensity decreases toward the maximum distance specified by the
+range property.</p>
+<p>This is a bit too complex to explain in simple function
+documentation, so just lookup Direct3D 9 light attenuation.</p>
+<h2 id="objrender_setlightingphi">ObjRender_SetLightingPhi</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: phi</code></pre>
+<p>Used by <scode>LIGHT_SPOT</scode>.</p>
+<p>Sets the phi value of the spot lighting in degrees.</p>
+<h2 id="objrender_setlightingtheta">ObjRender_SetLightingTheta</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: theta</code></pre>
+<p>Used by <scode>LIGHT_SPOT</scode>.</p>
+<p>Sets the theta value of the spot lighting in degrees.</p>
+<h2 id="objrender_setlightingfalloff">ObjRender_SetLightingFalloff</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: falloff</code></pre>
+<p>Used by <scode>LIGHT_SPOT</scode>.</p>
+<p>Sets the falloff value of the spot lighting.</p>
 </body>
 </html>

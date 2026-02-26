@@ -68,3 +68,83 @@ Creates a 2D sprite object capable of being batch rendered and returns its ID.
 This object is actually of the type OBJ_BATCH_SPRITE_2D, but it can use all ObjSprite2D functions and most ObjRender functions.
 
 *Note: These objects cannot use ObjPrim functions.*
+
+## ObjBatchSprite2D_CreateA1
+```
+    Arguments:
+        1) real: batchObjectID
+        2) real: x
+        3) real: y
+        4) real: blendType
+        5) real: srcL
+        6) real: srcT
+        7) real: srcR
+        8) real: srcB
+    Returns:
+        real: objectID
+```
+Creates a Batch Sprite 2D object with the given parameters and returns its object ID.
+
+This version uses ObjSprite2D_SetDestCenter.
+
+## ObjBatchSprite2D_CreateA2
+```
+    Arguments:
+        1) real: batchObjectID
+        2) real: x
+        3) real: y
+        4) real: blendType
+        5) real: srcL
+        6) real: srcT
+        7) real: srcR
+        8) real: srcB
+        9) real: destL
+        10) real: destT
+        11) real: destR
+        12) real: destB
+    Returns:
+        real: objectID
+```
+Creates a Batch Sprite 2D object with the given parameters and returns its object ID
+
+This version has a manually specified dest rect.
+
+## ObjBatchSprite2D_CreateB1
+```
+    Arguments:
+        1) real: batchObjectID
+        2) real: x
+        3) real: y
+        4) real: blendType
+        5) real: srcX
+        6) real: srcY
+        7) real: srcW
+        8) real: srcH
+    Returns:
+        real: objectID
+```
+Creates a Batch Sprite 2D object with the given parameters and returns its object ID.
+
+This version uses ObjSprite2D_SetSourceRectB and ObjSprite2D_SetDestCenter.
+
+## ObjBatchSprite2D_CreateB2
+```
+    Arguments:
+        1) real: batchObjectID
+        2) real: x
+        3) real: y
+        4) real: blendType
+        5) real: srcX
+        6) real: srcY
+        7) real: srcW
+        8) real: srcH
+        9) real: destL
+        10) real: destT
+        11) real: destR
+        12) real: destB
+    Returns:
+        real: objectID
+```
+Creates a Batch Sprite 2D object with the given parameters and returns its object ID
+
+This version uses ObjSprite2D_SetSourceRectB and has a manually specified dest rect.

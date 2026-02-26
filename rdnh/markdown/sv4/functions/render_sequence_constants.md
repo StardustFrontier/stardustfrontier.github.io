@@ -46,6 +46,8 @@ RC_VAR_RAND_INT: random integer value in the range set by RC_SET_RAND_VAR_RANGE
 
 RC_VAR_RAND_ANGLE: random real value in the range [0, 360)
 
+RC_VAR_TIME: the timer of the object's render sequence
+
 RC_VAR_POS_X: the object's current x position
 
 RC_VAR_POS_Y: the object's current y position
@@ -83,6 +85,11 @@ RC_PAUSE(bForbidUpdates):
 RC_INTERRUPT_LABEL():
     Acts as a label/marker for an interrupt triggered externally.
     This command doesn't actually do anything directly.
+
+RC_CALL_FUNC(funcToCall, args...):
+	Calls the given function with up to 5 arguments.
+	The function must have the following signature:
+	function MyFunction(obj, any, other, args)
 
 RC_NOTIFY_EVENT(scriptId, eventType, args...):
     Calls NotifyEvent.
@@ -280,6 +287,9 @@ RC_TWEEN_COLOR(duration, interpType, endValueR, endValueG, endValueB):
 
 RC_TWEEN_ALPHA(duration, interpType, endValueA):
     Calls ObjRender_TweenAlpha.
+
+RC_TWEEN_MOVE_SPEED(duration, interpType, endSpeedX, endSpeedY, endSpeedZ):
+    Calls ObjRender_TweenMoveSpeed.
 ```
 
 ## ObjSprite2D Manipulation

@@ -15,15 +15,92 @@ Finds the character or substring in str and returns the index it starts at or -1
 
 Optionally, the index to start the operation at can be specified. This is 0 by default.
 
+## string_replace
+```
+    Arguments:
+        1) string: str
+        2) char|string: toFind
+        3) char|string: replacement
+        4) real: count?
+    Return Type:
+        string
+```
+Returns a new string with the given number of occurrences of toFind replaced with replacement.
+
+If count is not given, all occurrences will be replaced.
+
+## string_split
+```
+    Arguments:
+        1) string: str
+        2) string: delimiter
+        3) real: maxSplits?
+    Return Type:
+        array[string]
+```
+Splits the string using the given delimiter and returns the result as an array of strings.
+
+If maxSplits is given, only that number of splits will be performed.
+
+_**Note**: Unlike SplitString, if the split results in an empty string it will still be included in the returned array._
+
+## string_starts_with
+```
+    Arguments:
+        1) string: str
+        2) string: prefix
+    Return Type:
+        bool
+```
+Returns true if the string begins with the given prefix, otherwise returns false.
+
+## string_ends_with
+```
+    Arguments:
+        1) string: str
+        2) string: suffix
+    Return Type:
+        bool
+```
+Returns true if the string ends with the given suffix, otherwise returns false.
+
+## string_count_char
+```
+    Arguments:
+        1) string: str
+        2) char: character
+    Return Type:
+        string
+```
+Returns the total occurrences of the given character in str.
+
 ## string_join
 ```
     Arguments:
         1) string: str
         2) array|string|table: collection
     Return Type:
-        real
+        string
 ```
 Returns a string with all the elements of the collection concatenated together as strings.
+
+## string_lower
+```
+    Arguments:
+        1) string: str
+    Return Type:
+        string
+```
+Returns a copy of the string with all characters converted to lowercase.
+
+## string_upper
+```
+    Arguments:
+        1) string: str
+    Return Type:
+        string
+```
+Returns a copy of the string with all characters converted to uppercase.
 
 ## repr
 ```

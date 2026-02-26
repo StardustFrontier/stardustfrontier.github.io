@@ -28,35 +28,35 @@ vertical-align: middle;
 <h1 class="title">ObjMove Functions</h1>
 </header>
 <p><a href="../functions.html">Return to Functions</a></p>
-<h2 id="objrender_setx">ObjRender_SetX</h2>
+<h2 id="objmove_setx">ObjMove_SetX</h2>
 <pre><code>    Arguments:
         1) real: objectID
         2) real: x</code></pre>
 <p>Sets the x-coordinate of the object.</p>
-<h2 id="objrender_sety">ObjRender_SetY</h2>
+<h2 id="objmove_sety">ObjMove_SetY</h2>
 <pre><code>    Arguments:
         1) real: objectID
         2) real: y</code></pre>
 <p>Sets the y-coordinate of the object.</p>
-<h2 id="objrender_setposition">ObjRender_SetPosition</h2>
+<h2 id="objmove_setposition">ObjMove_SetPosition</h2>
 <pre><code>    Arguments:
         1) real: objectID
         2) real: x
         3) real: y</code></pre>
 <p>Sets the x and y coordinates of the object.</p>
-<h2 id="objrender_setposition-1">ObjRender_SetPosition</h2>
+<h2 id="objmove_setposition-1">ObjMove_SetPosition</h2>
 <pre><code>    Arguments:
         1) real: objectID
         2) real: x
         3) real: y</code></pre>
 <p>Sets the x and y coordinates of the object to the coordinates of the
 parent object.</p>
-<h2 id="objrender_setspeed">ObjRender_SetSpeed</h2>
+<h2 id="objmove_setspeed">ObjMove_SetSpeed</h2>
 <pre><code>    Arguments:
         1) real: objectID
         2) real: speed</code></pre>
 <p>Sets the movement speed for the object.</p>
-<h2 id="objrender_setangle">ObjRender_SetAngle</h2>
+<h2 id="objmove_setangle">ObjMove_SetAngle</h2>
 <pre><code>    Arguments:
         1) real: objectID
         2) real: angle</code></pre>
@@ -238,5 +238,82 @@ accelerations, maximum speeds, and bullet graphic.</p>
         bool</code></pre>
 <p>Returns true if movement processing is enabled for the object,
 otherwise returns false.</p>
+<h2 id="objmove_cancelmovement">ObjMove_CancelMovement</h2>
+<pre><code>    Arguments:
+        1) real: objectID</code></pre>
+<p>Cancels the currently active move pattern.</p>
+<h2 id="objmove_clearpatterns">ObjMove_ClearPatterns</h2>
+<pre><code>    Arguments:
+        1) real: objectID</code></pre>
+<p>Clears all move patterns that were added with ObjMove_AddPattern
+functions.</p>
+<h2 id="objmove_starthomingtoenemya1">ObjMove_StartHomingToEnemyA1</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: maxTurn
+        3) real: maxTurnInc
+        4) real: homingTime</code></pre>
+<p>Makes the object begin homing toward enemies for homingTime
+frames.</p>
+<p>maxTurn is the maximum angle the shot can turn per frame.<br />
+maxTurnInc is added to maxTurn each frame, which can be used to prevent
+infinite circling around the target or to curve the angle.</p>
+<h2 id="objmove_starthomingtoenemya2">ObjMove_StartHomingToEnemyA2</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: maxTurn
+        3) real: maxTurnInc
+        4) real: homingTime
+        5) real: acceleration
+        6) real: minSpeed
+        7) real: maxSpeed</code></pre>
+<p>Makes the object begin homing toward enemies for homingTime frames
+using the given acceleration. minimum speed, and maximum speed.</p>
+<p>maxTurn is the maximum angle the shot can turn per frame.<br />
+maxTurnInc is added to maxTurn each frame, which can be used to prevent
+infinite circling around the target or to curve the angle.</p>
+<p><em><strong>Note</strong>: The acceleration value must be positive,
+since it is used as both acceleration and deceleration.</em></p>
+<h2 id="objmove_starthomingtoenemyz1">ObjMove_StartHomingToEnemyZ1</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: angleWeight
+        3) real: homingTime</code></pre>
+<p>Makes the object begin homing toward enemies for homingTime frames in
+a ZUN-like way.<br />
+This works similarly to Reimu&#39;s homing amulets in most official Touhou
+games from MoF onward.</p>
+<p>angleWeight can be used to control the smoothness of the turning.</p>
+<h2 id="objmove_starthomingtoenemyz2">ObjMove_StartHomingToEnemyZ2</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: angleWeight
+        3) real: homingTime
+        4) real: acceleration
+        5) real: minSpeed
+        6) real: maxSpeed</code></pre>
+<p>Makes the object begin homing toward enemies for homingTime frames in
+a ZUN-like way using the given acceleration. minimum speed, and maximum
+speed.<br />
+This works similarly to Reimu&#39;s homing amulets in most official Touhou
+games from MoF onward.</p>
+<p>angleWeight can be used to control the smoothness of the turning.</p>
+<p><em><strong>Note</strong>: The acceleration value must be positive,
+since it is used as both acceleration and deceleration.</em></p>
+<h2 id="objmove_stophomingtoenemy">ObjMove_StopHomingToEnemy</h2>
+<pre><code>    Arguments:
+        1) real: objectID</code></pre>
+<p>Disables homing for the given object if it was enabled.</p>
+<h2 id="objmove_sethomingtoenemytargettype">ObjMove_SetHomingToEnemyTargetType</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: homingTargetType</code></pre>
+<p>Sets the targeting type for the object&#39;s enemy homing movement.</p>
+<p>Types are:</p>
+<pre><code>HOMING_TARGET_NEAREST_TO_SHOT
+HOMING_TARGET_NEAREST_TO_PLAYER
+HOMING_TARGET_LOWEST_ON_SCREEN</code></pre>
+<p><em><strong>Note</strong>: This function must be called after homing
+has been enabled for the shot object.</em></p>
 </body>
 </html>

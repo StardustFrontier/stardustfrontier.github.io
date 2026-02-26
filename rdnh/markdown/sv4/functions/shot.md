@@ -282,6 +282,42 @@ TARGET_ENEMY (enemy shots only)
 TARGET_PLAYER (player shots only)
 ```
 
+## GetShotIdInCircleB1
+```
+    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real const: objectType
+```
+Returns the object IDs of the bullets with the given object type inside the given circle in an array.
+
+Object type refers to the object constant associated with the shot object, such as <scode>OBJ_SHOT</scode> or <scode>OBJ_STRAIGHT_LASER</scode>.
+
+Inside a player script, it will only return enemy laser IDs, and vice versa.
+
+## GetShotIdInCircleB2
+```
+    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real const: objectType
+        6) real const: target
+```
+Returns the object IDs of the bullets with the given object type inside the given circle with the specified target type in an array.
+
+Object type refers to the object constant associated with the shot object, such as <scode>OBJ_SHOT</scode> or <scode>OBJ_STRAIGHT_LASER</scode>.
+
+target can be:
+```
+TARGET_ALL (all shots)
+TARGET_ENEMY (enemy shots only)
+TARGET_PLAYER (player shots only)
+```
+
 ## GetAllShotID
 ```
     Arguments:
@@ -321,6 +357,77 @@ Inside a player script, it will only return enemy bullet IDs, and vice versa.
         5) real const: target
 ```
 Stores the object IDs of the bullets inside the given circle with the specified target type in storageArray.\
+This is faster than the _Get_ version if the array has been pre-reserved to an adequate size with array_reserve.
+
+target can be:
+```
+TARGET_ALL (all shots)
+TARGET_ENEMY (enemy shots only)
+TARGET_PLAYER (player shots only)
+```
+
+## StoreShotIdInCircleB1
+```
+    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real const: objectType
+```
+Stores the object IDs of the bullets of the given object type inside the given circle in storageArray.\
+This is faster than the _Get_ version if the array has been pre-reserved to an adequate size with array_reserve.
+
+Object type refers to the object constant associated with the shot object, such as <scode>OBJ_SHOT</scode> or <scode>OBJ_STRAIGHT_LASER</scode>.
+
+Inside a player script, it will only return enemy laser IDs, and vice versa.
+
+## StoreShotIdInCircleB2
+```
+    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real const: objectType
+        6) real const: target
+```
+Stores the object IDs of the bullets of the given object type inside the given circle with the specified target type in storageArray.\
+This is faster than the _Get_ version if the array has been pre-reserved to an adequate size with array_reserve.
+
+Object type refers to the object constant associated with the shot object, such as <scode>OBJ_SHOT</scode> or <scode>OBJ_STRAIGHT_LASER</scode>.
+
+target can be:
+```
+TARGET_ALL (all shots)
+TARGET_ENEMY (enemy shots only)
+TARGET_PLAYER (player shots only)
+```
+
+## StoreLaserIdInCircleA1
+```
+    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+```
+Stores the object IDs of the lasers inside the given circle in storageArray.\
+This is faster than the _Get_ version if the array has been pre-reserved to an adequate size with array_reserve.
+
+Inside a player script, it will only return enemy laser IDs, and vice versa.
+
+
+## StoreLaserIdInCircleA2
+```
+    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real const: target
+```
+Stores the object IDs of the lasers inside the given circle with the specified target type in storageArray.\
 This is faster than the _Get_ version if the array has been pre-reserved to an adequate size with array_reserve.
 
 target can be:

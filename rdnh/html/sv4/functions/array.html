@@ -28,6 +28,12 @@ vertical-align: middle;
 <h1 class="title">Array Functions</h1>
 </header>
 <p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="array_create">array_create</h2>
+<pre><code>    Arguments:
+        1) real: size
+        2) any: initValue = nil</code></pre>
+<p>Creates a new array of the given size and fills it with the given
+value.</p>
 <h2 id="array_append">array_append</h2>
 <pre><code>    Arguments:
         1) array: arr
@@ -82,6 +88,20 @@ to initValue (nil if not provided)</p>
 was not found.</p>
 <p>Optionally, the index to start the operation at can be specified.
 This is 0 by default.</p>
+<h2 id="array_sort">array_sort</h2>
+<pre><code>    Arguments:
+        1) array: arr
+        2) function: comp?
+    Return Type:
+        real</code></pre>
+<p>Sorts the elements in the given array in non-descending order.</p>
+<p>A user-defined comparator function may be passed to compare the
+elements:</p>
+<pre><code>function Compare(a, b, res) { res[0] = a &gt; b; }</code></pre>
+<p>If comp is not provided, the elements will be compared using the &lt;
+operator.</p>
+<p><em><strong>Note</strong>: The order of equal elements is not
+guaranteed to be preserved.</em></p>
 <h2 id="array_bisect_left">array_bisect_left</h2>
 <pre><code>    Arguments:
         1) array: arr

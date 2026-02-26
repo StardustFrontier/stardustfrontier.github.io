@@ -302,6 +302,37 @@ the specified target type in an array.</p>
 <pre><code>TARGET_ALL (all shots)
 TARGET_ENEMY (enemy shots only)
 TARGET_PLAYER (player shots only)</code></pre>
+<h2 id="getshotidincircleb1">GetShotIdInCircleB1</h2>
+<pre><code>    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real const: objectType</code></pre>
+<p>Returns the object IDs of the bullets with the given object type
+inside the given circle in an array.</p>
+<p>Object type refers to the object constant associated with the shot
+object, such as <scode>OBJ_SHOT</scode> or
+<scode>OBJ_STRAIGHT_LASER</scode>.</p>
+<p>Inside a player script, it will only return enemy laser IDs, and vice
+versa.</p>
+<h2 id="getshotidincircleb2">GetShotIdInCircleB2</h2>
+<pre><code>    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real const: objectType
+        6) real const: target</code></pre>
+<p>Returns the object IDs of the bullets with the given object type
+inside the given circle with the specified target type in an array.</p>
+<p>Object type refers to the object constant associated with the shot
+object, such as <scode>OBJ_SHOT</scode> or
+<scode>OBJ_STRAIGHT_LASER</scode>.</p>
+<p>target can be:</p>
+<pre><code>TARGET_ALL (all shots)
+TARGET_ENEMY (enemy shots only)
+TARGET_PLAYER (player shots only)</code></pre>
 <h2 id="getallshotid">GetAllShotID</h2>
 <pre><code>    Arguments:
         1) real const: target
@@ -333,6 +364,68 @@ vice versa.</p>
         4) real: radius
         5) real const: target</code></pre>
 <p>Stores the object IDs of the bullets inside the given circle with the
+specified target type in storageArray.<br />
+This is faster than the <em>Get</em> version if the array has been
+pre-reserved to an adequate size with array_reserve.</p>
+<p>target can be:</p>
+<pre><code>TARGET_ALL (all shots)
+TARGET_ENEMY (enemy shots only)
+TARGET_PLAYER (player shots only)</code></pre>
+<h2 id="storeshotidincircleb1">StoreShotIdInCircleB1</h2>
+<pre><code>    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real const: objectType</code></pre>
+<p>Stores the object IDs of the bullets of the given object type inside
+the given circle in storageArray.<br />
+This is faster than the <em>Get</em> version if the array has been
+pre-reserved to an adequate size with array_reserve.</p>
+<p>Object type refers to the object constant associated with the shot
+object, such as <scode>OBJ_SHOT</scode> or
+<scode>OBJ_STRAIGHT_LASER</scode>.</p>
+<p>Inside a player script, it will only return enemy laser IDs, and vice
+versa.</p>
+<h2 id="storeshotidincircleb2">StoreShotIdInCircleB2</h2>
+<pre><code>    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real const: objectType
+        6) real const: target</code></pre>
+<p>Stores the object IDs of the bullets of the given object type inside
+the given circle with the specified target type in storageArray.<br />
+This is faster than the <em>Get</em> version if the array has been
+pre-reserved to an adequate size with array_reserve.</p>
+<p>Object type refers to the object constant associated with the shot
+object, such as <scode>OBJ_SHOT</scode> or
+<scode>OBJ_STRAIGHT_LASER</scode>.</p>
+<p>target can be:</p>
+<pre><code>TARGET_ALL (all shots)
+TARGET_ENEMY (enemy shots only)
+TARGET_PLAYER (player shots only)</code></pre>
+<h2 id="storelaseridincirclea1">StoreLaserIdInCircleA1</h2>
+<pre><code>    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius</code></pre>
+<p>Stores the object IDs of the lasers inside the given circle in
+storageArray.<br />
+This is faster than the <em>Get</em> version if the array has been
+pre-reserved to an adequate size with array_reserve.</p>
+<p>Inside a player script, it will only return enemy laser IDs, and vice
+versa.</p>
+<h2 id="storelaseridincirclea2">StoreLaserIdInCircleA2</h2>
+<pre><code>    Arguments:
+        1) array: storageArray
+        2) real: x
+        3) real: y
+        4) real: radius
+        5) real const: target</code></pre>
+<p>Stores the object IDs of the lasers inside the given circle with the
 specified target type in storageArray.<br />
 This is faster than the <em>Get</em> version if the array has been
 pre-reserved to an adequate size with array_reserve.</p>

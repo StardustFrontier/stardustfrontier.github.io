@@ -10,7 +10,8 @@
 Returns a string containing the current date and time.\
 For example, if the current date is 2012/09/16 12:34:56, then "20120916123456" will be returned.\
 To convert this to a number, you may use the atoi function like so:
-```let year = atoi(GetCurrentDateTimeS[0..4]);</pre>
+
+<scode>let year = atoi(GetCurrentDateTimeS[0..4]);</scode>
 
 ## GetSystemTimeMicros
 ```
@@ -66,6 +67,23 @@ Returns the amount of time that has elapsed since the start of the main package 
         real
 ```
 Returns the current FPS.
+
+## GetFrameTimeSecs
+```
+    Return Type:
+        real
+```
+Returns the current frame time in seconds.
+
+## SetFpsUpdateInterval
+```
+    Arguments:
+        1) real: interval
+```
+Sets the update interval for FPS in milliseconds.
+
+This sets how frequently the FPS is calculated, which allows GetCurrentFps to update faster.\
+Defaults to 1000 ms.
 
 ## GetReplayFps
 ```

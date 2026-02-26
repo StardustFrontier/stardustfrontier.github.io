@@ -2,6 +2,14 @@
 
 [Return to Functions](../functions.html)
 
+## array_create
+```
+    Arguments:
+        1) real: size
+        2) any: initValue = nil
+```
+Creates a new array of the given size and fills it with the given value.
+
 ## array_append
 ```
     Arguments:
@@ -76,6 +84,25 @@ Removes all elements from the array.
 Finds the value in arr and returns the index it starts at or -1 if it was not found.
 
 Optionally, the index to start the operation at can be specified. This is 0 by default.
+
+## array_sort
+```
+    Arguments:
+        1) array: arr
+        2) function: comp?
+    Return Type:
+        real
+```
+Sorts the elements in the given array in non-descending order.
+
+A user-defined comparator function may be passed to compare the elements:
+```
+function Compare(a, b, res) { res[0] = a > b; }
+```
+
+If comp is not provided, the elements will be compared using the < operator.
+
+_**Note**: The order of equal elements is not guaranteed to be preserved._
 
 ## array_bisect_left
 ```

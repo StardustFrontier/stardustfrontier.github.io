@@ -104,13 +104,6 @@ commands.</p>
         2) real: jumpIndex</code></pre>
 <p>Patches the jump at jumpIndex in the render sequence to point to the
 next added render command.</p>
-<h2 id="objrender_setsequenceonfinish">ObjRender_SetSequenceOnFinish</h2>
-<pre><code>    Arguments:
-        1) real: objID
-        2) function: funcOnFinish</code></pre>
-<p>Sets the function to call after the render sequence finishes
-executing.</p>
-<p>funcOnFinish cannot be task or sub and must take 1 parameter.</p>
 <h2 id="objrender_getsequencetimer">ObjRender_GetSequenceTimer</h2>
 <pre><code>    Arguments:
         1) real: objID
@@ -138,6 +131,21 @@ ahead of scripts.</p>
         2) real: index</code></pre>
 <p>Sets the render sequence&#39;s instruction index directly.</p>
 <p>This can be useful for setting the initial index to start at.</p>
+<h2 id="objrender_setsequencevar">ObjRender_SetSequenceVar</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2) real: varID
+        3) real: value</code></pre>
+<p>Sets the render sequence variable with the given ID to the given
+value.</p>
+<h2 id="objrender_setsequencevars">ObjRender_SetSequenceVars</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2+) real: values...</code></pre>
+<p>Sets the values of each render sequence variable in order.</p>
+<p><em><strong>Note</strong>: If only a few variables need to be set and
+they are in order, then only that amount of values needs to be
+passed.</em></p>
 <h2 id="objrender_sequenceisstopped">ObjRender_SequenceIsStopped</h2>
 <pre><code>    Arguments:
         1) real: objID

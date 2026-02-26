@@ -48,6 +48,16 @@ vertical-align: middle;
         3) real: right
         4) real: bottom</code></pre>
 <p>Sets the area within which the player can move.</p>
+<h2 id="setplayermovepriority">SetPlayerMovePriority</h2>
+<pre><code>    Arguments:
+        1) real const: keyPriorityHorizontal
+        2) real const: keyPriorityVertical</code></pre>
+<p>Sets the virtual key to prioritize when moving horizontally and
+vertically.</p>
+<p>KEY_INVALID can be passed to reset to the default behavior.</p>
+<p>Example: To prioritize left when both VK_LEFT and VK_RIGHT are
+pressed and down when both VK_UP and VK_DOWN are pressed:</p>
+<p><scode>SetPlayerMovePriority(VK_LEFT, VK_DOWN);</scode></p>
 <h2 id="setplayerlife">SetPlayerLife</h2>
 <pre><code>    Arguments:
         1) real: value</code></pre>

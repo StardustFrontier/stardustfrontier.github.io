@@ -140,33 +140,87 @@ The default value is false.
         1) real: scriptID
         2) real const: eventType
         3+) any: arguments...
+    Return Type:
+        any
 ```
 Calls the @Event of the script with the specified ID, triggering the specified event.
 
 An arbitrary amount of arguments may be passed to the event, but there must be at least one.\
 The event type may use a value greater than EV_USER.
 
+SetScriptResult can be used within @Event to make this function return an arbitrary value.
+
 ## NotifyEventOwn
 ```
     Arguments:
         1) real const: eventType
-        2) any: arguments...
+        2+) any: arguments...
+    Return Type:
+        any
 ```
 Calls the @Event of the script that called this function, triggering the specified event.
 
 An arbitrary amount of arguments may be passed to the event, but there must be at least one.\
 The event type may use a value greater than EV_USER.
 
+SetScriptResult can be used within @Event to make this function return an arbitrary value.
+
 ## NotifyEventAll
 ```
     Arguments:
         1) real const: eventType
-        2) any: arguments...
+        2+) any: arguments...
 ```
 Calls the @Event of all scripts, triggering the specified event in all scripts listening for it.
 
 An arbitrary amount of arguments may be passed to the event, but there must be at least one.\
 The event type may use a value greater than EV_USER.
+
+## ConnectSignal
+```
+    Arguments:
+        1) real const: eventType
+        2) function: funcToCall
+```
+Connects a signal with the eventType to the given function or sub.
+
+If a signal is emitted to this script, the associated function will automatically be called.\
+SetScriptResult can be used to return an arbitrary value from the called function to the EmitSginal functions.
+
+## EmitSignal
+```
+    Arguments:
+        1) real: scriptID
+        2) real const: eventType
+        3+) any: args...
+    Return Type:
+        any
+```
+Emits a signal with the specified event type to the script with the specified ID, triggering a connected function to be called if there is one.
+
+Returns a value that can be specified with SetScriptResult in the connected function.
+
+## EmitSignalOwn
+```
+    Arguments:
+        1) real const: eventType
+        2+) any: args...
+    Return Type:
+        any
+```
+Emits a signal with the specified event type to the script that called this function, triggering a connected function to be called if there is one.
+
+Returns a value that can be specified with SetScriptResult in the connected function.
+
+## EmitSignalAll
+```
+    Arguments:
+        1) real const: eventType
+        2+) any: args...
+```
+Emits a signal with the specified event type to all scripts, triggering a connected function to be called if there is one.
+
+_**Note**: Does not return a value._
 
 ## GetScriptInfoA1
 ```

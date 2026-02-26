@@ -40,7 +40,7 @@ This is the rectangle on the original texture from which the sprite will be draw
 Sets the drawing rectangle for the sprite based on a pre-defined constant.
 
 This is the rectangle where the sprite will be drawn.\
-Destination constants are in the form `DESTINATION_<type> where type is:
+Destination constants are in the form `DESTINATION_<type>` where type is:
 ```
 CENTER
 LEFT
@@ -75,6 +75,15 @@ This is the rectangle where the sprite will be drawn.
 Sets the drawing rectangle for the sprite by mapping the center of the source rectangle to (0, 0).
 
 For example, if the rectangle set with ObjSprite2D_SetSourceRect is (24, 32, 48, 46) (which is 24 wide and 14 high), the destination rectangle becomes (-12, -7, 12, 7).
+
+## ObjSprite2D_SetDestCenterRotate
+```
+    Arguments:
+        1) real: objectID
+```
+Sets a centered destination rect that may look nicer for rotating sprites with even-sized rects.
+
+This is equivalent to setting the destination rect to: <scode>(-w/2+0.5, -h/2+0.5, w/2+0.5, h/2+0.5)</scode>
 
 ## ObjSprite2D_SetCenterRotationEnable
 ```
