@@ -1,6 +1,6 @@
 ﻿# Re:Dnh SV4 Documentation Index
 
-[Return to Main Index](../index.html)
+[Return to Main Index](../../index.html)
 
 #
 ## [Function Reference](./functions.html)

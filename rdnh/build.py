@@ -9,7 +9,8 @@ def main():
 	force_rebuild = len(sys.argv) > 1 and (sys.argv[1] == 'force' or sys.argv[1] == 'force-rebuild')
 	count = 0
 	
-	src_files = [path for path in Path('./markdown/').rglob('*.md')]
+	src_files = [Path('./index.md')]
+	src_files += [path for path in Path('./markdown/').rglob('*.md')]
 	for src in src_files:
 		out = Path(str(src.resolve()).replace('.md', '.html').replace('markdown', 'html'))
 		
