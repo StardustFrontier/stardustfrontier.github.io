@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ObjRender Sequence Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ObjRender Sequence Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<p> </p>
+<p>Related Pages:</p>
+<ul>
+<li><a href="./render_sequences.html">Using Render Sequences</a></li>
+<li><a href="./render_sequence_data.html">RenderSequenceData
+Functions</a></li>
+<li><a href="./render_sequence_constants.html">Render Sequence
+Constants</a></li>
+</ul>
+<hr />
+<h2 id="objrender_addsequencecommand">ObjRender_AddSequenceCommand</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2) real const: renderCommandType
+        3+) real: args...
+    Returns:
+        real: index</code></pre>
+<p>Adds a <a href="./render_sequence_constants.html">render command</a>
+to the object&#39;s render sequence and returns its index.</p>
+<p>Required arguments for each type vary, see the list of commands for
+more details.</p>
+<h2 id="objrender_removesequencecommand">ObjRender_RemoveSequenceCommand</h2>
+<pre><code>    Arguments:
+        1) real: objID</code></pre>
+<p>Removes the last render command from the object&#39;s render
+sequence.</p>
+<h2 id="objrender_initializesequence">ObjRender_InitializeSequence</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2) real: size</code></pre>
+<p>Initializes the object&#39;s render sequence, optionally reserving space
+(0 or NULL to ignore) for size commands.</p>
+<h2 id="objrender_setsequence">ObjRender_SetSequence</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2) real: dataSeqID</code></pre>
+<p>Sets the object&#39;s render sequence to dataSeqID, which must be a
+RenderSequenceData.</p>
+<h2 id="objrender_copysequence">ObjRender_CopySequence</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2) real: objID2</code></pre>
+<p>Copies objID2&#39;s render sequence to objID.</p>
+<h2 id="objrender_playsequence">ObjRender_PlaySequence</h2>
+<pre><code>    Arguments:
+        1) real: objID</code></pre>
+<p>Starts playing the object&#39;s render sequence from the beginning.</p>
+<h2 id="objrender_startsequence">ObjRender_StartSequence</h2>
+<pre><code>    Arguments:
+        1) real: objID</code></pre>
+<p>Starts playing the object&#39;s render sequence from the beginning.</p>
+<p>This is an alias for ObjRender_PlaySequence.</p>
+<h2 id="objrender_stopsequence">ObjRender_StopSequence</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2) bool: bCancelTweens</code></pre>
+<p>Stops playing the object&#39;s render sequence.</p>
+<p>if bCancelTweens is true, cancels any <em>TWEEN</em> type
+commands.</p>
+<h2 id="objrender_pausesequence">ObjRender_PauseSequence</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2) bool: bCancelTweens</code></pre>
+<p>Pauses the object&#39;s render sequence without resetting its state.</p>
+<p>if bCancelTweens is true, cancels any <em>TWEEN</em> type
+commands.</p>
+<h2 id="objrender_resumesequence">ObjRender_ResumeSequence</h2>
+<pre><code>    Arguments:
+        1) real: objID</code></pre>
+<p>Resumes playing a previously paused object&#39;s render sequence.</p>
+<h2 id="objrender_patchsequencejump">ObjRender_PatchSequenceJump</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2) real: jumpIndex</code></pre>
+<p>Patches the jump at jumpIndex in the render sequence to point to the
+next added render command.</p>
+<h2 id="objrender_setsequenceonfinish">ObjRender_SetSequenceOnFinish</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2) function: funcOnFinish</code></pre>
+<p>Sets the function to call after the render sequence finishes
+executing.</p>
+<p>funcOnFinish cannot be task or sub and must take 1 parameter.</p>
+<h2 id="objrender_getsequencetimer">ObjRender_GetSequenceTimer</h2>
+<pre><code>    Arguments:
+        1) real: objID
+    Returns:
+        real: timer</code></pre>
+<p>Returns the render sequence&#39;s current timer value. This is set by
+RC_WAIT and counts down to 0.</p>
+<h2 id="objrender_setsequencetimer">ObjRender_SetSequenceTimer</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2) real: timer</code></pre>
+<p>Sets the render sequence&#39;s timer value directly. A command of type
+RC_WAIT should be used instead for most cases.</p>
+<h2 id="objrender_getsequenceindex">ObjRender_GetSequenceIndex</h2>
+<pre><code>    Arguments:
+        1) real: objID
+    Returns:
+        real: index</code></pre>
+<p>Returns the render sequence&#39;s current instruction index.</p>
+<p>This may be inaccurate during execution, since render sequences run
+ahead of scripts.</p>
+<h2 id="objrender_setsequenceindex">ObjRender_SetSequenceIndex</h2>
+<pre><code>    Arguments:
+        1) real: objID
+        2) real: index</code></pre>
+<p>Sets the render sequence&#39;s instruction index directly.</p>
+<p>This can be useful for setting the initial index to start at.</p>
+<h2 id="objrender_sequenceisstopped">ObjRender_SequenceIsStopped</h2>
+<pre><code>    Arguments:
+        1) real: objID
+    Returns:
+        bool: bStopped</code></pre>
+<p>Returns true if the sequence is stopped or finished, otherwise
+returns false.</p>
+<h2 id="objrender_sequenceispaused">ObjRender_SequenceIsPaused</h2>
+<pre><code>    Arguments:
+        1) real: objID
+    Returns:
+        bool: bPaused</code></pre>
+<p>Returns true if the sequence is paused, otherwise returns false.</p>
+<h2 id="objrender_sequenceisrunning">ObjRender_SequenceIsRunning</h2>
+<pre><code>    Arguments:
+        1) real: objID
+    Returns:
+        bool: bRunning</code></pre>
+<p>Returns true if the sequence is running, otherwise returns false.</p>
+</body>
+</html>

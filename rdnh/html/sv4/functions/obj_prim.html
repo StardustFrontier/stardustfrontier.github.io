@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ObjPrim Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ObjPrim Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="objprim_create">ObjPrim_Create</h2>
+<pre><code>    Arguments:
+        1) real: objectType
+    Return Type:
+        real</code></pre>
+<p>Creates a Primitive object.</p>
+<p>Object types are:</p>
+<pre><code>OBJ_PRIMITIVE_2D: primitive (triangle) in the 2D space
+OBJ_SPRITE_2D: rectangle in the 2D space (usable by the ObjSprite2D_ functions).
+OBJ_SPRITE_LIST_2D: list of rectangles in the 2D space (usable by the ObjSpriteList2D_ functions).
+OBJ_PRIMITIVE_3D: primitive (triangle) in the 3D space
+OBJ_SPRITE_3D: rectangle in the 3D space (usable by the ObjSprite3D_ functions).</code></pre>
+<h2 id="objprim_setprimitivetype">ObjPrim_SetPrimitiveType</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real const: primitiveType</code></pre>
+<p>Creates a Primitive object.</p>
+<p>Primitive types are:</p>
+<pre><code>PRIMITIVE_TRIANGLELIST
+PRIMITIVE_TRIANGLESTRIP
+PRIMITIVE_TRIANGLEFAN
+PRIMITIVE_LINELIST
+PRIMITIVE_LINESTRIP
+PRIMITIVE_POINT_LIST</code></pre>
+<h2 id="objprim_setvertexcount">ObjPrim_SetVertexCount</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: vertexCount</code></pre>
+<p>Sets the number of vertices the object contains.</p>
+<h2 id="objprim_getvertexcount">ObjPrim_GetVertexCount</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real</code></pre>
+<p>Returns the number of vertices the object contains.</p>
+<p><em>Note: When used on a sprite list object, returns the number of
+vertices added with ObjSpriteList2D_AddVertex * 6</em></p>
+<h2 id="objprim_settexture">ObjPrim_SetTexture</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: pathTexture</code></pre>
+<p>Sets the specified texture on the object.</p>
+<p>If <scode>nil</scode> is passed, an internal all white 64x64 texture
+is used.</p>
+<p><em>Note: Loads the texture file if it has not already been
+loaded.</em></p>
+<h2 id="objprim_gettexture">ObjPrim_GetTexture</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Returns:
+        string: texture</code></pre>
+<p>Returns the path or name of the object&#39;s texture.</p>
+<h2 id="objprim_gettexturewidth">ObjPrim_GetTextureWidth</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Returns:
+        real: width</code></pre>
+<p>Returns the width of the object&#39;s texture.</p>
+<p>If the object doesn&#39;t have a texture set, this will return 0.</p>
+<h2 id="objprim_gettextureheight">ObjPrim_GetTextureHeight</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Returns:
+        real: height</code></pre>
+<p>Returns the height of the object&#39;s texture.</p>
+<p>If the object doesn&#39;t have a texture set, this will return 0.</p>
+<h2 id="objprim_setvertexposition">ObjPrim_SetVertexPosition</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: x
+        4) real: y
+        5) real: z</code></pre>
+<p>Sets the position of the specified vertex.</p>
+<h2 id="objprim_getvertexposition">ObjPrim_GetVertexPosition</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+    Return Type:
+        array[real]: position</code></pre>
+<p>Returns the position of the specified vertex in an array [x,y,z].</p>
+<h2 id="objprim_setvertexuv">ObjPrim_SetVertexUV</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: textureX
+        4) real: textureY</code></pre>
+<p>Sets the UV-coordinates for the specified vertex.</p>
+<p>The value for the coordinates must be in the range (0.0-1.0).<br />
+For example, if you want a vertex to be at the center-top of a 512×512
+texture, you have to set x to 0.5 and y to 1.0. As it may be troublesome
+to convert pixels into a 0.0-1.0 value, ObjPrim_SetVertexUVT is
+recommended.</p>
+<h2 id="objprim_setvertexuvt">ObjPrim_SetVertexUVT</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: textureX
+        4) real: textureY</code></pre>
+<p>Sets the UV-coordinates for the specified vertex.</p>
+<p>You must set the object&#39;s texture using ObjPrim_SetTexture
+beforehand.</p>
+<h2 id="objprim_setvertexcolor">ObjPrim_SetVertexColor</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: red
+        4) real: green
+        5) real: blue</code></pre>
+<p>Sets the color of the specified vertex (0-255).</p>
+<h2 id="objprim_getvertexcolor">ObjPrim_GetVertexColor</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+    Returns:
+        array[real]: color</code></pre>
+<p>Returns the vertex color as an array with the format [r, g, b].</p>
+<h2 id="objprim_setvertexcolorhex">ObjPrim_SetVertexColorHex</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: color</code></pre>
+<p>Sets the color of the specified vertex using RGB in hexadecimal
+format (0xRRGGBB).</p>
+<p>For example, pure green would be: <code>0x00FF00</code></p>
+<h2 id="objprim_getvertexcolorhex">ObjPrim_GetVertexColorHex</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+    Returns:
+        real: color</code></pre>
+<p>Returns the vertex color as an XRGB hexadecimal color value.</p>
+<h2 id="objprim_setvertexalpha">ObjPrim_SetVertexAlpha</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+        3) real: alpha</code></pre>
+<p>Sets the alpha value of the specified vertex (0-255).</p>
+<h2 id="objprim_getvertexalpha">ObjPrim_GetVertexAlpha</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: vertexIndex
+    Returns:
+        real: color</code></pre>
+<p>Returns the vertex alpha value.</p>
+</body>
+</html>

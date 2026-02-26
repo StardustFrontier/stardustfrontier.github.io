@@ -1,0 +1,236 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>docs_other.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="other-functions">Other Functions</h1>
+    <p>
+      <a href="./docs.html">Return to Functions</a>
+    </p>
+    <h2 id="startslow">StartSlow</h2>
+    <pre>
+    Arguments:
+        1) real: slowTarget
+        2) real: fpsValue
+</pre>
+    <p>Creates a pseudo slow effect by forcing Danmakufu to run at the specified FPS value.</p>
+    <p>There is currently only one target available, TARGET_ALL.<br />
+Use StopSlow to stop this effect.</p>
+    <h2 id="stopslow">StopSlow</h2>
+    <pre>
+    Arguments:
+        1) real: slowTarget
+</pre>
+    <p>Removes the pseudo slow from StartSlow, and restores Danmakufu to normal FPS.</p>
+    <p>There is currently only one target available, TARGET_ALL.</p>
+    <h2 id="isintersected_line_circle">IsIntersected_Line_Circle</h2>
+    <pre>
+    Arguments:
+        1) real: startX
+        2) real: startY
+        3) real: endX
+        4) real: endY
+        5) real: width
+        6) real: xCoord
+        7) real: yCoord
+        8) real: radius
+    Return Type:
+        bool
+</pre>
+    <p>Checks if the given line with given width is colliding with the given circle of given radius.<br />
+Returns true if there is a collision; if there is no collision, it returns false.</p>
+    <h2 id="isintersected_obj_obj">IsIntersected_Obj_Obj</h2>
+    <pre>
+    Arguments:
+        1) real: objID1
+        2) real: objID2
+    Return Type:
+        bool
+</pre>
+    <p>Checks if the given objects are colliding with each other.<br />
+Returns true if there is a collision; if there is no collision, it returns false.</p>
+    <p>Note: This function is currently only available on bullet and laser objects.</p>
+    <h2 id="getobjectdistance">GetObjectDistance</h2>
+    <pre>
+    Arguments:
+        1) real: objID1
+        2) real: objID2
+    Return Type:
+        real array
+</pre>
+    <p>Returns the distance between the two objects.</p>
+    <p>If one of the objects' ID is invalid, -1 will be returned.</p>
+    <h2 id="getobject2dposition">GetObject2dPosition</h2>
+    <pre>
+    Arguments:
+        1) real: objID
+    Return Type:
+        real array
+</pre>
+    <p>Returns the 2D coordinates of a 3D object projected onto the 2D window.</p>
+    <p>The array is returned as [X, Y].</p>
+    <h2 id="get2dposition">Get2dPosition</h2>
+    <pre>
+    Arguments:
+        1) real: x
+        2) real: y
+        3) real: z
+    Return Type:
+        real array
+</pre>
+    <p>Returns the 2D coordinates of the given 3D coordinates projected onto the 2D window.</p>
+    <p>The array is returned as [X, Y].</p>
+    <h2 id="erase">erase</h2>
+    <pre>
+    Arguments:
+        1) any array: arr
+        2) real: index
+    Return Type:
+        any array
+</pre>
+    <p>Returns a new array with the element at the given index in the provided array removed.</p>
+    <h2 id="length">length</h2>
+    <pre>
+    Arguments:
+        1) any array: arr
+    Return Type:
+        real
+</pre>
+    <p>Returns the size of an array.</p>
+    <h2 id="concatenate">concatenate</h2>
+    <pre>
+    Arguments:
+        1) any array: arr1
+        2) any array: arr2
+    Return Type:
+        any array
+</pre>
+    <p>Concatenates the two provided arrays (of same type) and returns the new array.</p>
+    <p>Function version of ~.<br />
+Works on strings, as they are character arrays.</p>
+    <h2 id="slice">slice</h2>
+    <pre>
+    Arguments:
+        1) any array: arr
+        2) real: start
+        3) real: end
+    Return Type:
+        any array
+</pre>
+    <p>Cuts out a specific portion of an array.</p>
+    <p>Function version of array[start..end].
+Sliced portion includes start but not end.</p>
+    <h2 id="createarray">CreateArray</h2>
+    <pre>
+    Arguments:
+        1) real or any: array length or element1
+        2) any: ... (varargs elements)
+    Return Type:
+        any array
+</pre>
+    <p>Creates an array of the specified length if argument count is 1, otherwise create an array with the given elements.</p>
+    <p>Note: This function has a variable number of arguments.</p>
+    <h2 id="table_insert">table_insert</h2>
+    <pre>
+    Arguments:
+        1) table: table
+        2) string: key
+        3) any: value
+    Return Type:
+        any array
+</pre>
+    <p>Inserts the given key value pair into the given table.</p>
+    <h2 id="call_func">call_func</h2>
+    <pre>
+    Arguments:
+        1) string: functionName
+        2) any vargs: functionArgs
+</pre>
+    <p>Calls the given function or task with the given args.</p>
+    <p>The called function will not be able to return any values.<br />
+Note: Do not use with subroutines (<code>sub</code>)</p>
+    <h2 id="not">not</h2>
+    <pre>
+    Arguments:
+        1) any array: arr
+    Return Type:
+        real
+</pre>
+    <p>Returns the logical negation of the provided boolean expression.</p>
+    <p>Function version of !.</p>
+    <h2 id="pickvalue">PickValue</h2>
+    <pre>
+    Arguments:
+        1) real: index
+        2) any varargs: args
+    Return Type:
+        real
+</pre>
+    <p>Returns the value at the given argument index.<br />
+Can pass as many values as needed.</p>
+    <p>Note: This function will raise an error if the index is out of bounds.</p>
+    <h2 id="interpolate">Interpolate</h2>
+    <pre>
+    Arguments:
+        1) real const: interpolationType
+        2) real: startValue
+        3) real: endValue
+        4) real: timeRatio
+    Return Type:
+        real
+</pre>
+    <p>Interpolates between startValue and endValue by timeRatio using the given <a href="./docs_interpolation_types.html">interpolation type</a>.</p>
+    <p>Note: timeRatio must be a value between 0 and 1.</p>
+  </body>
+</html>

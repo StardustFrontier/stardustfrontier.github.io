@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ObjSpriteBatch2D Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ObjSpriteBatch2D Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="objspritebatch2d_create">ObjSpriteBatch2D_Create</h2>
+<pre><code>    Arguments:
+        1) real: maxSpriteCount
+    Returns:
+        real: objectID</code></pre>
+<p>Creates a sprite batch 2d object with the ability to render up to
+maxSpriteCount sprites and returns its ID.</p>
+<h2 id="objspritebatch2d_createrenderer">ObjSpriteBatch2D_CreateRenderer</h2>
+<pre><code>    Arguments:
+        1)  real: objectID
+        2+) real const: blendTypes...</code></pre>
+<p>Creates a renderer for the specified blend type(s).</p>
+<p><em>Note: each renderer allocates memory for enough vertices to draw
+the sprite count set in ObjSpriteBatch2D_Create.</em></p>
+<h2 id="objspritebatch2d_createrendererall">ObjSpriteBatch2D_CreateRendererAll</h2>
+<pre><code>    Arguments:
+        1) real: objectID</code></pre>
+<p>Creates renderers for all blend types.</p>
+<p><em>Note: each renderer allocates memory for enough vertices to draw
+the sprite count set in ObjSpriteBatch2D_Create.</em></p>
+<h2 id="objspritebatch2d_settexture">ObjSpriteBatch2D_SetTexture</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: texture</code></pre>
+<p>Sets the texture for the sprite batch to use.</p>
+<p>All objects added to the batch are rendered using this texture.</p>
+<h2 id="objspritebatch2d_addsprite">ObjSpriteBatch2D_AddSprite</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: spriteObjectID</code></pre>
+<p>Adds a sprite to the batch, which must be an ObjBatchSprite2D.</p>
+<h2 id="objspritebatch2d_removesprite">ObjSpriteBatch2D_RemoveSprite</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: spriteObjectID</code></pre>
+<p>Removes a sprite from the sprite batch.</p>
+<p><em>Note: This is a slow operation and shouldn&#39;t be used
+often.</em></p>
+<h2 id="objbatchsprite2d_create">ObjBatchSprite2D_Create</h2>
+<pre><code>    Returns:
+        real: objectID</code></pre>
+<p>Creates a 2D sprite object capable of being batch rendered and
+returns its ID.</p>
+<p>This object is actually of the type OBJ_BATCH_SPRITE_2D, but it can
+use all ObjSprite2D functions and most ObjRender functions.</p>
+<p><em>Note: These objects cannot use ObjPrim functions.</em></p>
+</body>
+</html>

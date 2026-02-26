@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>3D Camera Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">3D Camera Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="setcamerafocusx">SetCameraFocusX</h2>
+<pre><code>    Arguments:
+        1) real: x</code></pre>
+<p>Sets the x coordinate of the camera focus.</p>
+<h2 id="setcamerafocusy">SetCameraFocusY</h2>
+<pre><code>    Arguments:
+        1) real: y</code></pre>
+<p>Sets the y coordinate of the camera focus.</p>
+<h2 id="setcamerafocusz">SetCameraFocusZ</h2>
+<pre><code>    Arguments:
+        1) real: z</code></pre>
+<p>Sets the z coordinate of the camera focus.</p>
+<h2 id="setcamerafocusxyz">SetCameraFocusXYZ</h2>
+<pre><code>    Arguments:
+        1) real: x
+        2) real: y
+        3) real: z</code></pre>
+<p>Sets the x, y, and z coordinates of the camera focus.</p>
+<h2 id="setcameraradius">SetCameraRadius</h2>
+<pre><code>    Arguments:
+        1) real: distance</code></pre>
+<p>Sets the distance of the camera to the focus point.</p>
+<h2 id="setcameraazimuthangle">SetCameraAzimuthAngle</h2>
+<pre><code>    Arguments:
+        1) real: azimuth</code></pre>
+<p>Sets the azimuth angle from the focus point.</p>
+<h2 id="setcameraelevationangle">SetCameraElevationAngle</h2>
+<pre><code>    Arguments:
+        1) real: elevation</code></pre>
+<p>Sets the elevation angle from the focus point.</p>
+<h2 id="setcamerayaw">SetCameraYaw</h2>
+<pre><code>    Arguments:
+        1) real: yaw</code></pre>
+<p>Sets the horizontal yaw angle of the camera.</p>
+<h2 id="setcamerapitch">SetCameraPitch</h2>
+<pre><code>    Arguments:
+        1) real: pitch</code></pre>
+<p>Sets the vertical pitch angle of the camera.</p>
+<h2 id="setcameraroll">SetCameraRoll</h2>
+<pre><code>    Arguments:
+        1) real: roll</code></pre>
+<p>Sets the rotational roll angle of the camera.</p>
+<h2 id="getcamerax">GetCameraX</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the x coordinate of the camera.</p>
+<p>Defaults to 341.506348.</p>
+<h2 id="getcameray">GetCameraY</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the y coordinate of the camera.</p>
+<p>Defaults to 353.553375.</p>
+<h2 id="getcameraz">GetCameraZ</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the z coordinate of the camera.</p>
+<p>Defaults to 91.506348.</p>
+<h2 id="getcamerafocusx">GetCameraFocusX</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the x coordinate of the camera focus point.</p>
+<p>Defaults to 0.</p>
+<h2 id="getcamerafocusy">GetCameraFocusY</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the y coordinate of the camera focus point.</p>
+<p>Defaults to 0.</p>
+<h2 id="getcamerafocusz">GetCameraFocusZ</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the z coordinate of the camera focus point.</p>
+<p>Defaults to 0.</p>
+<h2 id="getcameraradius">GetCameraRadius</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the distance from the focus point to the camera.</p>
+<p>Defaults to 500.</p>
+<h2 id="getcameraazimuthangle">GetCameraAzimuthAngle</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the azimuth angle from the focus point to the camera.</p>
+<p>Defaults to 15.</p>
+<h2 id="getcameraelevationangle">GetCameraElevationAngle</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the elevation angle from the focus point to the camera.</p>
+<p>Defaults to 45.</p>
+<h2 id="getcamerayaw">GetCameraYaw</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the horizontal yaw angle of the camera.</p>
+<p>Defaults to 0.</p>
+<h2 id="getcamerapitch">GetCameraPitch</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the vertical pitch angle of the camera.</p>
+<p>Defaults to 0.</p>
+<h2 id="getcameraroll">GetCameraRoll</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the rotational roll angle of the camera.</p>
+<p>Defaults to 0.</p>
+<h2 id="setcameraperspectiveclip">SetCameraPerspectiveClip</h2>
+<pre><code>    Arguments:
+        1) real: nearClip
+        2) real: farClip</code></pre>
+<p>Sets camera clipping distances.<br />
+Objects that are further or nearer than the clipping distance will not
+be drawn.</p>
+<h2 id="tweencamerafocusxyz">TweenCameraFocusXYZ</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: x
+        4) real: y
+        5) real: z</code></pre>
+<p>Changes the focus of the camera to (x, y, z) over <em>duration</em>
+frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve any of the current values.</p>
+<h2 id="tweencamerafocusx">TweenCameraFocusX</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: x</code></pre>
+<p>Changes the x-focus of the camera to the given value over duration
+frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve the current value.</p>
+<h2 id="tweencamerafocusy">TweenCameraFocusY</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: y</code></pre>
+<p>Changes the y-focus of the camera to the given value over duration
+frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve the current value.</p>
+<h2 id="tweencamerafocusz">TweenCameraFocusZ</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: z</code></pre>
+<p>Changes the z-focus of the camera to the given value over duration
+frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve the current value.</p>
+<h2 id="tweencameraradius">TweenCameraRadius</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: radius</code></pre>
+<p>Changes the radius of the camera to the given value over
+<em>duration</em> frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve the current value.</p>
+<h2 id="tweencameraazimuthangle">TweenCameraAzimuthAngle</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: azimuth</code></pre>
+<p>Changes the azimuth angle of the camera to the given value over
+<em>duration</em> frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve the current value.</p>
+<h2 id="tweencameraelevationangle">TweenCameraElevationAngle</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: elevation</code></pre>
+<p>Changes the elevation angle of the camera to the given value over
+<em>duration</em> frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve the current value.</p>
+<h2 id="tweencamerayaw">TweenCameraYaw</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: yaw</code></pre>
+<p>Changes the yaw angle of the camera to the given value over
+<em>duration</em> frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve the current value.</p>
+<h2 id="tweencamerapitch">TweenCameraPitch</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: pitch</code></pre>
+<p>Changes the pitch angle of the camera to the given value over
+<em>duration</em> frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve the current value.</p>
+<h2 id="tweencameraroll">TweenCameraRoll</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: roll</code></pre>
+<p>Changes the roll angle of the camera to the given value over
+<em>duration</em> frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve the current value.</p>
+<h2 id="cancelcameratweens">CancelCameraTweens</h2>
+<p>Cancels all of the active camera tweens.</p>
+</body>
+</html>

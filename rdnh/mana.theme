@@ -1,0 +1,225 @@
+{
+    "text-color": "#dcdcdc",
+    "background-color": "#1a1c1d",
+    "line-number-color": "#8a8a8a",
+    "line-number-background-color": "#1a1c1d",
+    "text-styles": {
+        "Alert": {
+            "text-color": "#95da4c",
+            "background-color": "#4d1f24",
+            "bold": true,
+            "italic": false,
+            "underline": false
+        },
+        "Annotation": {
+            "text-color": "#3f8058",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Attribute": {
+            "text-color": "#28c2c2",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "BaseN": {
+            "text-color": "#ffbb55",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "BuiltIn": {
+            "text-color": "#5dadec",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Char": {
+            "text-color": "#98c367",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Comment": {
+            "text-color": "#659948",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "CommentVar": {
+            "text-color": "#6a9a58",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Constant": {
+            "text-color": "#ec7797",
+            "background-color": "#1a1c1d",
+            "bold": true,
+            "italic": false,
+            "underline": false
+        },
+        "ControlFlow": {
+            "text-color": "#aa8ed6",
+            "background-color": "#1a1c1d",
+            "bold": true,
+            "italic": false,
+            "underline": false
+        },
+        "DataType": {
+            "text-color": "#aa8ed6",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "DecVal": {
+            "text-color": "#ffbb55",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Documentation": {
+            "text-color": "#659948",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Error": {
+            "text-color": "#fc3e36",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": true
+        },
+        "Extension": {
+            "text-color": "#6a9a58",
+            "background-color": "#1a1c1d",
+            "bold": true,
+            "italic": false,
+            "underline": false
+        },
+        "Float": {
+            "text-color": "#ffbb55",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Function": {
+            "text-color": "#5dadec",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Import": {
+            "text-color": "#9b9b9b",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Information": {
+            "text-color": "#c45b00",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Keyword": {
+            "text-color": "#aa8ed6",
+            "background-color": "#1a1c1d",
+            "bold": true,
+            "italic": false,
+            "underline": false
+        },
+        "Normal": {
+            "text-color": "#dcdcdc",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Operator": {
+            "text-color": "#dcdcdc",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Other": {
+            "text-color": "#dcdcdc",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Preprocessor": {
+            "text-color": "#dcdcdc",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "RegionMarker": {
+            "text-color": "#aa8ed6",
+            "background-color": "#153042",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "SpecialChar": {
+            "text-color": "#98c367",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "SpecialString": {
+            "text-color": "#98c367",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "String": {
+            "text-color": "#98c367",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Variable": {
+            "text-color": "#7f7f7f",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "VerbatimString": {
+            "text-color": "#da4453",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        },
+        "Warning": {
+            "text-color": "#da4453",
+            "background-color": "#1a1c1d",
+            "bold": false,
+            "italic": false,
+            "underline": false
+        }
+    }
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ObjText Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ObjText Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="objtext_create">ObjText_Create</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Creates a text object and returns its ID.</p>
+<h2 id="objtext_settext">ObjText_SetText</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: text</code></pre>
+<p>Gives the text object some text to display.</p>
+<h2 id="objtext_setfonttype">ObjText_SetFontType</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: fontName</code></pre>
+<p>Sets the specified font to the text object.</p>
+<h2 id="objtext_setfontsize">ObjText_SetFontSize</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: size</code></pre>
+<p>Sets the size of the font for the text object.</p>
+<h2 id="objtext_setfontbold">ObjText_SetFontBold</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) bool: bBold</code></pre>
+<p>If set to true, the text will be displayed in bold characters.</p>
+<h2 id="objtext_setfontcolortop">ObjText_SetFontColorTop</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: red
+        3) real: green
+        4) real: blue</code></pre>
+<p>Sets the top color of the text (0-255).</p>
+<h2 id="objtext_setfontcolorbottom">ObjText_SetFontColorBottom</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: red
+        3) real: green
+        4) real: blue</code></pre>
+<p>Sets the bottom color of the text (0-255).</p>
+<h2 id="objtext_setfontborderwidth">ObjText_SetFontBorderWidth</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: borderWidth</code></pre>
+<p>Sets the width of the font border.</p>
+<h2 id="objtext_setfontbordertype">ObjText_SetFontBorderType</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: borderWidth</code></pre>
+<p>Sets the type of the font border.</p>
+<p>Border types are:</p>
+<pre><code>BORDER_NONE (no border)
+BORDER_FULL (full border)
+BORDER_SHADOW (shadow at the bottom right of the text)</code></pre>
+<h2 id="objtext_setfontbordercolor">ObjText_SetFontBorderColor</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: red
+        3) real: green
+        4) real: blue</code></pre>
+<p>Sets the color of the border (0-255).</p>
+<h2 id="objtext_setmaxwidth">ObjText_SetMaxWidth</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: width</code></pre>
+<p>Sets the maximum width of the text object.</p>
+<p>The text will automatically create a new line whenever needed.</p>
+<h2 id="objtext_setmaxheight">ObjText_SetMaxHeight</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: height</code></pre>
+<p>Sets the maximum height of the text object.</p>
+<p>Any part of the text exceeding this height will not be drawn.</p>
+<h2 id="objtext_setlinepitch">ObjText_SetLinePitch</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: pitch</code></pre>
+<p>Sets the line pitch (space between lines) of the text object.</p>
+<h2 id="objtext_setsidepitch">ObjText_SetSidePitch</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: pitch</code></pre>
+<p>Sets the side pitch (space between characters) of the text
+object.</p>
+<h2 id="objtext_settranscenter">ObjText_SetTransCenter</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: centerX
+        3) real: centerY</code></pre>
+<p>Sets the given coordinates of the text object as its transformation
+center (rotation, zoom...).</p>
+<p><em>Note: ObjText_SetAutoTransCenter must first be set to false for
+this function to work.</em></p>
+<h2 id="objtext_setautotranscenter">ObjText_SetAutoTransCenter</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) bool: bTransCenter</code></pre>
+<p>When true, sets the center of the text object as its transformation
+center.</p>
+<p>Defaults to true.</p>
+<h2 id="objtext_sethorizontalalignment">ObjText_SetHorizontalAlignment</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real const: alignmentType</code></pre>
+<p>Sets the alignment of the text.</p>
+<p>Defaults to ALIGNMENT_LEFT. Alignment types are:</p>
+<pre><code>ALIGNMENT_LEFT
+ALIGNMENT_CENTER
+ALIGNMENT_RIGHT</code></pre>
+<p>To use center or right aligned text, you have to set the maximum
+width using ObjText_SetMaxWidth (in order to know where the right border
+is).</p>
+<h2 id="objtext_setsyntacticanalysis">ObjText_SetSyntacticAnalysis</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) bool: bSyntacticAnalysis</code></pre>
+<p>Allows or prevents checking for the existence of bracket tags (such
+as line break or ruby text) within the text for this object.</p>
+<h2 id="objtext_gettextlength">ObjText_GetTextLength</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real</code></pre>
+<p>Returns the length of the specified text object.</p>
+<p>When using Japanese characters, a half-width character counts as 1
+and a full-width character counts as 2 characters.</p>
+<h2 id="objtext_gettextlengthcu">ObjText_GetTextLengthCU</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real</code></pre>
+<p>Returns the length of the specified text object.</p>
+<p>Newlines and ruby text are not counted. When using Japanese
+characters, both half-width and full-width characters count as 1
+character.</p>
+<h2 id="objtext_gettextlengthcul">ObjText_GetTextLengthCUL</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real array</code></pre>
+<p>Returns an array of the lengths of each line of the specified text
+object.</p>
+<p>Newlines and ruby text are not counted.<br />
+When using Japanese characters, both half-width and full-width
+characters count as 1 character.</p>
+<h2 id="objtext_gettotalwidth">ObjText_GetTotalWidth</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real</code></pre>
+<p>Returns the overall width of all lines of the text object.</p>
+<p><em><strong>Warning</strong>: Known to give an inaccurate figure
+under certain circumstances</em></p>
+<h2 id="objtext_gettotalheight">ObjText_GetTotalHeight</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real</code></pre>
+<p>Returns the combined height of all lines of the text object.</p>
+<p>This function&#39;s behavior appears to depend only on the number of
+newlines, as opposed to the number of lines actually displayed with word
+wrapping taken into account.</p>
+</body>
+</html>

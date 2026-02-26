@@ -1,0 +1,104 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>docs_text_file_object.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="text-file-object-functions">Text File Object Functions</h1>
+    <p>
+      <a href="./docs.html">Return to Functions</a>
+    </p>
+    <h2 id="objfilet_getlinecount">ObjFileT_GetLineCount</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns number of lines in the text file.</p>
+    <h2 id="objfilet_getlinetext">ObjFileT_GetLineText</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: lineNumber
+    Return Type:
+        string
+</pre>
+    <p>Returns the string of the specified line in the text file.</p>
+    <p>Lines are 1-indexed (the first line is 1) rather than 0-indexed.</p>
+    <h2 id="objfilet_splitlinetext">ObjFileT_SplitLineText</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: lineNumber
+        3) string: delimiter
+    Return Type:
+        string array
+</pre>
+    <p>Returns a string array obtained by splitting the specified line of the text file by the specified delimiter character.</p>
+    <h2 id="objfilet_addline">ObjFileT_AddLine</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: lineToAdd
+</pre>
+    <p>Appends a line of text to the end of the list of lines to output.</p>
+    <p>The line will actually be added to the file once <a href="./docs_file_object.html#objfile_store">ObjFile_Store</a> has been called.</p>
+    <h2 id="objfilet_clearline">ObjFileT_ClearLine</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Clears all of the lines added with <a href="objfilet_addline">ObjFileT_AddLine</a></p>
+  </body>
+</html>

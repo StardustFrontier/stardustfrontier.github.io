@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ObjShader Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ObjShader Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="objshader_create">ObjShader_Create</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Creates a shader object and returns its ID.</p>
+<h2 id="objshader_setshaderf">ObjShader_SetShaderF</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: pathShader</code></pre>
+<p>Sets the path to the HLSL source for the shader.</p>
+<h2 id="objshader_setshadero">ObjShader_SetShaderO</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: shaderObjectID</code></pre>
+<p>Starts applying the shader to a render object.</p>
+<p>Does not work with text objects, but you can render one to a render
+target.</p>
+<h2 id="objshader_resetshader">ObjShader_ResetShader</h2>
+<pre><code>    Arguments:
+        1) real: objectID</code></pre>
+<p>Terminates application of all shaders to the render object.</p>
+<h2 id="objshader_settechnique">ObjShader_SetTechnique</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: technique</code></pre>
+<p>Sets the technique that you want to run on the shader object.</p>
+<h2 id="objshader_setvector">ObjShader_SetVector</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: parameterID
+        3) real: float4x
+        4) real: float4y
+        5) real: float4z
+        6) real: float4w</code></pre>
+<p>Sets a float4 parameter in the shader.</p>
+<h2 id="objshader_setfloat">ObjShader_SetFloat</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: parameterID
+        3) real: floatValue</code></pre>
+<p>Sets a float parameter in the shader.</p>
+<h2 id="objshader_setfloatarray">ObjShader_SetFloatArray</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: parameterID
+        3) real array: floatArray</code></pre>
+<p>Sets a float[] parameter in the shader.</p>
+<h2 id="objshader_settexture">ObjShader_SetTexture</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: parameterID
+        3) string: pathTexture</code></pre>
+<p>Sets a texture parameter using the path to the appropriate image in
+the shader.</p>
+<p>You can call multiple textures.</p>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>docs_script.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="script-functions">Script Functions</h1>
+    <p>
+      <a href="./docs.html">Return to Functions</a>
+    </p>
+    <h2 id="loadscript">LoadScript</h2>
+    <pre>
+    Arguments:
+        1) string: scriptPath
+    Return Type:
+        real
+</pre>
+    <p>Loads and compiles the specified script, and returns its script ID.<br />
+Also calls @Loading and initializes global variables in the script.</p>
+    <h2 id="loadscriptinthread">LoadScriptInThread</h2>
+    <pre>
+    Arguments:
+        1) string: scriptPath
+    Return Type:
+        real
+</pre>
+    <p>Loads and compiles the specified script in a different thread, and returns its script ID.<br />
+Also calls @Loading and initializes global variables in the script.</p>
+    <h2 id="startscript">StartScript</h2>
+    <pre>
+    Arguments:
+        1) real: scriptID
+    Return Type:
+        real
+</pre>
+    <p>Starts the specified script.<br />
+Calls @Initialize and starts @MainLoop in the script.</p>
+    <h2 id="closescript">CloseScript</h2>
+    <pre>
+    Arguments:
+        1) real: scriptID
+</pre>
+    <p>Stops the specified script.</p>
+    <p>Until this function is called, the script will continue to run.</p>
+    <h2 id="isclosescript">IsCloseScript</h2>
+    <pre>
+    Arguments:
+        1) real: scriptID
+    Return Type:
+        bool
+</pre>
+    <p>Returns whether the specified script has been stopped.<br />
+Returns true if the script is not running.</p>
+    <h2 id="setscriptargument">SetScriptArgument</h2>
+    <pre>
+    Arguments:
+        1) real: scriptID
+        2) real: argumentIndex
+        3) any: value
+</pre>
+    <p>Before starting the given script with StartScript, sets a value that is to be passed to the given script upon starting.</p>
+    <p>This value can be retrieved in the started script with <a href="#getscriptargument">GetScriptArgument</a>.</p>
+    <h2 id="getscriptargument">GetScriptArgument</h2>
+    <pre>
+    Arguments:
+        1) real: argumentIndex
+    Return Type:
+        any
+</pre>
+    <p>Returns the value of the specified argument, previously set by SetScriptArgument before the script was started.</p>
+    <h2 id="getscriptargumentcount">GetScriptArgumentCount</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the number of arguments set by SetScriptArgument before the script was started.</p>
+    <h2 id="closestgscene">CloseStgScene</h2>
+    <p>Ends the current scene (returns to script selection screen).</p>
+    <h2 id="getownscriptid">GetOwnScriptID</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Returns the script's own ID.</p>
+    <h2 id="geteventtype">GetEventType</h2>
+    <pre>
+    Return Type:
+        real const
+</pre>
+    <p>Returns the event type currently triggered in @Event.</p>
+    <h2 id="geteventargument">GetEventArgument</h2>
+    <pre>
+    Arguments:
+        1) real: argumentIndex
+    Return Type:
+        any
+</pre>
+    <p>Returns the argument of the event currently triggered in @Event.</p>
+    <p>Note: Can be an arbitrary value.</p>
+    <h2 id="setscriptresult">SetScriptResult</h2>
+    <pre>
+    Arguments:
+        1) any: eventResult
+</pre>
+    <p>Sets the result of the event in @Event, which can then be retrieved by <a href="#getscriptresult">GetScriptResult</a>.</p>
+    <h2 id="getscriptresult">GetScriptResult</h2>
+    <pre>
+    Arguments:
+        1) real: scriptID
+    Return Type:
+        any
+</pre>
+    <p>Returns the event result from <a href="#setscriptresult">SetScriptResult</a>.</p>
+    <p>Note: Can be an arbitrary value.</p>
+    <h2 id="setautodeleteobject">SetAutoDeleteObject</h2>
+    <pre>
+    Arguments:
+        1) bool: enable
+</pre>
+    <p>Sets whether to delete all existing objects that were created in the current script at its termination.</p>
+    <p>If set to true, the current script's objects will be deleted.<br />
+The default value is false.</p>
+    <h2 id="notifyevent">NotifyEvent</h2>
+    <pre>
+    Arguments:
+        1) real: scriptID
+        2) real const: eventType
+        3+) any: arguments...
+</pre>
+    <p>Calls the @Event of the script with the specified ID, triggering the specified event.</p>
+    <p>An arbitrary amount of arguments may be passed to the event, but there must be at least one.<br />
+The event type may use a value greater than EV_USER.</p>
+    <h2 id="notifyeventall">NotifyEventAll</h2>
+    <pre>
+    Arguments:
+        1) real const: eventType
+        2) any: arguments...
+</pre>
+    <p>Calls the @Event of all scripts, triggering the specified event in all scripts listening for it.</p>
+    <p>An arbitrary amount of arguments may be passed to the event, but there must be at least one.<br />
+The event type may use a value greater than EV_USER.</p>
+    <h2 id="getscriptinfoa1">GetScriptInfoA1</h2>
+    <pre>
+    Arguments:
+        1) string: scriptPath
+        1) real const: infoType
+    Return Type:
+        varies
+</pre>
+    <p>Parses and returns information from the script file's header.</p>
+    <p>Constants for infotype are as follows:</p>
+    <pre>
+INFO_SCRIPT_TYPE: Returns the script type (const): one of TYPE_SCRIPT_PLAYER: Player script, TYPE_SCRIPT_SINGLE: Single script, TYPE_SCRIPT_PLURAL: Plural script, TYPE_SCRIPT_STAGE: Stage script, or TYPE_SCRIPT_PACKAGE: Package script.
+INFO_SCRIPT_PATH: Returns the script path (string).
+INFO_SCRIPT_ID: Returns the script #ID (int).
+INFO_SCRIPT_TITLE: Returns the script #Title (string).
+INFO_SCRIPT_TEXT: Returns the script #Text (string).
+INFO_SCRIPT_IMAGE: Returns the script #Image (string).
+INFO_SCRIPT_REPLAY_NAME: Returns the script #ReplayName (string).
+</pre>
+    <h2 id="setscriptdifficulty">SetScriptDifficulty</h2>
+    <pre>
+    Arguments:
+        1) real: difficulty
+</pre>
+    <p>Sets the difficulty level of all scripts, affecting both currently running scripts and future started ones.</p>
+    <p>This is used mainly for the difficulty (colon) operator: <code>let value = easyVal: normalVal: hardVal: lunaticVal;</code> and <code>!ENHL</code> statements.<br />
+0 = Easy, 1 = Normal, 2 = Hard, 3 = Lunatic, 4 = ArbitraryW, 5 = ArbitraryX, 6 = ArbitraryY, 7 = ArbitraryZ, 8 = ArbitraryO</p>
+    <h2 id="getscriptdifficulty">GetScriptDifficulty</h2>
+    <pre>
+    Return Type:
+        real
+</pre>
+    <p>Gets the difficulty level of all running scripts.</p>
+  </body>
+</html>

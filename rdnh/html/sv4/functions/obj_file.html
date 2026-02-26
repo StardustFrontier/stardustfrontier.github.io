@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ObjFile Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ObjFile Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="objfile_create">ObjFile_Create</h2>
+<pre><code>    Arguments:
+        1) real const: objectType
+    Return Type:
+        real</code></pre>
+<p>Creates a file object of the specified type and returns its ID.</p>
+<p>Object types are:</p>
+<pre><code>OBJ_FILE_TEXT: (a text file)
+OBJ_FILE_BINARY: (a binary file)</code></pre>
+<h2 id="objfile_open">ObjFile_Open</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: pathFile
+    Return Type:
+        bool</code></pre>
+<p>Opens a file for reading with the specified path and binds the
+specified file object to the opened file.</p>
+<p>Returns true if the file was opened successfully, otherwise
+false.</p>
+<h2 id="objfile_opennw">ObjFile_OpenNW</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: pathFile
+    Return Type:
+        bool</code></pre>
+<p>Opens a file for both reading and writing with the specified path and
+binds the specified file object to the opened file.</p>
+<p>Returns true if the file was opened successfully, otherwise
+false.</p>
+<h2 id="objfile_store">ObjFile_Store</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) string: pathFile</code></pre>
+<p>Saves a file previously opened with ObjFile_OpenNW.</p>
+<p>Must be called once after writing the data.</p>
+<h2 id="objfile_getsize">ObjFile_GetSize</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real</code></pre>
+<p>Returns the file size of the file object.</p>
+<h2 id="objfile_getlastwritetimems">ObjFile_GetLastWriteTimeMS</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real</code></pre>
+<p>Returns a timestamp representing the last time the file was written
+to in milliseconds.</p>
+</body>
+</html>

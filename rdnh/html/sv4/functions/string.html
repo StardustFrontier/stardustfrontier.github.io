@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>String Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">String Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="string_find">string_find</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2) char|string: toFind
+        3) real: startIndex = 0
+    Return Type:
+        real</code></pre>
+<p>Finds the character or substring in str and returns the index it
+starts at or -1 if it was not found.</p>
+<p>Optionally, the index to start the operation at can be specified.
+This is 0 by default.</p>
+<h2 id="string_join">string_join</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2) array|string|table: collection
+    Return Type:
+        real</code></pre>
+<p>Returns a string with all the elements of the collection concatenated
+together as strings.</p>
+<h2 id="repr">repr</h2>
+<pre><code>    Arguments:
+        1) any: value
+    Return Type:
+        string</code></pre>
+<p>Returns a printable string representation describing the value.</p>
+<p>This may be identical to string(value) or ToString(value), but in
+other cases, it&#39;s slightly different. For example, string values will
+retain their double quotes.</p>
+<h2 id="tostring">ToString</h2>
+<pre><code>    Arguments:
+        1) any: value
+    Return Type:
+        string</code></pre>
+<p>Returns the value as a string.</p>
+<h2 id="inttostring">IntToString</h2>
+<pre><code>    Arguments:
+        1) real: value
+    Return Type:
+        string</code></pre>
+<p>Returns the value as a string, omits any decimal places.</p>
+<h2 id="inttocommastring">IntToCommaString</h2>
+<pre><code>    Arguments:
+        1) real: value
+    Return Type:
+        string</code></pre>
+<p>Returns the value as an integer string formatted with commas.</p>
+<h2 id="itoa">itoa</h2>
+<pre><code>    Arguments:
+        1) real: value
+    Return Type:
+        string</code></pre>
+<p>Returns the value as a string, omits any decimal places.</p>
+<p>This function is identical to IntToString.</p>
+<h2 id="rtoa">rtoa</h2>
+<pre><code>    Arguments:
+        1) real: value
+    Return Type:
+        string</code></pre>
+<p>Returns the real value as a string.</p>
+<h2 id="rtos">rtos</h2>
+<pre><code>    Arguments:
+        1) string: format
+        2) real: value
+    Return Type:
+        string</code></pre>
+<p>Returns the value as a string, with some filtering options.</p>
+<p>The format is presented as a string that determines how many digits
+will be shown.<br />
+It can contain any combination of the following three characters: &quot;0&quot;,
+&quot;.&quot;, &quot;#&quot;.<br />
+&quot;0&quot; is a slot for a digit. &quot;.&quot; represents the decimal place in the
+string.<br />
+&quot;#&quot; creates a space in the string. Example: rtos(&quot;000.000&quot;, 1.23) =
+&quot;001.230&quot;, and rtos(&quot;#00&quot;, 1.23) = &quot; 01&quot;.</p>
+<h2 id="vtos">vtos</h2>
+<pre><code>    Arguments:
+        1) string: format
+        2) any: value
+    Return Type:
+        string</code></pre>
+<p>Returns the value as a string, with some more filtering options.</p>
+<p>The format string is different from rtos in that it&#39;s more of a code
+than directly defining the digits that will be shown.<br />
+First, the number of digits on each side of the decimal are specified
+(000.00 is 3.2 in the format string).<br />
+Unused digits will be filled with spaces.<br />
+If preceded by a &quot;-&quot;, the digits will be right-justified, adding blank
+spaces to the right instead of the left.<br />
+If preceded by a &quot;0&quot;, all digits not occupied by the value will be
+filled by zeroes.<br />
+If ended with a &quot;d&quot;, the value will be presented as an integer.<br />
+If ended with an &quot;f&quot;, the value will be presented as a real
+number.<br />
+If ended with an &quot;s&quot;, this indicates the value given was in the form of
+a string.<br />
+Example: vtos(&quot;03d&quot;, 1.23) = &quot;001&quot;, vtos(&quot;3d&quot;, 1.23) = &quot;　1&quot;,
+vtos(&quot;-3d&quot;, 1.23) = &quot;1　&quot;, and vtos(&quot;03.5f&quot;, 1.23) = &quot;001.23000&quot;</p>
+<h2 id="atoi">atoi</h2>
+<pre><code>    Arguments:
+        1) string: value
+    Return Type:
+        real</code></pre>
+<p>Converts a string to an integer.</p>
+<p>If the string does not represent a valid number, then 0 will be
+returned.</p>
+<h2 id="ator">ator</h2>
+<pre><code>    Arguments:
+        1) string: value
+    Return Type:
+        real</code></pre>
+<p>Converts a string to a real number.</p>
+<p>If the string does not represent a valid number, then 0 will be
+returned.</p>
+<h2 id="trimstring">TrimString</h2>
+<pre><code>    Arguments:
+        1) string: str
+    Return Type:
+        string</code></pre>
+<p>Returns the string with spaces removed from the beginning and ending
+of the text.</p>
+<p>For example, TrimString(&quot; ABC &quot;) will return &quot;ABC&quot;.</p>
+<h2 id="splitstring">SplitString</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2) string: delimiter
+    Return Type:
+        string array</code></pre>
+<p>Returns an array containing the split strings.</p>
+<p>For example, SplitString(&quot;A/123/BCD&quot;, &quot;/&quot;) will return [&quot;A&quot;, &quot;123&quot;,
+&quot;BCD&quot;].</p>
+<h2 id="stringreplace">StringReplace</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2) string: substring
+        3) string: replacement
+        4) real: count
+    Return Type:
+        string</code></pre>
+<p>Replaces the given number of occurrences of substring in str with a
+replacement string and returns it.</p>
+<p>If count is <code>NULL</code>, it will replace all matches.</p>
+<h2 id="stringeraseallchar">StringEraseAllChar</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2) string: charList
+    Return Type:
+        string</code></pre>
+<p>Erases all occurrences of the given chars in the list from the string
+and returns it.</p>
+<p><em>Note: charList is passed as a <strong>string</strong>.</em></p>
+<h2 id="stringformat">StringFormat</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2+) any: values...
+    Return Type:
+        string</code></pre>
+<p>Returns a string formatted in the same way as C&#39;s printf family of
+functions.</p>
+<h2 id="sprintf">sprintf</h2>
+<pre><code>    Arguments:
+        1) string: str
+        2+) any: values...
+    Return Type:
+        string</code></pre>
+<p>Returns a string formatted in the same way as C&#39;s printf family of
+functions.</p>
+<p>This is just an alias for <a href="#stringformat">StringFormat</a>.</p>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>2D Camera Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">2D Camera Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="set2dcamerafocusx">Set2DCameraFocusX</h2>
+<pre><code>    Arguments:
+        1) real: x</code></pre>
+<p>Sets the x-coordinate of the 2D world camera&#39;s focus point.</p>
+<p>Defaults to half of the STG frame&#39;s width (center of the playing
+field).</p>
+<h2 id="set2dcamerafocusy">Set2DCameraFocusY</h2>
+<pre><code>    Arguments:
+        1) real: y</code></pre>
+<p>Sets the y-coordinate of the 2D world camera&#39;s focus point.</p>
+<p>Defaults to half of the STG frame&#39;s height (center of the playing
+field).</p>
+<h2 id="set2dcameraanglez">Set2DCameraAngleZ</h2>
+<pre><code>    Arguments:
+        1) real: rotation</code></pre>
+<p>Sets the z angle (rotation) of the 2D camera.</p>
+<h2 id="set2dcameraratio">Set2DCameraRatio</h2>
+<pre><code>    Arguments:
+        1) real: zoom</code></pre>
+<p>Sets the zoom of the camera (centered on the focus point).</p>
+<p>Defaults to 1.</p>
+<h2 id="set2dcameraratiox">Set2DCameraRatioX</h2>
+<pre><code>    Arguments:
+        1) real: xZoom</code></pre>
+<p>Sets the magnification of the x axis of the 2D camera (centered on
+the focus point).</p>
+<p>For example, if you set this value to 2, the x axis will be doubled
+in size.<br />
+Defaults to 1.<br />
+If you specify a negative value, the x axis will be flipped.</p>
+<h2 id="set2dcameraratioy">Set2DCameraRatioY</h2>
+<pre><code>    Arguments:
+        1) real: yZoom</code></pre>
+<p>Sets the magnification of the y axis of the 2D camera (centered on
+the focus point).</p>
+<p>For example, if you set this value to 2, the y axis will be doubled
+in size.<br />
+Defaults to 1.<br />
+If you specify a negative value, the y axis will be flipped.</p>
+<h2 id="reset2dcamera">Reset2DCamera</h2>
+<p>Resets both the focus point and the zoom ratio, respectively, to the
+center of the screen and 1.</p>
+<h2 id="get2dcamerax">Get2DCameraX</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the x-coordinate of the camera.</p>
+<h2 id="get2dcameray">Get2DCameraY</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the y-coordinate of the camera.</p>
+<h2 id="get2dcameraanglez">Get2DCameraAngleZ</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the z angle (rotation) of the camera.</p>
+<h2 id="get2dcameraratio">Get2DCameraRatio</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the zoom ratio of the camera.</p>
+<h2 id="get2dcameraratiox">Get2DCameraRatioX</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the x zoom ratio of the camera.</p>
+<h2 id="get2dcameraratioy">Get2DCameraRatioY</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Returns the y zoom ratio of the camera.</p>
+</body>
+</html>

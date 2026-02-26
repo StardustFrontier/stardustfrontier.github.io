@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ObjEnemyBossScene Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ObjEnemyBossScene Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="objenemybossscene_create">ObjEnemyBossScene_Create</h2>
+<pre><code>    Return Type:
+        real</code></pre>
+<p>Creates a Boss Scene object and returns its ID.</p>
+<h2 id="objenemybossscene_regist">ObjEnemyBossScene_Regist</h2>
+<pre><code>    Arguments:
+        1) real: objectID</code></pre>
+<p>Starts the specified boss scene.</p>
+<h2 id="objenemybossscene_add">ObjEnemyBossScene_Add</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: phaseStep
+        3) string: pathScript</code></pre>
+<p>Adds the specified script to the boss scene at the specified
+phase.</p>
+<h2 id="objenemybossscene_loadinthread">ObjEnemyBossScene_LoadInThread</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+    Return Type:
+        real</code></pre>
+<p>Compiles all the enemy scripts in the boss scene and initializes
+global variables.</p>
+<p>As the length of compile time cannot be guaranteed, initialize all
+global variables besides constants in @Initialize.</p>
+<h2 id="objenemybossscene_getinfo">ObjEnemyBossScene_GetInfo</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real const: infoType
+    Return Type:
+        varies</code></pre>
+<p>Returns info about the boss scene object based on the given info type
+constant.</p>
+<p>Available info types are:</p>
+<pre><code>INFO_IS_SPELL - Returns true if a spell card is active
+INFO_IS_LAST_SPELL - Returns true if the Last Spell is active
+INFO_IS_DURABLE_SPELL - Returns true in the case of a survival spell
+INFO_IS_LAST_STEP - Returns true when the last spell is active
+INFO_IS_TIMER_ENABLE - Returns true if the timer is currently enabled
+INFO_TIMER - Returns the timer value in seconds
+INFO_TIMERF - Returns the timer value in frames (returns -1 if unlimited)
+INFO_ORGTIMERF - Returns the original timer value in frames (returns -1 if unlimited)
+INFO_SPELL_SCORE - Returns the score of the spell card
+INFO_REMAIN_STEP_COUNT - Returns the number of steps remaining in the active boss scene
+INFO_ACTIVE_STEP_LIFE_COUNT - Returns the amount of attacks of the enemy for the active step
+INFO_ACTIVE_STEP_TOTAL_MAX_LIFE - Returns the initial life of the enemy for the active step
+INFO_ACTIVE_STEP_TOTAL_LIFE - Returns the total remaining life for the active step
+INFO_PLAYER_SHOOTDOWN_COUNT - Returns the amount of times the player died during the spell
+INFO_PLAYER_SPELL_COUNT - Returns the amount of times the player bombed during the spell
+INFO_ACTIVE_STEP_LIFE_RATE_LIST - Returns an array containing the proportion (0-1) of each attacks&#39;s amount of life in the active step
+INFO_CURRENT_LIFE - Returns the current life of the enemy in the current attack
+INFO_CURRENT_LIFE_MAX - Returns the maximum life of the enemy in the current attack</code></pre>
+<p>With regards to the step info types, step refers to the individual
+sections specified in the ObjEnemyBossScene_Add function&#39;s second
+argument.<br />
+For each script (referred to as an attack here) you load into the step,
+you increase the step life count of that specific step by 1.</p>
+<h2 id="objenemybossscene_setspelltimer">ObjEnemyBossScene_SetSpellTimer</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: timer</code></pre>
+<p>Sets the timer (in frames) of the current boss scene.</p>
+<h2 id="objenemybossscene_setspelltimerenable">ObjEnemyBossScene_SetSpellTimerEnable</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) bool: bEnable</code></pre>
+<p>Enables or disables the timer counting down for the current boss
+scene.</p>
+<p>Default is true.<br />
+<scode>INFO_IS_TIMER_ENABLE</scode> can be used with <a href="#objenemybossscene_getinfo">ObjEnemyBossScene_GetInfo</a>.</p>
+<h2 id="objenemybossscene_startspell">ObjEnemyBossScene_StartSpell</h2>
+<pre><code>    Arguments:
+        1) real: objectID
+        2) real: timer</code></pre>
+<p>Starts the boss spell card of the current boss scene.</p>
+</body>
+</html>

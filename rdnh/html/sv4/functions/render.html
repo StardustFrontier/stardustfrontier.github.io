@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Render Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Render Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="loadtexture">LoadTexture</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        bool</code></pre>
+<p>Loads the specified image file as a texture.</p>
+<p>Returns true if loading was successful, otherwise returns false.</p>
+<h2 id="loadtexturemipmap">LoadTextureMipmap</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        bool</code></pre>
+<p>Loads the specified image file as a texture and generates a mipmap
+chain for it.</p>
+<p>Returns true if loading was successful, otherwise returns false.</p>
+<h2 id="loadtextureinloadthread">LoadTextureInLoadThread</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        bool</code></pre>
+<p>Loads specified image file as a texture in a separate thread.</p>
+<p>Returns true if loading was successful, otherwise returns
+false.<br />
+Using this function inside @Loading is the same as using
+LoadTexture.<br />
+When using large images, the script will freeze until the image has
+finished loading.</p>
+<h2 id="loadtexturemipmapinloadthread">LoadTextureMipmapInLoadThread</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        bool</code></pre>
+<p>Loads specified image file as a texture and generates a mipmap chain
+for it in a separate thread.</p>
+<p>Returns true if loading was successful, otherwise returns
+false.<br />
+Using this function inside @Loading is the same as using
+LoadTexture.<br />
+When using large images, the script will freeze until the image has
+finished loading.</p>
+<h2 id="removetexture">RemoveTexture</h2>
+<pre><code>    Arguments:
+        1) string: path</code></pre>
+<p>Unloads the specified texture file.</p>
+<h2 id="gettexturewidth">GetTextureWidth</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        real</code></pre>
+<p>Returns the width of the specified image file.</p>
+<h2 id="gettextureheight">GetTextureHeight</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        real</code></pre>
+<p>Returns the height of the specified image file.</p>
+<h2 id="getmaxtextureanisotropy">GetMaxTextureAnisotropy</h2>
+<pre><code>    Returns:
+        real</code></pre>
+<p>Returns the max texture anisotropy level supported by the device.</p>
+<h2 id="isanisotropictexturefiltersupported">IsAnisotropicTextureFilterSupported</h2>
+<pre><code>    Returns:
+        bool</code></pre>
+<p>Returns true if anisotropic texture filtering is supported by the
+device, otherwise returns false.</p>
+<h2 id="setfogenable">SetFogEnable</h2>
+<pre><code>    Arguments:
+        1) bool: enable</code></pre>
+<p>Enables or disables fog.</p>
+<h2 id="setfogparam">SetFogParam</h2>
+<pre><code>    Arguments:
+        1) real: start
+        2) real: end
+        3) real: red
+        4) real: green
+        5) real: blue</code></pre>
+<p>Sets the fog parameters with the start and end distances from the
+player and the rgb values.</p>
+<p>To turn the screen dark, you can use SetFogParam(250, 700, 0, 0,
+0).</p>
+<h2 id="setfogboundaryparam">SetFogBoundaryParam</h2>
+<pre><code>    Arguments:
+        1) real: start
+        2) real: end</code></pre>
+<p>Sets the fog boundary (distance) parameters to the given start and
+end values.</p>
+<h2 id="setfogcolorparam">SetFogColorParam</h2>
+<pre><code>    Arguments:
+        1) real: red
+        2) real: green
+        3) real: blue</code></pre>
+<p>Sets the fog color parameters to the given RGB values.</p>
+<h2 id="setfogcolorhexparam">SetFogColorHexParam</h2>
+<pre><code>    Arguments:
+        1) real: colorHex</code></pre>
+<p>Sets the fog color parameters using RGB in hexadecimal format
+(0xRRGGBB).</p>
+<h2 id="isfogenable">IsFogEnable</h2>
+<pre><code>    Returns:
+        bool: bEnable</code></pre>
+<p>Returns true if fog is enabled, otherwise returns false.</p>
+<h2 id="getfogparam">GetFogParam</h2>
+<pre><code>    Returns:
+        array[real]: params</code></pre>
+<p>Returns the current fog parameters as an array with the format
+[start, end, red, green, blue]</p>
+<h2 id="getfogboundaryparam">GetFogBoundaryParam</h2>
+<pre><code>    Returns:
+        array[real]: boundary</code></pre>
+<p>Returns the current fog boundary parameters as an array with the
+format [start, end]</p>
+<h2 id="getfogcolorparam">GetFogColorParam</h2>
+<pre><code>    Returns:
+        array[real]: color</code></pre>
+<p>Returns the current fog color parameters as an array with the format
+[red, green, blue]</p>
+<h2 id="getfogcolorhexparam">GetFogColorHexParam</h2>
+<pre><code>    Returns:
+        real: color</code></pre>
+<p>Returns the current fog color parameters as a real XRGB value.</p>
+<h2 id="tweenfogboundaryparam">TweenFogBoundaryParam</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: start
+        4) real: end</code></pre>
+<p>Changes the fog boundary parameters to (start, end) over
+<em>duration</em> frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve any of the current values.</p>
+<h2 id="tweenfogcolorparam">TweenFogColorParam</h2>
+<pre><code>    Arguments:
+        1) real: duration
+        2) real: interpType
+        3) real: red
+        4) real: green
+        5) real: blue</code></pre>
+<p>Changes the fog color parameters to (red, green, blue) over
+<em>duration</em> frames with the given interpolation type.</p>
+<p>NO_CHANGE can be used to preserve any of the current values.</p>
+<h2 id="cancelfogtweens">CancelFogTweens</h2>
+<p>Cancels all of the active fog tweens.</p>
+<h2 id="setrenderupdateenable">SetRenderUpdateEnable</h2>
+<pre><code>    Arguments:
+        1) bool: enable</code></pre>
+<p>Enables or disables render updates for all objects.</p>
+<p>This stops processing of all automated ObjRender functions (such as
+the tween and speed ones).<br />
+Objects with Obj_SetForceRenderUpdate set to true are unaffected.<br />
+This can also be set per object with Obj_SetRenderUpdateEnable.</p>
+<h2 id="isrenderupdateenable">IsRenderUpdateEnable</h2>
+<pre><code>    Return Type:
+        bool</code></pre>
+<p>Returns true if render updates are globally enabled, otherwise
+returns false.</p>
+<h2 id="clearinvalidrenderpriority">ClearInvalidRenderPriority</h2>
+<p>Clear invalid render priorities set with <a href="#setinvalidrenderprioritya1">SetInvalidRenderPriorityA1</a>.</p>
+<h2 id="setinvalidrenderprioritya1">SetInvalidRenderPriorityA1</h2>
+<pre><code>    Arguments:
+        1) real: start
+        2) real: end</code></pre>
+<p>Sets invalid render priority between start and end render
+priorities.</p>
+<p>Drawing within the specified range is disabled by this function.</p>
+<h2 id="getreservedrendertargetname">GetReservedRenderTargetName</h2>
+<pre><code>    Arguments:
+        1) real: index
+    Return Type:
+        real</code></pre>
+<p>Returns the render target name reserved at Danmakufu&#39;s startup.</p>
+<p>Index in range: 0-2<br />
+There is always a texture that can be obtained with this function.</p>
+<h2 id="createrendertarget">CreateRenderTarget</h2>
+<pre><code>    Arguments:
+        1) string: targetName
+    Return Type:
+        bool</code></pre>
+<p>Creates a custom render target outside of the reserved ones.</p>
+<p>To use, ObjPrim_SetTexture must have the name of the render target as
+a string.<br />
+Textures created with this function can be used for <a href="#rendertotexturea1">RenderToTextureA1</a> and other similar
+functions.</p>
+<h2 id="createrendertargetb">CreateRenderTargetB</h2>
+<pre><code>    Arguments:
+        1) string: targetName
+        2) real: width
+        3) real: height
+    Return Type:
+        bool</code></pre>
+<p>Creates a custom render target outside of the reserved ones with a
+specific width and height.</p>
+<p>To use, ObjPrim_SetTexture must have the name of the render target as
+a string.<br />
+Textures created with this function can be used for <a href="#rendertotexturea1">RenderToTextureA1</a> and other similar
+functions.</p>
+<h2 id="copyrendertargettobackupsurface">CopyRenderTargetToBackupSurface</h2>
+<pre><code>    Arguments:
+        1) string: targetName</code></pre>
+<p>Creates a backup surface for the render target and copies the render
+target&#39;s contents to it.</p>
+<p>If the Direct3D device is lost, the render target will be restored
+using this attached backup surface.</p>
+<p><em><strong>Note:</strong> This is an expensive operation and should
+only be used for render targets that are not rendered to every frame,
+such as the transition target for pause scenes.</em></p>
+<h2 id="clearrendertargetbackupsurface">ClearRenderTargetBackupSurface</h2>
+<pre><code>    Arguments:
+        1) string: targetName</code></pre>
+<p>Clears and deletes the render target&#39;s backup surface.</p>
+<p>It is recommended to call this after you are done using the render
+target, so that an old frame isn&#39;t held within the backup surface.</p>
+<h2 id="rendertotexturea1">RenderToTextureA1</h2>
+<pre><code>    Arguments:
+        1) string: targetName
+        2) real: start
+        3) real: end
+        4) bool: clearRenderTarget</code></pre>
+<p>Renders the specified range of invalid render priority drawings to a
+texture.</p>
+<p>Set clearRenderTarget to true in order to clear the render target
+after each frame. If set to false, the render target will remain into
+the next frame.</p>
+<h2 id="rendertotextureb1">RenderToTextureB1</h2>
+<pre><code>    Arguments:
+        1) string: targetName
+        2) real: objectId
+        3) bool: clearRenderTarget</code></pre>
+<p>Renders the specified object to a texture.</p>
+<p>Set clearRenderTarget to true in order to clear the render target
+after each frame. If set to false, the render target will remain into
+the next frame.</p>
+<h2 id="rendertotextureba1">RenderToTextureBA1</h2>
+<pre><code>    Arguments:
+        1) string: targetName
+        2) array[real]: objIdArray
+        3) bool: clearRenderTarget</code></pre>
+<p>Renders the objects in the specified array to a texture.</p>
+<p>Set clearRenderTarget to true in order to clear the render target
+after each frame. If set to false, the render target will remain into
+the next frame.</p>
+<h2 id="saverenderedtexturea1">SaveRenderedTextureA1</h2>
+<pre><code>    Arguments:
+        1) string: targetName
+        2) string: fileName</code></pre>
+<p>Saves rendered texture to a file.</p>
+<p>In Re:Dnh, the image will be saved as PNG regardless of extension. In
+vanilla Dnh, it will be BMP.<br />
+The image file created by this function can be used immediately after
+its execution.</p>
+<h2 id="saverenderedtexturea2">SaveRenderedTextureA2</h2>
+<pre><code>    Arguments:
+        1) string: targetName
+        2) string: fileName
+        3) real: left
+        4) real: top
+        5) real: right
+        6) real: bottom</code></pre>
+<p>Saves rendered texture to a file, given left/top/right/bottom bounds
+of the region to capture.</p>
+<p>In Re:Dnh, the image will be saved as PNG regardless of extension. In
+vanilla Dnh, it will be BMP.<br />
+The image file created by this function can be used immediately after
+its execution.</p>
+<h2 id="savesnapshota1">SaveSnapShotA1</h2>
+<pre><code>    Arguments:
+        1) string: fileName</code></pre>
+<p>Saves a picture of the game to a file.</p>
+<p>The image file created by this function can be used immediately after
+its execution.</p>
+<h2 id="savesnapshota2">SaveSnapShotA2</h2>
+<pre><code>    Arguments:
+        1) string: fileName
+        2) real: left
+        3) real: top
+        4) real: right
+        5) real: bottom</code></pre>
+<p>Saves a picture of the game to a file, given left/top/right/bottom
+bounds of the region to capture.</p>
+<p>The image file created by this function can be used immediately after
+its execution.</p>
+<h2 id="setgraphicssettings">SetGraphicsSettings</h2>
+<pre><code>    Arguments:
+        1) real: windowSizeIndex
+        2) real: bFullscreen
+        3) real: bBorderless
+        4) real: bIntegerScale
+        5) real: bVsync</code></pre>
+<p>Sets some graphics-related settings.</p>
+<pre><code>windowSizeIndex : The index of the window size to use, as defined in the .def
+bFullscreen     : Whether or not to change to fullscreen mode
+bBorderless     : Whether or not to use a borderless window when in fullscreen mode
+bIntegerScale   : Whether or not to use integer scaling in borderless fullscreen mode
+bVsync          : Whether or not to enable vsync```
+
+*Note: All arguments may be set to NO_CHANGE to retain their current state*
+
+## GetGraphicsSettings</code></pre>
+<pre><code>Return Type:
+    any array</code></pre>
+<pre><code>Returns a multi-type array of the current graphics settings.
+
+The array is in the following format: [windowSizeIndex, bFullscreen, bBorderless. bIntegerScale, bVsync]
+
+## GetAspectRatio</code></pre>
+<pre><code>Arguments:
+    1) real: windowSizeIndex
+Return Type:
+    real const</code></pre>
+<pre><code>Returns a constant representing the aspect ratio of the given window size index.
+
+Current possible values are:
+- ASPECT_RATIO_4_3
+- ASPECT_RATIO_16_9
+- ASPECT_RATIO_16_10
+
+## IsPixelShaderSupported</code></pre>
+<pre><code>Arguments:
+    1) real: majorVersion
+    2) real: minorVersion
+Return Type:
+    bool</code></pre>
+<pre><code>Returns true if the user&#39;s GPU supports the specified pixel shader version.
+
+Example: `IsPixelShaderSupported(3, 0);` checks for Pixel Shader version 3.0
+
+## SetShader</code></pre>
+<pre><code>Arguments:
+    1) real: objShader
+    2) real: start
+    3) real: end</code></pre>
+<pre><code>Sets the shader object associated with objShader to affect render priorities between start and end.
+
+*Note: Render priorities are on a 0-1 scale.*
+
+## SetShaderI</code></pre>
+<pre><code>Arguments:
+    1) real: objShader
+    2) real: start
+    3) real: end</code></pre>
+<pre><code>Sets the shader object associated with objShader to affect (integer) render priorities between start and end.
+
+*Note: Render priorities are on a 0-100 scale.*
+
+## ResetShader</code></pre>
+<pre><code>Arguments:
+    1) real: start
+    2) real: end</code></pre>
+<pre><code>Stops rendering textures within the specified render priority range to the shader object.
+
+*Note: Render priorities are on a 0-1 scale.*
+
+## ResetShaderI</code></pre>
+<pre><code>Arguments:
+    1) real: start
+    2) real: end</code></pre>
+<pre><code>Stops rendering textures within the specified (integer) render priority range to the shader object.
+
+*Note: Render priorities are on a 0-100 scale.*
+</code></pre>
+</body>
+</html>

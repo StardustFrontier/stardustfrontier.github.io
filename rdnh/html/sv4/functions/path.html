@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Path Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Path Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="getmoduledirectory">GetModuleDirectory</h2>
+<pre><code>    Return Type:
+        string</code></pre>
+<p>Returns the directory containing the running th_dnh.exe file.</p>
+<h2 id="getmainstgscriptpath">GetMainStgScriptPath</h2>
+<pre><code>    Return Type:
+        string</code></pre>
+<p>Returns the path of the currently running stage script.</p>
+<h2 id="getmainpackagescriptpath">GetMainPackageScriptPath</h2>
+<pre><code>    Return Type:
+        string</code></pre>
+<p>Returns the path of the currently running package script.</p>
+<h2 id="getmainstgscriptdirectory">GetMainStgScriptDirectory</h2>
+<pre><code>    Return Type:
+        string</code></pre>
+<p>Returns the directory of the currently running stage script.</p>
+<h2 id="getuserscriptdirectory">GetUserScriptDirectory</h2>
+<pre><code>    Return Type:
+        string</code></pre>
+<p>Returns the user-defined script directory.</p>
+<p>This is set in the rdnh.def file with the <em>UserScriptDir</em>
+property.</p>
+<h2 id="getmainscriptdirectory">GetMainScriptDirectory</h2>
+<pre><code>    Return Type:
+        string</code></pre>
+<p>Returns the directory of the running script, ignoring included
+files.</p>
+<h2 id="getmainscriptpath">GetMainScriptPath</h2>
+<pre><code>    Return Type:
+        string</code></pre>
+<p>Returns the path of the running script, ignoring included files.</p>
+<h2 id="getcurrentscriptdirectory">GetCurrentScriptDirectory</h2>
+<pre><code>    Return Type:
+        string</code></pre>
+<p>Returns the directory of the file in which this function was
+called.</p>
+<h2 id="getcurrentscriptpath">GetCurrentScriptPath</h2>
+<pre><code>    Return Type:
+        string</code></pre>
+<p>Returns the path of the file in which this function was called.</p>
+<h2 id="getdirectorylist">GetDirectoryList</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        array[string]</code></pre>
+<p>Returns an array of the directories available within the directory of
+the specified path.</p>
+<h2 id="getfilepathlist">GetFilePathList</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        array[string]</code></pre>
+<p>Returns a list of files in the folder of the specified file path (or
+folder path).</p>
+<p>This function will not list any files within an archive (.dat) file.
+In that case, use <a href="#getarchivefilepathlist">GetArchiveFilePathList</a> instead.</p>
+<h2 id="getarchivefilepathlist">GetArchiveFilePathList</h2>
+<pre><code>    Arguments:
+        1) string: archivePath
+        2) bool: bFullPath
+    Return Type:
+        array[string]</code></pre>
+<p>Returns an array of all file paths within the given archive
+file.<br />
+If bFullPath is true, the paths will be full absolute paths. Otherwise,
+they will be relative to the archive&#39;s directory.</p>
+<p>Note: The archive file must already be loaded before calling this
+function.</p>
+<h2 id="getfiledirectory">GetFileDirectory</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        string</code></pre>
+<p>Returns the directory of the specified file path. Specifically,
+returns the input string up to the rightmost forward slash, with
+backslashes removed.</p>
+<h2 id="getdirectoryname">GetDirectoryName</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        string</code></pre>
+<p>Returns the name of the directory for the given path.</p>
+<h2 id="getfilename">GetFileName</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        string</code></pre>
+<p>Returns the name of the file for the given path.</p>
+<h2 id="getfilenamewithoutextension">GetFileNameWithoutExtension</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        string</code></pre>
+<p>Returns the name of the file for the given path with its
+extension.</p>
+<h2 id="getfileextension">GetFileExtension</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Return Type:
+        string</code></pre>
+<p>Returns the file extension from the given filename.</p>
+<h2 id="getfilelastwritetimemillis">GetFileLastWriteTimeMillis</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Returns:
+        real: timestamp</code></pre>
+<p>Returns a timestamp representing the time this file was last written
+to in milliseconds.</p>
+<p>This is useful for comparing to other timestamps of the same file to
+see if its contents have changed.</p>
+<h2 id="isfileexists">IsFileExists</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Returns:
+        bool: bExists</code></pre>
+<p>Returns true if the file exists, otherwise returns false.</p>
+<h2 id="deletefile">DeleteFile</h2>
+<pre><code>    Arguments:
+        1) string: path
+    Returns:
+        bool: bSucceeded</code></pre>
+<p>Deletes the file at the given path and returns whether or not the
+deletion succeeded.</p>
+<p>For safety reasons, currently this function only works on full paths
+that contain the module directory.</p>
+<h2 id="copyfile">CopyFile</h2>
+<pre><code>    Arguments:
+        1) string: pathSource
+        2) string: pathDest
+        3) bool: bOverwrite = false
+    Returns:
+        bool: bSucceeded</code></pre>
+<p>Copies the file from pathSource to pathDest.</p>
+<p>If a file already exists at pathDest and bOverwrite is true, it will
+be overwritten. Otherwise, the function will fail.</p>
+<h2 id="renamefile">RenameFile</h2>
+<pre><code>    Arguments:
+        1) string: pathSource
+        2) string: pathDest
+        3) bool: bOverwrite = false
+    Returns:
+        bool: bSucceeded</code></pre>
+<p>Renames the file at pathSource to pathDest.</p>
+<p>If a file already exists at pathDest and bOverwrite is true, it will
+be overwritten. Otherwise, the function will fail.<br />
+This function will also fail if the source and destination are in
+different directories.</p>
+<h2 id="getscriptpathlist">GetScriptPathList</h2>
+<pre><code>    Arguments:
+        1) string: path
+        2) const real: scriptType
+    Return Type:
+        array[string]</code></pre>
+<p>Returns an array of available (selectable at selection screen)
+scripts of the specified type within the directory of the specified
+path.</p>
+<p>Script types are:</p>
+<ul>
+<li><scode>TYPE_SCRIPT_ALL</scode></li>
+<li><scode>TYPE_SCRIPT_PLAYER</scode></li>
+<li><scode>TYPE_SCRIPT_SINGLE</scode></li>
+<li><scode>TYPE_SCRIPT_PLURAL</scode></li>
+<li><scode>TYPE_SCRIPT_STAGE</scode></li>
+<li><scode>TYPE_SCRIPT_PACKAGE</scode></li>
+</ul>
+</body>
+</html>

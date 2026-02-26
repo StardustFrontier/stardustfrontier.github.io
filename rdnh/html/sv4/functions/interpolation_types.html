@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Interpolation Types</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Interpolation Types</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h1></h1>
+<p>Interpolation type constants are in the form:
+<code>IP_&lt;EQUATION&gt;_&lt;EASING&gt;</code><br />
+The equation type can be any of the following:</p>
+<pre><code>2X     - Quadratic
+3X     - Cubic
+4X     - Quartic
+5X     - Quintic
+SIN    - Sine
+BOUNCE - Bounce</code></pre>
+<p>The easing type can be any of the following:</p>
+<pre><code>LINEAR     - Linear from start to end.
+ACCEL      - Start slow, speed up.
+DECEL      - Start fast, slow to stop.
+SMOOTH     - Start slow, accelerate, decelerate, slow to stop. Combination of ACCEL and DECEL.
+SMOOTH_INV - Start slow, speed up, stop halfway, start fast, slow to stop. Inverted SMOOTH (DECEL then ACCEL)</code></pre>
+<p><em><strong>Note</strong>: The BOUNCE equation does not support
+LINEAR or SMOOTH_INV easing types.</em></p>
+<p>List of all valid combinations:</p>
+<pre><code>IP_LINEAR
+IP_2X_ACCEL
+IP_3X_ACCEL
+IP_4X_ACCEL
+IP_5X_ACCEL
+IP_2X_DECEL
+IP_3X_DECEL
+IP_4X_DECEL
+IP_5X_DECEL
+IP_2X_SMOOTH
+IP_3X_SMOOTH
+IP_4X_SMOOTH
+IP_5X_SMOOTH
+IP_2X_SMOOTH_INV
+IP_3X_SMOOTH_INV
+IP_4X_SMOOTH_INV
+IP_5X_SMOOTH_INV
+IP_SIN_ACCEL
+IP_SIN_DECEL
+IP_SIN_SMOOTH
+IP_SIN_SMOOTH_INV
+IP_BOUNCE_ACCEL
+IP_BOUNCE_DECEL
+IP_BOUNCE_SMOOTH</code></pre>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>docs_object.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="object-functions">Object Functions</h1>
+    <p>
+      <a href="./docs.html">Return to Functions</a>
+    </p>
+    <h2 id="obj_delete">Obj_Delete</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+</pre>
+    <p>Deletes the object associated with objectID.</p>
+    <h2 id="obj_isdeleted">Obj_IsDeleted</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the object mapped to the given objectID is deleted, otherwise false.</p>
+    <h2 id="obj_exists">Obj_Exists</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the object mapped to the given objectID <em>exists</em> (is not deleted), otherwise false.</p>
+    <p>
+      <em>Note: This function is the inverse of <a href="obj_isdeleted">Obj_IsDeleted</a>.</em>
+    </p>
+    <h2 id="obj_setvisible">Obj_SetVisible</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: isVisible
+</pre>
+    <p>Sets whether the specified object is visible.</p>
+    <p>If this is set to false, the object will not be drawn.</p>
+    <h2 id="obj_isvisible">Obj_IsVisible</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        bool
+</pre>
+    <p>Returns true if the object is set to be visible.</p>
+    <h2 id="obj_setrenderpriority">Obj_SetRenderPriority</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: priority
+</pre>
+    <p>Sets the object's render priority.</p>
+    <p>
+      <em>Note: Render priorities for this function are on a 0.0-1.0 scale.</em>
+    </p>
+    <h2 id="obj_setrenderpriorityi">Obj_SetRenderPriorityI</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: priorityI
+</pre>
+    <p>Sets the object's (integer) render priority.</p>
+    <p>
+      <em>Note: Render priorities for this function are on a 0-100 scale.</em>
+    </p>
+    <h2 id="obj_getrenderpriority">Obj_GetRenderPriority</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: priority
+    Return Type:
+        real
+</pre>
+    <p>Returns the object's render priority.</p>
+    <p>
+      <em>Note: Render priorities for this function are on a 0.0-1.0 scale.</em>
+    </p>
+    <h2 id="obj_getrenderpriorityi">Obj_GetRenderPriorityI</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: priorityI
+    Return Type:
+        real
+</pre>
+    <p>Returns the object's (integer) render priority.</p>
+    <p>
+      <em>Note: Render priorities for this function are on a 0-100 scale.</em>
+    </p>
+    <h2 id="obj_getvalue">Obj_GetValue</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: key
+    Return Type:
+        any
+</pre>
+    <p>Returns the value associated with the given key for the given object, previously set by <a href="obj_setvalue">Obj_SetValue</a>.</p>
+    <p>
+      <em>
+        <strong>Warning</strong>: If the key-value pair does not exist or was deleted, attempting to access it will crash the program.</em>
+    </p>
+    <h2 id="obj_getvalued">Obj_GetValueD</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: key
+        3) any: defaultValue
+    Return Type:
+        any
+</pre>
+    <p>Returns the value associated with the given key for the given object, previously set by <a href="obj_setvalue">Obj_SetValue</a>.</p>
+    <p>If the key-value pair doesn't exist, the default value is returned instead.</p>
+    <h2 id="obj_setvalue">Obj_SetValue</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: key
+        3) any: value
+</pre>
+    <p>For the given object, maps the given key to the given value.</p>
+    <p>The value can be returned by using <a href="obj_getvalue">Obj_GetValue</a> with the corresponding key.</p>
+    <h2 id="obj_deletevalue">Obj_DeleteValue</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: key
+</pre>
+    <p>Deletes the key-value pair previously set by <a href="obj_setvalue">Obj_SetValue</a>.</p>
+    <h2 id="obj_isvalueexists">Obj_IsValueExists</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) string: key
+</pre>
+    <p>Checks whether the object has a key-value pair for the given key and returns true if it does.</p>
+    <h2 id="obj_getvalueint">Obj_GetValueInt</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: key
+    Return Type:
+        any
+</pre>
+    <p>Returns the value associated with the given (int) key for the given object, previously set by <a href="obj_setvalueint">Obj_SetValueInt</a>.</p>
+    <p>
+      <em>
+        <strong>Warning</strong>: If the key-value pair does not exist or was deleted, attempting to access it will crash the program.</em>
+    </p>
+    <h2 id="obj_getvalueintd">Obj_GetValueIntD</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: key
+        3) any: defaultValue
+    Return Type:
+        any
+</pre>
+    <p>Returns the value associated with the given (int) key for the given object, previously set by <a href="obj_setvalueint">Obj_SetValueInt</a>.</p>
+    <p>If the key-value pair doesn't exist, the default value is returned instead.</p>
+    <h2 id="obj_setvalueint">Obj_SetValueInt</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: key
+        3) any: value
+</pre>
+    <p>For the given object, maps the given (int) key to the given value.</p>
+    <p>The value can be returned by using <a href="obj_getvalueint">Obj_GetValueInt</a> with the corresponding key.</p>
+    <h2 id="obj_deletevalueint">Obj_DeleteValueInt</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: key
+</pre>
+    <p>Deletes the (int) key-value pair previously set by <a href="obj_setvalueint">Obj_SetValueInt</a>.</p>
+    <h2 id="obj_isvalueintexists">Obj_IsValueIntExists</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: key
+</pre>
+    <p>Checks whether the object has a (int) key-value pair for the given key and returns true if it does.</p>
+    <h2 id="obj_setflag">Obj_SetFlag</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: flag
+</pre>
+    <p>Sets a bit flag for an object.</p>
+    <p>Multiple flags may be set in one call using bitwise OR (<code>|</code>)<br /><em>Note: To work properly, flag must be in the form:</em><code>1 &lt;&lt; x</code></p>
+    <h2 id="obj_clearflag">Obj_ClearFlag</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: flag
+</pre>
+    <p>Clears (unsets) the specified bit flag for an object.</p>
+    <p>Multiple flags may be cleared in one call using bitwise OR (<code>|</code>)<br /><em>Note: To work properly, flag must be in the form:</em><code>1 &lt;&lt; x</code></p>
+    <h2 id="obj_hasflag">Obj_HasFlag</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: flag
+    Return Type:
+        boool
+</pre>
+    <p>Returns true if the specified bit flag for the object is set, otherwise false.</p>
+    <p>Multiple flags may be checked in one call using bitwise OR (<code>|</code>)<br /><em>Note: To work properly, flag must be in the form:</em><code>1 &lt;&lt; x</code></p>
+    <h2 id="obj_getflag">Obj_GetFlag</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns <strong>all</strong> of the flags currently set for the specified object.</p>
+    <p>A single flag can be checked by using bitwise AND (<code>&amp;</code>) on the result.</p>
+    <h2 id="obj_gettype">Obj_GetType</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real const
+</pre>
+    <p>Returns the <a href="./docs_object_types.html">object's type</a>. as a constant real value.</p>
+  </body>
+</html>

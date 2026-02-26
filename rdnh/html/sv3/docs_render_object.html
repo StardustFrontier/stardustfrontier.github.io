@@ -1,0 +1,497 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>docs_render_object.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+* { color: #d8d6d0; }
+* { background-color: #181a1b; }
+a {
+	color: #68b2fa;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+hr {
+	height: 1px;
+	color: #40464d;
+	background-color: #40464d;
+	border: none;
+}
+h1 {
+	color: #d8d6d0;
+	border-bottom: 1px solid #40464d;
+}
+*:not(pre) {
+	font-family: serif;
+}
+p {
+	margin: 0.4em 0;
+	font-family: sans-serif;
+}	
+pre {
+	background: #1a1c1d;
+	color: #d8d6d0;
+	border: 1pt solid #313845;
+	padding: 1em 0;
+	white-space: pre;
+	word-wrap: break-word;
+	overflow: auto
+}
+        </style>
+  </head>
+  <body>
+    <h1 id="render-object-functions">Render Object Functions</h1>
+    <p>
+      <a href="./docs.html">Return to Functions</a>
+    </p>
+    <h2 id="objrender_setx">ObjRender_SetX</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+</pre>
+    <p>Sets the x-coordinate of the object.</p>
+    <h2 id="objrender_sety">ObjRender_SetY</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: y
+</pre>
+    <p>Sets the y-coordinate of the object.</p>
+    <h2 id="objrender_setz">ObjRender_SetZ</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: z
+</pre>
+    <p>Sets the z-coordinate of the object.</p>
+    <h2 id="objrender_setxy">ObjRender_SetXY</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+</pre>
+    <p>Sets the x and y coordinates of the object.</p>
+    <h2 id="objrender_setposition">ObjRender_SetPosition</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: z
+</pre>
+    <p>Sets the x, y, and z coordinates of the object.</p>
+    <h2 id="objrender_setpositiono">ObjRender_SetPositionO</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: parentObjectID
+</pre>
+    <p>Sets the x, y, and z coordinates of the object to the coordinates of the parent object.</p>
+    <h2 id="objrender_setanglex">ObjRender_SetAngleX</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: angleX
+</pre>
+    <p>Sets the x-angle of the object.</p>
+    <h2 id="objrender_setangley">ObjRender_SetAngleY</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: angleY
+</pre>
+    <p>Sets the y-angle of the object.</p>
+    <h2 id="objrender_setanglez">ObjRender_SetAngleZ</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: angleZ
+</pre>
+    <p>Sets the z-angle of the object.</p>
+    <h2 id="objrender_setanglexyz">ObjRender_SetAngleXYZ</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: angleX
+        3) real: angleY
+        4) real: angleZ
+</pre>
+    <p>Sets the x, y, and z angles of the object.</p>
+    <h2 id="objrender_setscalex">ObjRender_SetScaleX</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: scaleX
+</pre>
+    <p>Sets the x-scale of the object.</p>
+    <h2 id="objrender_setscaley">ObjRender_SetScaleY</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: scaleY
+</pre>
+    <p>Sets the y-scale of the object.</p>
+    <h2 id="objrender_setscalez">ObjRender_SetScaleZ</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: scaleZ
+</pre>
+    <p>Sets the z-scale of the object.</p>
+    <h2 id="objrender_setscalexy">ObjRender_SetScaleXY</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: scaleX
+        3) real: scaleY
+</pre>
+    <p>Sets the x and y scales of the object.</p>
+    <h2 id="objrender_setscalexyz">ObjRender_SetScaleXYZ</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: scaleX
+        3) real: scaleY
+        4) real: scaleZ
+</pre>
+    <p>Sets the x, y, and z scales of the object.</p>
+    <h2 id="objrender_setcolor">ObjRender_SetColor</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: red
+        3) real: green
+        4) real: blue
+</pre>
+    <p>Sets the color of the object using RGB (0-255).</p>
+    <h2 id="objrender_setcolorhex">ObjRender_SetColorHex</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: color
+</pre>
+    <p>Sets the color of the object using RGB in the hexadecimal format: <code>0xRRGGBB</code></p>
+    <p>For example, pure green would be: <code>0x00FF00</code><br /><em>Note: <strong>Colour</strong> is not spelled correctly for the original function, for consistency, this function uses "Color" as well.</em></p>
+    <h2 id="objrender_setcolorhsv">ObjRender_SetColorHSV</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: hue
+        3) real: saturation
+        4) real: value
+</pre>
+    <p>Sets the hue (0-359), saturation (0-255), and value (0-255) of an object.</p>
+    <h2 id="objrender_setalpha">ObjRender_SetAlpha</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: alpha
+</pre>
+    <p>Sets the alpha value of the object.</p>
+    <p>A value of 0 will make the object invisible.<br />
+A value of 255 will give the object full opacity.<br />
+This function has no effect on an object using BLEND_ADD_RGB - use BLEND_ADD_ARGB instead.</p>
+    <h2 id="objrender_setblendtype">ObjRender_SetBlendType</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real const: blendType
+</pre>
+    <p>Sets the <a href="./docs_blend_types.html">blend type</a> for the specified object.</p>
+    <h2 id="objrender_settexturefilter">ObjRender_SetTextureFilter</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real const: filterType
+</pre>
+    <p>Sets the texture filtering for a render object.</p>
+    <p>Available filter types are:</p>
+    <pre>
+FILTER_NONE
+FILTER_POINT
+FILTER_LINEAR
+</pre>
+    <p>
+      <em>
+        <strong>Warning</strong>: This will not work correctly on items or shots because of how the rendering for them is handled.</em>
+    </p>
+    <h2 id="objrender_getx">ObjRender_GetX</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the x-coordinate of the object.</p>
+    <p>
+      <em>Note: If the specified object is deleted, the value returned will be NULL_POS (-999999)</em>
+    </p>
+    <h2 id="objrender_gety">ObjRender_GetY</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the y-coordinate of the object.</p>
+    <p>
+      <em>Note: If the specified object is deleted, the value returned will be NULL_POS (-999999)</em>
+    </p>
+    <h2 id="objrender_getz">ObjRender_GetZ</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the z-coordinate of the object.</p>
+    <p>
+      <em>Note: If the specified object is deleted, the value returned will be NULL_POS (-999999)</em>
+    </p>
+    <h2 id="objrender_getanglex">ObjRender_GetAngleX</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the x-angle of the object.</p>
+    <h2 id="objrender_getangley">ObjRender_GetAngleY</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the y-angle of the object.</p>
+    <h2 id="objrender_getanglez">ObjRender_GetAngleZ</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the z-angle of the object.</p>
+    <h2 id="objrender_getscalex">ObjRender_GetScaleX</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the x-scale of the object.</p>
+    <h2 id="objrender_getscaley">ObjRender_GetScaleY</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the y-scale of the object.</p>
+    <h2 id="objrender_getscalez">ObjRender_GetScaleZ</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the z-scale of the object.</p>
+    <h2 id="objrender_getalpha">ObjRender_GetAlpha</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real
+</pre>
+    <p>Returns the alpha value of the object.</p>
+    <h2 id="objrender_getblendtype">ObjRender_GetBlendType</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real const
+</pre>
+    <p>Returns the <a href="./docs_blend_types.html">blend type</a> of the object.</p>
+    <h2 id="objrender_gettexturefilter">ObjRender_GetTextureFilter</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+    Return Type:
+        real const
+</pre>
+    <p>Returns the current texture filtering for a render object.</p>
+    <p>Available filter types are:</p>
+    <pre>
+FILTER_NONE
+FILTER_POINT
+FILTER_LINEAR
+</pre>
+    <h2 id="objrender_setzwrite">ObjRender_SetZWrite</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bZWrite
+</pre>
+    <p>Allows or prevents the object from writing in the Z-buffer.</p>
+    <h2 id="objrender_setztest">ObjRender_SetZTest</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bZTest
+</pre>
+    <p>Sets whether or not the object uses the Z-buffer.</p>
+    <h2 id="objrender_setscissortest">ObjRender_SetScissorTest</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bScissorTest
+</pre>
+    <p>Sets whether or not the object uses scissor testing.</p>
+    <p>This culls pixels that are outside of the scissor rectangle that is set by ObjRender_SetScissorRect<br /><em>Note: Occurs after pixel shaders.</em></p>
+    <h2 id="objrender_setscissorrect">ObjRender_SetScissorRect</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: left
+        3) real: top
+        4) real: right
+        5) real: bottom
+</pre>
+    <p>Sets the rectangle to use for scissor testing.</p>
+    <h2 id="objrender_setfogenable">ObjRender_SetFogEnable</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bFogEnable
+</pre>
+    <p>Allows or prevents the object from being affected by the fog.</p>
+    <p>Defaults to true.</p>
+    <h2 id="objrender_setpermitcamera">ObjRender_SetPermitCamera</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) bool: bPermitCamera
+</pre>
+    <p>Determines whether the object is affected by the 2D camera.</p>
+    <p>If set to false, the object will not be affected by the camera regardless of render priority.</p>
+    <h2 id="objrender_setmovespeed">ObjRender_SetMoveSpeed</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: speedX
+        3) real: speedY
+        4) real: speedZ
+</pre>
+    <p>Sets the object's (render) move speed.</p>
+    <p>This will increment the object's x, y, z coordinates by the given values every frame until set to 0.</p>
+    <h2 id="objrender_setrotationspeed">ObjRender_SetRotationSpeed</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: rotationSpeedX
+        3) real: rotationSpeedY
+        4) real: rotationSpeedZ
+</pre>
+    <p>Sets the object's rotation speed (angular velocity).</p>
+    <p>This will increment the object's x, y, z angles by the given values every frame until set to 0.</p>
+    <h2 id="objrender_setscalespeed">ObjRender_SetScaleSpeed</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: scaleSpeedX
+        3) real: scaleSpeedY
+        4) real: scaleSpeedZ
+</pre>
+    <p>Sets the object's scale speed.</p>
+    <p>This will increment the object's x, y, z scales by the given values every frame until set to 0.</p>
+    <h2 id="objrender_tweenposition">ObjRender_TweenPosition</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: duration
+        3) real const: interpolationType
+        4) real: x
+        5) real: y
+        6) real: z
+</pre>
+    <p>Moves the object to position (x, y, z) over duration frames with <a href="./docs_interpolation_types.html">interpolationType</a>. interpolation.</p>
+    <p>NO_CHANGE can be used to preserve any of the current values.</p>
+    <p>
+      <em>Note: Tweens of the same type (for example, two ObjRender_TweenPosition) will cancel the currently running one and start the new one.</em>
+    </p>
+    <h2 id="objrender_tweencolor">ObjRender_TweenColor</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: duration
+        3) real const: interpolationType
+        4) real: red
+        5) real: green
+        6) real: blue
+</pre>
+    <p>Changes the object's color to (r, g, b) over duration frames with the given <a href="./docs_interpolation_types.html">interpolation type</a>.</p>
+    <p>NO_CHANGE can be used to preserve any of the current values.</p>
+    <p>
+      <em>Note: Tweens of the same type (for example, two ObjRender_TweenPosition) will cancel the currently running one and start the new one.</em>
+    </p>
+    <h2 id="objrender_tweenalpha">ObjRender_TweenAlpha</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: duration
+        3) real const: interpolationType
+        4) real: alpha
+</pre>
+    <p>Changes the object's alpha over duration frames with the given <a href="./docs_interpolation_types.html">interpolation type</a>.</p>
+    <p>NO_CHANGE can be used to preserve any of the current values.</p>
+    <p>
+      <em>Note: Tweens of the same type (for example, two ObjRender_TweenPosition) will cancel the currently running one and start the new one.</em>
+    </p>
+    <h2 id="objrender_tweenangle">ObjRender_TweenAngle</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: duration
+        3) real const: interpolationType
+        4) real: angleX
+        5) real: angleY
+        6) real: angleZ
+</pre>
+    <p>Changes the object's angle to (angleX, angleY, angleZ) over duration frames with the given <a href="./docs_interpolation_types.html">interpolation type</a>.</p>
+    <p>NO_CHANGE can be used to preserve any of the current values.</p>
+    <p>
+      <em>Note: Tweens of the same type (for example, two ObjRender_TweenPosition) will cancel the currently running one and start the new one.</em>
+    </p>
+    <h2 id="objrender_tweenscale">ObjRender_TweenScale</h2>
+    <pre>
+    Arguments:
+        1) real: objectID
+        2) real: duration
+        3) real const: interpolationType
+        4) real: scaleX
+        5) real: scaleY
+        6) real: scaleZ
+</pre>
+    <p>Changes the object's scale to (scaleX, scaleY, scaleZ) over duration frames with the given <a href="./docs_interpolation_types.html">interpolation type</a>.</p>
+    <p>NO_CHANGE can be used to preserve any of the current values.</p>
+    <p>
+      <em>Note: Tweens of the same type (for example, two ObjRender_TweenPosition) will cancel the currently running one and start the new one.</em>
+    </p>
+  </body>
+</html>
