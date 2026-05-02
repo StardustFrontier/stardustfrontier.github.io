@@ -147,6 +147,9 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [AngularDistanceR+](./functions/math.html#angulardistancer)
 - [AngleReflect+](./functions/math.html#anglereflect)
 - [AngleReflectR+](./functions/math.html#anglereflectr)
+- [GetRotatedX+](./functions/math.html#getrotatedx)
+- [GetRotatedY+](./functions/math.html#getrotatedy)
+- [GetRotatedPoint+](./functions/math.html#getrotatedpoint)
 
 ## [Character Functions](./functions/character.html)
 - [isalnum*](./functions/character.html#isalnum)
@@ -1057,6 +1060,8 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjSound_SetVolumeDecibel+](./functions/obj_sound.html#objsound_setvolumedecibel)
 - [ObjSound_SetPanRate](./functions/obj_sound.html#objsound_setpanrate)
 - [ObjSound_SetFrequency*](./functions/obj_sound.html#objsound_setfrequency)
+- [ObjSound_SetBufferVolume+](./functions/obj_sound.html#objsound_setbuffervolume)
+- [ObjSound_SetBufferPan+](./functions/obj_sound.html#objsound_setbufferpan)
 - [ObjSound_SetFade](./functions/obj_sound.html#objsound_setfade)
 - [ObjSound_SetLoopEnable](./functions/obj_sound.html#objsound_setloopenable)
 - [ObjSound_SetLoopTime](./functions/obj_sound.html#objsound_setlooptime)

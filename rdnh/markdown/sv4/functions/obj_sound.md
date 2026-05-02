@@ -45,6 +45,8 @@ Sets the volume of the sound object (0-100).
         1) real: objectID
         2) real: dB
 ```
+(Deprecated, use ObjSound_SetBufferVolume)
+
 Sets the volume rate for the sound object in decibels subtracted from the source sound.
 
 Example: ObjSound_SetVolumeDecibel(obj, -8.5);\
@@ -69,6 +71,26 @@ Sets the pan volume of the sound object (-100-100).
 Sets the frequency of the sound object in samples.
 
 Pass 0 to reset the frequency to its default value.
+
+## ObjSound_SetBufferVolume
+```
+    Arguments:
+        1) real: objectID
+        2) real: dB
+```
+Sets the volume of the sound buffer associated with the sound object directly in dB in the range [-100, 0].
+
+-100 is the minimum volume (silent) and 0 is the original volume.
+
+## ObjSound_SetBufferPan
+```
+    Arguments:
+        1) real: objectID
+        2) real: pan
+```
+Sets the panning of the sound buffer associated with the sound object directly in the range [-100, 100].
+
+For example, passing -10 will actually lower the right channel's volume by 10 dB to achieve the panning effect.
 
 ## ObjSound_SetFade
 ```

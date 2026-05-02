@@ -619,3 +619,42 @@ The returned value will be in the range [0, 360)
 Calculates the given ray's angle of reflection upon a surface of the given angle.
 
 The returned value will be in the range [0, 2pi)
+
+## GetRotatedX
+```
+    Arguments:
+        1) real: x1
+        2) real: y1
+        3) real: x2
+        4) real: y2
+        5) real: angle
+    Return Type:
+        array[real, real]
+```
+Returns the x-coordinate after rotating the point (x1, y1) around point (x2, y2) by the specified angle in degrees.
+
+## GetRotatedY
+```
+    Arguments:
+        1) real: x1
+        2) real: y1
+        3) real: x2
+        4) real: y2
+        5) real: angle
+    Return Type:
+        array[real, real]
+```
+Returns the y-coordinate after rotating the point (x1, y1) around point (x2, y2) by the specified angle in degrees.
+
+## GetRotatedPoint
+```
+    Arguments:
+        1) real: x1
+        2) real: y1
+        3) real: x2
+        4) real: y2
+        5) real: angle
+    Return Type:
+        array[real, real]
+```
+Returns the coordinates [x, y] after rotating the point (x1, y1) around point (x2, y2) by the specified angle in degrees.
