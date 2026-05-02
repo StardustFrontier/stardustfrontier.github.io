@@ -508,6 +508,13 @@ Returns the contents of the system clipboard as a string.
 
 If the contents of the clipboard cannot be encoded as a string, this returns an empty string.
 
+## SetClipboardFile
+```
+    Arguments:
+        1) string: path
+```
+Sets the system clipboard contents to the file at the given path.
+
 ## SetSkipModeKey
 ```
     Arguments:

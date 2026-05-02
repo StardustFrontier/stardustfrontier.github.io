@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Discord RPC Functions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">* {color: #d8d6d0;}* {background-color: #181a1b;}a {color: #68b2fa;}a:link {text-decoration: none;}a:hover {text-decoration: underline;}a:active {text-decoration: underline;}body {font-family: sans-serif;}hr {height: 1px;color: #40464d;background-color: #40464d;border: none;}h1 {color: #d8d6d0;border-bottom: 1px solid #40464d;}p {margin: 0.4em 0;font-family: sans-serif;}pre {font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1pt solid #313845;border-radius: 4px;padding: 1em 0;white-space: pre;word-wrap: break-word;overflow: auto}code {font-size: 16px;background: #1a1c1d;color: #dcdcdc;}scode {font-family: monospace;font-size: 16px;background: #1a1c1d;color: #dcdcdc;border: 1px solid #313845;border-radius: 4px;padding-left: 4px;padding-right: 4px;white-space: pre;word-wrap: break-word;overflow: auto}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Discord RPC Functions</h1>
+</header>
+<p><a href="../functions.html">Return to Functions</a></p>
+<h2 id="discordrpc_initialize">DiscordRPC_Initialize</h2>
+<pre><code>    Arguments:
+        1) string: appID
+        2) array[string]: allowList = nil</code></pre>
+<p>Initializes Discord RPC with the given application ID (string) and an
+optional allow list.</p>
+<p>An allow list is a string array of Discord user IDs that are allowed
+to connect.<br />
+If an allow list is not provided, all connections will be allowed.</p>
+<p><em><strong>Note</strong>: Discord RPC will not work unless
+discord-rpc.dll is placed in the module directory.</em></p>
+<h2 id="discordrpc_shutdown">DiscordRPC_Shutdown</h2>
+<pre><code>    Return Type:
+        nil</code></pre>
+<p>Shuts down Discord RPC, closing any existing connection.</p>
+<p>This is only needed if you want to be able to reinitialize Discord
+RPC, such as to toggle it on or off in an options menu.</p>
+<h2 id="discordrpc_isconnected">DiscordRPC_IsConnected</h2>
+<pre><code>    Return Type:
+        bool</code></pre>
+<p>Returns true if connected to a Discord user, otherwise returns
+false.</p>
+<h2 id="discordrpc_clearpresence">DiscordRPC_ClearPresence</h2>
+<pre><code>    Return Type:
+        nil</code></pre>
+<p>Fully clears the current rich presence, including the &quot;Playing: (App
+Name)&quot; text.</p>
+<h2 id="discordrpc_forcepresenceupdate">DiscordRPC_ForcePresenceUpdate</h2>
+<pre><code>    Return Type:
+        nil</code></pre>
+<p>Immediately forces rich presence to update.</p>
+<p><em><strong>Note</strong>: Discord&#39;s update rate limit is not
+formally documented, but some sources say to avoid updating more than a
+few times per 15 seconds.</em></p>
+<h2 id="discordrpc_setpresencestarttime">DiscordRPC_SetPresenceStartTime</h2>
+<pre><code>    Arguments:
+        1) real: timestamp</code></pre>
+<p>Sets the rich presence start timestamp in seconds since the epoch
+format.</p>
+<p>Should be used with <code>GetTimeSinceEpoch()</code>.</p>
+<h2 id="discordrpc_setpresenceendtime">DiscordRPC_SetPresenceEndTime</h2>
+<pre><code>    Arguments:
+        1) real: timestamp</code></pre>
+<p>Sets the rich presence end timestamp in seconds since the epoch
+format.</p>
+<p>Should be used with <code>GetTimeSinceEpoch()</code>.</p>
+<h2 id="discordrpc_setpresencedetails">DiscordRPC_SetPresenceDetails</h2>
+<pre><code>    Arguments:
+        1) string: details</code></pre>
+<p>Sets the rich presence details (primary description) text.</p>
+<p>This is the first description line in the activity interface.</p>
+<h2 id="discordrpc_setpresencestate">DiscordRPC_SetPresenceState</h2>
+<pre><code>    Arguments:
+        1) string: state</code></pre>
+<p>Sets the rich presence state (secondary description) text.</p>
+<p>This is the second description line in the activity interface.</p>
+<h2 id="discordrpc_setpresencelargeimage">DiscordRPC_SetPresenceLargeImage</h2>
+<pre><code>    Arguments:
+        1) string: imageName</code></pre>
+<p>Sets the name of the large (primary) image to use.</p>
+<h2 id="discordrpc_setpresencelargeimagetext">DiscordRPC_SetPresenceLargeImageText</h2>
+<pre><code>    Arguments:
+        1) string: text</code></pre>
+<p>Sets the text shown when hovering over the large (primary) image.</p>
+<h2 id="discordrpc_setpresencesmallimage">DiscordRPC_SetPresenceSmallImage</h2>
+<pre><code>    Arguments:
+        1) string: imageName</code></pre>
+<p>Sets the name of the small (secondary) image to use.</p>
+<h2 id="discordrpc_setpresencesmallimagetext">DiscordRPC_SetPresenceSmallImageText</h2>
+<pre><code>    Arguments:
+        1) string: text</code></pre>
+<p>Sets the text shown when hovering over the small (secondary)
+image.</p>
+</body>
+</html>

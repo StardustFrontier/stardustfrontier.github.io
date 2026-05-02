@@ -260,7 +260,6 @@ This should only be called to reset the value to 0 if needed.
 ```
     Arguments:
         1) real: objectID
-        2) real: totalDamage
     Return Type:
         real
 ```

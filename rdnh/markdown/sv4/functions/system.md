@@ -74,6 +74,8 @@ Gets the difficulty level of all running scripts.
 ```
 Sets the difficulty level of all scripts, affecting both currently running scripts and future started ones.
 
+When called from a package script, it sets the difficulty to pass to the stage script when InitializeStageScene is called.
+
 The following values should be used for functions like [vdif](#vdif) to make sense:
 ```
 0 = Easy

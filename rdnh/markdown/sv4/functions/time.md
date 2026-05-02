@@ -40,6 +40,15 @@ Returns the current system time in seconds.
 
 _**Note**: This is an arbitrary timestamp based on some moment in the past, so only the delta between two calls of this function make sense._
 
+## GetTimeSinceEpoch
+```
+    Return Type:
+        real
+```
+Returns the current time of the system as seconds since the Unix epoch.
+
+_**Note**: This is an arbitrary timestamp based on some moment in the past, so only the delta between two calls of this function make sense._
+
 ## GetStageTime
 ```
     Return Type:

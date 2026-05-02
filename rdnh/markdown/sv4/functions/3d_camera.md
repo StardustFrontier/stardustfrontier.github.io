@@ -304,4 +304,8 @@ Changes the roll angle of the camera to the given value over _duration_ frames w
 NO_CHANGE can be used to preserve the current value.
 
 ## CancelCameraTweens
+```
+    Return Type:
+        nil
+```
 Cancels all of the active camera tweens.

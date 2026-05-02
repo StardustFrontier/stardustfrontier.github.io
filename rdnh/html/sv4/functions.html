@@ -113,6 +113,7 @@ Functions</a><br />
 29.2. <a href="#custom-script-functions">Custom Script
 Functions</a><br />
 29.3. <a href="package-functions">Package Functions</a></li>
+<li><a href="#discord-rpc-functions">Discord RPC Functions</a></li>
 </ol>
 </details>
 
@@ -213,6 +214,7 @@ Functions</a></h2>
 <li><a href="./functions/string.html#string_join">string_join+</a></li>
 <li><a href="./functions/string.html#string_lower">string_lower+</a></li>
 <li><a href="./functions/string.html#string_upper">string_upper+</a></li>
+<li><a href="./functions/string.html#string_title">string_title+</a></li>
 <li><a href="./functions/string.html#repr">repr+</a></li>
 <li><a href="./functions/string.html#ToString">ToString</a></li>
 <li><a href="./functions/string.html#inttostring">IntToString</a></li>
@@ -252,6 +254,7 @@ Functions</a></h2>
 <h2 id="table-functions"><a href="./functions/table.html">Table
 Functions</a></h2>
 <ul>
+<li><a href="./functions/table.html#table_create">table_create+</a></li>
 <li><a href="./functions/table.html#table_insert">table_insert+</a></li>
 <li><a href="./functions/table.html#table_remove">table_remove+</a></li>
 <li><a href="./functions/table.html#table_set">table_set+</a></li>
@@ -263,6 +266,7 @@ Functions</a></h2>
 Functions</a></h2>
 <ul>
 <li><a href="./functions/text.html#installfont">InstallFont</a></li>
+<li><a href="./functions/text.html#clearfontcache">ClearFontCache+</a></li>
 </ul>
 <h2 id="path-and-file-functions"><a href="./functions/path.html">Path
 and File Functions</a></h2>
@@ -298,6 +302,7 @@ Functions</a></h2>
 <li><a href="./functions/time.html#getsystemtimemicros">GetSystemTimeMicros+</a></li>
 <li><a href="./functions/time.html#getsystemtimemillis">GetSystemTimeMillis+</a></li>
 <li><a href="./functions/time.html#getsystemtimesecs">GetSystemTimeSecs+</a></li>
+<li><a href="./functions/time.html#gettimesinceepoch">GetTimeSinceEpoch+</a></li>
 <li><a href="./functions/time.html#getstagetime">GetStageTime</a></li>
 <li><a href="./functions/time.html#getstagetimef">GetStageTimeF</a></li>
 <li><a href="./functions/time.html#getpackagetime">GetPackageTime</a></li>
@@ -408,6 +413,7 @@ Functions</a></h2>
 <li><a href="./functions/input.html#isanyvirtualkeyup">IsAnyVirtualKeyUp+</a></li>
 <li><a href="./functions/input.html#setclipboardtext">SetClipboardText+</a></li>
 <li><a href="./functions/input.html#getclipboardtext">GetClipboardText+</a></li>
+<li><a href="./functions/input.html#setclipboardfile">SetClipboardFile+</a></li>
 <li><a href="./functions/input.html#setskipmodekey">SetSkipModeKey</a></li>
 <li><a href="./functions/input.html#setdebugstageretrykey">SetDebugStageRetryKey+</a></li>
 </ul>
@@ -1123,12 +1129,15 @@ Functions</a></h3>
 <li><a href="./functions/obj_popup_list.html#objpopuplist_settexture">ObjPopupList_SetTexture+</a></li>
 <li><a href="./functions/obj_popup_list.html#objpopuplist_setscale">ObjPopupList_SetScale+</a></li>
 <li><a href="./functions/obj_popup_list.html#objpopuplist_setsize">ObjPopupList_SetSize+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_setpowerupdata">ObjPopupList_SetPowerUpData+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_setpowerupscale">ObjPopupList_SetPowerUpScale+</a></li>
 <li><a href="./functions/obj_popup_list.html#objpopuplist_setstartspeed">ObjPopupList_SetStartSpeed+</a></li>
 <li><a href="./functions/obj_popup_list.html#objpopuplist_setdecelerationenable">ObjPopupList_SetDecelerationEnable+</a></li>
 <li><a href="./functions/obj_popup_list.html#objpopuplist_setdeletetime">ObjPopupList_SetDeleteTime+</a></li>
 <li><a href="./functions/obj_popup_list.html#objpopuplist_adddigitsframe">ObjPopupList_AddDigitsFrame+</a></li>
 <li><a href="./functions/obj_popup_list.html#objpopuplist_setplayerobjectid">ObjPopupList_SetPlayerObjectID+</a></li>
 <li><a href="./functions/obj_popup_list.html#objpopuplist_createpopup">ObjPopupList_CreatePopup+</a></li>
+<li><a href="./functions/obj_popup_list.html#objpopuplist_createpowerup">ObjPopupList_CreatePowerUp+</a></li>
 </ul>
 <h3 id="objshader-functions"><a href="./functions/obj_shader.html">ObjShader Functions</a></h3>
 <ul>
@@ -1487,6 +1496,22 @@ Functions</a></h3>
 <li><a href="./functions/package.html#setreplayuserdata">SetReplayUserData</a></li>
 <li><a href="./functions/package.html#isreplayuserdataexists">IsReplayUserDataExists</a></li>
 <li><a href="./functions/package.html#savereplay">SaveReplay</a></li>
+</ul>
+<h3 id="discord-rpc-functions"><a href="./functions/discord_rpc.html">Discord RPC Functions</a></h3>
+<ul>
+<li><a href="./functions/discord_rpc.html#discordrpc_initialize">DiscordRPC_Initialize+</a></li>
+<li><a href="./functions/discord_rpc.html#discordrpc_shutdown">DiscordRPC_Shutdown+</a></li>
+<li><a href="./functions/discord_rpc.html#discordrpc_isconnected">DiscordRPC_IsConnected+</a></li>
+<li><a href="./functions/discord_rpc.html#discordrpc_clearpresence">DiscordRPC_ClearPresence+</a></li>
+<li><a href="./functions/discord_rpc.html#discordrpc_forcepresenceupdate">DiscordRPC_ForcePresenceUpdate+</a></li>
+<li><a href="./functions/discord_rpc.html#discordrpc_setpresencestarttime">DiscordRPC_SetPresenceStartTime+</a></li>
+<li><a href="./functions/discord_rpc.html#discordrpc_setpresenceendtime">DiscordRPC_SetPresenceEndTime+</a></li>
+<li><a href="./functions/discord_rpc.html#discordrpc_setpresencedetails">DiscordRPC_SetPresenceDetails+</a></li>
+<li><a href="./functions/discord_rpc.html#discordrpc_setpresencestate">DiscordRPC_SetPresenceState+</a></li>
+<li><a href="./functions/discord_rpc.html#discordrpc_setpresencelargeimage">DiscordRPC_SetPresenceLargeImage+</a></li>
+<li><a href="./functions/discord_rpc.html#discord_setpresencelargeimagetext">DiscordRPC_SetPresenceLargeImageText+</a></li>
+<li><a href="./functions/discord_rpc.html#discordrpc_setpresencesmallimage">DiscordRPC_SetPresenceSmallImage+</a></li>
+<li><a href="./functions/discord_rpc.html#discordrpc_setpresencesmallimagetext">DiscordRPC_SetPresenceSmallImageText+</a></li>
 </ul>
 </body>
 </html>

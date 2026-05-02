@@ -102,6 +102,17 @@ Returns a copy of the string with all characters converted to lowercase.
 ```
 Returns a copy of the string with all characters converted to uppercase.
 
+## string_title
+```
+    Arguments:
+        1) string: str
+    Return Type:
+        string
+```
+Returns a copy of the string with the first letter of each word converted to uppercase and every other letter in each word converted to lowercase.
+
+A "word" is any alphabetical character sequence separated by a non-alphabetical character.
+
 ## repr
 ```
     Arguments:

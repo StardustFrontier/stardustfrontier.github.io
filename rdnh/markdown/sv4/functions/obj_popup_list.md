@@ -39,6 +39,29 @@ Sets the scale of the popup digits.
 ```
 Sets the width and height of each digit on the texture.
 
+## ObjPopupList_SetPowerUpData
+```
+    Arguments:
+        1) real: objectID
+        2) real: x
+        3) real: y
+        4) real: width
+        5) real: height
+        6) real: frameFadeOutStart = -1
+```
+Sets the source rect (x, y, width, height) of the "PowerUp" sprite on the texture.
+
+Optionally, a fade out start time can be passed, which will otherwise default to -1 (no fade out).
+
+## ObjPopupList_SetPowerUpScale
+```
+    Arguments:
+        1) real: objectID
+        2) real: scaleX
+        3) real: scaleY
+```
+Sets the scale of the "PowerUp" sprite.
+
 ## ObjPopupList_SetStartSpeed
 ```
     Arguments:

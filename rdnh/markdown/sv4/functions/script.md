@@ -185,7 +185,7 @@ The event type may use a value greater than EV_USER.
 Connects a signal with the eventType to the given function or sub.
 
 If a signal is emitted to this script, the associated function will automatically be called.\
-SetScriptResult can be used to return an arbitrary value from the called function to the EmitSginal functions.
+SetScriptResult can be used to return an arbitrary value from the called function to the EmitSignal functions.
 
 ## EmitSignal
 ```

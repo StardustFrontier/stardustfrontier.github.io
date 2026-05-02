@@ -2,6 +2,16 @@
 
 [Return to Functions](../functions.html)
 
+## table_create
+```
+    Arguments:
+        1+) any: keyValuePairs...
+```
+Returns a table constructed from the given key-value pair(s).
+
+For example: `table_create("x", 123, "y", 456)`\
+Would create the table: `{"x": 123, "y": 456}`
+
 ## table_insert
 ```
     Arguments:

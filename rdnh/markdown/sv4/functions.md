@@ -77,6 +77,7 @@ Functions marked with + are new to ScriptVersion 4.</p>
   29.1. [Private System Functions](#private-system-functions)\
   29.2. [Custom Script Functions](#custom-script-functions)\
   29.3. [Package Functions](package-functions)
+30. [Discord RPC Functions](#discord-rpc-functions)
 </details>
 
 ## [Type Constructor Functions](./functions/type_constructor.html)
@@ -169,6 +170,7 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [string_join+](./functions/string.html#string_join)
 - [string_lower+](./functions/string.html#string_lower)
 - [string_upper+](./functions/string.html#string_upper)
+- [string_title+](./functions/string.html#string_title)
 - [repr+](./functions/string.html#repr)
 - [ToString](./functions/string.html#ToString)
 - [IntToString](./functions/string.html#inttostring)
@@ -204,6 +206,7 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [array_contains+](./functions/array.html#array_contains)
 
 ## [Table Functions](./functions/table.html)
+- [table_create+](./functions/table.html#table_create)
 - [table_insert+](./functions/table.html#table_insert)
 - [table_remove+](./functions/table.html#table_remove)
 - [table_set+](./functions/table.html#table_set)
@@ -213,6 +216,7 @@ Functions marked with + are new to ScriptVersion 4.</p>
 
 ## [Text Functions](./functions/text.html)
 - [InstallFont](./functions/text.html#installfont)
+- [ClearFontCache+](./functions/text.html#clearfontcache)
 
 ## [Path and File Functions](./functions/path.html)
 - [GetModuleDirectory](./functions/path.html#getmoduledirectory)
@@ -244,6 +248,7 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [GetSystemTimeMicros+](./functions/time.html#getsystemtimemicros)
 - [GetSystemTimeMillis+](./functions/time.html#getsystemtimemillis)
 - [GetSystemTimeSecs+](./functions/time.html#getsystemtimesecs)
+- [GetTimeSinceEpoch+](./functions/time.html#gettimesinceepoch)
 - [GetStageTime](./functions/time.html#getstagetime)
 - [GetStageTimeF](./functions/time.html#getstagetimef)
 - [GetPackageTime](./functions/time.html#getpackagetime)
@@ -347,6 +352,7 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [IsAnyVirtualKeyUp+](./functions/input.html#isanyvirtualkeyup)
 - [SetClipboardText+](./functions/input.html#setclipboardtext)
 - [GetClipboardText+](./functions/input.html#getclipboardtext)
+- [SetClipboardFile+](./functions/input.html#setclipboardfile)
 - [SetSkipModeKey](./functions/input.html#setskipmodekey)
 - [SetDebugStageRetryKey+](./functions/input.html#setdebugstageretrykey)
 
@@ -1021,12 +1027,15 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [ObjPopupList_SetTexture+](./functions/obj_popup_list.html#objpopuplist_settexture)
 - [ObjPopupList_SetScale+](./functions/obj_popup_list.html#objpopuplist_setscale)
 - [ObjPopupList_SetSize+](./functions/obj_popup_list.html#objpopuplist_setsize)
+- [ObjPopupList_SetPowerUpData+](./functions/obj_popup_list.html#objpopuplist_setpowerupdata)
+- [ObjPopupList_SetPowerUpScale+](./functions/obj_popup_list.html#objpopuplist_setpowerupscale)
 - [ObjPopupList_SetStartSpeed+](./functions/obj_popup_list.html#objpopuplist_setstartspeed)
 - [ObjPopupList_SetDecelerationEnable+](./functions/obj_popup_list.html#objpopuplist_setdecelerationenable)
 - [ObjPopupList_SetDeleteTime+](./functions/obj_popup_list.html#objpopuplist_setdeletetime)
 - [ObjPopupList_AddDigitsFrame+](./functions/obj_popup_list.html#objpopuplist_adddigitsframe)
 - [ObjPopupList_SetPlayerObjectID+](./functions/obj_popup_list.html#objpopuplist_setplayerobjectid)
 - [ObjPopupList_CreatePopup+](./functions/obj_popup_list.html#objpopuplist_createpopup)
+- [ObjPopupList_CreatePowerUp+](./functions/obj_popup_list.html#objpopuplist_createpowerup)
 
 ### [ObjShader Functions](./functions/obj_shader.html)
 - [ObjShader_Create](./functions/obj_shader.html#objshader_create)
@@ -1360,3 +1369,18 @@ Functions marked with + are new to ScriptVersion 4.</p>
 - [SetReplayUserData](./functions/package.html#setreplayuserdata)
 - [IsReplayUserDataExists](./functions/package.html#isreplayuserdataexists)
 - [SaveReplay](./functions/package.html#savereplay)
+
+### [Discord RPC Functions](./functions/discord_rpc.html)
+- [DiscordRPC_Initialize+](./functions/discord_rpc.html#discordrpc_initialize)
+- [DiscordRPC_Shutdown+](./functions/discord_rpc.html#discordrpc_shutdown)
+- [DiscordRPC_IsConnected+](./functions/discord_rpc.html#discordrpc_isconnected)
+- [DiscordRPC_ClearPresence+](./functions/discord_rpc.html#discordrpc_clearpresence)
+- [DiscordRPC_ForcePresenceUpdate+](./functions/discord_rpc.html#discordrpc_forcepresenceupdate)
+- [DiscordRPC_SetPresenceStartTime+](./functions/discord_rpc.html#discordrpc_setpresencestarttime)
+- [DiscordRPC_SetPresenceEndTime+](./functions/discord_rpc.html#discordrpc_setpresenceendtime)
+- [DiscordRPC_SetPresenceDetails+](./functions/discord_rpc.html#discordrpc_setpresencedetails)
+- [DiscordRPC_SetPresenceState+](./functions/discord_rpc.html#discordrpc_setpresencestate)
+- [DiscordRPC_SetPresenceLargeImage+](./functions/discord_rpc.html#discordrpc_setpresencelargeimage)
+- [DiscordRPC_SetPresenceLargeImageText+](./functions/discord_rpc.html#discord_setpresencelargeimagetext)
+- [DiscordRPC_SetPresenceSmallImage+](./functions/discord_rpc.html#discordrpc_setpresencesmallimage)
+- [DiscordRPC_SetPresenceSmallImageText+](./functions/discord_rpc.html#discordrpc_setpresencesmallimagetext)
