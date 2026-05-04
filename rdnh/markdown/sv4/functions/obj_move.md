@@ -172,8 +172,8 @@ NO_CHANGE can be used to preserve the original speed, angle, acceleration, angul
         5) real: acceleration
         6) real: angularVelocity
         7) real: maxSpeed
-        8) real: shotGraphic
-        9) real: targetObjectID
+        8) real: targetObjectID
+        9) real: shotGraphic
 ```
 After the specified number of frames, changes the speed, angle, acceleration, angular velocity, maximum speed, and shot graphic of the object with angle being relative to the angle from the object to targetObjectID.
 
