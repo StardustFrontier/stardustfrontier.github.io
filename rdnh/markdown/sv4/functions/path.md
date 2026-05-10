@@ -7,7 +7,16 @@
     Return Type:
         string
 ```
-Returns the directory containing the running th_dnh.exe file.
+Returns the directory containing the running rdnh.exe file.
+
+## GetAppDataDirectory
+```
+    Arguments:
+        1) string: dirName
+    Return Type:
+        string
+```
+Returns a directory in the roaming AppData folder with the given directory name appended to it.
 
 ## GetMainStgScriptPath
 ```
@@ -98,7 +107,7 @@ This function will not list any files within an archive (.dat) file. In that cas
 Returns an array of all file paths within the given archive file.\
 If bFullPath is true, the paths will be full absolute paths. Otherwise, they will be relative to the archive's directory. 
 
-Note: The archive file must already be loaded before calling this function.
+_**Note**: The archive file must already be loaded before calling this function._
 
 ## GetFileDirectory
 ```

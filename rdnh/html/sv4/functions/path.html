@@ -31,7 +31,14 @@ vertical-align: middle;
 <h2 id="getmoduledirectory">GetModuleDirectory</h2>
 <pre><code>    Return Type:
         string</code></pre>
-<p>Returns the directory containing the running th_dnh.exe file.</p>
+<p>Returns the directory containing the running rdnh.exe file.</p>
+<h2 id="getappdatadirectory">GetAppDataDirectory</h2>
+<pre><code>    Arguments:
+        1) string: dirName
+    Return Type:
+        string</code></pre>
+<p>Returns a directory in the roaming AppData folder with the given
+directory name appended to it.</p>
 <h2 id="getmainstgscriptpath">GetMainStgScriptPath</h2>
 <pre><code>    Return Type:
         string</code></pre>
@@ -94,8 +101,8 @@ In that case, use <a href="#getarchivefilepathlist">GetArchiveFilePathList</a> i
 file.<br />
 If bFullPath is true, the paths will be full absolute paths. Otherwise,
 they will be relative to the archive&#39;s directory.</p>
-<p>Note: The archive file must already be loaded before calling this
-function.</p>
+<p><em><strong>Note</strong>: The archive file must already be loaded
+before calling this function.</em></p>
 <h2 id="getfiledirectory">GetFileDirectory</h2>
 <pre><code>    Arguments:
         1) string: path

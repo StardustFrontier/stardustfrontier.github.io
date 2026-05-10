@@ -380,6 +380,69 @@ Returns the z-scale of the object.
 ```
 Returns the object's color as an array with the format [r, g, b].
 
+## ObjRender_GetColorR
+```
+    Arguments:
+        1) real: objectID
+    Returns:
+        real: red
+```
+Returns the object's red color value (0-255).
+
+## ObjRender_GetColorG
+```
+    Arguments:
+        1) real: objectID
+    Returns:
+        real: green
+```
+Returns the object's green color value (0-255).
+
+## ObjRender_GetColorB
+```
+    Arguments:
+        1) real: objectID
+    Returns:
+        real: blue
+```
+Returns the object's blue color value (0-255).
+
+## ObjRender_GetColorFloat
+```
+    Arguments:
+        1) real: objectID
+    Returns:
+        array[real]: color
+```
+Returns the object's color as a float array (0-1) with the format [r, g, b].
+
+## ObjRender_GetColorFloatR
+```
+    Arguments:
+        1) real: objectID
+    Returns:
+        array[real]: red
+```
+Returns the object's red color value as a float (0-1).
+
+## ObjRender_GetColorFloatG
+```
+    Arguments:
+        1) real: objectID
+    Returns:
+        array[real]: green
+```
+Returns the object's green color value as a float (0-1).
+
+## ObjRender_GetColorFloatB
+```
+    Arguments:
+        1) real: objectID
+    Returns:
+        array[real]: blue
+```
+Returns the object's blue color value as a float (0-1).
+
 ## ObjRender_GetColorHex
 ```
     Arguments:
