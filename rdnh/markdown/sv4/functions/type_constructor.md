@@ -47,7 +47,7 @@ This function is faster than ToString.
     Return Type:
         array
 ```
-Returns a array constructed from the given value.
+Returns an array constructed from the given value.
 
 This behaves differently depending on the type of the value passed:
 - array: constructs a shallow copy of the array
